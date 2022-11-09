@@ -6,12 +6,12 @@
   
   <title>0015 日期模板含农历-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="效果展示">
+  <meta name="description" content="效果展示2022-10-16 九月 廿一 星期日 用户脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0015 日期模板含农历-Templater">
 <meta property="og:url" content="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="效果展示">
+<meta property="og:description" content="效果展示2022-10-16 九月 廿一 星期日 用户脚本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-17T09:22:19.000Z">
 <meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
@@ -104,10 +104,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><span id="more"></span>
+        <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>2022-10-16 九月 廿一 星期日</p>
+<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><span id="more"></span>
 
-<p>2022-10-16 九月 廿一 星期日</p>
-<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
+<blockquote>
 <p>Scritps&#x2F;get_date.js</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">get_date</span> () &#123;</span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line">  <span class="keyword">const</span> today = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="comment">/* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span></span><br><span class="line">  <span class="keyword">const</span> num = [<span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;一&#x27;</span>, <span class="string">&#x27;二&#x27;</span>, <span class="string">&#x27;三&#x27;</span>, <span class="string">&#x27;四&#x27;</span>, <span class="string">&#x27;五&#x27;</span>, <span class="string">&#x27;六&#x27;</span>, <span class="string">&#x27;七&#x27;</span>, <span class="string">&#x27;八&#x27;</span>, <span class="string">&#x27;九&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 返回字符串用来输出 */</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="comment">/* 日期，这里指定地区为了保证格式符合预期 */</span></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN&#x27;</span>)</span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line">    <span class="comment">/* 获取含农历日期 */</span></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br><span class="line">    <span class="comment">/* 替换掉年份部分 */</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/(\d+)\s*?年\s*/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="comment">/* 日期换为中文写法 */</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/月(\d+)/</span>, <span class="function">(<span class="params">m, s</span>)=&gt;</span>&#123;</span><br><span class="line">      s = <span class="title class_">Number</span>(s)</span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 二十&#x27;</span></span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 三十&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> lastNum = num[s%<span class="number">10</span>]</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="string">&#x27;月 初&#x27;</span>+lastNum</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 十&#x27;</span>+lastNum</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 廿&#x27;</span>+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line">    <span class="comment">/* 添加星期几 */</span></span><br><span class="line">    <span class="string">&#x27;星期&#x27;</span>+num[today.<span class="title function_">getDay</span>()]</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_date;</span><br></pre></td></tr></table></figure>
@@ -125,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="cla9f139o001110odfrbf142j" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="cla9fg45c0011pcodbgrc1cda" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
       
       
       

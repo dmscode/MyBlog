@@ -6,12 +6,12 @@
   
   <title>0020 一言诗词-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="用户脚本">
+  <meta name="description" content="用户脚本 Scritps&#x2F;get_sentence.js  1234567891011121314151617181920212223242526&#x2F;** * 同步函数，两个参数 * 第一个 tp，是传入 templater 对象 * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0020 一言诗词-Templater">
 <meta property="og:url" content="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="用户脚本">
+<meta property="og:description" content="用户脚本 Scritps&#x2F;get_sentence.js  1234567891011121314151617181920212223242526&#x2F;** * 同步函数，两个参数 * 第一个 tp，是传入 templater 对象 * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&amp;quo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-17T20:58:19.000Z">
 <meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
@@ -104,12 +104,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><span id="more"></span>
-
-<blockquote>
+        <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
 <p>Scritps&#x2F;get_sentence.js</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 同步函数，两个参数</span></span><br><span class="line"><span class="comment"> * 第一个 tp，是传入 templater 对象</span></span><br><span class="line"><span class="comment"> * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&quot;诗词&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_sentence</span> (tp, type) &#123;</span><br><span class="line">  <span class="comment">/* Api 数组，返回的都是纯文本 */</span></span><br><span class="line">  <span class="keyword">const</span> apis = &#123;</span><br><span class="line">    <span class="string">&#x27;毒鸡汤&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dutang/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;社会语录&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yulu/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;舔狗日记&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dog/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;一言&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yiyan/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;诗词&#x27;</span>: <span class="string">&#x27;https://v1.jinrishici.com/all.txt&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 如果没有设定类型，则提示选择类型，默认值为：&quot;一言&quot; */</span></span><br><span class="line">  <span class="keyword">if</span>(!type)&#123;</span><br><span class="line">    type = <span class="keyword">await</span> tp.<span class="property">system</span>.<span class="title function_">suggester</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="literal">false</span>, <span class="string">&#x27;一言&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 获取对应的 Api 地址 */</span></span><br><span class="line">  <span class="keyword">const</span> url = type &amp;&amp; apis[type] ? apis[type] : apis[<span class="string">&#x27;一言&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 发送请求，返回获取的字符串 */</span></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_sentence;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 
 <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><blockquote>
 <p>Templater&#x2F;添加一言诗词.md</p>
@@ -129,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" data-id="cla9f13d100d510odh1dv1s8w" data-title="0020 一言诗词-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" data-id="cla9fg49s00d5pcodbf7acyec" data-title="0020 一言诗词-Templater" class="article-share-link">分享</a>
       
       
       

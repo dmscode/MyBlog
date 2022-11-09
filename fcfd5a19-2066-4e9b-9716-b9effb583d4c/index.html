@@ -6,12 +6,12 @@
   
   <title>0017 YearProgress-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="效果展示">
+  <meta name="description" content="效果展示Year progress: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 79.12% 用户脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0017 YearProgress-Templater">
 <meta property="og:url" content="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="效果展示">
+<meta property="og:description" content="效果展示Year progress: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 79.12% 用户脚本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-17T18:49:54.000Z">
 <meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
@@ -104,10 +104,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><span id="more"></span>
+        <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>Year progress: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 79.12%</p>
+<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><span id="more"></span>
 
-<p>Year progress: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 79.12%</p>
-<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
+<blockquote>
 <p>Scripts&#x2F;get_year_progress.js</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 此函数有一个参数，用来设定进度条的总长度</span></span><br><span class="line"><span class="comment"> * 默认值是 20，一般没啥问题，不懂就不用管</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_year_progress</span>(<span class="params">length=<span class="number">20</span></span>)&#123;</span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="comment">/* 获取当前年份 */</span></span><br><span class="line">  <span class="keyword">const</span> year = now.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="comment">/* 获取年初时间点 */</span></span><br><span class="line">  <span class="keyword">const</span> yearStart = <span class="keyword">new</span> <span class="title class_">Date</span>(year, <span class="number">0</span>)</span><br><span class="line">  <span class="comment">/* 获取年末时间点 */</span></span><br><span class="line">  <span class="keyword">const</span> yearEnd = <span class="keyword">new</span> <span class="title class_">Date</span>(year+<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">  <span class="comment">/* 获取年进度，0~1 的小数 */</span></span><br><span class="line">  <span class="keyword">const</span> progress = (now-yearStart)/(yearEnd-yearStart)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 进度条前半段</span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示已度过的时间</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> prefix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;▓&#x27;</span>)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 进度条后半段</span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示未度过的时间</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> suffix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(length-<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;░&#x27;</span>)</span><br><span class="line">  <span class="comment">/* 组合字符串并返回 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;Year progress: &#x27;</span>+prefix+suffix+<span class="string">&#x27; &#x27;</span>+(progress*<span class="number">100</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_year_progress;</span><br></pre></td></tr></table></figure>
@@ -125,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="cla9f13dm00ew10od633720cq" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="cla9fg4ai00eypcodfxnmdou7" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
       
       
       

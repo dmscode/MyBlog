@@ -6,12 +6,12 @@
   
   <title>0011 用户函数 | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="就是把代码写到一个单独的 JS 文件，并导出：">
+  <meta name="description" content="就是把代码写到一个单独的 JS 文件，并导出： 12345function 函数名称 () &amp;#123;  &#x2F;&#x2F; 用户代码&amp;#125;module.exports &#x3D; 函数名称;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0011 用户函数">
 <meta property="og:url" content="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="就是把代码写到一个单独的 JS 文件，并导出：">
+<meta property="og:description" content="就是把代码写到一个单独的 JS 文件，并导出： 12345function 函数名称 () &amp;#123;  &#x2F;&#x2F; 用户代码&amp;#125;module.exports &#x3D; 函数名称;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-17T07:09:50.000Z">
 <meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
@@ -105,9 +105,9 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>就是把代码写到一个单独的 JS 文件，并导出：</p>
-<span id="more"></span>
-
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> 函数名称 () &#123;</span><br><span class="line">  <span class="comment">// 用户代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = 函数名称;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 
 <p>JS 文件放在 Templater 的脚本文件夹下，使用的时候这样调用：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.函数名称() %&gt;</span><br></pre></td></tr></table></figure>
@@ -126,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="cla9f13cc00a610od6i213g2w" data-title="0011 用户函数" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="cla9fg49100a6pcodejgmbuyo" data-title="0011 用户函数" class="article-share-link">分享</a>
       
       
       

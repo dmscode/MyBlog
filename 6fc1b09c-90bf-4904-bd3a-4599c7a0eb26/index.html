@@ -6,12 +6,12 @@
   
   <title>0034 今天吃啥-Dataview | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="十分简单，新建一个文件，在里面写一个列表，就像这样：">
+  <meta name="description" content="十分简单，新建一个文件，在里面写一个列表，就像这样：  盖浇饭 黄焖鸡 螺蛳粉 重庆小面 驴肉火烧  再加一个 dataviewjs 代码块：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0034 今天吃啥-Dataview">
 <meta property="og:url" content="https://zji.me/6fc1b09c-90bf-4904-bd3a-4599c7a0eb26/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="十分简单，新建一个文件，在里面写一个列表，就像这样：">
+<meta property="og:description" content="十分简单，新建一个文件，在里面写一个列表，就像这样：  盖浇饭 黄焖鸡 螺蛳粉 重庆小面 驴肉火烧  再加一个 dataviewjs 代码块：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-22T22:14:52.000Z">
 <meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
@@ -105,8 +105,6 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>十分简单，新建一个文件，在里面写一个列表，就像这样：</p>
-<span id="more"></span>
-
 <ul>
 <li>盖浇饭</li>
 <li>黄焖鸡</li>
@@ -115,6 +113,8 @@
 <li>驴肉火烧</li>
 </ul>
 <p>再加一个 dataviewjs 代码块：</p>
+<span id="more"></span>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 获取当前文件中的列表 */</span></span><br><span class="line"><span class="keyword">const</span> list = dv.<span class="title function_">current</span>().<span class="property">file</span>.<span class="property">lists</span></span><br><span class="line"><span class="comment">/* 从其中提取随机项目 */</span></span><br><span class="line"><span class="keyword">const</span> item = list[<span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*list.<span class="property">length</span>)].<span class="property">text</span></span><br><span class="line"><span class="comment">/* 以标题三的格式输出 */</span></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">3</span>, <span class="string">&quot;今天吃：&quot;</span>+item)</span><br></pre></td></tr></table></figure>
 
 <p>当然也可以把代码块放在列表前面，这样每次打开就知道自己该吃什么了。因为会有一定缓存影响，如果想重新选一个可以添加一项再删除。</p>
@@ -126,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/6fc1b09c-90bf-4904-bd3a-4599c7a0eb26/" data-id="cla9f13bd006g10od60a24ff5" data-title="0034 今天吃啥-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/6fc1b09c-90bf-4904-bd3a-4599c7a0eb26/" data-id="cla9fg47x006ipcoddnutewbj" data-title="0034 今天吃啥-Dataview" class="article-share-link">分享</a>
       
       
       

@@ -6,15 +6,15 @@
   
   <title>0040 为何 Dataview | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    最近看到一个插件，实现的效果基本上就是添加一个 Dataview 的自定义视图。那这么说我也可以把我写的东西做成插件。 然后发现了一个小坑。那个插件的 CSS 是长期加载的，函数是一直注册的。稍微对性能有那么一点拖累。毕竟可能这个功能我们只在特定的笔记下才需要使用。 而 Dataview 本身在这">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    最近看到一个插件，实现的效果基本上就是添加一个 Dataview 的自定义视图。那这么说我也可以把我写的东西做成插件。 然后发现了一个小坑。那个插件的 CSS 是长期加载的，函数是一直注册的。稍微对性能有那么一点拖累。毕竟可能这个功能我们只在特定的笔记下才需要使用。 而 Dataview 本身在这方面优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0040 为何 Dataview">
 <meta property="og:url" content="https://zji.me/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    最近看到一个插件，实现的效果基本上就是添加一个 Dataview 的自定义视图。那这么说我也可以把我写的东西做成插件。 然后发现了一个小坑。那个插件的 CSS 是长期加载的，函数是一直注册的。稍微对性能有那么一点拖累。毕竟可能这个功能我们只在特定的笔记下才需要使用。 而 Dataview 本身在这">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    最近看到一个插件，实现的效果基本上就是添加一个 Dataview 的自定义视图。那这么说我也可以把我写的东西做成插件。 然后发现了一个小坑。那个插件的 CSS 是长期加载的，函数是一直注册的。稍微对性能有那么一点拖累。毕竟可能这个功能我们只在特定的笔记下才需要使用。 而 Dataview 本身在这方面优化">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-27T03:46:02.000Z">
-<meta property="article:modified_time" content="2022-11-08T07:58:27.000Z">
+<meta property="article:published_time" content="2022-10-27T11:46:02.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
@@ -85,7 +85,7 @@
         <section id="main"><article id="post-a1a9e177-bf42-4bc3-a5e2-bfadb06c8990" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/" class="article-date">
-  <time class="dt-published" datetime="2022-10-27T03:46:02.000Z" itemprop="datePublished">2022-10-27</time>
+  <time class="dt-published" datetime="2022-10-27T11:46:02.000Z" itemprop="datePublished">2022-10-27</time>
 </a>
     
   </div>
@@ -107,10 +107,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -122,15 +118,15 @@
 <h2 id="如何安装自定义视图"><a href="#如何安装自定义视图" class="headerlink" title="如何安装自定义视图"></a>如何安装自定义视图</h2><p>就一个文件夹，里面两个文件：<code>view.js</code> 和 <code>view.css</code>。文件夹叫什么和放在哪里都随便，但是里面两个文件必须是上述的名字。</p>
 <p>Dataview 里需要打开 <code>Enable JavaScript Queries</code> 选项。</p>
 <p>然后在 dataviewjs 代码块里这样调用：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">await</span> dv.<span class="title function_">view</span>(<span class="string">&#x27;刚才那个文件夹的路径&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> dv.<span class="title function_">view</span>(<span class="string">&#x27;刚才那个文件夹的路径&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这挺好理解的。</p>
 <h2 id="关于参数"><a href="#关于参数" class="headerlink" title="关于参数"></a>关于参数</h2><p>刚才代码中小括号里就一个参数：要用的自定义视图的路径。</p>
 <p>在有需要的情况下可以有第二个参数，是一个对象，就是大括号，然后里面写入各种数据，比如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">await</span> dv.<span class="title function_">view</span>(<span class="string">&#x27;刚才那个文件夹的路径&#x27;</span>, &#123;<span class="attr">data</span>: <span class="string">&#x27;2022-10-26&#x27;</span>, <span class="attr">name</span>:<span class="string">&#x27;0040 为何 Dataview&#x27;</span>, <span class="attr">id</span>: <span class="number">666</span>&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> dv.<span class="title function_">view</span>(<span class="string">&#x27;刚才那个文件夹的路径&#x27;</span>, &#123;<span class="attr">data</span>: <span class="string">&#x27;2022-10-26&#x27;</span>, <span class="attr">name</span>:<span class="string">&#x27;0040 为何 Dataview&#x27;</span>, <span class="attr">id</span>: <span class="number">666</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>有点长，但是注意大括号就是了。里面都是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">什么: 是什么,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">什么: 是什么,</span><br></pre></td></tr></table></figure>
 
 <p>这样的格式而已。</p>
 <hr>
@@ -139,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/" data-id="cla9dljjm0090xgodhprzdyv7" data-title="0040 为何 Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/" data-id="cla9duj2x008yhoodfuh2bbp1" data-title="0040 为何 Dataview" class="article-share-link">分享</a>
       
       
       

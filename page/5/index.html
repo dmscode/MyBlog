@@ -75,86 +75,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-af4b2aef-b811-467b-a1b1-8261ffdb4b9e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" class="article-date">
-  <time class="dt-published" datetime="2022-10-15T15:07:28.000Z" itemprop="datePublished">2022-10-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">0009 题头图片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
-</ul>
-</blockquote>
-<hr>
-<p>开始我写了一个模板，后来发现并不需要，就直接添加图片就可以了。</p>
-<p>废话，往笔记里加图片可不就直接添加图片就可以了么。</p>
-<p>但是要每一天都看相同的图片，肯定会腻的，就希望它自己变。所以我用了一个随机图片 API：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![<span class="string">随机题图</span>](<span class="link">https://picsum.photos/800/300</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>两个数字是图片的宽度和高度，其实图片是相对方正的，所以特殊尺寸是裁剪后的结果，所以高度太小效果不好。</p>
-<p>会有缓存，想看新图片要关闭笔记再打开（不是关闭软件）。一般来说这种方式足够用了。</p>
-<p>还有很多随机图片 API 可用，不列举了，自己找着玩吧。</p>
-<h3 id="用-Templater"><a href="#用-Templater" class="headerlink" title="用 Templater"></a>用 Templater</h3><p>然后 Templater 插件提供了一个，用的是 Unsplash 的 Api（访问可能费劲一点），不过包装了一下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.web.random_picture() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>详细可以阅读这里：<a target="_blank" rel="noopener" href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/web-module.html#tpwebrandom_picturesize-string-query-string-include_size-boolean">tp.web.random_picture</a></p>
-<p>这种方式的好处是：随机，但是保存的是图片对应的地址，就不会发生下次打开看到别的图片的情况。适合于给每天一篇日记套模板的情况。</p>
-<h3 id="奇怪的思路"><a href="#奇怪的思路" class="headerlink" title="奇怪的思路"></a>奇怪的思路</h3><p>我收藏了一个占位图片 API，占位图片就是做网页的时候某个地方要展示一张图片，但是并没有具体的图片，毕竟可能设计师还在做，或者后期动态展示相关图片，那就先放一张别的图片占位。但是可能需要各种尺寸的图片，而且为了展示效果，可能需要图片颜色啥的一致，为了后期方便可能在上面标注图片尺寸啊，这是什么啊……不可能每次都开 PS 制作，所以就借助 API 生成。</p>
-<p>那如果用这个 API 生成题图呢？你可以自己去研究一下：<a target="_blank" rel="noopener" href="https://fakeimg.pl/">https://fakeimg.pl/</a>。</p>
-<p>效果大概是这样的，注意，字体必须是 note，否则没法显示中文：</p>
-<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%A0%87%E9%A2%98%E6%8D%8F&font=noto"></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](<span class="link">https://fakeimg.pl/640x200/FFAAAA/333/?text=这是一个标题捏&amp;font=noto</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这种最好也搭配 Templater 来根据文章标题生成，省得自己还得自己修改，就像这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](https://fakeimg.pl/640x200/FFAAAA/333/?text=&lt;% encodeURIComponent(tp.file.title) %&gt;&amp;font=noto)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=0009%20%E9%A2%98%E5%A4%B4%E5%9B%BE%E7%89%87&font=noto"></p>
-<p>这里的关键点是要 <code>encodeURIComponent</code>，这样特殊字符（比如空格）才会被正确的传递。</p>
-<p>也可以搞随机颜色，虽然不支持随机渐变色。这篇就不搞这么复杂了，以后可能单独去写。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zji.me/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" data-id="cla9dljjx009zxgod0e6gfb11" data-title="0009 题头图片" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-624ff837-1be7-4dcd-8b16-6faa1bdc541f" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/624ff837-1be7-4dcd-8b16-6faa1bdc541f/" class="article-date">
-  <time class="dt-published" datetime="2022-10-15T11:23:26.000Z" itemprop="datePublished">2022-10-15</time>
+  <time class="dt-published" datetime="2022-10-15T19:23:26.000Z" itemprop="datePublished">2022-10-16</time>
 </a>
     
   </div>
@@ -176,10 +100,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -187,12 +107,9 @@
 <p>我主要用 Dataview、Templater、QuickAdd 三个插件，这三个太强了，叹为观止。当然还会有一些实现小功能的插件，不一一列举，自己根据需求琢磨吧。</p>
 <p>做一下简单的介绍，让大家有个初步印象：</p>
 <ul>
-<li><p>Dataview 更强的搜索，并将搜索到的数据展示在笔记中。支持使用 JS 书写，但它也没说你必须搜索对吧，于是你可以利用它在笔记中运行 JS。</p>
-</li>
-<li><p>Templater 更强的模板，支持使用 JS 进行控制。模板是用来生成静态笔记的，也就是我可以用 JS 控制生成笔记（或者笔记片段）。而且可以插入动态模板（每次预览时重新渲染一次）。这自由度可以放飞想象。</p>
-</li>
-<li><p>QuickAdd 快速添加笔记，可以是往特定位置插入，也可以是新建笔记，还可以是运行一系列命令，甚至自己写脚本。</p>
-</li>
+<li>Dataview 更强的搜索，并将搜索到的数据展示在笔记中。支持使用 JS 书写，但它也没说你必须搜索对吧，于是你可以利用它在笔记中运行 JS。</li>
+<li>Templater 更强的模板，支持使用 JS 进行控制。模板是用来生成静态笔记的，也就是我可以用 JS 控制生成笔记（或者笔记片段）。而且可以插入动态模板（每次预览时重新渲染一次）。这自由度可以放飞想象。</li>
+<li>QuickAdd 快速添加笔记，可以是往特定位置插入，也可以是新建笔记，还可以是运行一系列命令，甚至自己写脚本。</li>
 </ul>
 <p>归结起来就是：<strong>都可以自己写代码</strong>，即程序员眼中的自由。</p>
 <p>回来说原则，前面说过保持 Markdown 的纯洁性，这个原则很重要。</p>
@@ -207,7 +124,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/624ff837-1be7-4dcd-8b16-6faa1bdc541f/" data-id="cla9dljiw005wxgodgvct7ls2" data-title="0008 插件和原则" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/624ff837-1be7-4dcd-8b16-6faa1bdc541f/" data-id="cla9duj27005whood7kq0cy06" data-title="0008 插件和原则" class="article-share-link">分享</a>
       
       
       
@@ -224,7 +141,7 @@
     <article id="post-b4a41377-2d13-4d08-9dbd-472413f5dbf7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/b4a41377-2d13-4d08-9dbd-472413f5dbf7/" class="article-date">
-  <time class="dt-published" datetime="2022-10-15T10:38:11.000Z" itemprop="datePublished">2022-10-15</time>
+  <time class="dt-published" datetime="2022-10-15T18:38:11.000Z" itemprop="datePublished">2022-10-16</time>
 </a>
     
   </div>
@@ -246,10 +163,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -264,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b4a41377-2d13-4d08-9dbd-472413f5dbf7/" data-id="cla9dljjz00a6xgod4i1a9qpa" data-title="0007 利用工作区" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/b4a41377-2d13-4d08-9dbd-472413f5dbf7/" data-id="cla9duj3d00a4hoodfzd7bixw" data-title="0007 利用工作区" class="article-share-link">分享</a>
       
       
       
@@ -281,7 +194,7 @@
     <article id="post-00dc42f0-e9d1-4635-983c-f3a90aabae2b" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/00dc42f0-e9d1-4635-983c-f3a90aabae2b/" class="article-date">
-  <time class="dt-published" datetime="2022-10-15T07:50:04.000Z" itemprop="datePublished">2022-10-15</time>
+  <time class="dt-published" datetime="2022-10-15T15:50:04.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -303,10 +216,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -323,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/00dc42f0-e9d1-4635-983c-f3a90aabae2b/" data-id="cla9dljh70004xgod3r0j2bvv" data-title="0006 因何起始页" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/00dc42f0-e9d1-4635-983c-f3a90aabae2b/" data-id="cla9duj000005hood065h235x" data-title="0006 因何起始页" class="article-share-link">分享</a>
       
       
       
@@ -340,7 +249,7 @@
     <article id="post-9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/" class="article-date">
-  <time class="dt-published" datetime="2022-10-14T23:43:58.000Z" itemprop="datePublished">2022-10-15</time>
+  <time class="dt-published" datetime="2022-10-15T07:43:58.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -362,10 +271,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -394,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/" data-id="cla9dljjj008vxgodbv1o107a" data-title="0005 往事今何在" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/" data-id="cla9duj2v008thood5zm6fvu7" data-title="0005 往事今何在" class="article-share-link">分享</a>
       
       
       
@@ -411,7 +316,7 @@
     <article id="post-4a7fda53-babb-4793-93dc-41c5d4607608" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/4a7fda53-babb-4793-93dc-41c5d4607608/" class="article-date">
-  <time class="dt-published" datetime="2022-10-14T14:58:41.000Z" itemprop="datePublished">2022-10-14</time>
+  <time class="dt-published" datetime="2022-10-14T22:58:41.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -433,10 +338,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -444,7 +345,7 @@
 <p>笔记的整理，首先是文件夹，但是这并不灵活，一方面深层文件夹不好操作，另一方面一个文件只能属于一个文件夹。</p>
 <p>所以最好不要用深层文件夹，只是一层的文件夹也方便使用双链直接创建文件：<code>[[Note/大老鼠怎么那么可爱捏]]</code>。</p>
 <p>然后添加元数据（meta），或者叫做 Front matter，反正就是笔记开始的一系列信息。有一些插件可以帮助，不过我推荐使用模板，Obsidian 自带的就可以。我的模板大概这样：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">created:</span> &#123;&#123;<span class="string">date</span>&#125;&#125; &#123;&#123;<span class="string">time</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">updated:</span> &#123;&#123;<span class="string">date</span>&#125;&#125; &#123;&#123;<span class="string">time</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Obsidian</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Note</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Article</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Published</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Published</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Blog</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">created:</span> &#123;&#123;<span class="string">date</span>&#125;&#125; &#123;&#123;<span class="string">time</span>&#125;&#125;</span><br><span class="line"><span class="attr">updated:</span> &#123;&#123;<span class="string">date</span>&#125;&#125; &#123;&#123;<span class="string">time</span>&#125;&#125;</span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Obsidian</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Note</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Article</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Published</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Blog</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 
 <p>主要就是创建时间（created 或者 ctime）和更新时间（updated），更新时间这里不会自动更新，需要借助插件，比如：<a target="_blank" rel="noopener" href="https://github.com/beaussan/update-time-on-edit-obsidian">Update time on edit plugin</a>。这些数据方便我们后期归类、查找笔记。</p>
 <p>然后了解一个概念：别名（alias），虽然表面是是笔记的别名，其实你也可以理解为虚拟路径。一个文件可以有多个别名，如果运用得好，完全可以当作分类来使用。别名可以在元数据中进行设定（aliases）。</p>
@@ -458,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/4a7fda53-babb-4793-93dc-41c5d4607608/" data-id="cla9dljii004ixgodhwfu6jzd" data-title="0004 带我找到它" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/4a7fda53-babb-4793-93dc-41c5d4607608/" data-id="cla9duj1w004ihood1o61bt3i" data-title="0004 带我找到它" class="article-share-link">分享</a>
       
       
       
@@ -475,7 +376,7 @@
     <article id="post-edd8138a-db50-42e4-8a9c-6863193716e7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/edd8138a-db50-42e4-8a9c-6863193716e7/" class="article-date">
-  <time class="dt-published" datetime="2022-10-14T12:32:19.000Z" itemprop="datePublished">2022-10-14</time>
+  <time class="dt-published" datetime="2022-10-14T20:32:19.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -497,10 +398,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -522,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/edd8138a-db50-42e4-8a9c-6863193716e7/" data-id="cla9dljku00dpxgodewms38ub" data-title="0003 同步什么的" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/edd8138a-db50-42e4-8a9c-6863193716e7/" data-id="cla9duj4900dnhood1ersh5ql" data-title="0003 同步什么的" class="article-share-link">分享</a>
       
       
       
@@ -539,7 +436,7 @@
     <article id="post-890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/" class="article-date">
-  <time class="dt-published" datetime="2022-10-14T12:13:04.000Z" itemprop="datePublished">2022-10-14</time>
+  <time class="dt-published" datetime="2022-10-14T20:13:04.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -561,10 +458,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -584,7 +477,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/" data-id="cla9dljj9007hxgodgfer61xy" data-title="0002 笔记是什么" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/" data-id="cla9duj2i007hhood7b3d7mwc" data-title="0002 笔记是什么" class="article-share-link">分享</a>
       
       
       
@@ -601,7 +494,7 @@
     <article id="post-1bd1f7c0-a822-43b7-922f-7483ef75ff23" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/1bd1f7c0-a822-43b7-922f-7483ef75ff23/" class="article-date">
-  <time class="dt-published" datetime="2022-10-14T07:23:10.000Z" itemprop="datePublished">2022-10-14</time>
+  <time class="dt-published" datetime="2022-10-14T15:23:10.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -623,10 +516,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -644,7 +533,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/1bd1f7c0-a822-43b7-922f-7483ef75ff23/" data-id="cla9dljhv001vxgod23gc34y7" data-title="0001 那就启程吧" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/1bd1f7c0-a822-43b7-922f-7483ef75ff23/" data-id="cla9duj0r001qhood4eel1o9x" data-title="0001 那就启程吧" class="article-share-link">分享</a>
       
       
       
@@ -661,7 +550,7 @@
     <article id="post-567af6da-0ca5-44bb-9c60-dbe9295dbef8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/567af6da-0ca5-44bb-9c60-dbe9295dbef8/" class="article-date">
-  <time class="dt-published" datetime="2022-10-14T06:42:20.000Z" itemprop="datePublished">2022-10-14</time>
+  <time class="dt-published" datetime="2022-10-14T14:42:20.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -683,10 +572,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -709,11 +594,54 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/567af6da-0ca5-44bb-9c60-dbe9295dbef8/" data-id="cla9dljir005axgod70ah6cqa" data-title="0000 原本无一物" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/567af6da-0ca5-44bb-9c60-dbe9295dbef8/" data-id="cla9duj21005ahood31n18a6p" data-title="0000 原本无一物" class="article-share-link">分享</a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-e9449523-4002-4330-98ee-d74e393621d7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/e9449523-4002-4330-98ee-d74e393621d7/" class="article-date">
+  <time class="dt-published" datetime="2020-01-14T18:18:39.000Z" itemprop="datePublished">2020-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/e9449523-4002-4330-98ee-d74e393621d7/">CuteHttpFileServer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>简称 chfs。是一款轻便强大的文件服务器。命令行工具，通过命令参数进行各种复杂的设置，在 Windows 下有单独的 GUI 程序。</p>
+<p>提供基本的 http 访问管理，以及  WebDAV 协议支持。</p>
+<p>如何从中直接访问 html 文件，路径比预期略复杂。<br>【地址】： <a target="_blank" rel="noopener" href="http://iscute.cn/chfs">http://iscute.cn/chfs</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zji.me/e9449523-4002-4330-98ee-d74e393621d7/" data-id="cla9duj4400d0hood7wpwh5vj" data-title="CuteHttpFileServer" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li></ul>
 
     </footer>
   </div>

@@ -6,15 +6,15 @@
   
   <title>0018 获取本地天气-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    此方法已失效，接口挂了。 效果展示天气：☀️   晴 气温：+16°C 风力：↓12km&#x2F;h月相：🌗 日出时间：06:18:09 日落时间：17:27:06 用户脚本 Scritps&#x2F;get_weather.js  123456789101112131415161718192">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    此方法已失效，接口挂了。 效果展示天气：☀️   晴 气温：+16°C 风力：↓12km&#x2F;h月相：🌗 日出时间：06:18:09 日落时间：17:27:06 用户脚本 Scritps&#x2F;get_weather.js  123456789101112131415&#x2F;** * 因为网络获取需">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0018 获取本地天气-Templater">
 <meta property="og:url" content="https://zji.me/edc32107-fecb-4d7f-aa54-d0fd6cc79444/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    此方法已失效，接口挂了。 效果展示天气：☀️   晴 气温：+16°C 风力：↓12km&#x2F;h月相：🌗 日出时间：06:18:09 日落时间：17:27:06 用户脚本 Scritps&#x2F;get_weather.js  123456789101112131415161718192">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    此方法已失效，接口挂了。 效果展示天气：☀️   晴 气温：+16°C 风力：↓12km&#x2F;h月相：🌗 日出时间：06:18:09 日落时间：17:27:06 用户脚本 Scritps&#x2F;get_weather.js  123456789101112131415&#x2F;** * 因为网络获取需">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-17T19:17:38.000Z">
-<meta property="article:modified_time" content="2022-11-08T07:58:27.000Z">
+<meta property="article:published_time" content="2022-10-18T03:17:38.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
@@ -85,7 +85,7 @@
         <section id="main"><article id="post-edc32107-fecb-4d7f-aa54-d0fd6cc79444" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/edc32107-fecb-4d7f-aa54-d0fd6cc79444/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T19:17:38.000Z" itemprop="datePublished">2022-10-18</time>
+  <time class="dt-published" datetime="2022-10-18T03:17:38.000Z" itemprop="datePublished">2022-10-18</time>
 </a>
     
   </div>
@@ -107,10 +107,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -120,23 +116,22 @@
 <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
 <p>Scritps&#x2F;get_weather.js</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 因为网络获取需要时间</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 所以这是一个同步函数</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 两个参数：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 第一个是城市名称的拼音，需要地级市，就是“省”下面一级的城市名称</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 第二个是输出的内容，详细参数可以阅读： </span></span><br><span class="line"><span class="comment"> * https://github.com/chubin/wttr.in</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 剩下没啥了，获取返回纯文本的网络 API 都可以套用这段代码</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_weather</span> (city=<span class="string">&#x27;beijing&#x27;</span>, format=<span class="string">&quot;天气：%c %C 气温：%t 风力：%w  \\n月相：%m 日出时间：%S 日落时间：%s&quot;</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&quot;https://wttr.in/&quot;</span>+city+<span class="string">&quot;?Tm2&amp;lang=zh-cn&amp;format=&quot;</span>+format)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_weather;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 因为网络获取需要时间</span></span><br><span class="line"><span class="comment"> * 所以这是一个同步函数</span></span><br><span class="line"><span class="comment"> * 两个参数：</span></span><br><span class="line"><span class="comment"> * 第一个是城市名称的拼音，需要地级市，就是“省”下面一级的城市名称</span></span><br><span class="line"><span class="comment"> * 第二个是输出的内容，详细参数可以阅读： </span></span><br><span class="line"><span class="comment"> * https://github.com/chubin/wttr.in</span></span><br><span class="line"><span class="comment"> * 剩下没啥了，获取返回纯文本的网络 API 都可以套用这段代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_weather</span> (city=<span class="string">&#x27;beijing&#x27;</span>, format=<span class="string">&quot;天气：%c %C 气温：%t 风力：%w  \\n月相：%m 日出时间：%S 日落时间：%s&quot;</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&quot;https://wttr.in/&quot;</span>+city+<span class="string">&quot;?Tm2&amp;lang=zh-cn&amp;format=&quot;</span>+format)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_weather;</span><br></pre></td></tr></table></figure>
 
 <h3 id="模板代码"><a href="#模板代码" class="headerlink" title="模板代码"></a>模板代码</h3><blockquote>
 <p>Templater&#x2F;添加本地天气.md</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.get_weather(&quot;shanghai&quot;) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_weather(&quot;shanghai&quot;) %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>城市名称自行修改。</p>
 <p>如果想用在动态模板中就有点麻烦了，因为上面输出的是两行内容，用 <code>\n</code> 做了一下换行。但是动态模板会强制当成纯文本输出，就没有换行了。</p>
 <p>我自己是索性把上面函数执行了两遍，每行内容单独获取一次。效果一般……就是慢：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%+ tp.user.get_weather(&quot;shanghai&quot;, &quot;天气：%c %C 气温：%t 风力：%w&quot;) %&gt;</span><br><span class="line"></span><br><span class="line">&lt;%+ tp.user.get_weather(&quot;shanghai&quot;, &quot;月相：%m 日出时间：%S 日落时间：%s&quot;) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.user.get_weather(&quot;shanghai&quot;, &quot;天气：%c %C 气温：%t 风力：%w&quot;) %&gt;</span><br><span class="line"></span><br><span class="line">&lt;%+ tp.user.get_weather(&quot;shanghai&quot;, &quot;月相：%m 日出时间：%S 日落时间：%s&quot;) %&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/edc32107-fecb-4d7f-aa54-d0fd6cc79444/" data-id="cla9dljku00dnxgod5zu9a0nd" data-title="0018 获取本地天气-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/edc32107-fecb-4d7f-aa54-d0fd6cc79444/" data-id="cla9duj4900dkhood5kpsfxbv" data-title="0018 获取本地天气-Templater" class="article-share-link">分享</a>
       
       
       

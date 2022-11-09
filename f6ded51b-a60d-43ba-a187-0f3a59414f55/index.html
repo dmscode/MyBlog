@@ -6,15 +6,15 @@
   
   <title>0028 交互式笔记-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    有时候就是很程式化的东西，有时候我就想快速输入固定格式，当然内容有细节的变化。 QuickAdd 插件的类似用法有很多人介绍了，不过我觉得 QuickAdd 中 Capture 的一个重要优势在于无需打开笔记的添加。比如我在写这篇内容的时候，忽然想到一个工作任务，我就可以用 QuickAdd 快速">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    有时候就是很程式化的东西，有时候我就想快速输入固定格式，当然内容有细节的变化。 QuickAdd 插件的类似用法有很多人介绍了，不过我觉得 QuickAdd 中 Capture 的一个重要优势在于无需打开笔记的添加。比如我在写这篇内容的时候，忽然想到一个工作任务，我就可以用 QuickAdd 快速在工作列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0028 交互式笔记-Templater">
 <meta property="og:url" content="https://zji.me/f6ded51b-a60d-43ba-a187-0f3a59414f55/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    有时候就是很程式化的东西，有时候我就想快速输入固定格式，当然内容有细节的变化。 QuickAdd 插件的类似用法有很多人介绍了，不过我觉得 QuickAdd 中 Capture 的一个重要优势在于无需打开笔记的添加。比如我在写这篇内容的时候，忽然想到一个工作任务，我就可以用 QuickAdd 快速">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    有时候就是很程式化的东西，有时候我就想快速输入固定格式，当然内容有细节的变化。 QuickAdd 插件的类似用法有很多人介绍了，不过我觉得 QuickAdd 中 Capture 的一个重要优势在于无需打开笔记的添加。比如我在写这篇内容的时候，忽然想到一个工作任务，我就可以用 QuickAdd 快速在工作列">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-19T23:00:04.000Z">
-<meta property="article:modified_time" content="2022-11-08T07:58:27.000Z">
+<meta property="article:published_time" content="2022-10-20T07:00:04.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
@@ -85,7 +85,7 @@
         <section id="main"><article id="post-f6ded51b-a60d-43ba-a187-0f3a59414f55" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/f6ded51b-a60d-43ba-a187-0f3a59414f55/" class="article-date">
-  <time class="dt-published" datetime="2022-10-19T23:00:04.000Z" itemprop="datePublished">2022-10-20</time>
+  <time class="dt-published" datetime="2022-10-20T07:00:04.000Z" itemprop="datePublished">2022-10-20</time>
 </a>
     
   </div>
@@ -107,10 +107,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -124,19 +120,19 @@
 <h3 id="基础模板"><a href="#基础模板" class="headerlink" title="基础模板"></a>基础模板</h3><p>新建一个模板（md 文件），把上面内容放进去就行了，然后就可以用了。</p>
 <p>插入后修改一下具体内容，比每次复制粘贴方便一点。聪明的你一定想到了，如果把时间和后面的描述都留空，修改起来还能方便点。</p>
 <h3 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h3><p>如果时间就是当前，那就让程序帮我们写好吧，也很简单：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; 早安，世界~</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; 早安，世界~</span><br></pre></td></tr></table></figure>
 
 <p>我们只是把时间换成了：<code>&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;</code>，双引号里描述的是时间的格式，可以参考这里：<a target="_blank" rel="noopener" href="https://momentjs.com/docs/#/displaying/">https://momentjs.com/docs/#/displaying/</a></p>
 <p>你只要和前面代码仔细对照一下就能理解了。</p>
 <h3 id="提示输入"><a href="#提示输入" class="headerlink" title="提示输入"></a>提示输入</h3><p>后面的描述可能每一次都不相同，当然，插入模板之后再修改也没毛病，但如果格式比较复杂，可能修改起来也会麻烦。所以来个输入框吧：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; &lt;% tp.system.prompt(&quot;请输入标注&quot;) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; &lt;% tp.system.prompt(&quot;请输入标注&quot;) %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>自己试一下吧，就是把描述位置换成了一个输入框。那现在你可以把输入框的代码放在你其他模板中了。</p>
 <h3 id="选择标签"><a href="#选择标签" class="headerlink" title="选择标签"></a>选择标签</h3><p>为了便于筛选，这个标记中还可以加上标签，用在标记中的标签大概也就那么几种，每次输入，烦捏！那就做个选择菜单吧：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; #&lt;% tp.system.suggester([&quot;未完待续&quot;, &quot;下次一定&quot;], [&quot;Next&quot;, &quot;Todo&quot;]) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; #&lt;% tp.system.suggester([&quot;未完待续&quot;, &quot;下次一定&quot;], [&quot;Next&quot;, &quot;Todo&quot;]) %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>后面两个方括号里两组内容是对应的，前一组用来显示在选择中，后一组是用来输出到代码中的。自己试一下就懂了。</p>
-<h3 id="结合一下？"><a href="#结合一下？" class="headerlink" title="结合一下？"></a>结合一下？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; #&lt;% tp.system.suggester([&quot;未完待续&quot;, &quot;下次一定&quot;], [&quot;Next&quot;, &quot;Todo&quot;]) %&gt; &lt;% tp.system.prompt(&quot;输入标注&quot;) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="结合一下？"><a href="#结合一下？" class="headerlink" title="结合一下？"></a>结合一下？</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]&gt;+--| **&lt;% tp.date.now(&quot;HH:mm&quot;) %&gt;** |---&gt;&gt;&gt; #&lt;% tp.system.suggester([&quot;未完待续&quot;, &quot;下次一定&quot;], [&quot;Next&quot;, &quot;Todo&quot;]) %&gt; &lt;% tp.system.prompt(&quot;输入标注&quot;) %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>看起来蛮长的了，不过如果从前面读过来也不会觉得很复杂吧。这么写完全可以用，但是有点小问题，两个提示框一起显示了，要先输入文字，再选择标签，否则有问题。不过小瑕疵啦。</p>
 <p>这个瑕疵可以解决，但既然能用，我们就不提升复杂度了。</p>
@@ -144,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/f6ded51b-a60d-43ba-a187-0f3a59414f55/" data-id="cla9dljl200ehxgodgk5g1x6j" data-title="0028 交互式笔记-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/f6ded51b-a60d-43ba-a187-0f3a59414f55/" data-id="cla9duj4g00eehood8zee10yh" data-title="0028 交互式笔记-Templater" class="article-share-link">分享</a>
       
       
       

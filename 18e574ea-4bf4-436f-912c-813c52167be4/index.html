@@ -6,15 +6,15 @@
   
   <title>0010 从时间说模板 | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    Templater 是个很强大的插件。 一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。 一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板： 123&lt;% tp.date.now() %&gt;  然后在需要的时候调用就可以实现插入时间了">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    Templater 是个很强大的插件。 一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。 一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板： 1&lt;% tp.date.now() %&gt;  然后在需要的时候调用就可以实现插入时间了。 我们也可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0010 从时间说模板">
 <meta property="og:url" content="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    Templater 是个很强大的插件。 一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。 一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板： 123&lt;% tp.date.now() %&gt;  然后在需要的时候调用就可以实现插入时间了">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    Templater 是个很强大的插件。 一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。 一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板： 1&lt;% tp.date.now() %&gt;  然后在需要的时候调用就可以实现插入时间了。 我们也可">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-16T00:54:44.000Z">
-<meta property="article:modified_time" content="2022-11-08T07:58:27.000Z">
+<meta property="article:published_time" content="2022-10-16T08:54:44.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
@@ -85,7 +85,7 @@
         <section id="main"><article id="post-18e574ea-4bf4-436f-912c-813c52167be4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/18e574ea-4bf4-436f-912c-813c52167be4/" class="article-date">
-  <time class="dt-published" datetime="2022-10-16T00:54:44.000Z" itemprop="datePublished">2022-10-16</time>
+  <time class="dt-published" datetime="2022-10-16T08:54:44.000Z" itemprop="datePublished">2022-10-16</time>
 </a>
     
   </div>
@@ -107,10 +107,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -118,22 +114,22 @@
 <p>Templater 是个很强大的插件。</p>
 <p>一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。</p>
 <p>一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.date.now() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>然后在需要的时候调用就可以实现插入时间了。</p>
 <p>我们也可以格式化时间，可以参照这里：<a target="_blank" rel="noopener" href="https://momentjs.com/docs/#/displaying/">https://momentjs.com/docs/#/displaying/</a></p>
 <p>反正 Temlater 中时间日期部分用的 <a target="_blank" rel="noopener" href="https://momentjs.com/docs/">Moment.js</a> ，多数东西都可以照搬，能弄出一些有趣的玩法。</p>
 <h3 id="动态显示"><a href="#动态显示" class="headerlink" title="动态显示"></a>动态显示</h3><p>我的入口笔记是不变的（不是每天新建），而上面方法插入的是静态内容，就是插入以后就不变化了。显然这不适合我，我要笔记永远显示当天的日期，也很简单：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%+ tp.date.now() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>注意区别，就是前面多了一个加号。这个代码可以直接写在笔记中。这被称作为动态模板，在每次预览笔记的时候渲染一次。所以每次预览，这里都会显示为当前日期。</p>
 <p>注意一个文档中没有提及的点：<strong>动态模板输出的内容会当作文本显示，各种标记，换行均会显示为纯文本</strong>。我被这个坑折磨了好一会儿的。</p>
 <h3 id="显示农历"><a href="#显示农历" class="headerlink" title="显示农历"></a>显示农历</h3><p>这要用到 JS。核心代码很简单：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>获取日期，转换为本地日期格式，然后地区设置为中国本土日历。但是结果显示的有点怪：2022年九月20。</p>
 <p>一般来说我们不关注年份，所以可以把年份去掉，后面的 20 改成中文数字。意义都一样，就是看着舒服点。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%*</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line"></span><br><span class="line">   * 上面星号表示运行代码中的 JS</span><br><span class="line"></span><br><span class="line">   * tR 是要输出的内容，往里面追加即可</span><br><span class="line"></span><br><span class="line">   * 下面将当前日期加入了输出，并在后面加上空格</span><br><span class="line"></span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">  tR += tp.date.now()+&#x27; &#x27;</span><br><span class="line"></span><br><span class="line">  /* JS 中获取当前时间对象备用 */</span><br><span class="line"></span><br><span class="line">  const today = new Date()</span><br><span class="line"></span><br><span class="line">  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span><br><span class="line"></span><br><span class="line">  const num = [&#x27;日&#x27;, &#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;, &#x27;五&#x27;, &#x27;六&#x27;, &#x27;七&#x27;, &#x27;八&#x27;, &#x27;九&#x27;]</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line"></span><br><span class="line">   * 第一行：获取农历日期</span><br><span class="line"></span><br><span class="line">   * 第二行：替换掉年份</span><br><span class="line"></span><br><span class="line">   * 第三行：将日期替换为中文写法</span><br><span class="line"></span><br><span class="line">   * 末尾：加上空格分隔</span><br><span class="line"></span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">  tR += today.toLocaleDateString(&#x27;zh-CN-u-ca-chinese&#x27;)</span><br><span class="line"></span><br><span class="line">    .replace(/(\d+)\s*?年\s*/, &#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">    .replace(/月(\d+)/, (m, s)=&gt;&#123;</span><br><span class="line"></span><br><span class="line">      s = Number(s)</span><br><span class="line"></span><br><span class="line">      if(s===20) return &#x27;月 二十&#x27;</span><br><span class="line"></span><br><span class="line">      if(s===30) return &#x27;月 三十&#x27;</span><br><span class="line"></span><br><span class="line">      const lastNum = num[s%10]</span><br><span class="line"></span><br><span class="line">      if(s&lt;10) return &#x27;月 初&#x27;+lastNum</span><br><span class="line"></span><br><span class="line">      if(s&lt;20) return &#x27;月 十&#x27;+lastNum</span><br><span class="line"></span><br><span class="line">      if(s&lt;30) return &#x27;月 廿&#x27;+lastNum</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    +&#x27; &#x27;</span><br><span class="line"></span><br><span class="line">  /* 加上星期几 */</span><br><span class="line"></span><br><span class="line">  tR += &#x27;星期&#x27;+num[today.getDay()]</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;%*</span><br><span class="line">  /**</span><br><span class="line">   * 上面星号表示运行代码中的 JS</span><br><span class="line">   * tR 是要输出的内容，往里面追加即可</span><br><span class="line">   * 下面将当前日期加入了输出，并在后面加上空格</span><br><span class="line">   */</span><br><span class="line">  tR += tp.date.now()+&#x27; &#x27;</span><br><span class="line">  /* JS 中获取当前时间对象备用 */</span><br><span class="line">  const today = new Date()</span><br><span class="line">  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span><br><span class="line">  const num = [&#x27;日&#x27;, &#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;, &#x27;五&#x27;, &#x27;六&#x27;, &#x27;七&#x27;, &#x27;八&#x27;, &#x27;九&#x27;]</span><br><span class="line">  /**</span><br><span class="line">   * 第一行：获取农历日期</span><br><span class="line">   * 第二行：替换掉年份</span><br><span class="line">   * 第三行：将日期替换为中文写法</span><br><span class="line">   * 末尾：加上空格分隔</span><br><span class="line">   */</span><br><span class="line">  tR += today.toLocaleDateString(&#x27;zh-CN-u-ca-chinese&#x27;)</span><br><span class="line">    .replace(/(\d+)\s*?年\s*/, &#x27;&#x27;)</span><br><span class="line">    .replace(/月(\d+)/, (m, s)=&gt;&#123;</span><br><span class="line">      s = Number(s)</span><br><span class="line">      if(s===20) return &#x27;月 二十&#x27;</span><br><span class="line">      if(s===30) return &#x27;月 三十&#x27;</span><br><span class="line">      const lastNum = num[s%10]</span><br><span class="line">      if(s&lt;10) return &#x27;月 初&#x27;+lastNum</span><br><span class="line">      if(s&lt;20) return &#x27;月 十&#x27;+lastNum</span><br><span class="line">      if(s&lt;30) return &#x27;月 廿&#x27;+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +&#x27; &#x27;</span><br><span class="line">  /* 加上星期几 */</span><br><span class="line">  tR += &#x27;星期&#x27;+num[today.getDay()]</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
 <p>我添加了注释，这样即便不懂代码，也可以稍微修改一些细节。最终效果：</p>
 <p>2022-10-15 九月 二十 星期六</p>
@@ -143,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9dljhq001gxgodbbpe9ov1" data-title="0010 从时间说模板" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9duj0o001ghood0ynqbutu" data-title="0010 从时间说模板" class="article-share-link">分享</a>
       
       
       

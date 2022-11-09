@@ -6,15 +6,15 @@
   
   <title>0025 随机诗词_2_Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    效果展示 风驱急雨洒高城，云压轻雷殷地声。   —— 刘基《五月十九日大雨》  用户脚本 Scritps&#x2F;get_poems.js  123456789101112131415161718192021222324252627282930313233&#x2F;** * 获取网络数据，所以同步函数">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    效果展示 风驱急雨洒高城，云压轻雷殷地声。   —— 刘基《五月十九日大雨》  用户脚本 Scritps&#x2F;get_poems.js  12345678910111213141516&#x2F;** * 获取网络数据，所以同步函数 * 没有参数 * 其实就是套用前面说过的获取 JSON 数据 Api 的代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0025 随机诗词_2_Templater">
 <meta property="og:url" content="https://zji.me/3f8ae393-2986-4984-b80d-84cd224b52ef/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录     如果觉得有用就支持一下作者：老鼠爱发电    效果展示 风驱急雨洒高城，云压轻雷殷地声。   —— 刘基《五月十九日大雨》  用户脚本 Scritps&#x2F;get_poems.js  123456789101112131415161718192021222324252627282930313233&#x2F;** * 获取网络数据，所以同步函数">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电    效果展示 风驱急雨洒高城，云压轻雷殷地声。   —— 刘基《五月十九日大雨》  用户脚本 Scritps&#x2F;get_poems.js  12345678910111213141516&#x2F;** * 获取网络数据，所以同步函数 * 没有参数 * 其实就是套用前面说过的获取 JSON 数据 Api 的代码">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-18T08:20:28.000Z">
-<meta property="article:modified_time" content="2022-11-08T07:58:27.000Z">
+<meta property="article:published_time" content="2022-10-18T16:20:28.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
@@ -85,7 +85,7 @@
         <section id="main"><article id="post-3f8ae393-2986-4984-b80d-84cd224b52ef" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/3f8ae393-2986-4984-b80d-84cd224b52ef/" class="article-date">
-  <time class="dt-published" datetime="2022-10-18T08:20:28.000Z" itemprop="datePublished">2022-10-18</time>
+  <time class="dt-published" datetime="2022-10-18T16:20:28.000Z" itemprop="datePublished">2022-10-19</time>
 </a>
     
   </div>
@@ -107,10 +107,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -122,12 +118,12 @@
 <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
 <p>Scritps&#x2F;get_poems.js</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 获取网络数据，所以同步函数</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 没有参数</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 其实就是套用前面说过的获取 JSON 数据 Api 的代码</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_poems</span> () &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&quot;https://v1.jinrishici.com/all.json&quot;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>()</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 根据标点做一下换行，对作者和作品名加一些必要的格式 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> result = data.<span class="property">content</span>.<span class="title function_">replace</span>(<span class="regexp">/([，。；？！])/g</span>, <span class="string">&#x27;$1  \n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">            + <span class="string">&#x27;\n\n—— &#x27;</span>+data.<span class="property">author</span>+<span class="string">&#x27;  \n&#x27;</span></span><br><span class="line"></span><br><span class="line">            + <span class="string">&#x27;《&#x27;</span>+data.<span class="property">origin</span>+<span class="string">&#x27;》&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 输出的时候整理为 Markdown 的引用格式 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> result.<span class="title function_">replace</span>(<span class="regexp">/\n&#123;3,&#125;/g</span>, <span class="string">&#x27;\n\n&#x27;</span>).<span class="title function_">split</span>(<span class="regexp">/\n/g</span>).<span class="title function_">map</span>(<span class="function"><span class="params">e</span>=&gt;</span><span class="string">&#x27;&gt; &#x27;</span>+e+<span class="string">&#x27;\n&#x27;</span>).<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_poems;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取网络数据，所以同步函数</span></span><br><span class="line"><span class="comment"> * 没有参数</span></span><br><span class="line"><span class="comment"> * 其实就是套用前面说过的获取 JSON 数据 Api 的代码</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_poems</span> () &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&quot;https://v1.jinrishici.com/all.json&quot;</span>)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>()</span><br><span class="line">  <span class="comment">/* 根据标点做一下换行，对作者和作品名加一些必要的格式 */</span></span><br><span class="line">  <span class="keyword">const</span> result = data.<span class="property">content</span>.<span class="title function_">replace</span>(<span class="regexp">/([，。；？！])/g</span>, <span class="string">&#x27;$1  \n&#x27;</span>)</span><br><span class="line">            + <span class="string">&#x27;\n\n—— &#x27;</span>+data.<span class="property">author</span>+<span class="string">&#x27;  \n&#x27;</span></span><br><span class="line">            + <span class="string">&#x27;《&#x27;</span>+data.<span class="property">origin</span>+<span class="string">&#x27;》&#x27;</span></span><br><span class="line">  <span class="comment">/* 输出的时候整理为 Markdown 的引用格式 */</span></span><br><span class="line">  <span class="keyword">return</span> result.<span class="title function_">replace</span>(<span class="regexp">/\n&#123;3,&#125;/g</span>, <span class="string">&#x27;\n\n&#x27;</span>).<span class="title function_">split</span>(<span class="regexp">/\n/g</span>).<span class="title function_">map</span>(<span class="function"><span class="params">e</span>=&gt;</span><span class="string">&#x27;&gt; &#x27;</span>+e+<span class="string">&#x27;\n&#x27;</span>).<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_poems;</span><br></pre></td></tr></table></figure>
 
 <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><blockquote>
 <p>Templater&#x2F;获取随机诗词.md</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.get_poems() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_poems() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>不支持动态模板……如果你不介意都写在一行其实也没什么，然后格式也不需要这么复杂的整理了。</p>
 <p>当然也可以放到复杂的 HTML 代码中，展示的漂漂亮亮的。</p>
@@ -136,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/3f8ae393-2986-4984-b80d-84cd224b52ef/" data-id="cla9dljib003oxgodc25p8unb" data-title="0025 随机诗词_2_Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/3f8ae393-2986-4984-b80d-84cd224b52ef/" data-id="cla9duj1g003ohoodh8e7blzt" data-title="0025 随机诗词_2_Templater" class="article-share-link">分享</a>
       
       
       

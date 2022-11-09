@@ -75,80 +75,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-e9708e55-b3d0-4e56-8c61-e2bb6b2e827e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T12:58:19.000Z" itemprop="datePublished">2022-10-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/">0020 一言诗词-Templater</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
-<p>Scritps&#x2F;get_sentence.js</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 同步函数，两个参数</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 第一个 tp，是传入 templater 对象</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&quot;诗词&quot;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_sentence</span> (tp, type) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Api 数组，返回的都是纯文本 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> apis = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;毒鸡汤&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dutang/api.php&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;社会语录&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yulu/api.php&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;舔狗日记&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dog/api.php&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;一言&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yiyan/api.php&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;诗词&#x27;</span>: <span class="string">&#x27;https://v1.jinrishici.com/all.txt&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 如果没有设定类型，则提示选择类型，默认值为：&quot;一言&quot; */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!type)&#123;</span><br><span class="line"></span><br><span class="line">    type = <span class="keyword">await</span> tp.<span class="property">system</span>.<span class="title function_">suggester</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="literal">false</span>, <span class="string">&#x27;一言&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取对应的 Api 地址 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> url = type &amp;&amp; apis[type] ? apis[type] : apis[<span class="string">&#x27;一言&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 发送请求，返回获取的字符串 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_sentence;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><blockquote>
-<p>Templater&#x2F;添加一言诗词.md</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.get_sentence(tp) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>也可以放在动态模板中，这时候最好在代码中指定类型，就不会弹出选择框了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%+ tp.user.get_sentence(tp, &quot;诗词&quot;) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>也可以在前面加上 <code>&gt;</code> 让它输出为引用：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; &lt;%+ tp.user.get<span class="emphasis">_sentence(tp, &quot;诗词&quot;) %&gt;</span></span></span><br><span class="line"><span class="emphasis"><span class="quote"></span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><blockquote>
-<p>世间珍果更无加，玉雪肌肤罩绛纱。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" data-id="cla9dljko00d8xgoddl0z9tyq" data-title="0020 一言诗词-Templater" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-d577588c-ae4f-413b-9cdb-f29f3a4af3b6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T12:08:48.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T20:08:48.000Z" itemprop="datePublished">2022-10-18</time>
 </a>
     
   </div>
@@ -170,10 +100,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -182,11 +108,11 @@
 <p>但想必在制作的过程中你就发现了一个问题：哪些标签已经登记好了，哪些标签还没登记，很容易闹不清啊，所以有点越整理越乱。</p>
 <p>什么，你没感觉？！你笔记都不够两位数，先别说话，乖乖记笔记去。</p>
 <p>所以整理过程中我用了两个查询辅助（均使用 dataviewjs 代码块插入）：</p>
-<h3 id="无标签笔记"><a href="#无标签笔记" class="headerlink" title="无标签笔记"></a>无标签笔记</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 获取所有页面，然后过滤，条件是没有标签 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">where</span>(<span class="function"><span class="params">b</span> =&gt;</span> !b.<span class="property">tags</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出标题，这里标题中加上了数量 */</span></span><br><span class="line"></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">2</span>, <span class="string">&quot;无标签笔记 - &quot;</span>+pages.<span class="property">length</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出笔记列表 */</span></span><br><span class="line"></span><br><span class="line">dv.<span class="title function_">list</span>(pages.<span class="property">file</span>.<span class="property">link</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="无标签笔记"><a href="#无标签笔记" class="headerlink" title="无标签笔记"></a>无标签笔记</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 获取所有页面，然后过滤，条件是没有标签 */</span></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">where</span>(<span class="function"><span class="params">b</span> =&gt;</span> !b.<span class="property">tags</span>);</span><br><span class="line"><span class="comment">/* 输出标题，这里标题中加上了数量 */</span></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">2</span>, <span class="string">&quot;无标签笔记 - &quot;</span>+pages.<span class="property">length</span>)</span><br><span class="line"><span class="comment">/* 输出笔记列表 */</span></span><br><span class="line">dv.<span class="title function_">list</span>(pages.<span class="property">file</span>.<span class="property">link</span>);</span><br></pre></td></tr></table></figure>
 
 <p>三句代码，效果我挺满意的。</p>
 <h3 id="未索引标签"><a href="#未索引标签" class="headerlink" title="未索引标签"></a>未索引标签</h3><p>列出所有当前文件不具有的标签。（如果标签在当前页面中，那显然就是在上面索引中登记了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 获取当前页面中所有标签 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">IndexTags</span> = dv.<span class="title function_">current</span>().<span class="property">file</span>.<span class="property">etags</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 查询所有包含标签的页面 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">where</span>(<span class="function"><span class="params">b</span> =&gt;</span> b.<span class="property">tags</span> &amp;&amp; b.<span class="property">tags</span>.<span class="property">length</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 准备一个标签对象 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tags = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 遍历所有标签，并计数 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> t <span class="keyword">of</span> pages.<span class="property">file</span>.<span class="property">tags</span>)&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(<span class="title class_">IndexTags</span>.<span class="title function_">indexOf</span>(t)===-<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">    tags[t] = tags[t] ? tags[t]+<span class="number">1</span> : <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 准备一个标签数组 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tagsList = []</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 将标签整理后存入数组 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> t <span class="keyword">in</span> tags)&#123;</span><br><span class="line"></span><br><span class="line">  tagsList.<span class="title function_">push</span>(t+<span class="string">&#x27; &#x27;</span>+tags[t])</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出标题，包含标签数量 */</span></span><br><span class="line"></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">2</span>, <span class="string">&quot;未索引标签 - &quot;</span>+tagsList.<span class="property">length</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出标签列表 */</span></span><br><span class="line"></span><br><span class="line">dv.<span class="title function_">list</span>(tagsList)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 获取当前页面中所有标签 */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">IndexTags</span> = dv.<span class="title function_">current</span>().<span class="property">file</span>.<span class="property">etags</span>;</span><br><span class="line"><span class="comment">/* 查询所有包含标签的页面 */</span></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">where</span>(<span class="function"><span class="params">b</span> =&gt;</span> b.<span class="property">tags</span> &amp;&amp; b.<span class="property">tags</span>.<span class="property">length</span>);</span><br><span class="line"><span class="comment">/* 准备一个标签对象 */</span></span><br><span class="line"><span class="keyword">const</span> tags = &#123;&#125;;</span><br><span class="line"><span class="comment">/* 遍历所有标签，并计数 */</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> t <span class="keyword">of</span> pages.<span class="property">file</span>.<span class="property">tags</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title class_">IndexTags</span>.<span class="title function_">indexOf</span>(t)===-<span class="number">1</span>)&#123;</span><br><span class="line">    tags[t] = tags[t] ? tags[t]+<span class="number">1</span> : <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 准备一个标签数组 */</span></span><br><span class="line"><span class="keyword">const</span> tagsList = []</span><br><span class="line"><span class="comment">/* 将标签整理后存入数组 */</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> t <span class="keyword">in</span> tags)&#123;</span><br><span class="line">  tagsList.<span class="title function_">push</span>(t+<span class="string">&#x27; &#x27;</span>+tags[t])</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 输出标题，包含标签数量 */</span></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">2</span>, <span class="string">&quot;未索引标签 - &quot;</span>+tagsList.<span class="property">length</span>)</span><br><span class="line"><span class="comment">/* 输出标签列表 */</span></span><br><span class="line">dv.<span class="title function_">list</span>(tagsList)</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p>这样把未整理的都列出来，甚至标记上数量，就非常方便整理。这些查询也可以用其他方式书写，代码可以再简洁一些。不过我喜欢把数量显示出来，看着爽！</p>
@@ -194,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" data-id="cla9dljkd00brxgodby4f1q3t" data-title="0019 标签索引补遗-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" data-id="cla9duj3s00bphoodgpm80oal" data-title="0019 标签索引补遗-Dataview" class="article-share-link">分享</a>
       
       
       
@@ -211,7 +137,7 @@
     <article id="post-fcfd5a19-2066-4e9b-9716-b9effb583d4c" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T10:49:54.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T18:49:54.000Z" itemprop="datePublished">2022-10-18</time>
 </a>
     
   </div>
@@ -233,10 +159,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -245,22 +167,22 @@
 <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
 <p>Scripts&#x2F;get_year_progress.js</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 此函数有一个参数，用来设定进度条的总长度</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 默认值是 20，一般没啥问题，不懂就不用管</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_year_progress</span>(<span class="params">length=<span class="number">20</span></span>)&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取当前年份 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> year = now.<span class="title function_">getFullYear</span>()</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取年初时间点 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> yearStart = <span class="keyword">new</span> <span class="title class_">Date</span>(year, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取年末时间点 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> yearEnd = <span class="keyword">new</span> <span class="title class_">Date</span>(year+<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取年进度，0~1 的小数 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> progress = (now-yearStart)/(yearEnd-yearStart)</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 进度条前半段</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示已度过的时间</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> prefix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;▓&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 进度条后半段</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示未度过的时间</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> suffix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(length-<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;░&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 组合字符串并返回 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;Year progress: &#x27;</span>+prefix+suffix+<span class="string">&#x27; &#x27;</span>+(progress*<span class="number">100</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_year_progress;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 此函数有一个参数，用来设定进度条的总长度</span></span><br><span class="line"><span class="comment"> * 默认值是 20，一般没啥问题，不懂就不用管</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_year_progress</span>(<span class="params">length=<span class="number">20</span></span>)&#123;</span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="comment">/* 获取当前年份 */</span></span><br><span class="line">  <span class="keyword">const</span> year = now.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="comment">/* 获取年初时间点 */</span></span><br><span class="line">  <span class="keyword">const</span> yearStart = <span class="keyword">new</span> <span class="title class_">Date</span>(year, <span class="number">0</span>)</span><br><span class="line">  <span class="comment">/* 获取年末时间点 */</span></span><br><span class="line">  <span class="keyword">const</span> yearEnd = <span class="keyword">new</span> <span class="title class_">Date</span>(year+<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">  <span class="comment">/* 获取年进度，0~1 的小数 */</span></span><br><span class="line">  <span class="keyword">const</span> progress = (now-yearStart)/(yearEnd-yearStart)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 进度条前半段</span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示已度过的时间</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> prefix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;▓&#x27;</span>)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 进度条后半段</span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示未度过的时间</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> suffix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(length-<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;░&#x27;</span>)</span><br><span class="line">  <span class="comment">/* 组合字符串并返回 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;Year progress: &#x27;</span>+prefix+suffix+<span class="string">&#x27; &#x27;</span>+(progress*<span class="number">100</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_year_progress;</span><br></pre></td></tr></table></figure>
 
 <h3 id="模板代码"><a href="#模板代码" class="headerlink" title="模板代码"></a>模板代码</h3><blockquote>
 <p>Templater&#x2F;添加年进度.md</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.get_year_progress() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_year_progress() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>如果需要修改进度条长度可以在小括号里加入参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.get_year_progress(12) %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_year_progress(12) %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>可以在笔记里直接使用动态模板：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%+ tp.user.get_year_progress() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.user.get_year_progress() %&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="cla9dljl700ewxgodfj2q9dwh" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="cla9duj4p00ewhood73ax4wo7" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
       
       
       
@@ -277,7 +199,7 @@
     <article id="post-2c870949-e965-4fcc-b0c0-0522bdf29779" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2c870949-e965-4fcc-b0c0-0522bdf29779/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T10:21:00.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T18:21:00.000Z" itemprop="datePublished">2022-10-18</time>
 </a>
     
   </div>
@@ -299,10 +221,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -314,14 +232,14 @@
 <p>问题就出在跳转上，这篇用来漫游的笔记打开就随机跳转了，功能上完全符合，但没法在 Obsidian 里面编辑，所以以后修改的时候要用第三方编辑器。</p>
 <p>小瑕疵，反正设定好以后也没啥可改的。（反正改代码我都开 VS Code</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>新建一篇笔记，建立一个 <code>dataviewjs</code> 代码块，放入以下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 下面数组是要排除的文件夹</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 需要把每一个文件夹及子文件夹逐一列出</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 确实麻烦了点，但这样不用学习正则，也避免一些特殊字符的干扰</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 如果你会正则，那大概你也能自行修改过滤方法</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pathBlackList = [</span><br><span class="line"></span><br><span class="line">  <span class="string">&#x27;Templates/Obsidian&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="string">&#x27;Templates/Scripts&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="string">&#x27;Templates/Templater&#x27;</span>,</span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 获取所有页面并过滤</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * dv.pages() 的参数本身就可以过滤</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 这里使用专门的过滤函数是为了更复杂的过滤，根据需求选择</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * filter 方法和 dataview 提供的 where 方法几乎可以互换</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">filter</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 第一个条件是判断文件后缀，排除图片等文件</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   * 第二个是判断路径不在上面数组中，如果去掉感叹号就成了白名单过滤了</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> e.<span class="property">file</span>.<span class="property">ext</span> === <span class="string">&#x27;md&#x27;</span></span><br><span class="line"></span><br><span class="line">  &amp;&amp; !pathBlackList.<span class="title function_">includes</span>(e.<span class="property">file</span>.<span class="property">folder</span>)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 生成随机数，选取笔记，获取对应的地址 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">encodeURIComponent</span>( pages[ <span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*pages.<span class="property">length</span>) ].<span class="property">file</span>.<span class="property">path</span> ) </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 打开当前 vault 中的对应笔记</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * 注释掉下面代码就不会跳转了，就可以在 Obsidian 中编辑了</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">open</span>(<span class="string">&#x27;obsidian://open?file=&#x27;</span>+path)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 下面数组是要排除的文件夹</span></span><br><span class="line"><span class="comment"> * 需要把每一个文件夹及子文件夹逐一列出</span></span><br><span class="line"><span class="comment"> * 确实麻烦了点，但这样不用学习正则，也避免一些特殊字符的干扰</span></span><br><span class="line"><span class="comment"> * 如果你会正则，那大概你也能自行修改过滤方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> pathBlackList = [</span><br><span class="line">  <span class="string">&#x27;Templates/Obsidian&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Templates/Scripts&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Templates/Templater&#x27;</span>,</span><br><span class="line">]</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取所有页面并过滤</span></span><br><span class="line"><span class="comment"> * dv.pages() 的参数本身就可以过滤</span></span><br><span class="line"><span class="comment"> * 这里使用专门的过滤函数是为了更复杂的过滤，根据需求选择</span></span><br><span class="line"><span class="comment"> * filter 方法和 dataview 提供的 where 方法几乎可以互换</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">filter</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 第一个条件是判断文件后缀，排除图片等文件</span></span><br><span class="line"><span class="comment">   * 第二个是判断路径不在上面数组中，如果去掉感叹号就成了白名单过滤了</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">return</span> e.<span class="property">file</span>.<span class="property">ext</span> === <span class="string">&#x27;md&#x27;</span></span><br><span class="line">  &amp;&amp; !pathBlackList.<span class="title function_">includes</span>(e.<span class="property">file</span>.<span class="property">folder</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/* 生成随机数，选取笔记，获取对应的地址 */</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">encodeURIComponent</span>( pages[ <span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*pages.<span class="property">length</span>) ].<span class="property">file</span>.<span class="property">path</span> ) </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 打开当前 vault 中的对应笔记</span></span><br><span class="line"><span class="comment"> * 注释掉下面代码就不会跳转了，就可以在 Obsidian 中编辑了</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">open</span>(<span class="string">&#x27;obsidian://open?file=&#x27;</span>+path)</span><br></pre></td></tr></table></figure>
 
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>过滤条件有很多设定方式，实在难以逐条举例，为了方便没有 JS 和正则基础的朋友使用，所以用了最稳妥的方案。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/2c870949-e965-4fcc-b0c0-0522bdf29779/" data-id="cla9dlji3002uxgod9o8p8h23" data-title="0016 指定目录笔记漫游-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/2c870949-e965-4fcc-b0c0-0522bdf29779/" data-id="cla9duj16002shood6w42bp7f" data-title="0016 指定目录笔记漫游-Dataview" class="article-share-link">分享</a>
       
       
       
@@ -338,7 +256,7 @@
     <article id="post-13d13397-3ef8-4f86-9f10-8ae94bae00b3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T01:22:19.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T09:22:19.000Z" itemprop="datePublished">2022-10-17</time>
 </a>
     
   </div>
@@ -360,10 +278,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -372,22 +286,22 @@
 <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
 <p>Scritps&#x2F;get_date.js</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_date</span> () &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> today = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> num = [<span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;一&#x27;</span>, <span class="string">&#x27;二&#x27;</span>, <span class="string">&#x27;三&#x27;</span>, <span class="string">&#x27;四&#x27;</span>, <span class="string">&#x27;五&#x27;</span>, <span class="string">&#x27;六&#x27;</span>, <span class="string">&#x27;七&#x27;</span>, <span class="string">&#x27;八&#x27;</span>, <span class="string">&#x27;九&#x27;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 返回字符串用来输出 */</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 日期，这里指定地区为了保证格式符合预期 */</span></span><br><span class="line"></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 获取含农历日期 */</span></span><br><span class="line"></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 替换掉年份部分 */</span></span><br><span class="line"></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/(\d+)\s*?年\s*/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 日期换为中文写法 */</span></span><br><span class="line"></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/月(\d+)/</span>, <span class="function">(<span class="params">m, s</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">      s = <span class="title class_">Number</span>(s)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 二十&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 三十&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> lastNum = num[s%<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="string">&#x27;月 初&#x27;</span>+lastNum</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 十&#x27;</span>+lastNum</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 廿&#x27;</span>+lastNum</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 添加星期几 */</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;星期&#x27;</span>+num[today.<span class="title function_">getDay</span>()]</span><br><span class="line"></span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_date;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">get_date</span> () &#123;</span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line">  <span class="keyword">const</span> today = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="comment">/* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span></span><br><span class="line">  <span class="keyword">const</span> num = [<span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;一&#x27;</span>, <span class="string">&#x27;二&#x27;</span>, <span class="string">&#x27;三&#x27;</span>, <span class="string">&#x27;四&#x27;</span>, <span class="string">&#x27;五&#x27;</span>, <span class="string">&#x27;六&#x27;</span>, <span class="string">&#x27;七&#x27;</span>, <span class="string">&#x27;八&#x27;</span>, <span class="string">&#x27;九&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 返回字符串用来输出 */</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="comment">/* 日期，这里指定地区为了保证格式符合预期 */</span></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN&#x27;</span>)</span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line">    <span class="comment">/* 获取含农历日期 */</span></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br><span class="line">    <span class="comment">/* 替换掉年份部分 */</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/(\d+)\s*?年\s*/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="comment">/* 日期换为中文写法 */</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/月(\d+)/</span>, <span class="function">(<span class="params">m, s</span>)=&gt;</span>&#123;</span><br><span class="line">      s = <span class="title class_">Number</span>(s)</span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 二十&#x27;</span></span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 三十&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> lastNum = num[s%<span class="number">10</span>]</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="string">&#x27;月 初&#x27;</span>+lastNum</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 十&#x27;</span>+lastNum</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 廿&#x27;</span>+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line">    <span class="comment">/* 添加星期几 */</span></span><br><span class="line">    <span class="string">&#x27;星期&#x27;</span>+num[today.<span class="title function_">getDay</span>()]</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_date;</span><br></pre></td></tr></table></figure>
 
 <h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><blockquote>
 <p>Templater&#x2F;添加今天日期.md</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.get_date() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_date() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>也可以放在动态模板中，就是把如下内容直接写在笔记里：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%+ tp.user.get_date() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.user.get_date() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>也可以在前面加上几个 <code>#</code> 让它输出为标题：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="section">## &lt;%+ tp.user.get<span class="emphasis">_date() %&gt;</span></span></span><br><span class="line"><span class="emphasis"><span class="section"></span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## &lt;%+ tp.user.get<span class="emphasis">_date() %&gt;</span></span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="cla9dljhk0011xgodgvd5abv4" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="cla9duj0h0011hoodckwqh7v9" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
       
       
       
@@ -404,7 +318,7 @@
     <article id="post-55d03008-d2b4-4270-862c-4a7278e43e41" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/55d03008-d2b4-4270-862c-4a7278e43e41/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T00:58:18.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T08:58:18.000Z" itemprop="datePublished">2022-10-17</time>
 </a>
     
   </div>
@@ -426,33 +340,22 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
 <hr>
 <p>前面大概把自己的思路、原则、用法说了一下。大家应该也对一些插件的工作方式有了了解。后面我主要就是分享我自己写的一些功能代码了。这里说明一些基础设定：</p>
 <h3 id="关于目录"><a href="#关于目录" class="headerlink" title="关于目录"></a>关于目录</h3><ul>
-<li><p><code>Scripts</code> 是脚本目录，js 文件放这里，Templater 设置中的脚本文件夹指向这里</p>
-</li>
-<li><p><code>Templater</code> 是 Templater 的模板目录，Templater 设置中的模板文件夹指向这里</p>
-</li>
-<li><p><code>CSS</code> 指的是“设置——外观——CSS 代码片段”中所指的路径 <code>.obsidian/snippets</code></p>
-</li>
+<li><code>Scripts</code> 是脚本目录，js 文件放这里，Templater 设置中的脚本文件夹指向这里</li>
+<li><code>Templater</code> 是 Templater 的模板目录，Templater 设置中的模板文件夹指向这里</li>
+<li><code>CSS</code> 指的是“设置——外观——CSS 代码片段”中所指的路径 <code>.obsidian/snippets</code></li>
 </ul>
 <h3 id="关于代码块"><a href="#关于代码块" class="headerlink" title="关于代码块"></a>关于代码块</h3><p>主要区分在语言标记：</p>
 <ul>
-<li><p>原生查询：<code>query</code></p>
-</li>
-<li><p>Dataview：<code>dataview</code></p>
-</li>
-<li><p>Dataview 的 JS 查询： <code>dataviewjs</code></p>
-</li>
-<li><p>Templater 的模板代码直接写，不要放在代码块里</p>
-</li>
+<li>原生查询：<code>query</code></li>
+<li>Dataview：<code>dataview</code></li>
+<li>Dataview 的 JS 查询： <code>dataviewjs</code></li>
+<li>Templater 的模板代码直接写，不要放在代码块里</li>
 </ul>
 <h3 id="关于注释"><a href="#关于注释" class="headerlink" title="关于注释"></a>关于注释</h3><p>正常使用是不需要注释的，而且不加注释性能还好一点，不过为了大家可以根据需求适当修改，我会尽量多写点。你可以删除注释，甚至压缩代码。</p>
 <h3 id="额外插件"><a href="#额外插件" class="headerlink" title="额外插件"></a>额外插件</h3><p>还是回归到原则，关注笔记本身，不依赖平台和插件。所以上面这些主要都是查询和流程自动化。软件外观啥的我并不太在乎，但如果可以生成好看的符合 Markdown 语法的笔记，我绝对不介意。</p>
@@ -461,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/55d03008-d2b4-4270-862c-4a7278e43e41/" data-id="cla9dljip0055xgodalomgong" data-title="0014 分享前的说明" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/55d03008-d2b4-4270-862c-4a7278e43e41/" data-id="cla9duj200055hoodh655hxpz" data-title="0014 分享前的说明" class="article-share-link">分享</a>
       
       
       
@@ -478,7 +381,7 @@
     <article id="post-3a7ffc6b-7681-4d59-8c5f-7007b6b07677" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T00:26:24.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T08:26:24.000Z" itemprop="datePublished">2022-10-17</time>
 </a>
     
   </div>
@@ -500,10 +403,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -528,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" data-id="cla9dlji7003cxgod6wnx9qnv" data-title="0013 真的快起来" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" data-id="cla9duj1c003chood5di79vl6" data-title="0013 真的快起来" class="article-share-link">分享</a>
       
       
       
@@ -545,7 +444,7 @@
     <article id="post-f3f84bcb-f021-486c-98c0-e9daaf1060d6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" class="article-date">
-  <time class="dt-published" datetime="2022-10-16T23:46:12.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T07:46:12.000Z" itemprop="datePublished">2022-10-17</time>
 </a>
     
   </div>
@@ -567,10 +466,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -578,36 +473,33 @@
 <p>起始页的其他信息也都是自己写 JS 实现的，这些留到后面去分享。我们先看看待办列表的汇总。</p>
 <p>其实我有一个 <code>Working List</code> 的文件，里面记录我的工作任务，这是一个树状列表，按项目，然后项目中的功能点，然后具体的子任务。这样结构清晰，也非常好读。不过这是记录，而在每天开始，我想看到的就是所有下一步想去做的小任务（标记 <code>#Next</code> 的任务）。</p>
 <p>这时候就可以书写一个查询（query），前面说过怎么用了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">task-todo: &quot;&quot;</span><br><span class="line"></span><br><span class="line">path:&quot;Inbox/List/Working List&quot;</span><br><span class="line"></span><br><span class="line">tag: #Next</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">task-todo: &quot;&quot;</span><br><span class="line">path:&quot;Inbox/List/Working List&quot;</span><br><span class="line">tag: #Next</span><br></pre></td></tr></table></figure>
 
 <p>稍微解读一下：</p>
 <ul>
-<li><p>第一行，任务，并且是 todo 状态的，里面包含什么关键词我不在意（双引号里面是关键词）。</p>
-</li>
-<li><p>第二行，文件的路径，我只想在这一个文件中查找</p>
-</li>
-<li><p>第三行，需要具有的标签</p>
-</li>
+<li>第一行，任务，并且是 todo 状态的，里面包含什么关键词我不在意（双引号里面是关键词）。</li>
+<li>第二行，文件的路径，我只想在这一个文件中查找</li>
+<li>第三行，需要具有的标签</li>
 </ul>
 <p>这三条是并列关系，就是说同时符合这三个条件的结果。你看，查询很好写，把条件列出来就行了。</p>
 <p>当然，如果你真的操作了一下的话，会发现事与愿违。仿佛 todo 这个要求被忽略了的样子。这时候变通一下，换成这样查询就行了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">task-todo: &quot;#Next&quot;</span><br><span class="line"></span><br><span class="line">path:&quot;Inbox/List/Working List&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">task-todo: &quot;#Next&quot;</span><br><span class="line">path:&quot;Inbox/List/Working List&quot;</span><br></pre></td></tr></table></figure>
 
 <p>至于为什么出问题，我也不了解。这种原生查询太弱了，而且样子也不好看，所以我既然装了 Dataview，当然是用 Dataview 了：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">task <span class="title class_">From</span> <span class="string">&quot;Inbox/List/Working List&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">WHERE</span> !completed <span class="variable constant_">AND</span> <span class="title function_">econtains</span>(tags, <span class="string">&quot;#Next&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">task <span class="title class_">From</span> <span class="string">&quot;Inbox/List/Working List&quot;</span></span><br><span class="line"><span class="variable constant_">WHERE</span> !completed <span class="variable constant_">AND</span> <span class="title function_">econtains</span>(tags, <span class="string">&quot;#Next&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>不解说了，只要大概认识里面单词就能明白意思，并且也能自己修改吧。放在标记为 <code>dataview</code> 的代码块里就能使用。</p>
 <p>上面的语法是 Dataview Query，所以和原生的 query 语法还是有那么一些类似的。我是比较懒的学习新语言了，毕竟这东西也只是笔记中使用，那我很快就会忘掉的。既然 Dataview 支持使用 JS，我更喜欢用 JS 去写。</p>
 <p>正好后面关于购物的部分，我所有购物内容都放在一个文件里，然后按标题区分列表，其中有一个标题“Waitinng”，表示正在寄送中的快递。你懂的，我现在要搜索的是某个文件中某个标题下面的内容。</p>
 <p>道理上这里要找 <code>section</code>（章节），然后判断它的 <code>subpath</code>，但是我用上面的 query 语法写怎么也不成功。于是就自己用 JS 解决了（放在标记为 <code>dataviewjs</code> 的代码块里）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> tasks = dv.<span class="title function_">page</span>(<span class="string">&quot;Inbox/List/Shopping List&quot;</span>)  <span class="comment">/* 指定文件 */</span></span><br><span class="line"></span><br><span class="line">.<span class="property">file</span>.<span class="property">tasks</span>  <span class="comment">/* 文件中的所有任务 */</span></span><br><span class="line"></span><br><span class="line">.<span class="title function_">filter</span>(  <span class="comment">/* 对任务进行过滤 */</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="params">e</span>=&gt;</span></span><br><span class="line"></span><br><span class="line">    !e.<span class="property">completed</span>  <span class="comment">/* 任务状态不是已完成 */</span></span><br><span class="line"></span><br><span class="line">    &amp;&amp; e.<span class="property">section</span>.<span class="property">subpath</span>===<span class="string">&#x27;Waiting&#x27;</span> <span class="comment">/* 并且 章节路径是 Waiting */</span></span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">dv.<span class="title function_">taskList</span>(  <span class="comment">/* 按任务列表格式输出 */</span></span><br><span class="line"></span><br><span class="line">  dv.<span class="title function_">array</span>(tasks),  <span class="comment">/* 把数组转换为 dataview 数组 */</span></span><br><span class="line"></span><br><span class="line">  <span class="literal">false</span>  <span class="comment">/* 不按文件分组 */</span></span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = dv.<span class="title function_">page</span>(<span class="string">&quot;Inbox/List/Shopping List&quot;</span>)  <span class="comment">/* 指定文件 */</span></span><br><span class="line">.<span class="property">file</span>.<span class="property">tasks</span>  <span class="comment">/* 文件中的所有任务 */</span></span><br><span class="line">.<span class="title function_">filter</span>(  <span class="comment">/* 对任务进行过滤 */</span></span><br><span class="line">  <span class="function"><span class="params">e</span>=&gt;</span></span><br><span class="line">    !e.<span class="property">completed</span>  <span class="comment">/* 任务状态不是已完成 */</span></span><br><span class="line">    &amp;&amp; e.<span class="property">section</span>.<span class="property">subpath</span>===<span class="string">&#x27;Waiting&#x27;</span> <span class="comment">/* 并且 章节路径是 Waiting */</span></span><br><span class="line">)</span><br><span class="line">dv.<span class="title function_">taskList</span>(  <span class="comment">/* 按任务列表格式输出 */</span></span><br><span class="line">  dv.<span class="title function_">array</span>(tasks),  <span class="comment">/* 把数组转换为 dataview 数组 */</span></span><br><span class="line">  <span class="literal">false</span>  <span class="comment">/* 不按文件分组 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>反正想套用应该能看出来改什么地方。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" data-id="cla9dljky00e7xgodcd3m252f" data-title="0012 数据汇总显示" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" data-id="cla9duj4d00e4hooddlficg5b" data-title="0012 数据汇总显示" class="article-share-link">分享</a>
       
       
       
@@ -624,7 +516,7 @@
     <article id="post-b61071db-77ac-4248-b9d7-c0262ef15304" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/b61071db-77ac-4248-b9d7-c0262ef15304/" class="article-date">
-  <time class="dt-published" datetime="2022-10-16T23:09:50.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T07:09:50.000Z" itemprop="datePublished">2022-10-17</time>
 </a>
     
   </div>
@@ -646,19 +538,15 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
 <hr>
 <p>就是把代码写到一个单独的 JS 文件，并导出：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> 函数名称 () &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用户代码</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = 函数名称;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> 函数名称 () &#123;</span><br><span class="line">  <span class="comment">// 用户代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = 函数名称;</span><br></pre></td></tr></table></figure>
 
 <p>JS 文件放在 Templater 的脚本文件夹下，使用的时候这样调用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.user.函数名称() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.函数名称() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>当然用 <code>&lt;%+ %&gt;</code> 或者 <code>&lt;%* %&gt;</code> 都是可以的，也可以和其他代码放在一起共用，总之，和日常使用 JS 区别不大。</p>
 <p>有人说，看出来了啊，上一篇的代码就是和 JS 混合书写的，那现在是不是把上一篇的代码复制过来做个完形填空就好呢？</p>
@@ -674,7 +562,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="cla9dljk000a9xgod8s2e9ndq" data-title="0011 用户函数" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="cla9duj3d00a6hoodbrar3s6j" data-title="0011 用户函数" class="article-share-link">分享</a>
       
       
       
@@ -691,7 +579,7 @@
     <article id="post-18e574ea-4bf4-436f-912c-813c52167be4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/18e574ea-4bf4-436f-912c-813c52167be4/" class="article-date">
-  <time class="dt-published" datetime="2022-10-16T00:54:44.000Z" itemprop="datePublished">2022-10-16</time>
+  <time class="dt-published" datetime="2022-10-16T08:54:44.000Z" itemprop="datePublished">2022-10-16</time>
 </a>
     
   </div>
@@ -713,10 +601,6 @@
         <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
 <li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
@@ -724,22 +608,22 @@
 <p>Templater 是个很强大的插件。</p>
 <p>一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。</p>
 <p>一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.date.now() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>然后在需要的时候调用就可以实现插入时间了。</p>
 <p>我们也可以格式化时间，可以参照这里：<a target="_blank" rel="noopener" href="https://momentjs.com/docs/#/displaying/">https://momentjs.com/docs/#/displaying/</a></p>
 <p>反正 Temlater 中时间日期部分用的 <a target="_blank" rel="noopener" href="https://momentjs.com/docs/">Moment.js</a> ，多数东西都可以照搬，能弄出一些有趣的玩法。</p>
 <h3 id="动态显示"><a href="#动态显示" class="headerlink" title="动态显示"></a>动态显示</h3><p>我的入口笔记是不变的（不是每天新建），而上面方法插入的是静态内容，就是插入以后就不变化了。显然这不适合我，我要笔记永远显示当天的日期，也很简单：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%+ tp.date.now() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>注意区别，就是前面多了一个加号。这个代码可以直接写在笔记中。这被称作为动态模板，在每次预览笔记的时候渲染一次。所以每次预览，这里都会显示为当前日期。</p>
 <p>注意一个文档中没有提及的点：<strong>动态模板输出的内容会当作文本显示，各种标记，换行均会显示为纯文本</strong>。我被这个坑折磨了好一会儿的。</p>
 <h3 id="显示农历"><a href="#显示农历" class="headerlink" title="显示农历"></a>显示农历</h3><p>这要用到 JS。核心代码很简单：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>获取日期，转换为本地日期格式，然后地区设置为中国本土日历。但是结果显示的有点怪：2022年九月20。</p>
 <p>一般来说我们不关注年份，所以可以把年份去掉，后面的 20 改成中文数字。意义都一样，就是看着舒服点。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%*</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line"></span><br><span class="line">   * 上面星号表示运行代码中的 JS</span><br><span class="line"></span><br><span class="line">   * tR 是要输出的内容，往里面追加即可</span><br><span class="line"></span><br><span class="line">   * 下面将当前日期加入了输出，并在后面加上空格</span><br><span class="line"></span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">  tR += tp.date.now()+&#x27; &#x27;</span><br><span class="line"></span><br><span class="line">  /* JS 中获取当前时间对象备用 */</span><br><span class="line"></span><br><span class="line">  const today = new Date()</span><br><span class="line"></span><br><span class="line">  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span><br><span class="line"></span><br><span class="line">  const num = [&#x27;日&#x27;, &#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;, &#x27;五&#x27;, &#x27;六&#x27;, &#x27;七&#x27;, &#x27;八&#x27;, &#x27;九&#x27;]</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line"></span><br><span class="line">   * 第一行：获取农历日期</span><br><span class="line"></span><br><span class="line">   * 第二行：替换掉年份</span><br><span class="line"></span><br><span class="line">   * 第三行：将日期替换为中文写法</span><br><span class="line"></span><br><span class="line">   * 末尾：加上空格分隔</span><br><span class="line"></span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">  tR += today.toLocaleDateString(&#x27;zh-CN-u-ca-chinese&#x27;)</span><br><span class="line"></span><br><span class="line">    .replace(/(\d+)\s*?年\s*/, &#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">    .replace(/月(\d+)/, (m, s)=&gt;&#123;</span><br><span class="line"></span><br><span class="line">      s = Number(s)</span><br><span class="line"></span><br><span class="line">      if(s===20) return &#x27;月 二十&#x27;</span><br><span class="line"></span><br><span class="line">      if(s===30) return &#x27;月 三十&#x27;</span><br><span class="line"></span><br><span class="line">      const lastNum = num[s%10]</span><br><span class="line"></span><br><span class="line">      if(s&lt;10) return &#x27;月 初&#x27;+lastNum</span><br><span class="line"></span><br><span class="line">      if(s&lt;20) return &#x27;月 十&#x27;+lastNum</span><br><span class="line"></span><br><span class="line">      if(s&lt;30) return &#x27;月 廿&#x27;+lastNum</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    +&#x27; &#x27;</span><br><span class="line"></span><br><span class="line">  /* 加上星期几 */</span><br><span class="line"></span><br><span class="line">  tR += &#x27;星期&#x27;+num[today.getDay()]</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;%*</span><br><span class="line">  /**</span><br><span class="line">   * 上面星号表示运行代码中的 JS</span><br><span class="line">   * tR 是要输出的内容，往里面追加即可</span><br><span class="line">   * 下面将当前日期加入了输出，并在后面加上空格</span><br><span class="line">   */</span><br><span class="line">  tR += tp.date.now()+&#x27; &#x27;</span><br><span class="line">  /* JS 中获取当前时间对象备用 */</span><br><span class="line">  const today = new Date()</span><br><span class="line">  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span><br><span class="line">  const num = [&#x27;日&#x27;, &#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;, &#x27;五&#x27;, &#x27;六&#x27;, &#x27;七&#x27;, &#x27;八&#x27;, &#x27;九&#x27;]</span><br><span class="line">  /**</span><br><span class="line">   * 第一行：获取农历日期</span><br><span class="line">   * 第二行：替换掉年份</span><br><span class="line">   * 第三行：将日期替换为中文写法</span><br><span class="line">   * 末尾：加上空格分隔</span><br><span class="line">   */</span><br><span class="line">  tR += today.toLocaleDateString(&#x27;zh-CN-u-ca-chinese&#x27;)</span><br><span class="line">    .replace(/(\d+)\s*?年\s*/, &#x27;&#x27;)</span><br><span class="line">    .replace(/月(\d+)/, (m, s)=&gt;&#123;</span><br><span class="line">      s = Number(s)</span><br><span class="line">      if(s===20) return &#x27;月 二十&#x27;</span><br><span class="line">      if(s===30) return &#x27;月 三十&#x27;</span><br><span class="line">      const lastNum = num[s%10]</span><br><span class="line">      if(s&lt;10) return &#x27;月 初&#x27;+lastNum</span><br><span class="line">      if(s&lt;20) return &#x27;月 十&#x27;+lastNum</span><br><span class="line">      if(s&lt;30) return &#x27;月 廿&#x27;+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +&#x27; &#x27;</span><br><span class="line">  /* 加上星期几 */</span><br><span class="line">  tR += &#x27;星期&#x27;+num[today.getDay()]</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
 <p>我添加了注释，这样即便不懂代码，也可以稍微修改一些细节。最终效果：</p>
 <p>2022-10-15 九月 二十 星期六</p>
@@ -749,7 +633,79 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9dljhq001gxgodbbpe9ov1" data-title="0010 从时间说模板" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9duj0o001ghood0ynqbutu" data-title="0010 从时间说模板" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-af4b2aef-b811-467b-a1b1-8261ffdb4b9e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" class="article-date">
+  <time class="dt-published" datetime="2022-10-15T23:07:28.000Z" itemprop="datePublished">2022-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">0009 题头图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>开始我写了一个模板，后来发现并不需要，就直接添加图片就可以了。</p>
+<p>废话，往笔记里加图片可不就直接添加图片就可以了么。</p>
+<p>但是要每一天都看相同的图片，肯定会腻的，就希望它自己变。所以我用了一个随机图片 API：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">随机题图</span>](<span class="link">https://picsum.photos/800/300</span>)</span><br></pre></td></tr></table></figure>
+
+<p>两个数字是图片的宽度和高度，其实图片是相对方正的，所以特殊尺寸是裁剪后的结果，所以高度太小效果不好。</p>
+<p>会有缓存，想看新图片要关闭笔记再打开（不是关闭软件）。一般来说这种方式足够用了。</p>
+<p>还有很多随机图片 API 可用，不列举了，自己找着玩吧。</p>
+<h3 id="用-Templater"><a href="#用-Templater" class="headerlink" title="用 Templater"></a>用 Templater</h3><p>然后 Templater 插件提供了一个，用的是 Unsplash 的 Api（访问可能费劲一点），不过包装了一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.web.random_picture() %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>详细可以阅读这里：<a target="_blank" rel="noopener" href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/web-module.html#tpwebrandom_picturesize-string-query-string-include_size-boolean">tp.web.random_picture</a></p>
+<p>这种方式的好处是：随机，但是保存的是图片对应的地址，就不会发生下次打开看到别的图片的情况。适合于给每天一篇日记套模板的情况。</p>
+<h3 id="奇怪的思路"><a href="#奇怪的思路" class="headerlink" title="奇怪的思路"></a>奇怪的思路</h3><p>我收藏了一个占位图片 API，占位图片就是做网页的时候某个地方要展示一张图片，但是并没有具体的图片，毕竟可能设计师还在做，或者后期动态展示相关图片，那就先放一张别的图片占位。但是可能需要各种尺寸的图片，而且为了展示效果，可能需要图片颜色啥的一致，为了后期方便可能在上面标注图片尺寸啊，这是什么啊……不可能每次都开 PS 制作，所以就借助 API 生成。</p>
+<p>那如果用这个 API 生成题图呢？你可以自己去研究一下：<a target="_blank" rel="noopener" href="https://fakeimg.pl/">https://fakeimg.pl/</a>。</p>
+<p>效果大概是这样的，注意，字体必须是 note，否则没法显示中文：</p>
+<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%A0%87%E9%A2%98%E6%8D%8F&font=noto"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">https://fakeimg.pl/640x200/FFAAAA/333/?text=这是一个标题捏&amp;font=noto</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这种最好也搭配 Templater 来根据文章标题生成，省得自己还得自己修改，就像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](https://fakeimg.pl/640x200/FFAAAA/333/?text=&lt;% encodeURIComponent(tp.file.title) %&gt;&amp;font=noto)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=0009%20%E9%A2%98%E5%A4%B4%E5%9B%BE%E7%89%87&font=noto"></p>
+<p>这里的关键点是要 <code>encodeURIComponent</code>，这样特殊字符（比如空格）才会被正确的传递。</p>
+<p>也可以搞随机颜色，虽然不支持随机渐变色。这篇就不搞这么复杂了，以后可能单独去写。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zji.me/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" data-id="cla9duj3c009zhood9slzeqiq" data-title="0009 题头图片" class="article-share-link">分享</a>
       
       
       

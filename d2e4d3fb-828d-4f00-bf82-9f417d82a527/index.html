@@ -1,256 +1,185 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="" />
+  <meta name="referrer" content="unsafe-url">
+  
+  <title>Tab Resize</title>
+  <meta name="author" content="稻米鼠">
+  <meta name="description" content="快速调整 Chrome 窗口尺寸，实现多窗口分屏排布。
+想法很好，我也听需要的。但是一般 Windows 自带的分屏功能就可以实现了。而且 Chrome 不能隐藏标题栏、地址栏，我又习惯显示书签栏。分屏体验并不好，所以基本也不会用。【地址】： https://chrome.google.com/we">
   
   
-  <title>Tab Resize | 自己的自己</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="快速调整 Chrome 窗口尺寸，实现多窗口分屏排布。 想法很好，我也听需要的。但是一般 Windows 自带的分屏功能就可以实现了。而且 Chrome 不能隐藏标题栏、地址栏，我又习惯显示书签栏。分屏体验并不好，所以基本也不会用。【地址】： https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;bkpenclhmiealbebdopglffmfdiilejc">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Tab Resize">
-<meta property="og:url" content="https://zji.me/d2e4d3fb-828d-4f00-bf82-9f417d82a527/">
-<meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="快速调整 Chrome 窗口尺寸，实现多窗口分屏排布。 想法很好，我也听需要的。但是一般 Windows 自带的分屏功能就可以实现了。而且 Chrome 不能隐藏标题栏、地址栏，我又习惯显示书签栏。分屏体验并不好，所以基本也不会用。【地址】： https:&#x2F;&#x2F;chrome.google.com&#x2F;webstore&#x2F;detail&#x2F;bkpenclhmiealbebdopglffmfdiilejc">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-05T16:02:18.000Z">
-<meta property="article:modified_time" content="2022-11-09T05:01:40.000Z">
-<meta property="article:author" content="稻米鼠">
-<meta property="article:tag" content="Software">
-<meta property="article:tag" content="Software&#x2F;Free">
-<meta property="article:tag" content="Software&#x2F;Chrome">
-<meta property="article:tag" content="Published">
-<meta property="article:tag" content="Blog">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="自己的自己" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta property="og:title" content="Tab Resize"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="自己的自己"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="自己的自己" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">自己的自己</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">怎么办怎么办，老鼠是笨蛋！</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zji.me"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-d2e4d3fb-828d-4f00-bf82-9f417d82a527" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/d2e4d3fb-828d-4f00-bf82-9f417d82a527/" class="article-date">
-  <time class="dt-published" datetime="2019-12-05T16:02:18.000Z" itemprop="datePublished">2019-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <a id="top"></a>
+  <div id="main">
+    <div class="main-ctnr">
+      <div class="behind">
+  <a href="/" class="back black-color">
+    <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+        <path d="M2 30 L30 2 M30 30 L2 2"></path>
+    </svg>
+  </a>
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      Tab Resize
+    <div class="description">
+      &nbsp;怎么办怎么办，老鼠是笨蛋！
+    </div>
+    
+</div>
+
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        Tab Resize
     </h1>
   
 
-      </header>
+
+    </div>
+    <div class="meta center">
+      <time datetime="2019-12-05T16:02:18.000Z" itemprop="datePublished">
+  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2019-12-06
+</time>
+
+
+
+
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/Software/">Software</a>·<a href="/tags/Software-Free/">Software/Free</a>·<a href="/tags/Software-Chrome/">Software/Chrome</a>·<a href="/tags/Published/">Published</a>·<a href="/tags/Blog/">Blog</a>
+
+
+    </div>
+    <hr>
+    
       
-        <p>快速调整 Chrome 窗口尺寸，实现多窗口分屏排布。</p>
+    
+    <div class="picture-container">
+      
+    </div>
+    <p>快速调整 Chrome 窗口尺寸，实现多窗口分屏排布。</p>
 <p>想法很好，我也听需要的。但是一般 Windows 自带的分屏功能就可以实现了。而且 Chrome 不能隐藏标题栏、地址栏，我又习惯显示书签栏。分屏体验并不好，所以基本也不会用。<br>【地址】： <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/bkpenclhmiealbebdopglffmfdiilejc">https://chrome.google.com/webstore/detail/bkpenclhmiealbebdopglffmfdiilejc</a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zji.me/d2e4d3fb-828d-4f00-bf82-9f417d82a527/" data-id="cla9fg49f00bkpcodb62zdqfk" data-title="Tab Resize" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li></ul>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/f5e79d9e-3f35-491d-9898-4ff27fcadcd9/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Chromoji
-        
-      </div>
-    </a>
-  
-  
-    <a href="/a4e99f20-386d-4c6c-be00-88b194423993/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Web Developer</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
-    </div>
+  </article>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
   </div>
 
 
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Note-Article/" style="font-size: 17.22px;">Note/Article</a> <a href="/tags/Note-Note/" style="font-size: 17.22px;">Note/Note</a> <a href="/tags/Note-Obsidian/" style="font-size: 17.22px;">Note/Obsidian</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 19.44px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 15.56px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 17.78px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.11px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.33px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 18.89px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.67px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 13.89px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.11px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.33px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.56px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 16.67px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.56px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.33px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 14.44px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.22px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.11px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.56px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.78px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 12.78px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/cb1cd6f2-2b57-4dad-b378-0f15732fea2d/">0049 Markdown 是什么</a>
-          </li>
-        
-          <li>
-            <a href="/c476329c-da7c-4f53-b1d2-cf976fb3c2d1/">0048 教你笔记分栏-Dataview</a>
-          </li>
-        
-          <li>
-            <a href="/4b5b6eff-310e-407a-9263-6cba4cebf626/">0047 文字卡片-Templater</a>
-          </li>
-        
-          <li>
-            <a href="/438980cc-f26a-4bfd-930f-1105577296a7/">0046 时间条-Dataview</a>
-          </li>
-        
-          <li>
-            <a href="/d3e84c60-6256-4746-a8a8-086b5b1cae9a/">0045 Heatmap-Dataview</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 稻米鼠<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+
+
     </div>
   </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © XXX 2016-2020
+    </div>
+    <div class="secondrow">
+        <a target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
 </footer>
+  <script type="text/javascript">
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+// disqus scripts
 
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+// dropdown scripts
+function $(s) {
+    return document.querySelector(s)
+  }
 
+  function $$(s) {
+    return document.querySelectorAll(s)
+  }
+  var dropDownElArr = $$('.dropdown')
+  for (var i = 0; i < dropDownElArr.length; i += 1) {
+    dropDownElArr[i].addEventListener('click', function(event) {
+      var content = this.querySelector('.dropdown-content')
+      event.stopPropagation()
+      if (content.className.indexOf('open') < 0) {
+        content.classList.add('open')
+      } else {
+        content.classList.remove('open')
+      }
+    })
+  }
+  document.body.addEventListener('click', function() {
+    var dropDownContentElArr = $$('.dropdown-content')
+    for (var i = 0; i < dropDownContentElArr.length; i += 1) {
+      dropDownContentElArr[i].classList.remove('open')
+    }
+  })
 
+  // smooth scroll
+  $$('a[href^="#"]').forEach(e=>{
+    e.addEventListener("click", function(e) {
+      e.preventDefault();
+      var t = this.getAttribute("href").substr(1);
+      $(`[id='${decodeURIComponent(t)}']`).scrollIntoView({
+        behavior: "smooth"
+      }),
+      t === "top" ? history.replaceState(null, null, " ") : history.pushState(null, null, `#${t}`)
+    })
+  })
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+// search
+var searchEl = document.querySelector("#local-search-input")
+if (searchEl) searchEl.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    var s = e.target.value
+    window.open('//www.google.com/search?q=site:https://zji.me%20' + s, '_blank').focus()
+  }
+})
 
+</script>
 
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>

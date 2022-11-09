@@ -75,57 +75,45 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-d577588c-ae4f-413b-9cdb-f29f3a4af3b6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-9f81fd11-3b6c-43d8-8349-a509bd2ecc3b" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T20:08:48.000Z" itemprop="datePublished">2022-10-18</time>
+    <a href="/9f81fd11-3b6c-43d8-8349-a509bd2ecc3b/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.827Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/">0019 标签索引补遗-Dataview</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-22 04:59:58<br>updated: 2022-11-09 16:25:06<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 9f81fd11-3b6c-43d8-8349-a509bd2ecc3b<br>title: 0033 侧边栏按钮排序-CSS-Snippets<br>date: 2022-10-22 04:59:58<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>做了标签索引页，标签变得有条理了。</p>
-<p>但想必在制作的过程中你就发现了一个问题：哪些标签已经登记好了，哪些标签还没登记，很容易闹不清啊，所以有点越整理越乱。</p>
-<p>什么，你没感觉？！你笔记都不够两位数，先别说话，乖乖记笔记去。</p>
-<p>所以整理过程中我用了两个查询辅助（均使用 dataviewjs 代码块插入）：</p>
-<h3 id="无标签笔记"><a href="#无标签笔记" class="headerlink" title="无标签笔记"></a>无标签笔记</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 获取所有页面，然后过滤，条件是没有标签 */</span></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">where</span>(<span class="function"><span class="params">b</span> =&gt;</span> !b.<span class="property">tags</span>);</span><br><span class="line"><span class="comment">/* 输出标题，这里标题中加上了数量 */</span></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">2</span>, <span class="string">&quot;无标签笔记 - &quot;</span>+pages.<span class="property">length</span>)</span><br><span class="line"><span class="comment">/* 输出笔记列表 */</span></span><br><span class="line">dv.<span class="title function_">list</span>(pages.<span class="property">file</span>.<span class="property">link</span>);</span><br></pre></td></tr></table></figure>
-
-<p>三句代码，效果我挺满意的。</p>
-<h3 id="未索引标签"><a href="#未索引标签" class="headerlink" title="未索引标签"></a>未索引标签</h3><p>列出所有当前文件不具有的标签。（如果标签在当前页面中，那显然就是在上面索引中登记了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 获取当前页面中所有标签 */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">IndexTags</span> = dv.<span class="title function_">current</span>().<span class="property">file</span>.<span class="property">etags</span>;</span><br><span class="line"><span class="comment">/* 查询所有包含标签的页面 */</span></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">where</span>(<span class="function"><span class="params">b</span> =&gt;</span> b.<span class="property">tags</span> &amp;&amp; b.<span class="property">tags</span>.<span class="property">length</span>);</span><br><span class="line"><span class="comment">/* 准备一个标签对象 */</span></span><br><span class="line"><span class="keyword">const</span> tags = &#123;&#125;;</span><br><span class="line"><span class="comment">/* 遍历所有标签，并计数 */</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> t <span class="keyword">of</span> pages.<span class="property">file</span>.<span class="property">tags</span>)&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title class_">IndexTags</span>.<span class="title function_">indexOf</span>(t)===-<span class="number">1</span>)&#123;</span><br><span class="line">    tags[t] = tags[t] ? tags[t]+<span class="number">1</span> : <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 准备一个标签数组 */</span></span><br><span class="line"><span class="keyword">const</span> tagsList = []</span><br><span class="line"><span class="comment">/* 将标签整理后存入数组 */</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> t <span class="keyword">in</span> tags)&#123;</span><br><span class="line">  tagsList.<span class="title function_">push</span>(t+<span class="string">&#x27; &#x27;</span>+tags[t])</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 输出标题，包含标签数量 */</span></span><br><span class="line">dv.<span class="title function_">header</span>(<span class="number">2</span>, <span class="string">&quot;未索引标签 - &quot;</span>+tagsList.<span class="property">length</span>)</span><br><span class="line"><span class="comment">/* 输出标签列表 */</span></span><br><span class="line">dv.<span class="title function_">list</span>(tagsList)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>这样把未整理的都列出来，甚至标记上数量，就非常方便整理。这些查询也可以用其他方式书写，代码可以再简洁一些。不过我喜欢把数量显示出来，看着爽！</p>
-
+        
+          <p class="article-more-link">
+            <a href="/9f81fd11-3b6c-43d8-8349-a509bd2ecc3b/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" data-id="cla9dymne00bpjoodbxur1xeg" data-title="0019 标签索引补遗-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/9f81fd11-3b6c-43d8-8349-a509bd2ecc3b/" data-id="cla9eor7i003qp0od360204mf" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -134,60 +122,45 @@
 
 
   
-    <article id="post-fcfd5a19-2066-4e9b-9716-b9effb583d4c" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-6fc1b09c-90bf-4904-bd3a-4599c7a0eb26" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T18:49:54.000Z" itemprop="datePublished">2022-10-18</time>
+    <a href="/6fc1b09c-90bf-4904-bd3a-4599c7a0eb26/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.825Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/fcfd5a19-2066-4e9b-9716-b9effb583d4c/">0017 YearProgress-Templater</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-23 06:14:52<br>updated: 2022-11-09 16:25:06<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 6fc1b09c-90bf-4904-bd3a-4599c7a0eb26<br>title: 0034 今天吃啥-Dataview<br>date: 2022-10-23 06:14:52<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>Year progress: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 79.12%</p>
-<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
-<p>Scripts&#x2F;get_year_progress.js</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 此函数有一个参数，用来设定进度条的总长度</span></span><br><span class="line"><span class="comment"> * 默认值是 20，一般没啥问题，不懂就不用管</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get_year_progress</span>(<span class="params">length=<span class="number">20</span></span>)&#123;</span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line">  <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="comment">/* 获取当前年份 */</span></span><br><span class="line">  <span class="keyword">const</span> year = now.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="comment">/* 获取年初时间点 */</span></span><br><span class="line">  <span class="keyword">const</span> yearStart = <span class="keyword">new</span> <span class="title class_">Date</span>(year, <span class="number">0</span>)</span><br><span class="line">  <span class="comment">/* 获取年末时间点 */</span></span><br><span class="line">  <span class="keyword">const</span> yearEnd = <span class="keyword">new</span> <span class="title class_">Date</span>(year+<span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line">  <span class="comment">/* 获取年进度，0~1 的小数 */</span></span><br><span class="line">  <span class="keyword">const</span> progress = (now-yearStart)/(yearEnd-yearStart)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 进度条前半段</span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示已度过的时间</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> prefix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;▓&#x27;</span>)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 进度条后半段</span></span><br><span class="line"><span class="comment">   * 后面引号中的字符用来表示未度过的时间</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">const</span> suffix = <span class="string">&#x27;&#x27;</span>.<span class="title function_">padStart</span>(length-<span class="title class_">Math</span>.<span class="title function_">round</span>(length*progress), <span class="string">&#x27;░&#x27;</span>)</span><br><span class="line">  <span class="comment">/* 组合字符串并返回 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;Year progress: &#x27;</span>+prefix+suffix+<span class="string">&#x27; &#x27;</span>+(progress*<span class="number">100</span>).<span class="title function_">toFixed</span>(<span class="number">2</span>)+<span class="string">&#x27;%&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_year_progress;</span><br></pre></td></tr></table></figure>
-
-<h3 id="模板代码"><a href="#模板代码" class="headerlink" title="模板代码"></a>模板代码</h3><blockquote>
-<p>Templater&#x2F;添加年进度.md</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_year_progress() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>如果需要修改进度条长度可以在小括号里加入参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_year_progress(12) %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>可以在笔记里直接使用动态模板：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.user.get_year_progress() %&gt;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/6fc1b09c-90bf-4904-bd3a-4599c7a0eb26/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="cla9dymoa00ewjood8q1egmly" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/6fc1b09c-90bf-4904-bd3a-4599c7a0eb26/" data-id="cla9eor77002rp0od4zcd2xbm" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -196,55 +169,45 @@
 
 
   
-    <article id="post-2c870949-e965-4fcc-b0c0-0522bdf29779" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-43444f5e-4bbd-4308-bb2c-38d8815abd14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2c870949-e965-4fcc-b0c0-0522bdf29779/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T18:21:00.000Z" itemprop="datePublished">2022-10-18</time>
+    <a href="/43444f5e-4bbd-4308-bb2c-38d8815abd14/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.823Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2c870949-e965-4fcc-b0c0-0522bdf29779/">0016 指定目录笔记漫游-Dataview</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-24 05:56:52<br>updated: 2022-11-09 16:23:12<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 43444f5e-4bbd-4308-bb2c-38d8815abd14<br>password: mikemessi<br>abstract: 这是一篇付费文章，请在 <a href="https://afdian.net/item?plan_id=e808efe84f7a11ed86ec52540025c377" target="_blank">爱发电</a> 购买后用密码解锁。<br>message: 这是一篇付费文章，请在 <a target="_blank" rel="noopener" href="https://afdian.net/a/daomishu">https://afdian.net/a/daomishu</a> 进行购买。<br>wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.<br>wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.<br>title: 0035 把收藏夹装进笔记-Dataview<br>date: 2022-10-24 05:56:52<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>Obsidian 本身有笔记漫游功能，这个功能很好，能让我回忆起一些已经遗忘的知识。</p>
-<p>但，它是在所有笔记中漫游。那我的模板文件夹里的东西也被拿出来漫游就挺奇怪的。以及漫游到我每天都看的列表文件也挺奇怪的。</p>
-<p>Obisidan，垃圾捏！所以自己写一个！（方便捏~</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>这个必须在给代码之前讲一下。实现很简单，找到所有的笔记，过滤一下，生成一个随机数，选中对应笔记，跳转……</p>
-<p>问题就出在跳转上，这篇用来漫游的笔记打开就随机跳转了，功能上完全符合，但没法在 Obsidian 里面编辑，所以以后修改的时候要用第三方编辑器。</p>
-<p>小瑕疵，反正设定好以后也没啥可改的。（反正改代码我都开 VS Code</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>新建一篇笔记，建立一个 <code>dataviewjs</code> 代码块，放入以下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 下面数组是要排除的文件夹</span></span><br><span class="line"><span class="comment"> * 需要把每一个文件夹及子文件夹逐一列出</span></span><br><span class="line"><span class="comment"> * 确实麻烦了点，但这样不用学习正则，也避免一些特殊字符的干扰</span></span><br><span class="line"><span class="comment"> * 如果你会正则，那大概你也能自行修改过滤方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> pathBlackList = [</span><br><span class="line">  <span class="string">&#x27;Templates/Obsidian&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Templates/Scripts&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Templates/Templater&#x27;</span>,</span><br><span class="line">]</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取所有页面并过滤</span></span><br><span class="line"><span class="comment"> * dv.pages() 的参数本身就可以过滤</span></span><br><span class="line"><span class="comment"> * 这里使用专门的过滤函数是为了更复杂的过滤，根据需求选择</span></span><br><span class="line"><span class="comment"> * filter 方法和 dataview 提供的 where 方法几乎可以互换</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> pages = dv.<span class="title function_">pages</span>().<span class="title function_">filter</span>(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 第一个条件是判断文件后缀，排除图片等文件</span></span><br><span class="line"><span class="comment">   * 第二个是判断路径不在上面数组中，如果去掉感叹号就成了白名单过滤了</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">return</span> e.<span class="property">file</span>.<span class="property">ext</span> === <span class="string">&#x27;md&#x27;</span></span><br><span class="line">  &amp;&amp; !pathBlackList.<span class="title function_">includes</span>(e.<span class="property">file</span>.<span class="property">folder</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/* 生成随机数，选取笔记，获取对应的地址 */</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">encodeURIComponent</span>( pages[ <span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>()*pages.<span class="property">length</span>) ].<span class="property">file</span>.<span class="property">path</span> ) </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 打开当前 vault 中的对应笔记</span></span><br><span class="line"><span class="comment"> * 注释掉下面代码就不会跳转了，就可以在 Obsidian 中编辑了</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">open</span>(<span class="string">&#x27;obsidian://open?file=&#x27;</span>+path)</span><br></pre></td></tr></table></figure>
-
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>过滤条件有很多设定方式，实在难以逐条举例，为了方便没有 JS 和正则基础的朋友使用，所以用了最稳妥的方案。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/43444f5e-4bbd-4308-bb2c-38d8815abd14/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/2c870949-e965-4fcc-b0c0-0522bdf29779/" data-id="cla9dyml0002ujoodh1qhd2bf" data-title="0016 指定目录笔记漫游-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/43444f5e-4bbd-4308-bb2c-38d8815abd14/" data-id="cla9eor6x001up0odcj9a6a6p" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -253,60 +216,45 @@
 
 
   
-    <article id="post-13d13397-3ef8-4f86-9f10-8ae94bae00b3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-7857e9c1-dc7b-42f2-949a-6f0fb397b6df" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T09:22:19.000Z" itemprop="datePublished">2022-10-17</time>
+    <a href="/7857e9c1-dc7b-42f2-949a-6f0fb397b6df/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.821Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/13d13397-3ef8-4f86-9f10-8ae94bae00b3/">0015 日期模板含农历-Templater</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-25 13:04:46<br>updated: 2022-11-09 16:25:06<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 7857e9c1-dc7b-42f2-949a-6f0fb397b6df<br>title: 0036 更好的笔记目录-Dataview<br>date: 2022-10-25 13:04:46<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>2022-10-16 九月 廿一 星期日</p>
-<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
-<p>Scritps&#x2F;get_date.js</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">get_date</span> () &#123;</span><br><span class="line">  <span class="comment">/* 获取当前时间对象 */</span></span><br><span class="line">  <span class="keyword">const</span> today = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="comment">/* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span></span><br><span class="line">  <span class="keyword">const</span> num = [<span class="string">&#x27;日&#x27;</span>, <span class="string">&#x27;一&#x27;</span>, <span class="string">&#x27;二&#x27;</span>, <span class="string">&#x27;三&#x27;</span>, <span class="string">&#x27;四&#x27;</span>, <span class="string">&#x27;五&#x27;</span>, <span class="string">&#x27;六&#x27;</span>, <span class="string">&#x27;七&#x27;</span>, <span class="string">&#x27;八&#x27;</span>, <span class="string">&#x27;九&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 返回字符串用来输出 */</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="comment">/* 日期，这里指定地区为了保证格式符合预期 */</span></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN&#x27;</span>)</span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line">    <span class="comment">/* 获取含农历日期 */</span></span><br><span class="line">    today.<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br><span class="line">    <span class="comment">/* 替换掉年份部分 */</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/(\d+)\s*?年\s*/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="comment">/* 日期换为中文写法 */</span></span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/月(\d+)/</span>, <span class="function">(<span class="params">m, s</span>)=&gt;</span>&#123;</span><br><span class="line">      s = <span class="title class_">Number</span>(s)</span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 二十&#x27;</span></span><br><span class="line">      <span class="keyword">if</span>(s===<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 三十&#x27;</span></span><br><span class="line">      <span class="keyword">const</span> lastNum = num[s%<span class="number">10</span>]</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="string">&#x27;月 初&#x27;</span>+lastNum</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">20</span>) <span class="keyword">return</span> <span class="string">&#x27;月 十&#x27;</span>+lastNum</span><br><span class="line">      <span class="keyword">if</span>(s&lt;<span class="number">30</span>) <span class="keyword">return</span> <span class="string">&#x27;月 廿&#x27;</span>+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +<span class="string">&#x27; &#x27;</span>+</span><br><span class="line">    <span class="comment">/* 添加星期几 */</span></span><br><span class="line">    <span class="string">&#x27;星期&#x27;</span>+num[today.<span class="title function_">getDay</span>()]</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_date;</span><br></pre></td></tr></table></figure>
-
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><blockquote>
-<p>Templater&#x2F;添加今天日期.md</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_date() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>也可以放在动态模板中，就是把如下内容直接写在笔记里：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.user.get_date() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>也可以在前面加上几个 <code>#</code> 让它输出为标题：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## &lt;%+ tp.user.get<span class="emphasis">_date() %&gt;</span></span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/7857e9c1-dc7b-42f2-949a-6f0fb397b6df/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="cla9dymkd0011jood78if3gm5" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/7857e9c1-dc7b-42f2-949a-6f0fb397b6df/" data-id="cla9eor78002xp0od4p6x0rrz" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -315,61 +263,45 @@
 
 
   
-    <article id="post-55d03008-d2b4-4270-862c-4a7278e43e41" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-037d697c-f692-4688-a342-21d0c09b882d" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/55d03008-d2b4-4270-862c-4a7278e43e41/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T08:58:18.000Z" itemprop="datePublished">2022-10-17</time>
+    <a href="/037d697c-f692-4688-a342-21d0c09b882d/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.817Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/55d03008-d2b4-4270-862c-4a7278e43e41/">0014 分享前的说明</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-27 19:24:55<br>updated: 2022-11-09 16:25:06<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 037d697c-f692-4688-a342-21d0c09b882d<br>title: 0038 万圣节一下子 CSS Snippets<br>date: 2022-10-27 19:24:55<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>前面大概把自己的思路、原则、用法说了一下。大家应该也对一些插件的工作方式有了了解。后面我主要就是分享我自己写的一些功能代码了。这里说明一些基础设定：</p>
-<h3 id="关于目录"><a href="#关于目录" class="headerlink" title="关于目录"></a>关于目录</h3><ul>
-<li><code>Scripts</code> 是脚本目录，js 文件放这里，Templater 设置中的脚本文件夹指向这里</li>
-<li><code>Templater</code> 是 Templater 的模板目录，Templater 设置中的模板文件夹指向这里</li>
-<li><code>CSS</code> 指的是“设置——外观——CSS 代码片段”中所指的路径 <code>.obsidian/snippets</code></li>
-</ul>
-<h3 id="关于代码块"><a href="#关于代码块" class="headerlink" title="关于代码块"></a>关于代码块</h3><p>主要区分在语言标记：</p>
-<ul>
-<li>原生查询：<code>query</code></li>
-<li>Dataview：<code>dataview</code></li>
-<li>Dataview 的 JS 查询： <code>dataviewjs</code></li>
-<li>Templater 的模板代码直接写，不要放在代码块里</li>
-</ul>
-<h3 id="关于注释"><a href="#关于注释" class="headerlink" title="关于注释"></a>关于注释</h3><p>正常使用是不需要注释的，而且不加注释性能还好一点，不过为了大家可以根据需求适当修改，我会尽量多写点。你可以删除注释，甚至压缩代码。</p>
-<h3 id="额外插件"><a href="#额外插件" class="headerlink" title="额外插件"></a>额外插件</h3><p>还是回归到原则，关注笔记本身，不依赖平台和插件。所以上面这些主要都是查询和流程自动化。软件外观啥的我并不太在乎，但如果可以生成好看的符合 Markdown 语法的笔记，我绝对不介意。</p>
-<p>还有一个值得讲的插件是 Tasks，也有自己的查询语法，针对任务查询，挺强的，语法也比较简单。不过和 Dataview 太多重叠了。我现在用它只是自动标记任务完成日期（大材小用了）</p>
-
+        
+          <p class="article-more-link">
+            <a href="/037d697c-f692-4688-a342-21d0c09b882d/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/55d03008-d2b4-4270-862c-4a7278e43e41/" data-id="cla9dymlr0055jood5m0e7vmy" data-title="0014 分享前的说明" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/037d697c-f692-4688-a342-21d0c09b882d/" data-id="cla9eor690007p0od1ztgd51x" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -378,61 +310,45 @@
 
 
   
-    <article id="post-3a7ffc6b-7681-4d59-8c5f-7007b6b07677" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-d5e764cd-6168-4292-b10a-683a163948a0" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T08:26:24.000Z" itemprop="datePublished">2022-10-17</time>
+    <a href="/d5e764cd-6168-4292-b10a-683a163948a0/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.812Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/">0013 真的快起来</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-27 19:32:09<br>updated: 2022-11-09 16:25:07<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: d5e764cd-6168-4292-b10a-683a163948a0<br>title: 0039 绅士一下子-Dataview<br>date: 2022-10-27 19:32:09<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>Obsidian 的界面真的谈不上好，好多按钮，好多菜单，有时候想做什么还得先思考一下在哪里找。</p>
-<p>好在可以用命令，搜一下。但某些很流程化的事情还是会让人烦躁，这时候就应该 QuickAdd 出场了。</p>
-<p>它能做的事情很多，不过一个重点场景就是——添加笔记。</p>
-<h3 id="闪念"><a href="#闪念" class="headerlink" title="闪念"></a>闪念</h3><p>或者叫碎碎念，2333。</p>
-<p>反正忽然想做个什么记录，也不是新建笔记，就便签，随手记。或者想到要做什么事情，加一条待办。</p>
-<p>我只是想快速记录，记录上就好，我不想找到文件（或者新建，取名字），写入内容，再关闭掉。</p>
-<p>QuickAdd 的 Capture 就是做这个事情的。可以调出一个输入框，输入内容回车，就保存到对应文件的对应位置（是的，可以设定具体位置），并且从始至终都没打开那个文件（也可以设定为添加后打开）。</p>
-<p>怎么设置……懒得写了，你自己去查一下吧，其实自己看设置也挺容易探索的。</p>
-<p>这里说个小技巧：最开始我也觉得 QuickAdd 的设定页面有点迷，但是在手机上用的时候就完全没有这种感觉，好像特别顺理成章，水到渠成。就是布局问题，所以<strong>在电脑上，把 Obsidian 界面拉窄一些再去设置 QuickAdd</strong> 就不那么迷了。</p>
-<p>然后，QuickAdd 用的模板中变量得用 QuickAdd 方式书写，具体查看一下<a target="_blank" rel="noopener" href="https://github.com/chhoumann/quickadd/blob/master/docs/FormatSyntax.md">文档</a>。</p>
-<h3 id="套用模板"><a href="#套用模板" class="headerlink" title="套用模板"></a>套用模板</h3><p>比如我书写这个系列的内容时，文件都要放在同一个文件夹下，笔记元数据也差不多。我就用 QuickAdd 的模板功能，它能自己套模板新建文件，我就负责书写就好。一键开启新篇章。</p>
-<p>这个功能用 Templater 也可以实现，不过还得自己写脚本，懒捏！</p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>电脑上设定快捷键调用操作，很方便，我懒得记太多，Ctrl+Q 唤起 QuickAdd，然后选择操作。</p>
-<h3 id="手机上面"><a href="#手机上面" class="headerlink" title="手机上面"></a>手机上面</h3><p>手机上可以设置一个快捷动作，就是界面下拉，我设置为了 QuickAdd，虽然也可以设置为 QuickAdd 中的具体动作，但是我需求比较多，所以还是每次选一下吧。</p>
-<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>可以实现多动作连续执行，可以在打开 Obsidiann 的时候执行，可以自己写脚本……</p>
-<p>挺强的，但我用不了那么多，所以对于这个插件主要是上面的两种用途。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/d5e764cd-6168-4292-b10a-683a163948a0/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" data-id="cla9dyml5003cjoode1acf4dr" data-title="0013 真的快起来" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/d5e764cd-6168-4292-b10a-683a163948a0/" data-id="cla9eor7u004tp0odbl9157y4" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -441,70 +357,45 @@
 
 
   
-    <article id="post-f3f84bcb-f021-486c-98c0-e9daaf1060d6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-a1a9e177-bf42-4bc3-a5e2-bfadb06c8990" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T07:46:12.000Z" itemprop="datePublished">2022-10-17</time>
+    <a href="/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.810Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/f3f84bcb-f021-486c-98c0-e9daaf1060d6/">0012 数据汇总显示</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-27 19:46:02<br>updated: 2022-11-09 16:25:06<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: a1a9e177-bf42-4bc3-a5e2-bfadb06c8990<br>title: 0040 为何 Dataview<br>date: 2022-10-27 19:46:02<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>起始页的其他信息也都是自己写 JS 实现的，这些留到后面去分享。我们先看看待办列表的汇总。</p>
-<p>其实我有一个 <code>Working List</code> 的文件，里面记录我的工作任务，这是一个树状列表，按项目，然后项目中的功能点，然后具体的子任务。这样结构清晰，也非常好读。不过这是记录，而在每天开始，我想看到的就是所有下一步想去做的小任务（标记 <code>#Next</code> 的任务）。</p>
-<p>这时候就可以书写一个查询（query），前面说过怎么用了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">task-todo: &quot;&quot;</span><br><span class="line">path:&quot;Inbox/List/Working List&quot;</span><br><span class="line">tag: #Next</span><br></pre></td></tr></table></figure>
-
-<p>稍微解读一下：</p>
-<ul>
-<li>第一行，任务，并且是 todo 状态的，里面包含什么关键词我不在意（双引号里面是关键词）。</li>
-<li>第二行，文件的路径，我只想在这一个文件中查找</li>
-<li>第三行，需要具有的标签</li>
-</ul>
-<p>这三条是并列关系，就是说同时符合这三个条件的结果。你看，查询很好写，把条件列出来就行了。</p>
-<p>当然，如果你真的操作了一下的话，会发现事与愿违。仿佛 todo 这个要求被忽略了的样子。这时候变通一下，换成这样查询就行了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">task-todo: &quot;#Next&quot;</span><br><span class="line">path:&quot;Inbox/List/Working List&quot;</span><br></pre></td></tr></table></figure>
-
-<p>至于为什么出问题，我也不了解。这种原生查询太弱了，而且样子也不好看，所以我既然装了 Dataview，当然是用 Dataview 了：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">task <span class="title class_">From</span> <span class="string">&quot;Inbox/List/Working List&quot;</span></span><br><span class="line"><span class="variable constant_">WHERE</span> !completed <span class="variable constant_">AND</span> <span class="title function_">econtains</span>(tags, <span class="string">&quot;#Next&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>不解说了，只要大概认识里面单词就能明白意思，并且也能自己修改吧。放在标记为 <code>dataview</code> 的代码块里就能使用。</p>
-<p>上面的语法是 Dataview Query，所以和原生的 query 语法还是有那么一些类似的。我是比较懒的学习新语言了，毕竟这东西也只是笔记中使用，那我很快就会忘掉的。既然 Dataview 支持使用 JS，我更喜欢用 JS 去写。</p>
-<p>正好后面关于购物的部分，我所有购物内容都放在一个文件里，然后按标题区分列表，其中有一个标题“Waitinng”，表示正在寄送中的快递。你懂的，我现在要搜索的是某个文件中某个标题下面的内容。</p>
-<p>道理上这里要找 <code>section</code>（章节），然后判断它的 <code>subpath</code>，但是我用上面的 query 语法写怎么也不成功。于是就自己用 JS 解决了（放在标记为 <code>dataviewjs</code> 的代码块里）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = dv.<span class="title function_">page</span>(<span class="string">&quot;Inbox/List/Shopping List&quot;</span>)  <span class="comment">/* 指定文件 */</span></span><br><span class="line">.<span class="property">file</span>.<span class="property">tasks</span>  <span class="comment">/* 文件中的所有任务 */</span></span><br><span class="line">.<span class="title function_">filter</span>(  <span class="comment">/* 对任务进行过滤 */</span></span><br><span class="line">  <span class="function"><span class="params">e</span>=&gt;</span></span><br><span class="line">    !e.<span class="property">completed</span>  <span class="comment">/* 任务状态不是已完成 */</span></span><br><span class="line">    &amp;&amp; e.<span class="property">section</span>.<span class="property">subpath</span>===<span class="string">&#x27;Waiting&#x27;</span> <span class="comment">/* 并且 章节路径是 Waiting */</span></span><br><span class="line">)</span><br><span class="line">dv.<span class="title function_">taskList</span>(  <span class="comment">/* 按任务列表格式输出 */</span></span><br><span class="line">  dv.<span class="title function_">array</span>(tasks),  <span class="comment">/* 把数组转换为 dataview 数组 */</span></span><br><span class="line">  <span class="literal">false</span>  <span class="comment">/* 不按文件分组 */</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>反正想套用应该能看出来改什么地方。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" data-id="cla9dymny00e4jood656bf03d" data-title="0012 数据汇总显示" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/a1a9e177-bf42-4bc3-a5e2-bfadb06c8990/" data-id="cla9eor7i003rp0odfnpk4z84" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -513,61 +404,45 @@
 
 
   
-    <article id="post-b61071db-77ac-4248-b9d7-c0262ef15304" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-994d5a6a-56e0-490c-9334-92d373850368" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/b61071db-77ac-4248-b9d7-c0262ef15304/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T07:09:50.000Z" itemprop="datePublished">2022-10-17</time>
+    <a href="/994d5a6a-56e0-490c-9334-92d373850368/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.809Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/b61071db-77ac-4248-b9d7-c0262ef15304/">0011 用户函数</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-27 20:03:25<br>updated: 2022-11-09 16:25:07<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 994d5a6a-56e0-490c-9334-92d373850368<br>title: 0041 插入含中文的链接-Templater<br>date: 2022-10-27 20:03:25<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>就是把代码写到一个单独的 JS 文件，并导出：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> 函数名称 () &#123;</span><br><span class="line">  <span class="comment">// 用户代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = 函数名称;</span><br></pre></td></tr></table></figure>
-
-<p>JS 文件放在 Templater 的脚本文件夹下，使用的时候这样调用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.函数名称() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>当然用 <code>&lt;%+ %&gt;</code> 或者 <code>&lt;%* %&gt;</code> 都是可以的，也可以和其他代码放在一起共用，总之，和日常使用 JS 区别不大。</p>
-<p>有人说，看出来了啊，上一篇的代码就是和 JS 混合书写的，那现在是不是把上一篇的代码复制过来做个完形填空就好呢？</p>
-<p>基本上是的，不过在用户脚本里没有 tp 这个对象，<code>tp.date.now()</code> 也就无从说起。怎么办呢？把 <code>tp</code> 当参数传回来就行了。</p>
-<p>一般如果需要输出，函数负责返回内容，在模板中再根据具体调用方法进行输出。</p>
-<p>有朋友说：你看这个大老鼠，又要夹带私货，试图教会我们 JS 了！</p>
-<p>并不是啦，只是这种自由度的工具还是多少了解一点它的基本运行思路会用的比较顺畅。否则有一天你遇到了问题，然后自己去看看代码，发现 <code>&lt;%</code>、<code>&lt;%+</code>、<code>&lt;%*</code> 三种情况，然后强迫症发作给统一了一下，然后看到 一个 xxx.js 的文件从来没用到过，就给删了……问题就越来越多了。</p>
-<p>你说：我不管，别人写好我就用，出了问题不乱动！</p>
-<p>我觉得像动态执行这种代码很少有人给直接写好吧，简单情况下只是一个 <code>+</code> 的区别，自己动手一下很合理。以及虽然模板可以写出交互式设定，但是参数太多的时候也不可能全都问一下的，所以自己稍微改改代码挺合理的。</p>
-<p>比如：一个模板的输出文字有点大，你看到代码里有：<code>font-size: 18px</code>，很显然可以修改数字看看嘛，这不需要什么编程啊，懂代码啊。</p>
-<p>我后面的内容也都是尽可能浅显的解说一下插件的基本运作思路，然后代码尽量多加注释，让大家有一些自行修改的余地。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/994d5a6a-56e0-490c-9334-92d373850368/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="cla9dymn000a6jood3h1re4m0" data-title="0011 用户函数" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/994d5a6a-56e0-490c-9334-92d373850368/" data-id="cla9eor7h003op0od2spoa8pb" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -576,69 +451,45 @@
 
 
   
-    <article id="post-18e574ea-4bf4-436f-912c-813c52167be4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-dc270f1f-a814-40d1-a0df-34dc45310531" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/18e574ea-4bf4-436f-912c-813c52167be4/" class="article-date">
-  <time class="dt-published" datetime="2022-10-16T08:54:44.000Z" itemprop="datePublished">2022-10-16</time>
+    <a href="/dc270f1f-a814-40d1-a0df-34dc45310531/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.808Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/18e574ea-4bf4-436f-912c-813c52167be4/">0010 从时间说模板</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-28 08:26:48<br>updated: 2022-11-09 16:25:07<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: dc270f1f-a814-40d1-a0df-34dc45310531<br>title: 0042 粘贴链接-Templater<br>date: 2022-10-28 08:26:48<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>Templater 是个很强大的插件。</p>
-<p>一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。</p>
-<p>一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>然后在需要的时候调用就可以实现插入时间了。</p>
-<p>我们也可以格式化时间，可以参照这里：<a target="_blank" rel="noopener" href="https://momentjs.com/docs/#/displaying/">https://momentjs.com/docs/#/displaying/</a></p>
-<p>反正 Temlater 中时间日期部分用的 <a target="_blank" rel="noopener" href="https://momentjs.com/docs/">Moment.js</a> ，多数东西都可以照搬，能弄出一些有趣的玩法。</p>
-<h3 id="动态显示"><a href="#动态显示" class="headerlink" title="动态显示"></a>动态显示</h3><p>我的入口笔记是不变的（不是每天新建），而上面方法插入的是静态内容，就是插入以后就不变化了。显然这不适合我，我要笔记永远显示当天的日期，也很简单：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意区别，就是前面多了一个加号。这个代码可以直接写在笔记中。这被称作为动态模板，在每次预览笔记的时候渲染一次。所以每次预览，这里都会显示为当前日期。</p>
-<p>注意一个文档中没有提及的点：<strong>动态模板输出的内容会当作文本显示，各种标记，换行均会显示为纯文本</strong>。我被这个坑折磨了好一会儿的。</p>
-<h3 id="显示农历"><a href="#显示农历" class="headerlink" title="显示农历"></a>显示农历</h3><p>这要用到 JS。核心代码很简单：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>获取日期，转换为本地日期格式，然后地区设置为中国本土日历。但是结果显示的有点怪：2022年九月20。</p>
-<p>一般来说我们不关注年份，所以可以把年份去掉，后面的 20 改成中文数字。意义都一样，就是看着舒服点。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;%*</span><br><span class="line">  /**</span><br><span class="line">   * 上面星号表示运行代码中的 JS</span><br><span class="line">   * tR 是要输出的内容，往里面追加即可</span><br><span class="line">   * 下面将当前日期加入了输出，并在后面加上空格</span><br><span class="line">   */</span><br><span class="line">  tR += tp.date.now()+&#x27; &#x27;</span><br><span class="line">  /* JS 中获取当前时间对象备用 */</span><br><span class="line">  const today = new Date()</span><br><span class="line">  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span><br><span class="line">  const num = [&#x27;日&#x27;, &#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;, &#x27;五&#x27;, &#x27;六&#x27;, &#x27;七&#x27;, &#x27;八&#x27;, &#x27;九&#x27;]</span><br><span class="line">  /**</span><br><span class="line">   * 第一行：获取农历日期</span><br><span class="line">   * 第二行：替换掉年份</span><br><span class="line">   * 第三行：将日期替换为中文写法</span><br><span class="line">   * 末尾：加上空格分隔</span><br><span class="line">   */</span><br><span class="line">  tR += today.toLocaleDateString(&#x27;zh-CN-u-ca-chinese&#x27;)</span><br><span class="line">    .replace(/(\d+)\s*?年\s*/, &#x27;&#x27;)</span><br><span class="line">    .replace(/月(\d+)/, (m, s)=&gt;&#123;</span><br><span class="line">      s = Number(s)</span><br><span class="line">      if(s===20) return &#x27;月 二十&#x27;</span><br><span class="line">      if(s===30) return &#x27;月 三十&#x27;</span><br><span class="line">      const lastNum = num[s%10]</span><br><span class="line">      if(s&lt;10) return &#x27;月 初&#x27;+lastNum</span><br><span class="line">      if(s&lt;20) return &#x27;月 十&#x27;+lastNum</span><br><span class="line">      if(s&lt;30) return &#x27;月 廿&#x27;+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +&#x27; &#x27;</span><br><span class="line">  /* 加上星期几 */</span><br><span class="line">  tR += &#x27;星期&#x27;+num[today.getDay()]</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-
-<p>我添加了注释，这样即便不懂代码，也可以稍微修改一些细节。最终效果：</p>
-<p>2022-10-15 九月 二十 星期六</p>
-<p>我会把它放在标题中显示，这样醒目一些。</p>
-<p>这么长能不能当作动态模板？这个问题很赞，理论上可以，就是把 <code>*</code> 换成 <code>+</code>，但实际上不可行，因为一些特殊字符干扰了解析。这时候最好使用用户脚本，我们后面再聊。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/dc270f1f-a814-40d1-a0df-34dc45310531/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9dymkj001gjood59481qcv" data-title="0010 从时间说模板" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/dc270f1f-a814-40d1-a0df-34dc45310531/" data-id="cla9eor830052p0odhrsv0iiq" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -647,70 +498,45 @@
 
 
   
-    <article id="post-af4b2aef-b811-467b-a1b1-8261ffdb4b9e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-27217008-cf08-4bc3-9221-15ad4ee3f642" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" class="article-date">
-  <time class="dt-published" datetime="2022-10-15T23:07:28.000Z" itemprop="datePublished">2022-10-16</time>
+    <a href="/27217008-cf08-4bc3-9221-15ad4ee3f642/" class="article-date">
+  <time class="dt-published" datetime="2022-11-09T08:31:58.807Z" itemprop="datePublished">2022-11-09</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">0009 题头图片</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <hr>
+<p>created: 2022-10-28 08:49:49<br>updated: 2022-11-09 16:25:07<br>tags: </p>
+<ul>
+<li>Note&#x2F;Obsidian</li>
+<li>Note&#x2F;Note</li>
+<li>Note&#x2F;Article</li>
+<li>Published</li>
+<li>Blog<br>id: 27217008-cf08-4bc3-9221-15ad4ee3f642<br>title: 0043 快速插入 kbd 标签-Templater<br>date: 2022-10-28 08:49:49<br>–$1</li>
+</ul>
+<blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
 </ul>
 </blockquote>
-<hr>
-<p>开始我写了一个模板，后来发现并不需要，就直接添加图片就可以了。</p>
-<p>废话，往笔记里加图片可不就直接添加图片就可以了么。</p>
-<p>但是要每一天都看相同的图片，肯定会腻的，就希望它自己变。所以我用了一个随机图片 API：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">随机题图</span>](<span class="link">https://picsum.photos/800/300</span>)</span><br></pre></td></tr></table></figure>
-
-<p>两个数字是图片的宽度和高度，其实图片是相对方正的，所以特殊尺寸是裁剪后的结果，所以高度太小效果不好。</p>
-<p>会有缓存，想看新图片要关闭笔记再打开（不是关闭软件）。一般来说这种方式足够用了。</p>
-<p>还有很多随机图片 API 可用，不列举了，自己找着玩吧。</p>
-<h3 id="用-Templater"><a href="#用-Templater" class="headerlink" title="用 Templater"></a>用 Templater</h3><p>然后 Templater 插件提供了一个，用的是 Unsplash 的 Api（访问可能费劲一点），不过包装了一下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.web.random_picture() %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>详细可以阅读这里：<a target="_blank" rel="noopener" href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/web-module.html#tpwebrandom_picturesize-string-query-string-include_size-boolean">tp.web.random_picture</a></p>
-<p>这种方式的好处是：随机，但是保存的是图片对应的地址，就不会发生下次打开看到别的图片的情况。适合于给每天一篇日记套模板的情况。</p>
-<h3 id="奇怪的思路"><a href="#奇怪的思路" class="headerlink" title="奇怪的思路"></a>奇怪的思路</h3><p>我收藏了一个占位图片 API，占位图片就是做网页的时候某个地方要展示一张图片，但是并没有具体的图片，毕竟可能设计师还在做，或者后期动态展示相关图片，那就先放一张别的图片占位。但是可能需要各种尺寸的图片，而且为了展示效果，可能需要图片颜色啥的一致，为了后期方便可能在上面标注图片尺寸啊，这是什么啊……不可能每次都开 PS 制作，所以就借助 API 生成。</p>
-<p>那如果用这个 API 生成题图呢？你可以自己去研究一下：<a target="_blank" rel="noopener" href="https://fakeimg.pl/">https://fakeimg.pl/</a>。</p>
-<p>效果大概是这样的，注意，字体必须是 note，否则没法显示中文：</p>
-<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%A0%87%E9%A2%98%E6%8D%8F&font=noto"></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">https://fakeimg.pl/640x200/FFAAAA/333/?text=这是一个标题捏&amp;font=noto</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这种最好也搭配 Templater 来根据文章标题生成，省得自己还得自己修改，就像这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](https://fakeimg.pl/640x200/FFAAAA/333/?text=&lt;% encodeURIComponent(tp.file.title) %&gt;&amp;font=noto)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=0009%20%E9%A2%98%E5%A4%B4%E5%9B%BE%E7%89%87&font=noto"></p>
-<p>这里的关键点是要 <code>encodeURIComponent</code>，这样特殊字符（比如空格）才会被正确的传递。</p>
-<p>也可以搞随机颜色，虽然不支持随机渐变色。这篇就不搞这么复杂了，以后可能单独去写。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/27217008-cf08-4bc3-9221-15ad4ee3f642/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" data-id="cla9dymmy009wjood2rpsh9vm" data-title="0009 题头图片" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/27217008-cf08-4bc3-9221-15ad4ee3f642/" data-id="cla9eor6q001ap0od2y0j6i31" data-title="" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
     </footer>
   </div>
   
@@ -723,7 +549,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -734,29 +560,15 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
-    </div>
-  </div>
-
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Note-Article/" style="font-size: 17.22px;">Note/Article</a> <a href="/tags/Note-Note/" style="font-size: 17.22px;">Note/Note</a> <a href="/tags/Note-Obsidian/" style="font-size: 17.22px;">Note/Obsidian</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 19.44px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 15.56px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 17.78px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.11px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.33px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 18.89px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.67px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 13.89px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.11px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.33px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.56px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 16.67px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.56px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.33px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 14.44px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.22px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.11px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.56px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.78px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 12.78px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
     </div>
   </div>
 
@@ -769,23 +581,23 @@
       <ul>
         
           <li>
-            <a href="/cb1cd6f2-2b57-4dad-b378-0f15732fea2d/">0049 Markdown 是什么</a>
+            <a href="/567af6da-0ca5-44bb-9c60-dbe9295dbef8/">(no title)</a>
           </li>
         
           <li>
-            <a href="/c476329c-da7c-4f53-b1d2-cf976fb3c2d1/">0048 教你笔记分栏-Dataview</a>
+            <a href="/1bd1f7c0-a822-43b7-922f-7483ef75ff23/">(no title)</a>
           </li>
         
           <li>
-            <a href="/4b5b6eff-310e-407a-9263-6cba4cebf626/">0047 文字卡片-Templater</a>
+            <a href="/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/">(no title)</a>
           </li>
         
           <li>
-            <a href="/438980cc-f26a-4bfd-930f-1105577296a7/">0046 时间条-Dataview</a>
+            <a href="/edd8138a-db50-42e4-8a9c-6863193716e7/">(no title)</a>
           </li>
         
           <li>
-            <a href="/d3e84c60-6256-4746-a8a8-086b5b1cae9a/">0045 Heatmap-Dataview</a>
+            <a href="/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/">(no title)</a>
           </li>
         
       </ul>

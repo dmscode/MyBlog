@@ -4,18 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>自己的自己</title>
+  <title>0020 一言诗词-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="created: 2022-10-18 04:58:19updated: 2022-11-09 16:25:06tags:   Note&#x2F;Obsidian Note&#x2F;Note Note&#x2F;Article Published Blogid: e9708e55-b3d0-4e56-8c61-e2bb6b2e827etitle: 0020 一言诗词-Templaterdat">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自己的自己">
+<meta property="og:title" content="0020 一言诗词-Templater">
 <meta property="og:url" content="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="created: 2022-10-18 04:58:19updated: 2022-11-09 16:25:06tags:   Note&#x2F;Obsidian Note&#x2F;Note Note&#x2F;Article Published Blogid: e9708e55-b3d0-4e56-8c61-e2bb6b2e827etitle: 0020 一言诗词-Templaterdat">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-09T08:31:58.845Z">
-<meta property="article:modified_time" content="2022-11-09T08:55:29.245Z">
+<meta property="article:published_time" content="2022-10-17T20:58:19.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
+<meta property="article:tag" content="Published">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Note&#x2F;Obsidian">
+<meta property="article:tag" content="Note&#x2F;Note">
+<meta property="article:tag" content="Note&#x2F;Article">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="自己的自己" type="application/atom+xml">
@@ -80,83 +85,82 @@
         <section id="main"><article id="post-e9708e55-b3d0-4e56-8c61-e2bb6b2e827e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" class="article-date">
-  <time class="dt-published" datetime="2022-11-09T08:31:58.845Z" itemprop="datePublished">2022-11-09</time>
+  <time class="dt-published" datetime="2022-10-17T20:58:19.000Z" itemprop="datePublished">2022-10-18</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      0020 一言诗词-Templater
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <hr>
-<p>created: 2022-10-18 04:58:19<br>updated: 2022-11-09 16:25:06<br>tags: </p>
-<ul>
-<li>Note&#x2F;Obsidian</li>
-<li>Note&#x2F;Note</li>
-<li>Note&#x2F;Article</li>
-<li>Published</li>
-<li>Blog<br>id: e9708e55-b3d0-4e56-8c61-e2bb6b2e827e<br>title: 0020 一言诗词-Templater<br>date: 2022-10-18 04:58:19<br>–$1</li>
-</ul>
-<blockquote>
+        <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
 <span id="more"></span>
 
-<p>–$1</p>
-<h3 id="用户脚-1"><a href="#用户脚-1" class="headerlink" title="用户脚$1"></a>用户脚$1</h3><blockquote>
-<p>Scritps&#x2F;get_sentence.j$1</p>
+<hr>
+<h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
+<p>Scritps&#x2F;get_sentence.js</p>
 </blockquote>
-<p>&#96;&#96;&#96;js<br>&#x2F;**</p>
-<ul>
-<li>同步函数，两个参数</li>
-<li>第一个 tp，是传入 templater 对象</li>
-<li>第二个是输出类型，”毒鸡汤”、”社会语录”、”舔狗日记”、”一言”、”诗词”<br> <em>&#x2F;<br>async function get_sentence (tp, type) {<br>  &#x2F;</em> Api 数组，返回的都是纯文本 <em>&#x2F;<br>  const apis &#x3D; {<br> ‘毒鸡汤’: ‘<a target="_blank" rel="noopener" href="https://api.oick.cn/dutang/api.php&#39;">https://api.oick.cn/dutang/api.php&#39;</a>,<br> ‘社会语录’: ‘<a target="_blank" rel="noopener" href="https://api.oick.cn/yulu/api.php&#39;">https://api.oick.cn/yulu/api.php&#39;</a>,<br> ‘舔狗日记’: ‘<a target="_blank" rel="noopener" href="https://api.oick.cn/dog/api.php&#39;">https://api.oick.cn/dog/api.php&#39;</a>,<br> ‘一言’: ‘<a target="_blank" rel="noopener" href="https://api.oick.cn/yiyan/api.php&#39;">https://api.oick.cn/yiyan/api.php&#39;</a>,<br> ‘诗词’: ‘<a target="_blank" rel="noopener" href="https://v1.jinrishici.com/all.txt&#39;">https://v1.jinrishici.com/all.txt&#39;</a>,<br>  }<br>  &#x2F;</em> 如果没有设定类型，则提示选择类型，默认值为：”一言” <em>&#x2F;<br>  if(!type){<br> type &#x3D; await tp.system.suggester(Object.keys(apis), Object.keys(apis), false, ‘一言’)<br>  }<br>  &#x2F;</em> 获取对应的 Api 地址 <em>&#x2F;<br>  const url &#x3D; type &amp;&amp; apis[type] ? apis[type] : apis[‘一言’]<br>  &#x2F;</em> 发送请求，返回获取的字符串 *&#x2F;<br>  const response &#x3D; await fetch(url)<br>  const data &#x3D; await response.text()<br>  return data<br>}<br>module.exports &#x3D; get_sentence;<br>&#96;&#96;$1</li>
-</ul>
-<h3 id="模-1"><a href="#模-1" class="headerlink" title="模$1"></a>模$1</h3><blockquote>
-<p>Templater&#x2F;添加一言诗词.m$1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 同步函数，两个参数</span></span><br><span class="line"><span class="comment"> * 第一个 tp，是传入 templater 对象</span></span><br><span class="line"><span class="comment"> * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&quot;诗词&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_sentence</span> (tp, type) &#123;</span><br><span class="line">  <span class="comment">/* Api 数组，返回的都是纯文本 */</span></span><br><span class="line">  <span class="keyword">const</span> apis = &#123;</span><br><span class="line">    <span class="string">&#x27;毒鸡汤&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dutang/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;社会语录&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yulu/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;舔狗日记&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dog/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;一言&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yiyan/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;诗词&#x27;</span>: <span class="string">&#x27;https://v1.jinrishici.com/all.txt&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 如果没有设定类型，则提示选择类型，默认值为：&quot;一言&quot; */</span></span><br><span class="line">  <span class="keyword">if</span>(!type)&#123;</span><br><span class="line">    type = <span class="keyword">await</span> tp.<span class="property">system</span>.<span class="title function_">suggester</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="literal">false</span>, <span class="string">&#x27;一言&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 获取对应的 Api 地址 */</span></span><br><span class="line">  <span class="keyword">const</span> url = type &amp;&amp; apis[type] ? apis[type] : apis[<span class="string">&#x27;一言&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 发送请求，返回获取的字符串 */</span></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_sentence;</span><br></pre></td></tr></table></figure>
+
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><blockquote>
+<p>Templater&#x2F;添加一言诗词.md</p>
 </blockquote>
-<p>&#96;&#96;&#96;eta<br>&lt;% tp.user.get_sentence(tp) %&gt;<br>&#96;&#96;$1</p>
-<p>也可以放在动态模板中，这时候最好在代码中指定类型，就不会弹出选择框了$1</p>
-<p>&#96;&#96;&#96;eta<br>&lt;%+ tp.user.get_sentence(tp, “诗词”) %&gt;<br>&#96;&#96;$1</p>
-<p>也可以在前面加上 <code>&gt;</code> 让它输出为引用$1</p>
-<p>&#96;&#96;&#96;markdown</p>
-<blockquote>
-<p>&lt;%+ tp.user.get_sentence(tp, “诗词”) %&gt;<br>&#96;&#96;$1</p>
-</blockquote>
-<h3 id="效果展-1"><a href="#效果展-1" class="headerlink" title="效果展$1"></a>效果展$1</h3><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.user.get_sentence(tp) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可以放在动态模板中，这时候最好在代码中指定类型，就不会弹出选择框了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.user.get_sentence(tp, &quot;诗词&quot;) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可以在前面加上 <code>&gt;</code> 让它输出为引用：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; &lt;%+ tp.user.get<span class="emphasis">_sentence(tp, &quot;诗词&quot;) %&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><blockquote>
 <p>世间珍果更无加，玉雪肌肤罩绛纱。</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" data-id="cla9eor87005ep0od464sc4p7" data-title="" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" data-id="cla9ertjb00d6akod75kvhc0q" data-title="0020 一言诗词-Templater" class="article-share-link">分享</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/edc32107-fecb-4d7f-aa54-d0fd6cc79444/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          (no title)
+          0018 获取本地天气-Templater
         
       </div>
     </a>
   
   
-    <a href="/bc4fce99-d9fa-4920-94d1-c4c6a35f4ce2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">0019 标签索引补遗-Dataview</div>
     </a>
   
 </nav>
@@ -173,15 +177,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Note-Article/" style="font-size: 17.22px;">Note/Article</a> <a href="/tags/Note-Note/" style="font-size: 17.22px;">Note/Note</a> <a href="/tags/Note-Obsidian/" style="font-size: 17.22px;">Note/Obsidian</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 19.44px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 15.56px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 17.78px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.11px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.33px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 18.89px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.67px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 13.89px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.11px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.33px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.56px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 16.67px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.56px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.33px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 14.44px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.22px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.11px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.56px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.78px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 12.78px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
     </div>
   </div>
 
@@ -194,23 +212,23 @@
       <ul>
         
           <li>
-            <a href="/567af6da-0ca5-44bb-9c60-dbe9295dbef8/">(no title)</a>
+            <a href="/cb1cd6f2-2b57-4dad-b378-0f15732fea2d/">0049 Markdown 是什么</a>
           </li>
         
           <li>
-            <a href="/1bd1f7c0-a822-43b7-922f-7483ef75ff23/">(no title)</a>
+            <a href="/c476329c-da7c-4f53-b1d2-cf976fb3c2d1/">0048 教你笔记分栏-Dataview</a>
           </li>
         
           <li>
-            <a href="/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/">(no title)</a>
+            <a href="/4b5b6eff-310e-407a-9263-6cba4cebf626/">0047 文字卡片-Templater</a>
           </li>
         
           <li>
-            <a href="/edd8138a-db50-42e4-8a9c-6863193716e7/">(no title)</a>
+            <a href="/438980cc-f26a-4bfd-930f-1105577296a7/">0046 时间条-Dataview</a>
           </li>
         
           <li>
-            <a href="/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/">(no title)</a>
+            <a href="/d3e84c60-6256-4746-a8a8-086b5b1cae9a/">0045 Heatmap-Dataview</a>
           </li>
         
       </ul>

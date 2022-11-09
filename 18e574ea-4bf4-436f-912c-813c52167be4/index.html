@@ -4,18 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>自己的自己</title>
+  <title>0010 从时间说模板 | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="created: 2022-10-16 16:54:44updated: 2022-11-09 16:25:06tags:   Note&#x2F;Obsidian Note&#x2F;Note Note&#x2F;Article Published Blogid: 18e574ea-4bf4-436f-912c-813c52167be4title: 0010 从时间说模板date: 2022-">
+  <meta name="description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自己的自己">
+<meta property="og:title" content="0010 从时间说模板">
 <meta property="og:url" content="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="created: 2022-10-16 16:54:44updated: 2022-11-09 16:25:06tags:   Note&#x2F;Obsidian Note&#x2F;Note Note&#x2F;Article Published Blogid: 18e574ea-4bf4-436f-912c-813c52167be4title: 0010 从时间说模板date: 2022-">
+<meta property="og:description" content="《遇见 Obsidian》系列笔记汇总目录 如果觉得有用就支持一下作者：老鼠爱发电">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-09T08:31:58.863Z">
-<meta property="article:modified_time" content="2022-11-09T08:55:29.255Z">
+<meta property="article:published_time" content="2022-10-16T08:54:44.000Z">
+<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
 <meta property="article:author" content="稻米鼠">
+<meta property="article:tag" content="Published">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Note&#x2F;Obsidian">
+<meta property="article:tag" content="Note&#x2F;Note">
+<meta property="article:tag" content="Note&#x2F;Article">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="自己的自己" type="application/atom+xml">
@@ -80,139 +85,87 @@
         <section id="main"><article id="post-18e574ea-4bf4-436f-912c-813c52167be4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/18e574ea-4bf4-436f-912c-813c52167be4/" class="article-date">
-  <time class="dt-published" datetime="2022-11-09T08:31:58.863Z" itemprop="datePublished">2022-11-09</time>
+  <time class="dt-published" datetime="2022-10-16T08:54:44.000Z" itemprop="datePublished">2022-10-16</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      0010 从时间说模板
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <hr>
-<p>created: 2022-10-16 16:54:44<br>updated: 2022-11-09 16:25:06<br>tags: </p>
-<ul>
-<li>Note&#x2F;Obsidian</li>
-<li>Note&#x2F;Note</li>
-<li>Note&#x2F;Article</li>
-<li>Published</li>
-<li>Blog<br>id: 18e574ea-4bf4-436f-912c-813c52167be4<br>title: 0010 从时间说模板<br>date: 2022-10-16 16:54:44<br>–$1</li>
-</ul>
-<blockquote>
+        <blockquote>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
-<li>如果觉得有用就支持一下作者：[老鼠爱发电](<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu$1">https://afdian.net/@daomishu$1</a></li>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
 </ul>
 </blockquote>
 <span id="more"></span>
 
-<p>–$1</p>
-<p>Templater 是个很强大的插件$1</p>
-<p>一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）$1</p>
-<p>一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板$1</p>
-<pre><code class="eta">&lt;% tp.date.now() %&gt;
-``$1
+<hr>
+<p>Templater 是个很强大的插件。</p>
+<p>一说到模板，第一印象就是从模板新建文件，而其实很多时候模板更像是插入片段（Snippet）。</p>
+<p>一个很简单的需求，我们可能需要插入时间日期，于是新建一个模板：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
 
-然后在需要的时候调用就可以实现插入时间了$1
+<p>然后在需要的时候调用就可以实现插入时间了。</p>
+<p>我们也可以格式化时间，可以参照这里：<a target="_blank" rel="noopener" href="https://momentjs.com/docs/#/displaying/">https://momentjs.com/docs/#/displaying/</a></p>
+<p>反正 Temlater 中时间日期部分用的 <a target="_blank" rel="noopener" href="https://momentjs.com/docs/">Moment.js</a> ，多数东西都可以照搬，能弄出一些有趣的玩法。</p>
+<h3 id="动态显示"><a href="#动态显示" class="headerlink" title="动态显示"></a>动态显示</h3><p>我的入口笔记是不变的（不是每天新建），而上面方法插入的是静态内容，就是插入以后就不变化了。显然这不适合我，我要笔记永远显示当天的日期，也很简单：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%+ tp.date.now() %&gt;</span><br></pre></td></tr></table></figure>
 
-我们也可以格式化时间，可以参照这里：[https://momentjs.com/docs/#/displaying/](https://momentjs.com/docs/#/displaying/$1
+<p>注意区别，就是前面多了一个加号。这个代码可以直接写在笔记中。这被称作为动态模板，在每次预览笔记的时候渲染一次。所以每次预览，这里都会显示为当前日期。</p>
+<p>注意一个文档中没有提及的点：<strong>动态模板输出的内容会当作文本显示，各种标记，换行均会显示为纯文本</strong>。我被这个坑折磨了好一会儿的。</p>
+<h3 id="显示农历"><a href="#显示农历" class="headerlink" title="显示农历"></a>显示农历</h3><p>这要用到 JS。核心代码很简单：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>(<span class="string">&#x27;zh-CN-u-ca-chinese&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-反正 Temlater 中时间日期部分用的 [Moment.js](https://momentjs.com/docs/) ，多数东西都可以照搬，能弄出一些有趣的玩法$1
+<p>获取日期，转换为本地日期格式，然后地区设置为中国本土日历。但是结果显示的有点怪：2022年九月20。</p>
+<p>一般来说我们不关注年份，所以可以把年份去掉，后面的 20 改成中文数字。意义都一样，就是看着舒服点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;%*</span><br><span class="line">  /**</span><br><span class="line">   * 上面星号表示运行代码中的 JS</span><br><span class="line">   * tR 是要输出的内容，往里面追加即可</span><br><span class="line">   * 下面将当前日期加入了输出，并在后面加上空格</span><br><span class="line">   */</span><br><span class="line">  tR += tp.date.now()+&#x27; &#x27;</span><br><span class="line">  /* JS 中获取当前时间对象备用 */</span><br><span class="line">  const today = new Date()</span><br><span class="line">  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */</span><br><span class="line">  const num = [&#x27;日&#x27;, &#x27;一&#x27;, &#x27;二&#x27;, &#x27;三&#x27;, &#x27;四&#x27;, &#x27;五&#x27;, &#x27;六&#x27;, &#x27;七&#x27;, &#x27;八&#x27;, &#x27;九&#x27;]</span><br><span class="line">  /**</span><br><span class="line">   * 第一行：获取农历日期</span><br><span class="line">   * 第二行：替换掉年份</span><br><span class="line">   * 第三行：将日期替换为中文写法</span><br><span class="line">   * 末尾：加上空格分隔</span><br><span class="line">   */</span><br><span class="line">  tR += today.toLocaleDateString(&#x27;zh-CN-u-ca-chinese&#x27;)</span><br><span class="line">    .replace(/(\d+)\s*?年\s*/, &#x27;&#x27;)</span><br><span class="line">    .replace(/月(\d+)/, (m, s)=&gt;&#123;</span><br><span class="line">      s = Number(s)</span><br><span class="line">      if(s===20) return &#x27;月 二十&#x27;</span><br><span class="line">      if(s===30) return &#x27;月 三十&#x27;</span><br><span class="line">      const lastNum = num[s%10]</span><br><span class="line">      if(s&lt;10) return &#x27;月 初&#x27;+lastNum</span><br><span class="line">      if(s&lt;20) return &#x27;月 十&#x27;+lastNum</span><br><span class="line">      if(s&lt;30) return &#x27;月 廿&#x27;+lastNum</span><br><span class="line">    &#125;)</span><br><span class="line">    +&#x27; &#x27;</span><br><span class="line">  /* 加上星期几 */</span><br><span class="line">  tR += &#x27;星期&#x27;+num[today.getDay()]</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 
-### 动态显$1
-
-我的入口笔记是不变的（不是每天新建），而上面方法插入的是静态内容，就是插入以后就不变化了。显然这不适合我，我要笔记永远显示当天的日期，也很简单$1
-
-```eta
-&lt;%+ tp.date.now() %&gt;
-``$1
-
-注意区别，就是前面多了一个加号。这个代码可以直接写在笔记中。这被称作为动态模板，在每次预览笔记的时候渲染一次。所以每次预览，这里都会显示为当前日期$1
-
-注意一个文档中没有提及的点：**动态模板输出的内容会当作文本显示，各种标记，换行均会显示为纯文本**。我被这个坑折磨了好一会儿的$1
-
-### 显示农$1
-
-这要用到 JS。核心代码很简单$1
-
-```js
-new Date().toLocaleDateString(&#39;zh-CN-u-ca-chinese&#39;)
-``$1
-
-获取日期，转换为本地日期格式，然后地区设置为中国本土日历。但是结果显示的有点怪：2022年九月20$1
-
-一般来说我们不关注年份，所以可以把年份去掉，后面的 20 改成中文数字。意义都一样，就是看着舒服点$1
-
-```eta
-&lt;%*
-  /**
-   * 上面星号表示运行代码中的 JS
-   * tR 是要输出的内容，往里面追加即可
-   * 下面将当前日期加入了输出，并在后面加上空格
-   */
-  tR += tp.date.now()+&#39; &#39;
-  /* JS 中获取当前时间对象备用 */
-  const today = new Date()
-  /* 创建中文数字数组，这里我们不需要“零”，换成“日”用来显示星期几 */
-  const num = [&#39;日&#39;, &#39;一&#39;, &#39;二&#39;, &#39;三&#39;, &#39;四&#39;, &#39;五&#39;, &#39;六&#39;, &#39;七&#39;, &#39;八&#39;, &#39;九&#39;]
-  /**
-   * 第一行：获取农历日期
-   * 第二行：替换掉年份
-   * 第三行：将日期替换为中文写法
-   * 末尾：加上空格分隔
-   */
-  tR += today.toLocaleDateString(&#39;zh-CN-u-ca-chinese&#39;)
-    .replace(/(\d+)\s*?年\s*/, &#39;&#39;)
-    .replace(/月(\d+)/, (m, s)=&gt;&#123;
-      s = Number(s)
-      if(s===20) return &#39;月 二十&#39;
-      if(s===30) return &#39;月 三十&#39;
-      const lastNum = num[s%10]
-      if(s&lt;10) return &#39;月 初&#39;+lastNum
-      if(s&lt;20) return &#39;月 十&#39;+lastNum
-      if(s&lt;30) return &#39;月 廿&#39;+lastNum
-    &#125;)
-    +&#39; &#39;
-  /* 加上星期几 */
-  tR += &#39;星期&#39;+num[today.getDay()]
-%&gt;
-``$1
-
-我添加了注释，这样即便不懂代码，也可以稍微修改一些细节。最终效果$1
-
-2022-10-15 九月 二十 星期$1
-
-我会把它放在标题中显示，这样醒目一些$1
-
-这么长能不能当作动态模板？这个问题很赞，理论上可以，就是把 `*` 换成 `+`，但实际上不可行，因为一些特殊字符干扰了解析。这时候最好使用用户脚本，我们后面再聊。
-</code></pre>
+<p>我添加了注释，这样即便不懂代码，也可以稍微修改一些细节。最终效果：</p>
+<p>2022-10-15 九月 二十 星期六</p>
+<p>我会把它放在标题中显示，这样醒目一些。</p>
+<p>这么长能不能当作动态模板？这个问题很赞，理论上可以，就是把 <code>*</code> 换成 <code>+</code>，但实际上不可行，因为一些特殊字符干扰了解析。这时候最好使用用户脚本，我们后面再聊。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9eor6j000tp0od1p2m8hdz" data-title="" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="cla9ertfh001eakodgfj8cuai" data-title="0010 从时间说模板" class="article-share-link">分享</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/b61071db-77ac-4248-b9d7-c0262ef15304/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          (no title)
+          0011 用户函数
         
       </div>
     </a>
   
   
-    <a href="/b61071db-77ac-4248-b9d7-c0262ef15304/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">0009 题头图片</div>
     </a>
   
 </nav>
@@ -229,15 +182,29 @@ new Date().toLocaleDateString(&#39;zh-CN-u-ca-chinese&#39;)
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Note-Article/" style="font-size: 17.22px;">Note/Article</a> <a href="/tags/Note-Note/" style="font-size: 17.22px;">Note/Note</a> <a href="/tags/Note-Obsidian/" style="font-size: 17.22px;">Note/Obsidian</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 19.44px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 15.56px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 17.78px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.11px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.33px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 18.89px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.67px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 13.89px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.11px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.33px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.56px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 16.67px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.56px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.33px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 14.44px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.22px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.11px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.56px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.78px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 12.78px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
     </div>
   </div>
 
@@ -250,23 +217,23 @@ new Date().toLocaleDateString(&#39;zh-CN-u-ca-chinese&#39;)
       <ul>
         
           <li>
-            <a href="/567af6da-0ca5-44bb-9c60-dbe9295dbef8/">(no title)</a>
+            <a href="/cb1cd6f2-2b57-4dad-b378-0f15732fea2d/">0049 Markdown 是什么</a>
           </li>
         
           <li>
-            <a href="/1bd1f7c0-a822-43b7-922f-7483ef75ff23/">(no title)</a>
+            <a href="/c476329c-da7c-4f53-b1d2-cf976fb3c2d1/">0048 教你笔记分栏-Dataview</a>
           </li>
         
           <li>
-            <a href="/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/">(no title)</a>
+            <a href="/4b5b6eff-310e-407a-9263-6cba4cebf626/">0047 文字卡片-Templater</a>
           </li>
         
           <li>
-            <a href="/edd8138a-db50-42e4-8a9c-6863193716e7/">(no title)</a>
+            <a href="/438980cc-f26a-4bfd-930f-1105577296a7/">0046 时间条-Dataview</a>
           </li>
         
           <li>
-            <a href="/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/">(no title)</a>
+            <a href="/d3e84c60-6256-4746-a8a8-086b5b1cae9a/">0045 Heatmap-Dataview</a>
           </li>
         
       </ul>

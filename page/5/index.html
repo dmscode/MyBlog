@@ -75,10 +75,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-89becab9-91a3-4658-af74-9a7be9c4ca70" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-af4b2aef-b811-467b-a1b1-8261ffdb4b9e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/89becab9-91a3-4658-af74-9a7be9c4ca70/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:34:20.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" class="article-date">
+  <time class="dt-published" datetime="2022-10-15T15:07:28.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -89,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/89becab9-91a3-4658-af74-9a7be9c4ca70/">CSS-in-JS</a>
+      <a class="p-name article-title" href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">0009 题头图片</a>
     </h1>
   
 
@@ -97,17 +97,51 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>让 <a href="/VSCode/">VSCode</a> 可以更好的处理 JS 中的 CSS 内容。以及进行 CSS 对象（条目）和 JS 对象间的转换。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=paulmolluzzo.convert-css-in-js">https://marketplace.visualstudio.com/items?itemName=paulmolluzzo.convert-css-in-js</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>开始我写了一个模板，后来发现并不需要，就直接添加图片就可以了。</p>
+<p>废话，往笔记里加图片可不就直接添加图片就可以了么。</p>
+<p>但是要每一天都看相同的图片，肯定会腻的，就希望它自己变。所以我用了一个随机图片 API：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![<span class="string">随机题图</span>](<span class="link">https://picsum.photos/800/300</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>两个数字是图片的宽度和高度，其实图片是相对方正的，所以特殊尺寸是裁剪后的结果，所以高度太小效果不好。</p>
+<p>会有缓存，想看新图片要关闭笔记再打开（不是关闭软件）。一般来说这种方式足够用了。</p>
+<p>还有很多随机图片 API 可用，不列举了，自己找着玩吧。</p>
+<h3 id="用-Templater"><a href="#用-Templater" class="headerlink" title="用 Templater"></a>用 Templater</h3><p>然后 Templater 插件提供了一个，用的是 Unsplash 的 Api（访问可能费劲一点），不过包装了一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;% tp.web.random_picture() %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>详细可以阅读这里：<a target="_blank" rel="noopener" href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/web-module.html#tpwebrandom_picturesize-string-query-string-include_size-boolean">tp.web.random_picture</a></p>
+<p>这种方式的好处是：随机，但是保存的是图片对应的地址，就不会发生下次打开看到别的图片的情况。适合于给每天一篇日记套模板的情况。</p>
+<h3 id="奇怪的思路"><a href="#奇怪的思路" class="headerlink" title="奇怪的思路"></a>奇怪的思路</h3><p>我收藏了一个占位图片 API，占位图片就是做网页的时候某个地方要展示一张图片，但是并没有具体的图片，毕竟可能设计师还在做，或者后期动态展示相关图片，那就先放一张别的图片占位。但是可能需要各种尺寸的图片，而且为了展示效果，可能需要图片颜色啥的一致，为了后期方便可能在上面标注图片尺寸啊，这是什么啊……不可能每次都开 PS 制作，所以就借助 API 生成。</p>
+<p>那如果用这个 API 生成题图呢？你可以自己去研究一下：<a target="_blank" rel="noopener" href="https://fakeimg.pl/">https://fakeimg.pl/</a>。</p>
+<p>效果大概是这样的，注意，字体必须是 note，否则没法显示中文：</p>
+<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%A0%87%E9%A2%98%E6%8D%8F&font=noto"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](<span class="link">https://fakeimg.pl/640x200/FFAAAA/333/?text=这是一个标题捏&amp;font=noto</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这种最好也搭配 Templater 来根据文章标题生成，省得自己还得自己修改，就像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](https://fakeimg.pl/640x200/FFAAAA/333/?text=&lt;% encodeURIComponent(tp.file.title) %&gt;&amp;font=noto)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://fakeimg.pl/640x200/FFAAAA/333/?text=0009%20%E9%A2%98%E5%A4%B4%E5%9B%BE%E7%89%87&font=noto"></p>
+<p>这里的关键点是要 <code>encodeURIComponent</code>，这样特殊字符（比如空格）才会被正确的传递。</p>
+<p>也可以搞随机颜色，虽然不支持随机渐变色。这篇就不搞这么复杂了，以后可能单独去写。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/89becab9-91a3-4658-af74-9a7be9c4ca70/" data-id="cla9bojsy00630kod54au6db8" data-title="CSS-in-JS" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" data-id="cla9dljjx009zxgod0e6gfb11" data-title="0009 题头图片" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -117,10 +151,10 @@
 
 
   
-    <article id="post-2cade87e-a340-4983-8181-fccb8bb345db" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-624ff837-1be7-4dcd-8b16-6faa1bdc541f" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2cade87e-a340-4983-8181-fccb8bb345db/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:30:46.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/624ff837-1be7-4dcd-8b16-6faa1bdc541f/" class="article-date">
+  <time class="dt-published" datetime="2022-10-15T11:23:26.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -131,7 +165,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2cade87e-a340-4983-8181-fccb8bb345db/">Settings Sync</a>
+      <a class="p-name article-title" href="/624ff837-1be7-4dcd-8b16-6faa1bdc541f/">0008 插件和原则</a>
     </h1>
   
 
@@ -139,20 +173,45 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>将 <a href="/VSCode/">VSCode</a> 的配置、扩展、主题、代码片段、图标、快捷键……保存到 Github Gist。</p>
-<p>并可以从 Github Gist 上获取已保存内容，来恢复上述所有内容。</p>
-<p>还可以设置每次有修改自动备份上去……</p>
-<p>从而实现了多设备间的配置同步。用起来十分方便。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync">https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>我主要用 Dataview、Templater、QuickAdd 三个插件，这三个太强了，叹为观止。当然还会有一些实现小功能的插件，不一一列举，自己根据需求琢磨吧。</p>
+<p>做一下简单的介绍，让大家有个初步印象：</p>
+<ul>
+<li><p>Dataview 更强的搜索，并将搜索到的数据展示在笔记中。支持使用 JS 书写，但它也没说你必须搜索对吧，于是你可以利用它在笔记中运行 JS。</p>
+</li>
+<li><p>Templater 更强的模板，支持使用 JS 进行控制。模板是用来生成静态笔记的，也就是我可以用 JS 控制生成笔记（或者笔记片段）。而且可以插入动态模板（每次预览时重新渲染一次）。这自由度可以放飞想象。</p>
+</li>
+<li><p>QuickAdd 快速添加笔记，可以是往特定位置插入，也可以是新建笔记，还可以是运行一系列命令，甚至自己写脚本。</p>
+</li>
+</ul>
+<p>归结起来就是：<strong>都可以自己写代码</strong>，即程序员眼中的自由。</p>
+<p>回来说原则，前面说过保持 Markdown 的纯洁性，这个原则很重要。</p>
+<p>Dataview 是代码块形式，不污染其他内容，不过我只把它用在几个入口文件中。即时动态查询，非长久笔记，所以这种局部的插件依赖并不影响笔记整体的可移植性。</p>
+<p>Templater 中的动态模板我也只用在入口文件上。而普通模板最终生成的是静态内容，只是方便，并不影响 Markdown 语法纯洁性。</p>
+<p>QuickAdd 同上，只是更方便地去添加和创建笔记，并不污染笔记内容。 </p>
+<p>综上，只是提供便利，提升效率，而笔记内容并不对插件形成依赖。</p>
+<p>可是，还是要讲，赞美这三个插件，<strong>笔记加上脚本和自动化，它，活了呀</strong>！</p>
+<p>其他的，原则上尽量少用插件，避免奇怪问题，提升软件运行速度。如果需要插件，尽量优先核心插件，这样后续稳定性和兼容性更有保障。</p>
+<p>以及反反复复讲的，笔记不依赖平台。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/2cade87e-a340-4983-8181-fccb8bb345db/" data-id="cla9bojs000270kod61kc1qdn" data-title="Settings Sync" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/624ff837-1be7-4dcd-8b16-6faa1bdc541f/" data-id="cla9dljiw005wxgodgvct7ls2" data-title="0008 插件和原则" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -162,10 +221,10 @@
 
 
   
-    <article id="post-113183c8-bb76-4291-9081-e7722470ab65" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-b4a41377-2d13-4d08-9dbd-472413f5dbf7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/113183c8-bb76-4291-9081-e7722470ab65/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:28:14.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/b4a41377-2d13-4d08-9dbd-472413f5dbf7/" class="article-date">
+  <time class="dt-published" datetime="2022-10-15T10:38:11.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -176,7 +235,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/113183c8-bb76-4291-9081-e7722470ab65/">Code Runner</a>
+      <a class="p-name article-title" href="/b4a41377-2d13-4d08-9dbd-472413f5dbf7/">0007 利用工作区</a>
     </h1>
   
 
@@ -184,18 +243,32 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>一键运行当前编辑器中代码。</p>
-<p>这对于偶尔需要做个测试，或者跑个脚本获得结果的情况实在是太友好了，用一次就再也舍弃不掉的扩展。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>这时候我有了两个入口文件：标签索引页和任务信息汇总页。打开笔记时这两个文件都可能被需要，那么左右分栏就可以了。因为这两个文件日常都不需要编辑，所以全都预览状态，两侧的侧边栏不需要，全都关掉。好了看起来很好，但是用一会儿就完全不是刚才的状态了，下次打开呢？随时想进入这种起始状态呢？</p>
+<p>所以我们要把刚才设定好的这种状态保存一下，在需要的时候再调用出来。这个概念就是工作区（Workspace）。打开核心插件里的工作区，通过命令或者侧边栏按钮进行调用。</p>
+<p>什么是命令？Ctrl+P 会出现一个输入框，可以输入并搜索各种指令，你搜索“工作区”，就会有对应的指令出来。</p>
+<p>管理工作区，就可以输入名称保存当前状态了，以后还可以更新这个记录。当然，需要的时候就加载这个工作区就好了。</p>
+<p>这样可以非常编辑的在几种工作状态下进行切换。利用的好效率会非常高，而且因为没有了繁琐的切换布局，思路不容易被打断，体验大幅度提升。</p>
+<p>这种简单的小技巧，却又能带来大幅度体验提升的东西，特别喜欢！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/113183c8-bb76-4291-9081-e7722470ab65/" data-id="cla9bojr5000o0kod6ml846d7" data-title="Code Runner" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/b4a41377-2d13-4d08-9dbd-472413f5dbf7/" data-id="cla9dljjz00a6xgod4i1a9qpa" data-title="0007 利用工作区" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -205,10 +278,10 @@
 
 
   
-    <article id="post-b6f3febd-92a0-413b-9e3e-596b16233888" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-00dc42f0-e9d1-4635-983c-f3a90aabae2b" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/b6f3febd-92a0-413b-9e3e-596b16233888/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:25:44.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/00dc42f0-e9d1-4635-983c-f3a90aabae2b/" class="article-date">
+  <time class="dt-published" datetime="2022-10-15T07:50:04.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -219,7 +292,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/b6f3febd-92a0-413b-9e3e-596b16233888/">changeEncode</a>
+      <a class="p-name article-title" href="/00dc42f0-e9d1-4635-983c-f3a90aabae2b/">0006 因何起始页</a>
     </h1>
   
 
@@ -227,18 +300,34 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>在工作空间内，自动识别 GBK 编码。不过目前新版 <a href="/VSCode/">VSCode</a> 似乎已经内置此功能。</p>
-<p>对于编码识别和自动切换，<a href="/VSCode/">VSCode</a> 确实做的并不好，有的时候挺别扭的。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=lanmj2004.changeEncode">https://marketplace.visualstudio.com/items?itemName=lanmj2004.changeEncode</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>笔记还起始页，这好像和以往的认知不一样啊。</p>
+<p>换个角度思考吧，笔记是干什么的？管理知识，管理信息，管理待办事项，管理碎片化内容……总之，是管理，没啥大问题。你不能说笔记就是用来记，光吃不吐那是貔貅啊，光记不用记它干啥，心理安慰？</p>
+<p>所以，打开笔记软件，比较多的情况应该是阅读某些内容，查找某些内容，快速获得某些信息。当然，也有快速输入记录某些一些内容（这咕噜咱们后面聊）。</p>
+<p>前面我说了自制标签索引页，那如果用这个页面做起始页，我就可以在打开笔记之后快速的定位到自己需要的某一类信息，然后找到自己需要的内容。</p>
+<p>当然，这只是个举例，根据你的使用情况，可能还有各种其他用法。比如有人每天新建一个日记（日志、日报、log……），在里面汇总一天的信息。比如：今日待办，今日完成，本月目标等等，反正根据自己需求来吧。</p>
+<p>我比较简单，不需要每天一篇笔记的日报，所以就只用一篇笔记去汇总信息。比如工作任务列表里标着 <code>#Next</code> 标签的任务，我用这个标签来标记打算下一步完成的任务。然后生活列表里有这个标签的任务，购物列表里有这个标签的内容，还有等着收的快递……为了美观加个图片，既然是入口，加个日历、天气、年进度，等挺合理的吧。大概是下面这个样子的：</p>
+<p><img src="https://global.cdn.blingwang.cn/2022/10/14/634918a9d6ed7.png" alt="StartTab.png"></p>
+<p>汇总，入口，线索。如果有这些需求，那么可以考虑弄一个适合自己的起始页。也算是个性定制，客制化什么的了。其实也不算复杂，后面会一点点拆解。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b6f3febd-92a0-413b-9e3e-596b16233888/" data-id="cla9bojtd00800kod89tsfosp" data-title="changeEncode" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/00dc42f0-e9d1-4635-983c-f3a90aabae2b/" data-id="cla9dljh70004xgod3r0j2bvv" data-title="0006 因何起始页" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -248,10 +337,10 @@
 
 
   
-    <article id="post-d754e721-9d8d-44c2-870b-071c910db1df" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/d754e721-9d8d-44c2-870b-071c910db1df/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:22:45.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/" class="article-date">
+  <time class="dt-published" datetime="2022-10-14T23:43:58.000Z" itemprop="datePublished">2022-10-15</time>
 </a>
     
   </div>
@@ -262,7 +351,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/d754e721-9d8d-44c2-870b-071c910db1df/">Beautify</a>
+      <a class="p-name article-title" href="/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/">0005 往事今何在</a>
     </h1>
   
 
@@ -270,17 +359,46 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>知名代码美化（格式化）工具。支持 javascript, JSON, CSS, Sass, and HTML 语言。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify">https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>笔记多了搜索是一项必须的技能，不过搜索并不是只有关键词一种方法。</p>
+<p>前面讲的标签就是一种很重要的方式，我从标签索引页点击一下，就可以进入对应的查询，查看所有相关内容。</p>
+<p>当然，直接在文件结构里翻查也是，检索文件嘛。</p>
+<p>如果你的笔记够多，那么最好学学更高级的搜索语法，其实也不难，把问题说清楚就行。这里是官方的<a target="_blank" rel="noopener" href="https://help.obsidian.md/Plugins/Search">帮助文档</a>。认真读一遍，尝试几次就能写了，十分钟的学习来提高搜索效率还是很值得的。</p>
+<p>如果没有那么多笔记，建议先去做笔记吧，没有积累，光学技巧，就只是花里胡哨的。</p>
+<p>至于英文文档，基本高中英文水平就能读了，而且还可以借助各种翻译工具，理解下来应该没啥问题。这都不想做就也没必要继续了。虽然可以等别人嚼过的（翻译的），但是软件更新了可能功能有变化，这时候肯定是官方文档最及时。</p>
+<p>如果上面没能劝退你，并且你也学习了一下搜索语法，大概理解了一些，那么我们可以继续了。</p>
+<p>一个情况：我经常会进行某个查询，我能不能收藏这个查询，要不然一次次输入太麻烦了。</p>
+<p>写一个代码块，把语言标记为 <code>query</code>，内容就写你的查询，然后预览，你会看到它把查询结果直接列在笔记中了。</p>
+<p><img src="https://global.cdn.blingwang.cn/2022/10/14/6348a60f5b705.png" alt="在某个文件夹中查询某个标签的内容.png"></p>
+<p>这样可以在某个路径（path）下查找具有某个标签（tag）的内容。</p>
+<p>所以，就是把你要的查询讲明白给软件听。</p>
+<p>这里涉及到一些细节：</p>
+<h3 id="Markdown-的纯净性"><a href="#Markdown-的纯净性" class="headerlink" title="Markdown 的纯净性"></a>Markdown 的纯净性</h3><p>最基础的 Markdown 语法是非常简单的，当然可以实现的功能也非常少。我的理解，它核心的思路是纯键盘快速输入，同时具有简单格式标记。这很适合用作笔记，但面对复杂场景就变得非常羸弱。</p>
+<p>有人觉得实在难以满足，于是语法有了扩展，比如表格、待办，确实在一些场景下这些东西是很常用的。但是用纯文本去书写表格的体验我不敢恭维。不过这些语法基本上已经被大家认可并兼容。问题也不大。而且在纯文本状态下的可读性也不低（表格比较简单的情况）。</p>
+<p>还有一种是用代码块来实现的增强，比如流程图的 Mermaid，数据图的  charts 等。它们和上面的查询一样，用的是 Markdown 里面标准的代码块，只是标记为特定的语言。在支持的情况下，这些代码会被渲染成特殊的样子，如果不支持，则以普通代码形式显示。以代码形式显示的时候可读性并不高，好在不影响其他内容。</p>
+<p>我前面说过我的笔记尽量不平台依赖，可以随时更换软件。这就要求保持语法的纯净，不乱用不规范的私有的语法。Query 语法是 Obsidian 特有的，我只在一些入口笔记中使用，这样更换软件不会带来多大的影响。</p>
+<p>当然这只是我自己的原则，在这里提醒各位有这样一种坑，而你可以根据自己的情况设定自己的原则。</p>
+<h3 id="更强的查询"><a href="#更强的查询" class="headerlink" title="更强的查询"></a>更强的查询</h3><p>Obsidian 有一个插件 <a target="_blank" rel="noopener" href="https://github.com/blacksmithgu/obsidian-dataview">Dataview</a>，可以实现非常厉害的查询。用法和上面的 query 类似，也是代码块，不过语言标记为 <code>dataview</code>，然后使用它自己的 query 语法，详情可以在它的帮助文档中阅读。</p>
+<p>确实，有点复杂，毕竟为了强大嘛。然而，这个插件支持直接使用 JavaScript 语法，这对于会 JS 的同学来说就几乎没有学习成本了，一下子如鱼得水。所以我日常使用这种方式，后面也会分享一些查询代码，并做讲解。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/d754e721-9d8d-44c2-870b-071c910db1df/" data-id="cla9bojtm008z0kodbbezev7n" data-title="Beautify" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/9f2aed66-7b1d-4601-9eb0-3b4ef5bdbaac/" data-id="cla9dljjj008vxgodbv1o107a" data-title="0005 往事今何在" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -290,10 +408,10 @@
 
 
   
-    <article id="post-21fa52ba-88da-4647-b50a-e0ff39ed1578" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-4a7fda53-babb-4793-93dc-41c5d4607608" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/21fa52ba-88da-4647-b50a-e0ff39ed1578/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:19:59.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/4a7fda53-babb-4793-93dc-41c5d4607608/" class="article-date">
+  <time class="dt-published" datetime="2022-10-14T14:58:41.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -304,7 +422,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/21fa52ba-88da-4647-b50a-e0ff39ed1578/">awarest-align</a>
+      <a class="p-name article-title" href="/4a7fda53-babb-4793-93dc-41c5d4607608/">0004 带我找到它</a>
     </h1>
   
 
@@ -312,18 +430,39 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>和 <a href="/Alignment/">Alignment</a> 功能类似的，通过调整空白长度来实现代码对齐的工具。</p>
-<p>可以根据自己的使用喜好选择一个。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=awarest.awarest-align">https://marketplace.visualstudio.com/items?itemName=awarest.awarest-align</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>笔记的整理，首先是文件夹，但是这并不灵活，一方面深层文件夹不好操作，另一方面一个文件只能属于一个文件夹。</p>
+<p>所以最好不要用深层文件夹，只是一层的文件夹也方便使用双链直接创建文件：<code>[[Note/大老鼠怎么那么可爱捏]]</code>。</p>
+<p>然后添加元数据（meta），或者叫做 Front matter，反正就是笔记开始的一系列信息。有一些插件可以帮助，不过我推荐使用模板，Obsidian 自带的就可以。我的模板大概这样：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="attr">created:</span> &#123;&#123;<span class="string">date</span>&#125;&#125; &#123;&#123;<span class="string">time</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">updated:</span> &#123;&#123;<span class="string">date</span>&#125;&#125; &#123;&#123;<span class="string">time</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Obsidian</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Note</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Note/Article</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Published</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Published</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Blog</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br></pre></td></tr></table></figure>
+
+<p>主要就是创建时间（created 或者 ctime）和更新时间（updated），更新时间这里不会自动更新，需要借助插件，比如：<a target="_blank" rel="noopener" href="https://github.com/beaussan/update-time-on-edit-obsidian">Update time on edit plugin</a>。这些数据方便我们后期归类、查找笔记。</p>
+<p>然后了解一个概念：别名（alias），虽然表面是是笔记的别名，其实你也可以理解为虚拟路径。一个文件可以有多个别名，如果运用得好，完全可以当作分类来使用。别名可以在元数据中进行设定（aliases）。</p>
+<p>还有一个重要的概念是标签。标签非常灵活，可以是分类、关键词，甚至利用嵌套标签来表达层级关系（比如上面中带有斜线 <code>/</code> 的标签）。但下一个问题随之而来——标签多了不好管理。</p>
+<p>可以划分细致的层级，这在某些时候是有必要的，比如 <code>#Android</code> 标签，如果在软件相关的笔记中，代表的是：这个软件有安卓版本；而在硬件相关的笔记中，代表的是：这个设备是安卓系统。显然这两个含义的区别还是比较大的。这时候如果加入层级，就会比较合理：<code>#Software/Android</code>，表意更加明确。</p>
+<p>也要有自己的组织。虽然软件可以列出所有的标签，但是平铺直叙，是没有任何线索的（字母或者数量排序）。我们可以自己建立一个标签页面，登记自己用到的所有标签，并加以归类，比如这样：</p>
+<p><img src="https://global.cdn.blingwang.cn/2022/10/09/634213fe4ee64.jpg" alt="TagsIndex"></p>
+<p>这样想查找什么标签以及对应的内容就很方便，这也是整理的意义所在。当然，这只是我的方法，仅供参考。</p>
+<p>标签的一个重要功能是关键词补全，记录一句代码，在标题说明这是做什么的，但是自己搜索的时候有可能会用另外一个关键词，当然可以也写在标题或者内容里，但是就有点拼凑感，这时候就可以把所有相关的关键词以标签的形式添加。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/21fa52ba-88da-4647-b50a-e0ff39ed1578/" data-id="cla9bojrs001q0kodcmvibryy" data-title="awarest-align" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/4a7fda53-babb-4793-93dc-41c5d4607608/" data-id="cla9dljii004ixgodhwfu6jzd" data-title="0004 带我找到它" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -333,10 +472,10 @@
 
 
   
-    <article id="post-ed15d5a5-8f3a-4e1d-84c8-06244e582cec" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-edd8138a-db50-42e4-8a9c-6863193716e7" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/ed15d5a5-8f3a-4e1d-84c8-06244e582cec/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:15:21.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/edd8138a-db50-42e4-8a9c-6863193716e7/" class="article-date">
+  <time class="dt-published" datetime="2022-10-14T12:32:19.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -347,7 +486,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/ed15d5a5-8f3a-4e1d-84c8-06244e582cec/">Auto Rename Tag</a>
+      <a class="p-name article-title" href="/edd8138a-db50-42e4-8a9c-6863193716e7/">0003 同步什么的</a>
     </h1>
   
 
@@ -355,17 +494,39 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>针对 HTML&#x2F;XML 这种标签式标记语言，在修改前后某一个标签时，同步修改对应的另一个标签。这很方便，个别时间会略混乱，整体上讲，还是很有帮助的扩展。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag">https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>Obsidian 的插件和主题都是在 Github 上，所以安装需要能够顺利的访问 Github。</p>
+<p>Obsidian 官方提供同步和发布服务，但是收费，同步 8 美元&#x2F;月，发布 16 美元&#x2F;月，需按年购买。我买不起。（欢迎赞助： <a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a>）</p>
+<p>不过前面说了，就是文件而已，那用网盘同步也完全没有问题的。以及其他各种文件同步工具和方式都没问题。</p>
+<p>有一个第三方插件：<a target="_blank" rel="noopener" href="https://github.com/remotely-save/remotely-save">Remotely Save</a>，可以更方便的进行同步，支持 S3 云服务，Webdav 服务，OneDrive，Dropbox。这里我推荐搭配 <a target="_blank" rel="noopener" href="https://teracloud.jp/en/">TeraCLOUD</a> 使用，这个网盘可以开启 Webdav 服务。我的邀请码是： <strong>5RZJD</strong>，输入之后你我都可以获得几个 GB 的临时空间。免费空间可能是 100GB，记不清，反正一般做笔记足够用了。</p>
+<p><strong>任何云服务都不是绝对保险的，任何存储设备都不是绝对保险的。想要数据安全，就要在更多地方做更多的备份。</strong></p>
+<p>记得每次在开始使用前先同步一次数据，使用后再同步一次数据，避免数据冲突，这个习惯挺重要的。</p>
+<h3 id="手机上如何同步？"><a href="#手机上如何同步？" class="headerlink" title="手机上如何同步？"></a>手机上如何同步？</h3><p>上面的方法基本适用。</p>
+<p>但是，同步这么麻烦，而手机上并不适合输入和编辑，这时候要认真的去思考一个问题——真的有必要和手机同步么？</p>
+<p>我承认，有些复杂的需求下，确实需要，那么去折腾吧，以及牢记各种操作规范，保障数据安全。</p>
+<p>而如果你只是想方便在手机上阅读，也许可以考虑一下发布服务。有好几款插件可以实现，十分简单，右键——发布，就发布了，都不需要注册。我目前用的：<a target="_blank" rel="noopener" href="https://github.com/jonstodle/obsius-obsidian-plugin">Obsius Publish</a>，发布之后还能进行简单的管理。类似的还有： <a target="_blank" rel="noopener" href="https://github.com/ozntel/ozanshare-publish-plugin">OzanShare Publish</a>，私密性可能更高一点。当然也可以自己搭建。</p>
+<p>如果你是想记录闪念，那手机的记事本也不错了；收集网址，浏览器的收藏夹也不错。</p>
+<p><strong>笔记是需要整理的</strong>，如果收集之后必然要有整理过程，那么收集在什么地方倒不那么重要了。</p>
+<p>如果是用来管理待办、任务，也许可以考虑新建一个保险库（Vault），手机上只同步这个保险库，这样万一出现问题，也不会影响到其他数据。而且也不至于每次都需要同步并不需要的数据。但，为什么不用个专业的 GTD 软件呢？</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/ed15d5a5-8f3a-4e1d-84c8-06244e582cec/" data-id="cla9boju000af0kodd3we52w5" data-title="Auto Rename Tag" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/edd8138a-db50-42e4-8a9c-6863193716e7/" data-id="cla9dljku00dpxgodewms38ub" data-title="0003 同步什么的" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -375,10 +536,10 @@
 
 
   
-    <article id="post-b6b9f533-60bf-46ef-a4a7-1001c7dc6462" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/b6b9f533-60bf-46ef-a4a7-1001c7dc6462/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T13:07:31.000Z" itemprop="datePublished">2019-12-09</time>
+    <a href="/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/" class="article-date">
+  <time class="dt-published" datetime="2022-10-14T12:13:04.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -389,7 +550,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/b6b9f533-60bf-46ef-a4a7-1001c7dc6462/">Alignment</a>
+      <a class="p-name article-title" href="/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/">0002 笔记是什么</a>
     </h1>
   
 
@@ -397,19 +558,37 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>代码对齐工具，可以通过调整空白长度，来让多行代码中的相同部分，比如 “&#x3D;” 等内容在垂直方向上对齐。来满足强迫症患者。</p>
-<p>这种对齐，对于需要进行列编辑的情况，会非常友好。</p>
-<p>复杂情况下，效果并不是很完美，需要自己进行详细配置。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=annsk.alignment">https://marketplace.visualstudio.com/items?itemName=annsk.alignment</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>怎么比喻都行，反正大家用法各不相同，没必要非得分个高下，也没必要非找个所谓最好的。适合自己的才是最好的。 </p>
+<p>随便分几种情况聊聊，并不全面，仅供参考：</p>
+<h3 id="日志类"><a href="#日志类" class="headerlink" title="日志类"></a>日志类</h3><p>日记呀，或者工作记录呀，或者流水帐啊，或者闪念啊。标记好日期有个索引的线索就好，可以日后翻看，能对应上日期就够了，毕竟再复杂的线索恐怕也难以归类出来。必要的话加个相关标签。</p>
+<h3 id="知识类"><a href="#知识类" class="headerlink" title="知识类"></a>知识类</h3><p>知识需要有内化的过程，体现在笔记上就是不断地翻看整理。这里觉得 Obsidian 的漫游功能（核心插件，需要开启）挺适合用来回顾笔记的。</p>
+<p>然后，<strong>笔记不整理和没记没区别</strong>。那种看见啥都复制、粘贴、艾特xx笔记的做法就……咱说实在的，直接下载个维基百科离线版可能更好。</p>
+<p>整理啊，回顾啊，这比记录还要重要很多的。同时仔细地分类笔记，添加标签等，这些都是后期索引的线索。</p>
+<h3 id="网络摘抄"><a href="#网络摘抄" class="headerlink" title="网络摘抄"></a>网络摘抄</h3><p>先收入笔记，然后抓时间整理，最好用自己的语言再复述一遍。然后归入自己的知识库之中。</p>
+<h3 id="收集箱"><a href="#收集箱" class="headerlink" title="收集箱"></a>收集箱</h3><p>闪念、摘抄这些都是快速记录的，后续应该有整理过程的，所以这些内容先进收集箱临时存储，等待后续整理，然后归档到知识库之中。</p>
+<hr>
+<p>如此，一套笔记法就出来了。有收集、整理、回顾，也有分类、组织、管理。</p>
+<p>简单吧，但长期践行下去就是考验耐心和毅力的事情了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b6b9f533-60bf-46ef-a4a7-1001c7dc6462/" data-id="cla9bojtd007y0kod02ndf03a" data-title="Alignment" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/890cb87f-69d6-4f7c-b8b4-b4b9c4fbc1f0/" data-id="cla9dljj9007hxgodgfer61xy" data-title="0002 笔记是什么" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -419,10 +598,10 @@
 
 
   
-    <article id="post-d00da274-be61-4492-a08f-1be5ae949dd2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-1bd1f7c0-a822-43b7-922f-7483ef75ff23" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/d00da274-be61-4492-a08f-1be5ae949dd2/" class="article-date">
-  <time class="dt-published" datetime="2019-12-07T02:25:48.000Z" itemprop="datePublished">2019-12-07</time>
+    <a href="/1bd1f7c0-a822-43b7-922f-7483ef75ff23/" class="article-date">
+  <time class="dt-published" datetime="2022-10-14T07:23:10.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -433,7 +612,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/d00da274-be61-4492-a08f-1be5ae949dd2/">Aerial</a>
+      <a class="p-name article-title" href="/1bd1f7c0-a822-43b7-922f-7483ef75ff23/">0001 那就启程吧</a>
     </h1>
   
 
@@ -441,18 +620,35 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>用来设置窗口最大化时距离屏幕边界的距离。实现类似 Mac 中最大化让开 Dock 区域的效果。</p>
-<p>配合各种 dock 软件效果最好。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://chrisandriessen.nl/web/Aerial.html">https://chrisandriessen.nl/web/Aerial.html</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>安装，打开，写笔记，就行了。</p>
+<p>还要怎样？这就是个工具，工具就该有工具的样子，用呗，用熟了就好用了。工具折腾出花儿来，回头一看就写了两篇笔记，也没啥意思。</p>
+<p>Obsidain 手机端几乎完整照搬电脑端，真没啥学习成本了。</p>
+<p>电脑端在保险库（vault）打开界面中可以设置软件语言，最开始我不知道，稀里糊涂用了很久英文版。手机端在设置的关于里面可以设置界面语言。这语言设置多少有点不按套路出牌。</p>
+<p>设置里的每个功能都有说明，看不懂的就不动就行了。</p>
+<p>保险库就是一个文件夹，然后你的笔记都保存在里面，然后用网盘备份这个文件夹就可以同步和备份了。当然可以有多个保险库，看具体需求了。</p>
+<p>既然是文件，那么就可以按文件结构去管理笔记，就是一个文件夹放一类笔记。如果你的笔记比较多，这里值得规划一下。如果刚开始，那么先写，先有了记笔记的习惯再说其他的。</p>
+<p>Markdown 语法有十几分钟就学会了，就学最基础的就行。</p>
+<p><strong>如果你想让一件事情变成长久的习惯，就一定不要把它搞复杂。</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/d00da274-be61-4492-a08f-1be5ae949dd2/" data-id="cla9bojti008p0kod5jnxf3m2" data-title="Aerial" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/1bd1f7c0-a822-43b7-922f-7483ef75ff23/" data-id="cla9dljhv001vxgod23gc34y7" data-title="0001 那就启程吧" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -462,10 +658,10 @@
 
 
   
-    <article id="post-7e16a7cc-943b-498b-a224-9514f652ba24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-567af6da-0ca5-44bb-9c60-dbe9295dbef8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/7e16a7cc-943b-498b-a224-9514f652ba24/" class="article-date">
-  <time class="dt-published" datetime="2019-12-07T02:22:44.000Z" itemprop="datePublished">2019-12-07</time>
+    <a href="/567af6da-0ca5-44bb-9c60-dbe9295dbef8/" class="article-date">
+  <time class="dt-published" datetime="2022-10-14T06:42:20.000Z" itemprop="datePublished">2022-10-14</time>
 </a>
     
   </div>
@@ -476,7 +672,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/7e16a7cc-943b-498b-a224-9514f652ba24/">FalconX</a>
+      <a class="p-name article-title" href="/567af6da-0ca5-44bb-9c60-dbe9295dbef8/">0000 原本无一物</a>
     </h1>
   
 
@@ -484,18 +680,40 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>用来剧中任务栏图标，Windows 终于有实现这个功能的应用了。</p>
-<p>还可以设置任务栏透明、模糊。但是，前万万不要和 <a href="/TranslucentTB/">TranslucentTB</a> 同时启用。可能导致电脑所有窗口不响应。</p>
-<p>【地址】： <a target="_blank" rel="noopener" href="https://chrisandriessen.nl/web/FalconX.html">https://chrisandriessen.nl/web/FalconX.html</a></p>
+        <blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://meta.appinn.net/t/topic/37042">《遇见 Obsidian》系列笔记汇总目录</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果觉得有用就支持一下作者：<a target="_blank" rel="noopener" href="https://afdian.net/@daomishu">老鼠爱发电</a></li>
+</ul>
+</blockquote>
+<hr>
+<p>我不喜欢笔记，我以前从来不记笔记，我的记忆就是我的笔记。</p>
+<p>但是，记忆这东西……有一天会叛逃，靠！釜底抽薪了这是</p>
+<p>不想讲知识管理啥的，没那么高大上，我管理的有些不是知识，我只是不想忘记钥匙放哪里了。</p>
+<p>为啥是 Obsidian？</p>
+<p>都行，我真没所谓，记事本也行，只不过各种意义上的不好用罢了。VS Code 也行，Typora 也行……我还能随口讲几十个（摸摸脑袋，好像又没记住那么多名字）。</p>
+<p>不过这里涉及到了我笔记的一个重要原则：<strong>绝不依赖特定平台</strong>。免得我把我的知识啊，人生啊，一切的一切写在上面的，以为自己忘不掉了，然后它收费了，或者倒闭了。我以为笔记是我的第二大脑，哪承想第二大脑也叛逃了。</p>
+<p>所以我的笔记是 Markdown 格式，本质是文本文件，用标记添加简单的格式，用记事本也能读，而且可读性还不错。想怎么存储怎么存储，想怎么同步怎么同步。</p>
+<p>至于 Obsidian，就是个管理&#x2F;编辑工具而已，随时可以更换，甚至我现在日常也用它和其他编辑器配合。</p>
+<p>行了，结帖。</p>
+<hr>
+<p>Obsidian 香啊！</p>
+<p>无论是 Dataview 插件还是 Templater 插件，都可以自己写 JS，恰好，我会写 JS。巧么了，这不是。</p>
+<p>都能自己写脚本了，而且还是我会的语言，那就约等于没啥学习成本，还拥有最大的自由度。我当然觉得香了。</p>
+<p>这个系列，只是从我的角度记录我的使用，分享其中的舒爽和乐趣。还有一些插件用法和我写的小脚本。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/7e16a7cc-943b-498b-a224-9514f652ba24/" data-id="cla9bojsw005q0kod79ozb6v8" data-title="FalconX" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/567af6da-0ca5-44bb-9c60-dbe9295dbef8/" data-id="cla9dljir005axgod70ah6cqa" data-title="0000 原本无一物" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -509,7 +727,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -523,7 +741,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
     </div>
   </div>
 
@@ -533,7 +751,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 20px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 16.25px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 18.13px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.25px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.75px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 19.38px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.88px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 14.38px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.88px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.75px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.63px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 17.5px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.63px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.75px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 15px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.5px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.25px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.88px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.63px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 13.13px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15.63px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 13.13px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
+      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Note-Article/" style="font-size: 17.22px;">Note/Article</a> <a href="/tags/Note-Note/" style="font-size: 17.22px;">Note/Note</a> <a href="/tags/Note-Obsidian/" style="font-size: 17.22px;">Note/Obsidian</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 19.44px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 15.56px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 17.78px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.11px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.33px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 18.89px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.67px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 13.89px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.11px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.33px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.56px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 16.67px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.56px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.33px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 14.44px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.22px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.11px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.56px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.78px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 12.78px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
     </div>
   </div>
 
@@ -542,7 +760,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
     </div>
   </div>
 
@@ -555,23 +773,23 @@
       <ul>
         
           <li>
-            <a href="/e9449523-4002-4330-98ee-d74e393621d7/">CuteHttpFileServer</a>
+            <a href="/cb1cd6f2-2b57-4dad-b378-0f15732fea2d/">0049 Markdown 是什么</a>
           </li>
         
           <li>
-            <a href="/3cfc1b30-59f7-4fc8-894b-faa7b185024d/">Yeoman</a>
+            <a href="/c476329c-da7c-4f53-b1d2-cf976fb3c2d1/">0048 教你笔记分栏-Dataview</a>
           </li>
         
           <li>
-            <a href="/3f5094f9-eb62-482a-a399-9ed6b5b07884/">Sort Lines</a>
+            <a href="/4b5b6eff-310e-407a-9263-6cba4cebf626/">0047 文字卡片-Templater</a>
           </li>
         
           <li>
-            <a href="/77dc93e8-e248-4b13-82b6-c508dd9bd38b/">Todo Tree</a>
+            <a href="/438980cc-f26a-4bfd-930f-1105577296a7/">0046 时间条-Dataview</a>
           </li>
         
           <li>
-            <a href="/551863dd-5c46-4385-aba0-4f1186faf15d/">Highlight Matching Tag</a>
+            <a href="/d3e84c60-6256-4746-a8a8-086b5b1cae9a/">0045 Heatmap-Dataview</a>
           </li>
         
       </ul>

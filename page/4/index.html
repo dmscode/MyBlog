@@ -82,6 +82,61 @@
   
   
     <h1 class="index-title">
+        <a href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/">
+            0020 一言诗词-Templater
+        </a>
+    </h1>
+  
+
+
+  <div class="excerpt">
+  
+    <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
+<p>Scritps&#x2F;get_sentence.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 同步函数，两个参数</span></span><br><span class="line"><span class="comment"> * 第一个 tp，是传入 templater 对象</span></span><br><span class="line"><span class="comment"> * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&quot;诗词&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_sentence</span> (tp, type) &#123;</span><br><span class="line">  <span class="comment">/* Api 数组，返回的都是纯文本 */</span></span><br><span class="line">  <span class="keyword">const</span> apis = &#123;</span><br><span class="line">    <span class="string">&#x27;毒鸡汤&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dutang/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;社会语录&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yulu/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;舔狗日记&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dog/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;一言&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yiyan/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;诗词&#x27;</span>: <span class="string">&#x27;https://v1.jinrishici.com/all.txt&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 如果没有设定类型，则提示选择类型，默认值为：&quot;一言&quot; */</span></span><br><span class="line">  <span class="keyword">if</span>(!type)&#123;</span><br><span class="line">    type = <span class="keyword">await</span> tp.<span class="property">system</span>.<span class="title function_">suggester</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="literal">false</span>, <span class="string">&#x27;一言&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 获取对应的 Api 地址 */</span></span><br><span class="line">  <span class="keyword">const</span> url = type &amp;&amp; apis[type] ? apis[type] : apis[<span class="string">&#x27;一言&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 发送请求，返回获取的字符串 */</span></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_sentence;</span><br></pre></td></tr></table></figure>
+  
+  <a href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/">
+    更多
+  </a>
+  </div>
+  <div class="index-meta">
+    <time datetime="2022-10-17T20:58:19.000Z" itemprop="datePublished">
+  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2022-10-18
+</time>
+
+
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/Published/">Published</a>·<a href="/tags/Blog/">Blog</a>·<a href="/tags/Note-Obsidian/">Note/Obsidian</a>·<a href="/tags/Note-Note/">Note/Note</a>·<a href="/tags/Note-Article/">Note/Article</a>
+
+
+  </div>
+</li>
+<hr>
+
+
+
+
+
+  
+    
+<li class="post-item">
+  
+  
+    <h1 class="index-title">
         <a href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/">
             0019 标签索引补遗-Dataview
         </a>
@@ -534,60 +589,6 @@
   </div>
   <div class="index-meta">
     <time datetime="2022-10-16T08:54:44.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-16
-</time>
-
-
-
-
-
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/Published/">Published</a>·<a href="/tags/Blog/">Blog</a>·<a href="/tags/Note-Obsidian/">Note/Obsidian</a>·<a href="/tags/Note-Note/">Note/Note</a>·<a href="/tags/Note-Article/">Note/Article</a>
-
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">
-            0009 题头图片
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    <p>开始我写了一个模板，后来发现并不需要，就直接添加图片就可以了。</p>
-<p>废话，往笔记里加图片可不就直接添加图片就可以了么。</p>
-<p>但是要每一天都看相同的图片，肯定会腻的，就希望它自己变。所以我用了一个随机图片 API：</p>
-  
-  <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">
-    更多
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-15T23:07:28.000Z" itemprop="datePublished">
   <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
     <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
   </svg>

@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="自己的自己">
 <meta property="og:description" content="就是把代码写到一个单独的 JS 文件，并导出： 12345function 函数名称 () &amp;#123;  &#x2F;&#x2F; 用户代码&amp;#125;module.exports &#x3D; 函数名称;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-17T07:09:50.000Z">
-<meta property="article:modified_time" content="2022-11-09T08:25:06.000Z">
+<meta property="article:published_time" content="2022-10-17T15:09:50.000Z">
+<meta property="article:modified_time" content="2022-11-11T06:06:17.000Z">
 <meta property="article:author" content="稻米鼠">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
@@ -87,7 +87,7 @@
         <section id="main"><article id="post-b61071db-77ac-4248-b9d7-c0262ef15304" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/b61071db-77ac-4248-b9d7-c0262ef15304/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T07:09:50.000Z" itemprop="datePublished">2022-10-17</time>
+  <time class="dt-published" datetime="2022-10-17T15:09:50.000Z" itemprop="datePublished">2022-10-17</time>
 </a>
     
   </div>
@@ -119,7 +119,7 @@
 <p>基本上是的，不过在用户脚本里没有 tp 这个对象，<code>tp.date.now()</code> 也就无从说起。怎么办呢？把 <code>tp</code> 当参数传回来就行了。</p>
 <p>一般如果需要输出，函数负责返回内容，在模板中再根据具体调用方法进行输出。</p>
 <p>有朋友说：你看这个大老鼠，又要夹带私货，试图教会我们 JS 了！</p>
-<p>并不是啦，只是这种自由度的工具还是多少了解一点它的基本运行思路会用的比较顺畅。否则有一天你遇到了问题，然后自己去看看代码，发现 <code>&lt;%</code>、<code>&lt;%+</code>、<code>&lt;%*</code> 三种情况，然后强迫症发作给统一了一下，然后看到 一个 xxx.js 的文件从来没用到过，就给删了……问题就越来越多了。</p>
+<p>并不是啦，只是这种自由度的工具还是多少了解一点它的基本运行思路会用的比较顺畅。否则有一天你遇到了问题，然后自己去看看代码，发现 <code>  &lt;%</code>、<code>&lt;%+</code>、<code>&lt;%*</code> 三种情况，然后强迫症发作给统一了一下，然后看到一个 xxx. js 的文件从来没用到过，就给删了……问题就越来越多了。</p>
 <p>你说：我不管，别人写好我就用，出了问题不乱动！</p>
 <p>我觉得像动态执行这种代码很少有人给直接写好吧，简单情况下只是一个 <code>+</code> 的区别，自己动手一下很合理。以及虽然模板可以写出交互式设定，但是参数太多的时候也不可能全都问一下的，所以自己稍微改改代码挺合理的。</p>
 <p>比如：一个模板的输出文字有点大，你看到代码里有：<code>font-size: 18px</code>，很显然可以修改数字看看嘛，这不需要什么编程啊，懂代码啊。</p>
@@ -128,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="claadv27400a6lkodddpa4ia7" data-title="0011 用户函数" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="clacf3re400a9bkod2h66hylr" data-title="0011 用户函数" class="article-share-link">分享</a>
       
       
       
@@ -140,19 +140,19 @@
     
 <nav id="article-nav">
   
-    <a href="/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2c870949-e965-4fcc-b0c0-0522bdf29779/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          0012 数据汇总显示
+          0016 指定目录笔记漫游-Dataview
         
       </div>
     </a>
   
   
-    <a href="/18e574ea-4bf4-436f-912c-813c52167be4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">0010 从时间说模板</div>
+      <div class="article-nav-title">0015 日期模板含农历-Templater</div>
     </a>
   
 </nav>
@@ -204,6 +204,10 @@
       <ul>
         
           <li>
+            <a href="/80245ccd-43c8-49d6-85b5-f15a8552c3b8/">0051 更好用的文字卡片-Templater</a>
+          </li>
+        
+          <li>
             <a href="/e64fcb68-6cf2-42a7-b4cc-7aa17ea6e757/">0050 一键发布博客</a>
           </li>
         
@@ -217,10 +221,6 @@
         
           <li>
             <a href="/4b5b6eff-310e-407a-9263-6cba4cebf626/">0047 文字卡片-Templater</a>
-          </li>
-        
-          <li>
-            <a href="/438980cc-f26a-4bfd-930f-1105577296a7/">0046 时间条-Dataview</a>
           </li>
         
       </ul>

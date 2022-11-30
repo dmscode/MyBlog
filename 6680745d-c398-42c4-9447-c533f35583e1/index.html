@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   
   
-  <title>VSCode Gist | 自己的自己</title>
+  <title>0058 快速更新时间日期-Templater | 自己的自己</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="快速创建、打开、编辑 Github Gist。 很方便，很舒适。我现在随手写的小脚本，就很随手的用它保存。【地址】： https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName&#x3D;kenhowardpdx.vscode-gist">
+  <meta name="description" content="仿佛很小的一件事儿，但每次精确的选中原来的时间，然后用模板等方法插入现在的时间，对我来说还是有点难。尤其是我喜欢在时间日期前后加上空格，一不小心多选一个空格什么的都很正常。 所以写了这个模板，随便一选（只要包含原有时间）即可，插入模板就搞定。 代码如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VSCode Gist">
-<meta property="og:url" content="https://zji.me/f1e5ecc6-88fc-4cf7-a1d6-160e750b4d75/">
+<meta property="og:title" content="0058 快速更新时间日期-Templater">
+<meta property="og:url" content="https://zji.me/6680745d-c398-42c4-9447-c533f35583e1/">
 <meta property="og:site_name" content="自己的自己">
-<meta property="og:description" content="快速创建、打开、编辑 Github Gist。 很方便，很舒适。我现在随手写的小脚本，就很随手的用它保存。【地址】： https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName&#x3D;kenhowardpdx.vscode-gist">
+<meta property="og:description" content="仿佛很小的一件事儿，但每次精确的选中原来的时间，然后用模板等方法插入现在的时间，对我来说还是有点难。尤其是我喜欢在时间日期前后加上空格，一不小心多选一个空格什么的都很正常。 所以写了这个模板，随便一选（只要包含原有时间）即可，插入模板就搞定。 代码如下：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-09T22:47:36.000Z">
-<meta property="article:modified_time" content="2022-11-13T12:12:42.000Z">
+<meta property="article:published_time" content="2022-11-30T01:11:21.000Z">
+<meta property="article:modified_time" content="2022-11-30T01:11:21.000Z">
 <meta property="article:author" content="稻米鼠">
-<meta property="article:tag" content="Software">
-<meta property="article:tag" content="Software&#x2F;Free">
 <meta property="article:tag" content="Published">
 <meta property="article:tag" content="Blog">
-<meta property="article:tag" content="Software&#x2F;VSCode">
+<meta property="article:tag" content="Note&#x2F;Obsidian">
+<meta property="article:tag" content="Note&#x2F;Note">
+<meta property="article:tag" content="Note&#x2F;Article">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="自己的自己" type="application/atom+xml">
@@ -84,10 +84,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-f1e5ecc6-88fc-4cf7-a1d6-160e750b4d75" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-6680745d-c398-42c4-9447-c533f35583e1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/f1e5ecc6-88fc-4cf7-a1d6-160e750b4d75/" class="article-date">
-  <time class="dt-published" datetime="2019-12-09T22:47:36.000Z" itemprop="datePublished">2019-12-10</time>
+    <a href="/6680745d-c398-42c4-9447-c533f35583e1/" class="article-date">
+  <time class="dt-published" datetime="2022-11-30T01:11:21.000Z" itemprop="datePublished">2022-11-30</time>
 </a>
     
   </div>
@@ -98,7 +98,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      VSCode Gist
+      0058 快速更新时间日期-Templater
     </h1>
   
 
@@ -106,17 +106,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>快速创建、打开、编辑 Github Gist。</p>
-<p>很方便，很舒适。我现在随手写的小脚本，就很随手的用它保存。<br>【地址】： <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=kenhowardpdx.vscode-gist">https://marketplace.visualstudio.com/items?itemName=kenhowardpdx.vscode-gist</a></p>
+        <p>仿佛很小的一件事儿，但每次精确的选中原来的时间，然后用模板等方法插入现在的时间，对我来说还是有点难。尤其是我喜欢在时间日期前后加上空格，一不小心多选一个空格什么的都很正常。</p>
+<p>所以写了这个模板，随便一选（只要包含原有时间）即可，插入模板就搞定。</p>
+<p>代码如下：</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%*</span><br><span class="line">  const content = await tp.file.selection()</span><br><span class="line">  tR += content.replace(/\d&#123;4&#125;(-\d&#123;2&#125;)&#123;2&#125;/g, tp.date.now(&#x27;YYYY-MM-DD&#x27;))</span><br><span class="line">                .replace(/\d&#123;4&#125;(\/\d&#123;2&#125;)&#123;2&#125;/g, tp.date.now(&#x27;YYYY/MM/DD&#x27;))</span><br><span class="line">                .replace(/\d&#123;2&#125;(:\d&#123;2&#125;)&#123;2&#125;/g, tp.date.now(&#x27;HH:mm:ss&#x27;))</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Templater 模板，知道怎么用了吧？</p>
+<p>现在已可以直接在这个仓库（ <a target="_blank" rel="noopener" href="https://github.com/dmscode/Obsidian-Templates">https://github.com/dmscode/Obsidian-Templates</a> ）中寻找对应的文件。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/f1e5ecc6-88fc-4cf7-a1d6-160e750b4d75/" data-id="clb2ykany00ej0god8nut75vh" data-title="VSCode Gist" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/6680745d-c398-42c4-9447-c533f35583e1/" data-id="clb2ykalg00660god29kcdot1" data-title="0058 快速更新时间日期-Templater" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
 
     </footer>
   </div>
@@ -124,19 +131,10 @@
     
 <nav id="article-nav">
   
-    <a href="/04fcd040-5ff6-455b-bd21-197fc6b15e03/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          TODO Highlight
-        
-      </div>
-    </a>
   
-  
-    <a href="/ec39e06d-819a-44d4-970c-4261bdd2284d/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/6c856691-33c0-4649-a27e-db702abc4e4/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">vscode-fileheader</div>
+      <div class="article-nav-title">0057 我们一起做笔记</div>
     </a>
   
 </nav>

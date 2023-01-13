@@ -113,12 +113,14 @@
 
 <p>还有啥，好像没了。不是，我不凑数几行我的脚本会把分割线加进代码块里，烦捏（</p>
 <p>哼唧~</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> targetDate = <span class="string">&#x27;2023-01-21&#x27;</span></span><br><span class="line"><span class="keyword">const</span> prefix = <span class="string">&#x27;距离过年还有&#x27;</span></span><br><span class="line"><span class="keyword">const</span> suffix = <span class="string">&#x27;天&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> days = <span class="title class_">Math</span>.<span class="title function_">ceil</span>((<span class="keyword">new</span> <span class="title class_">Date</span>(targetDate)-<span class="title class_">Date</span>.<span class="title function_">now</span>())/<span class="number">864e5</span>)</span><br><span class="line">dv.<span class="title function_">span</span>(prefix+<span class="string">&#x27; **&#x27;</span>+days+<span class="string">&#x27;** &#x27;</span>+suffix)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> targetDate = <span class="string">&#x27;2023-01-21&#x27;</span></span><br><span class="line"><span class="keyword">const</span> prefix = <span class="string">&#x27;距离过年还有 &#x27;</span></span><br><span class="line"><span class="keyword">const</span> suffix = <span class="string">&#x27; 天&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> days = <span class="title class_">Math</span>.<span class="title function_">ceil</span>((<span class="keyword">new</span> <span class="title class_">Date</span>(targetDate.<span class="title function_">replace</span>(<span class="regexp">/-/g</span>, <span class="string">&#x27;/&#x27;</span>))-<span class="title class_">Date</span>.<span class="title function_">now</span>())/<span class="number">864e5</span>)</span><br><span class="line">dv.<span class="title function_">span</span>(prefix+<span class="string">&#x27;**&#x27;</span>+days+<span class="string">&#x27;**&#x27;</span>+suffix)</span><br></pre></td></tr></table></figure>
+
+<p>2023-01-13 20:24:38 修正时区问题</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/6a230850-8676-4e98-8e2b-d7fa383c4c7d/" data-id="clcses3yj006nlcod1lwp5c0l" data-title="0065 倒数日-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/6a230850-8676-4e98-8e2b-d7fa383c4c7d/" data-id="clcuht02s006fpwodf1v79w9k" data-title="0065 倒数日-Dataview" class="article-share-link">分享</a>
       
       
       

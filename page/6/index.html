@@ -77,6 +77,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-e9708e55-b3d0-4e56-8c61-e2bb6b2e827e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" class="article-date">
+  <time class="dt-published" datetime="2022-10-19T04:58:19.000Z" itemprop="datePublished">2022-10-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/">0020 一言诗词-Templater</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="用户脚本"><a href="#用户脚本" class="headerlink" title="用户脚本"></a>用户脚本</h3><blockquote>
+<p>Scritps&#x2F;get_sentence.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 同步函数，两个参数</span></span><br><span class="line"><span class="comment"> * 第一个 tp，是传入 templater 对象</span></span><br><span class="line"><span class="comment"> * 第二个是输出类型，&quot;毒鸡汤&quot;、&quot;社会语录&quot;、&quot;舔狗日记&quot;、&quot;一言&quot;、&quot;诗词&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">get_sentence</span> (tp, type) &#123;</span><br><span class="line">  <span class="comment">/* Api 数组，返回的都是纯文本 */</span></span><br><span class="line">  <span class="keyword">const</span> apis = &#123;</span><br><span class="line">    <span class="string">&#x27;毒鸡汤&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dutang/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;社会语录&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yulu/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;舔狗日记&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/dog/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;一言&#x27;</span>: <span class="string">&#x27;https://api.oick.cn/yiyan/api.php&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;诗词&#x27;</span>: <span class="string">&#x27;https://v1.jinrishici.com/all.txt&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 如果没有设定类型，则提示选择类型，默认值为：&quot;一言&quot; */</span></span><br><span class="line">  <span class="keyword">if</span>(!type)&#123;</span><br><span class="line">    type = <span class="keyword">await</span> tp.<span class="property">system</span>.<span class="title function_">suggester</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="title class_">Object</span>.<span class="title function_">keys</span>(apis), <span class="literal">false</span>, <span class="string">&#x27;一言&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 获取对应的 Api 地址 */</span></span><br><span class="line">  <span class="keyword">const</span> url = type &amp;&amp; apis[type] ? apis[type] : apis[<span class="string">&#x27;一言&#x27;</span>]</span><br><span class="line">  <span class="comment">/* 发送请求，返回获取的字符串 */</span></span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url)</span><br><span class="line">  <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line">  <span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = get_sentence;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zji.me/e9708e55-b3d0-4e56-8c61-e2bb6b2e827e/" data-id="clh1b5ezx00ejd8od5n7uc76c" data-title="0020 一言诗词-Templater" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-d577588c-ae4f-413b-9cdb-f29f3a4af3b6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" class="article-date">
@@ -110,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" data-id="clh1axcxk00cxf0odc3owaos9" data-title="0019 标签索引补遗-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/d577588c-ae4f-413b-9cdb-f29f3a4af3b6/" data-id="clh1b5ez300d0d8od5x5chcw4" data-title="0019 标签索引补遗-Dataview" class="article-share-link">分享</a>
       
       
       
@@ -156,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="clh1axcyq00g9f0od2voedgf4" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/fcfd5a19-2066-4e9b-9716-b9effb583d4c/" data-id="clh1b5f0q00gcd8od4yjv9hrg" data-title="0017 YearProgress-Templater" class="article-share-link">分享</a>
       
       
       
@@ -203,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/2c870949-e965-4fcc-b0c0-0522bdf29779/" data-id="clh1axcuq0033f0od523v16w8" data-title="0016 指定目录笔记漫游-Dataview" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/2c870949-e965-4fcc-b0c0-0522bdf29779/" data-id="clh1b5eur0034d8odaus9cx3r" data-title="0016 指定目录笔记漫游-Dataview" class="article-share-link">分享</a>
       
       
       
@@ -249,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="clh1axcx400b9f0od9jl22nxk" data-title="0011 用户函数" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/b61071db-77ac-4248-b9d7-c0262ef15304/" data-id="clh1b5eyg00bad8odbu9oasqn" data-title="0011 用户函数" class="article-share-link">分享</a>
       
       
       
@@ -295,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="clh1axctm0015f0odcpnhdues" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/13d13397-3ef8-4f86-9f10-8ae94bae00b3/" data-id="clh1b5etl0016d8oddk3bba8y" data-title="0015 日期模板含农历-Templater" class="article-share-link">分享</a>
       
       
       
@@ -346,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/55d03008-d2b4-4270-862c-4a7278e43e41/" data-id="clh1axcve005lf0odgqsdhid4" data-title="0014 分享前的说明" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/55d03008-d2b4-4270-862c-4a7278e43e41/" data-id="clh1b5evq005md8od2blp2fju" data-title="0014 分享前的说明" class="article-share-link">分享</a>
       
       
       
@@ -393,7 +441,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" data-id="clh1axcuv003nf0od4gwi21i9" data-title="0013 真的快起来" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/3a7ffc6b-7681-4d59-8c5f-7007b6b07677/" data-id="clh1b5ev2003od8ode1jm00e1" data-title="0013 真的快起来" class="article-share-link">分享</a>
       
       
       
@@ -440,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" data-id="clh1axcyh00fff0odhpqxerra" data-title="0012 数据汇总显示" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/f3f84bcb-f021-486c-98c0-e9daaf1060d6/" data-id="clh1b5f0c00fid8od6leccbt3" data-title="0012 数据汇总显示" class="article-share-link">分享</a>
       
       
       
@@ -487,54 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="clh1axctt001kf0od8uv90bnt" data-title="0010 从时间说模板" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-af4b2aef-b811-467b-a1b1-8261ffdb4b9e" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" class="article-date">
-  <time class="dt-published" datetime="2022-10-17T07:07:28.000Z" itemprop="datePublished">2022-10-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/">0009 题头图片</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>开始我写了一个模板，后来发现并不需要，就直接添加图片就可以了。</p>
-<p>废话，往笔记里加图片可不就直接添加图片就可以了么。</p>
-<p>但是要每一天都看相同的图片，肯定会腻的，就希望它自己变。所以我用了一个随机图片 API：</p>
-        
-          <p class="article-more-link">
-            <a href="/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zji.me/af4b2aef-b811-467b-a1b1-8261ffdb4b9e/" data-id="clh1axcx000azf0od7md55n4y" data-title="0009 题头图片" class="article-share-link">分享</a>
+      <a data-url="https://zji.me/18e574ea-4bf4-436f-912c-813c52167be4/" data-id="clh1b5eu8001ld8odg6rs7prr" data-title="0010 从时间说模板" class="article-share-link">分享</a>
       
       
       
@@ -585,7 +586,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
     </div>
   </div>
 
@@ -596,6 +597,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/c20451e1-2208-41a0-a1dd-17e9b521a286/">0070 这是什么 and 你要什么</a>
+          </li>
         
           <li>
             <a href="/005d99c6-b709-41c1-8832-a657bac7a116/">0069  手机端下拉无动作-QuickAdd</a>
@@ -611,10 +616,6 @@
         
           <li>
             <a href="/6ec68c76-f3eb-41c2-9e81-85483794da0a/">0066 白板</a>
-          </li>
-        
-          <li>
-            <a href="/6a230850-8676-4e98-8e2b-d7fa383c4c7d/">0065 倒数日-Dataview</a>
           </li>
         
       </ul>

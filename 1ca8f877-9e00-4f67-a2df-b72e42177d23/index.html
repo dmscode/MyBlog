@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>0061 习惯打卡-DataView | 自己的自己</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="实现了习惯打卡功能，效果如下： 详细代码请见： https:&#x2F;&#x2F;github.com&#x2F;dmscode&#x2F;Obsidian-Templates#习惯打卡。 现在有了代码仓库，在这边需要书写的介绍就很少了。这边会侧重写我的思考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0061 习惯打卡-DataView">
+<meta property="og:url" content="https://zji.me/1ca8f877-9e00-4f67-a2df-b72e42177d23/">
+<meta property="og:site_name" content="自己的自己">
+<meta property="og:description" content="实现了习惯打卡功能，效果如下： 详细代码请见： https:&#x2F;&#x2F;github.com&#x2F;dmscode&#x2F;Obsidian-Templates#习惯打卡。 现在有了代码仓库，在这边需要书写的介绍就很少了。这边会侧重写我的思考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://global.cdn.blingwang.cn/2022/12/12/639688a1f35c9.png">
+<meta property="article:published_time" content="2022-12-13T09:47:37.000Z">
+<meta property="article:modified_time" content="2022-12-31T04:15:49.000Z">
+<meta property="article:author" content="稻米鼠">
+<meta property="article:tag" content="Published">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="Note&#x2F;Obsidian">
+<meta property="article:tag" content="Note&#x2F;Note">
+<meta property="article:tag" content="Note&#x2F;Article">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://global.cdn.blingwang.cn/2022/12/12/639688a1f35c9.png">
+  
+    <link rel="alternate" href="/atom.xml" title="自己的自己" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">自己的自己</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">怎么办怎么办，老鼠是笨蛋！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" target="_blank" rel="noopener" href="https://afdian.net/a/daomishu">爱发电</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zji.me"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-1ca8f877-9e00-4f67-a2df-b72e42177d23" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/1ca8f877-9e00-4f67-a2df-b72e42177d23/" class="article-date">
+  <time class="dt-published" datetime="2022-12-13T09:47:37.000Z" itemprop="datePublished">2022-12-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      0061 习惯打卡-DataView
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>实现了习惯打卡功能，效果如下：</p>
+<p><img src="https://global.cdn.blingwang.cn/2022/12/12/639688a1f35c9.png" alt="Habits.png"><br>详细代码请见： <a target="_blank" rel="noopener" href="https://github.com/dmscode/Obsidian-Templates#%E4%B9%A0%E6%83%AF%E6%89%93%E5%8D%A1">https://github.com/dmscode/Obsidian-Templates#习惯打卡</a>。</p>
+<p>现在有了代码仓库，在这边需要书写的介绍就很少了。这边会侧重写我的思考。</p>
+<span id="more"></span>
+
+<h2 id="一个方向"><a href="#一个方向" class="headerlink" title="一个方向"></a>一个方向</h2><p>在纸质笔记上，我使用的笔记方法是“子弹笔记”（Bullet Journal）。但纸质笔记荒废已久，然后发现不做笔记（日记）日子过去了就仿佛没有存在过，过的毫无真实感。真就个浑浑噩噩，宛如行尸走肉一般。</p>
+<p>所以，记录，这件事情还得坚持。</p>
+<p>所以，打算把子弹笔记的方法搬到 Obsidian 上面来。</p>
+<p>本来想做标记列表的实现的，结果发现 <a target="_blank" rel="noopener" href="https://github.com/kepano/obsidian-minimal">Minimal</a> 已经实现得非常好了，实在没必要画蛇添足。</p>
+<p>然后就做了打卡，记录一些日常。后面还会有年视图和月视图等。</p>
+<h2 id="附录：Minimal-内置标记"><a href="#附录：Minimal-内置标记" class="headerlink" title="附录：Minimal 内置标记"></a>附录：Minimal 内置标记</h2><p>做个列表供大家参考吧，我用文字描述一下图标，尽量不做用途上的对应</p>
+<ul>
+<li>[!] : 感叹（警示符）</li>
+<li>[*] : 五角星</li>
+<li>[-] : 整行删除</li>
+<li>[&lt;] : 日历</li>
+<li>[&gt;] : 向右飞机</li>
+<li>[I] : 发光灯泡</li>
+<li>[b] : 书签</li>
+<li>[c] : 向下竖拇指</li>
+<li>[d] : 指数下跌箭头</li>
+<li>[f] : 火焰</li>
+<li>[k] : 钥匙</li>
+<li>[l] : 地标</li>
+<li>[p] : 向上竖大拇指</li>
+<li>[u] : 指数上涨箭头</li>
+<li>[w] : 生日蛋糕</li>
+<li>[?] : 问号</li>
+<li>[&#x2F;] : 圆形，半黑半白</li>
+<li>[“] : [“] 也可以用中文引号的前半个，显示引号图标</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zji.me/1ca8f877-9e00-4f67-a2df-b72e42177d23/" data-id="clh1axctz001zf0od599v74dq" data-title="0061 习惯打卡-DataView" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Published/" rel="tag">Published</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/9e2ddfe7-0da8-4751-8b64-da8601434092/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          0062 月历视图-DataView
+        
+      </div>
+    </a>
+  
+  
+    <a href="/4b6c7234-46e2-4004-941a-ac4d63f73755/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">0060 迷茫期</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Article/" rel="tag">Note&#x2F;Article</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Note/" rel="tag">Note&#x2F;Note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note-Obsidian/" rel="tag">Note&#x2F;Obsidian</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Published/" rel="tag">Published</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software/" rel="tag">Software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Android/" rel="tag">Software&#x2F;Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Chrome/" rel="tag">Software&#x2F;Chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Edge/" rel="tag">Software&#x2F;Edge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Firefox/" rel="tag">Software&#x2F;Firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Free/" rel="tag">Software&#x2F;Free</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Game/" rel="tag">Software&#x2F;Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Linux/" rel="tag">Software&#x2F;Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-MacOS/" rel="tag">Software&#x2F;MacOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Paid/" rel="tag">Software&#x2F;Paid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Safari/" rel="tag">Software&#x2F;Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-VSCode/" rel="tag">Software&#x2F;VSCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-WebApp/" rel="tag">Software&#x2F;WebApp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-Windows/" rel="tag">Software&#x2F;Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-iOS/" rel="tag">Software&#x2F;iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;媒体工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" rel="tag">Software&#x2F;工作相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;效率工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" rel="tag">Software&#x2F;知识管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" rel="tag">Software&#x2F;系统增强</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;网络工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" rel="tag">Software&#x2F;通讯工具</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Note-Article/" style="font-size: 17.78px;">Note/Article</a> <a href="/tags/Note-Note/" style="font-size: 17.78px;">Note/Note</a> <a href="/tags/Note-Obsidian/" style="font-size: 17.78px;">Note/Obsidian</a> <a href="/tags/Published/" style="font-size: 20px;">Published</a> <a href="/tags/Software/" style="font-size: 19.44px;">Software</a> <a href="/tags/Software-Android/" style="font-size: 15.56px;">Software/Android</a> <a href="/tags/Software-Chrome/" style="font-size: 17.22px;">Software/Chrome</a> <a href="/tags/Software-Edge/" style="font-size: 11.11px;">Software/Edge</a> <a href="/tags/Software-Firefox/" style="font-size: 13.33px;">Software/Firefox</a> <a href="/tags/Software-Free/" style="font-size: 18.89px;">Software/Free</a> <a href="/tags/Software-Game/" style="font-size: 11.67px;">Software/Game</a> <a href="/tags/Software-Linux/" style="font-size: 13.89px;">Software/Linux</a> <a href="/tags/Software-MacOS/" style="font-size: 16.11px;">Software/MacOS</a> <a href="/tags/Software-Paid/" style="font-size: 13.33px;">Software/Paid</a> <a href="/tags/Software-Safari/" style="font-size: 10.56px;">Software/Safari</a> <a href="/tags/Software-VSCode/" style="font-size: 16.67px;">Software/VSCode</a> <a href="/tags/Software-WebApp/" style="font-size: 10.56px;">Software/WebApp</a> <a href="/tags/Software-Windows/" style="font-size: 18.33px;">Software/Windows</a> <a href="/tags/Software-iOS/" style="font-size: 14.44px;">Software/iOS</a> <a href="/tags/Software-%E5%AA%92%E4%BD%93%E5%B7%A5%E5%85%B7/" style="font-size: 12.22px;">Software/媒体工具</a> <a href="/tags/Software-%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">Software/工作相关</a> <a href="/tags/Software-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 11.11px;">Software/开发工具</a> <a href="/tags/Software-%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" style="font-size: 11.67px;">Software/效率工具</a> <a href="/tags/Software-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 10.56px;">Software/文件管理</a> <a href="/tags/Software-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 12.78px;">Software/知识管理</a> <a href="/tags/Software-%E7%B3%BB%E7%BB%9F%E5%A2%9E%E5%BC%BA/" style="font-size: 15px;">Software/系统增强</a> <a href="/tags/Software-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/" style="font-size: 12.78px;">Software/网络工具</a> <a href="/tags/Software-%E9%80%9A%E8%AE%AF%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">Software/通讯工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/005d99c6-b709-41c1-8832-a657bac7a116/">0069  手机端下拉无动作-QuickAdd</a>
+          </li>
+        
+          <li>
+            <a href="/459c0dd0-b5c4-455e-b3b3-a7541570ba68/">0068 在当前位置快速创建子笔记-多插件</a>
+          </li>
+        
+          <li>
+            <a href="/09d5bdb2-e1ba-42b9-960b-02ebddd1b341/">0067 多个 Vault</a>
+          </li>
+        
+          <li>
+            <a href="/6ec68c76-f3eb-41c2-9e81-85483794da0a/">0066 白板</a>
+          </li>
+        
+          <li>
+            <a href="/6a230850-8676-4e98-8e2b-d7fa383c4c7d/">0065 倒数日-Dataview</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 稻米鼠<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a target="_blank" rel="noopener" href="https://afdian.net/a/daomishu" class="mobile-nav-link">爱发电</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

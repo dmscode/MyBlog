@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组织笔记 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">组织笔记</h1>
+      <section><p>以前的思路：目录作为树状归类，毕竟基于文件的笔记总是逃脱不了目录树；标签作为辅助，实现重叠标记。两个维度交叉，基本没有疏漏。</p>
+<p>同时我认为：知识是立体网状结构 ，很复杂，很难用平面的图形清晰地表达出来。</p>
+<p>然后用了 Docsify，这个东西很简单，把它放在笔记目录下就可以了。但有一个细节让人很不习惯，就是不能自己生成目录，所以每添加一篇笔记都要自己在侧边栏加入对应的链接，这非常原始。我一度打算自己写个脚本来生成目录的，但又不喜欢每次发布前都运行一下脚本，当然也可能是懒，反正就搁置了。</p>
+<p>用着用着，觉得这样也挺好。因为笔记存放的位置和笔记展示的目录可以不完全相关。这有点纸质笔记自写索引那味儿了，好像也不错。想想也是，为什么我不可以自己给笔记做一份索引呢？只是因为这是电子笔记，就认为它应该自动生成么。</p>
+<p>所以可以搞一个索引页，然后做一个查询来统计未别被列入索引页的笔记（待整理）。</p>
+<p>然后就去做了，发现很舒服，用 <a href="https://help.obsidian.md/Editing+and+formatting/Callouts" title="Callouts">Callouts</a> 进行分组，这样可以把常用笔记都分组列出来（如果有必要，一篇笔记也可以处在多个组中，没人说不允许重复嘛）。Obsidian 本身有链接预览，还可以用用 <a href="https://github.com/nothingislost/obsidian-hover-editor" title="Hover Edit">Hover Edit</a> 进行增强，直接鼠标悬浮，然后小窗编辑。整个流程就顺畅了。</p>
+<p>附：未索引笔记的查询代码（dataviewjs）</p>
+<pre class="hljs js" lang="js"><span class="hljs-comment">// 输出标题 </span>
+dv.header(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;未索引笔记&#x27;</span>)
+<span class="hljs-comment">// 遍历笔记，并列出</span>
+dv.list(dv.pages().<span class="hljs-built_in">filter</span>(<span class="hljs-function"><span class="hljs-params">p</span>=&gt;</span>{
+  <span class="hljs-comment">// 排除文件夹（ZJI、Resource）</span>
+  <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^(ZJI|Resource)\//i</span>.test(p.file.path)) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  <span class="hljs-comment">// 没有进入链接的文件应该被列出</span>
+  <span class="hljs-keyword">if</span>(!p.file?.inlinks?.<span class="hljs-built_in">length</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  <span class="hljs-comment">// 进入链接都不来自于索引文件夹（Index）</span>
+  let unIndex = <span class="hljs-literal">true</span>
+  p.file.inlinks.forEach(<span class="hljs-function"><span class="hljs-params">l</span>=&gt;</span>{
+    <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^Index\//i</span>.test(l.path)) unIndex = <span class="hljs-literal">false</span>
+  })
+  <span class="hljs-keyword">return</span> unIndex
+}).file.link)</pre><p>下面使用的  Callouts 格式，这样在我这里格式比较统一（dataviewjs）：</p>
+<pre class="hljs js" lang="js"><span class="hljs-comment">//  查询，拼接代码</span>
+const code = <span class="hljs-string">`&gt; [!danger] 未索引笔记
+&gt; `</span>
++ dv.pages().<span class="hljs-built_in">filter</span>(<span class="hljs-function"><span class="hljs-params">p</span>=&gt;</span>{
+  <span class="hljs-comment">// 排除文件夹（ZJI、Resource）</span>
+  <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^(ZJI|Resource)\//i</span>.test(p.file.path)) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  <span class="hljs-comment">// 没有进入链接的文件应该被列出</span>
+  <span class="hljs-keyword">if</span>(!p.file?.inlinks?.<span class="hljs-built_in">length</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+  <span class="hljs-comment">// 进入链接都不来自于索引文件夹（Index）</span>
+  let unIndex = <span class="hljs-literal">true</span>
+  p.file.inlinks.forEach(<span class="hljs-function"><span class="hljs-params">l</span>=&gt;</span>{
+    <span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^Index\//i</span>.test(l.path)) unIndex = <span class="hljs-literal">false</span>
+  })
+  <span class="hljs-keyword">return</span> unIndex
+}).<span class="hljs-built_in">map</span>(<span class="hljs-function"><span class="hljs-params">p</span>=&gt;</span>p.file.link).join(<span class="hljs-string">&#x27; | &#x27;</span>)
+<span class="hljs-comment">// 插入元素输出</span>
+dv.el(<span class="hljs-string">&#x27;div&#x27;</span>, code)</pre></section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

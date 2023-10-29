@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian 和 Docsify 的配合 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">Obsidian 和 Docsify 的配合</h1>
+      <section><p>都是基于 Markdown，那就是可以一起用！反正笔记基于 Markdown，所以一切支持 Markdown 的工具都是我的笔记工具。合理~</p>
+<p>Docsify 就一个文件，放哪儿都不太会嫌它烦，只要给它 Markdown 文件，它就能解析展示出来。所以我把它放在笔记里面了。很合理~</p>
+<p>记录一些具体的细节问题：</p>
+<h2 id="Front%20matter">Front matter</h2><p>Docsify 不支持，直接当 markdown 展示出来了，虽然也不算难看吧。</p>
+<p>可以使用 <a href="https://docsify-mustache.github.io/#/" title="docsify-mustache">docsify-mustache</a>，这个插件是添加一些可供任意调用的字段的。但是它有一个附属功能，把  Front matter 的数据转换为可供调用的字段 ，同时隐藏 Front matter。所以如果只是想隐藏 Front matter，只需引入这个额外的库即可：</p>
+<pre class="hljs html" lang="html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//cdn.jsdelivr.net/npm/docsify/lib/plugins/front-matter.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre><p>但是 Docsify 的侧边栏也是一个 Markdown 文件，而上面脚本并不能照顾到侧边栏，就很尴尬 。所以我现在在 Obsidian 中排除了这个文件夹，不添加 Front matter 了。</p>
+<p>这个问题很尴尬 ，<del>后面有时间可能处理一下</del>。处理了，自己写了一点代码预处理，因为我只做了删除，所以肯定性能更好。但是 Docsify 并不支持对侧边栏的控制，所以如果侧边栏文件加入 Front matter 就无解。</p>
+<p>是的，Docsify 支持对解释器（marked）的自定义，而且解释器的影响是全局的，但是这只限于渲染器（Renderer）部分，而 hooks 似乎不起作用（怀疑被覆盖 ），所以只能先这样了。</p>
+<h2 id="Mermaid">Mermaid</h2><p>Docsify 使用 <a href="https://github.com/Leward/mermaid-docsify" title="docsify-mermaid">docsify-mermaid</a> 插件完美兼容。</p>
+<p>可以搭配 <a href="https://github.com/corentinleberre/docsify-mermaid-zoom" title="docsify-mermaid-zoom">docsify-mermaid-zoom</a> 使用，这样阅读体验更好，毕竟有时候图片内容太多不好阅读 。</p>
+<p>这两个我还没用，但后续很可能会用上。</p>
+<h2 id="Callouts">Callouts</h2><p>Obsidian 中被问到最多的功能之一，不是什么标准方法，但是用来突出显示一些内容真的很方便。用这个插件 <a href="https://github.com/fzankl/docsify-plugin-flexible-alerts" title="docsify-plugin-flexible-alerts">docsify-plugin-flexible-alerts</a> 基本兼容。一些细致问题可以通过自定义解决 。</p>
+<h2 id="Todo%20List">Todo List</h2><blockquote>
+<p> Change at 2023-06-07</p>
+</blockquote>
+<p>Obsidian 中一些主题支持对待办列表的更多标记，我给 Docsify 也加上了相应的支持，用 Emoji 进行标识，符号基本完全对应。</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="Front%20matter" style="margin-left: 1.5em"><a href="#Front%20matter">Front matter</a></li><li data-hash="Mermaid" style="margin-left: 1.5em"><a href="#Mermaid">Mermaid</a></li><li data-hash="Callouts" style="margin-left: 1.5em"><a href="#Callouts">Callouts</a></li><li data-hash="Todo%20List" style="margin-left: 1.5em"><a href="#Todo%20List">Todo List</a></li></ul></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

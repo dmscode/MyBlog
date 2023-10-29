@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">UUID</h1>
+      <section><p>想要重新整理一下自己笔记发布的结构，因为我的内容总在整理之中，所以如果以路径、分类、标签、标题……作为路径的一部分，都可能遭遇变化，很不利于分享。如果用创建日期作为依据，随着更新又有误导嫌疑，就想干脆用个无意义的 ID 算了，正好 Obsidian 里面环境简单，可以使用一些先进的前段方法。</p>
+<p>以下是我现在用的笔记模板，注意要用 Templater 插件驱动：</p>
+<pre class="hljs md" lang="md"><span class="hljs-meta">---</span>
+<span class="hljs-attr">created:</span> &lt;%<span class="language-ruby"> tp.date.now(<span class="hljs-string">&quot;YYYY-MM-DD HH:mm:ss&quot;</span>) </span>%&gt;
+<span class="hljs-attr">updated:</span> &lt;%<span class="language-ruby"> tp.date.now(<span class="hljs-string">&quot;YYYY-MM-DD HH:mm:ss&quot;</span>) </span>%&gt;
+<span class="hljs-attr">id:</span> &lt;%<span class="language-ruby"> crypto.randomUUID() </span>%&gt;
+<span class="hljs-meta">---
+</span></pre><p>除了 ID 有点长，也没啥毛病。</p>
+<p>至于现有笔记如何批量添加……参见：<a href="47906fd3-7b1a-47e1-b17e-86eb02f2c5f8.html" title="UUID">UUID</a></p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

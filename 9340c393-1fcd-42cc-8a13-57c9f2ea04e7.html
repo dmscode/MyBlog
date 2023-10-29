@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快速输入 KBD - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">快速输入 KBD</h1>
+      <section><p>就是 Keyboard，键盘。HTML 里面有个标签 <code>kbd</code> 用来标记按键，比如：</p>
+<p><kbd class=key-win>Win</kbd> + <kbd class=key-d>D</kbd></p>
+<p>就是：</p>
+<pre class="hljs html" lang="html"><span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>Win<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span> + <span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>D<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span></pre><p>然后就可以据此设定一些特殊样式了，就像上面这样。</p>
+<p>我用了一个 Templater 模板，代码稍微有点长：</p>
+<pre class="hljs md" lang="md">&lt;<span class="hljs-symbol">%</span>*
+  <span class="hljs-built_in">let</span> <span class="hljs-built_in">content</span> = tp.file.selection()
+  <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">content</span> &amp;&amp; <span class="hljs-built_in">content</span>.<span class="hljs-built_in">length</span>)) <span class="hljs-built_in">content</span> = await tp.<span class="hljs-built_in">system</span>.<span class="hljs-built_in">prompt</span>(<span class="hljs-string">&quot;请输入快捷键&quot;</span>)
+  <span class="hljs-keyword">if</span>(!(<span class="hljs-built_in">content</span> &amp;&amp; <span class="hljs-built_in">content</span>.<span class="hljs-built_in">length</span>)) <span class="hljs-built_in">return</span>
+  const keyNames = {
+      <span class="hljs-string">&quot;-&quot;</span>: <span class="hljs-string">&quot;minus&quot;</span>,
+      <span class="hljs-string">&quot;=&quot;</span>: <span class="hljs-string">&quot;equal&quot;</span>,
+      <span class="hljs-string">&quot;`&quot;</span>: <span class="hljs-string">&quot;backtick&quot;</span>,
+      <span class="hljs-string">&quot;[&quot;</span>: <span class="hljs-string">&quot;leftSquareBracket&quot;</span>,
+      <span class="hljs-string">&quot;]&quot;</span>: <span class="hljs-string">&quot;rightSquareBracket&quot;</span>,
+      <span class="hljs-string">&quot;\\&quot;</span>: <span class="hljs-string">&quot;backslash&quot;</span>,
+      <span class="hljs-string">&quot;;&quot;</span>: <span class="hljs-string">&quot;semicolon&quot;</span>,
+      <span class="hljs-string">&quot;&#x27;&quot;</span>: <span class="hljs-string">&quot;singleQuotationMark&quot;</span>,
+      <span class="hljs-string">&quot;,&quot;</span>: <span class="hljs-string">&quot;comma&quot;</span>,
+      <span class="hljs-string">&quot;.&quot;</span>: <span class="hljs-string">&quot;period&quot;</span>,
+      <span class="hljs-string">&quot;/&quot;</span>: <span class="hljs-string">&quot;forwardSlash&quot;</span>,
+      <span class="hljs-string">&quot;↑&quot;</span>: <span class="hljs-string">&quot;up&quot;</span>,
+      <span class="hljs-string">&quot;↓&quot;</span>: <span class="hljs-string">&quot;down&quot;</span>,
+      <span class="hljs-string">&quot;←&quot;</span>: <span class="hljs-string">&quot;left&quot;</span>,
+      <span class="hljs-string">&quot;→&quot;</span>: <span class="hljs-string">&quot;right&quot;</span>,
+  }
+  tR += <span class="hljs-built_in">content</span>.replace(/([a-z0-<span class="hljs-number">9</span>\[\];&#x27;,.\/\\`\-=↑↓←→]+)/gi, (m, s)=&gt;{
+    const className = &#x27;<span class="hljs-built_in">key</span>-&#x27;+(/^[a-z0-<span class="hljs-number">9</span>]+$/i.test(s) ? s.toLowerCase() : keyNames[s])
+    <span class="hljs-built_in">return</span> `&lt;kbd class=${className}&gt;${s}&lt;/kbd&gt;`
+  })
+<span class="hljs-symbol">%</span>&gt;</pre><p>然后选中你输入的快捷键（文字），插入这个模板即可；如果没选中文字则弹出输入框来输入。这个模板会给每个按键添加上对应的类，便于进行更复杂的自定义。所以上面按键实际生成的代码是这样的：</p>
+<pre class="hljs html" lang="html"><span class="hljs-tag">&lt;<span class="hljs-name">kbd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">key-win</span>&gt;</span>Win<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span> + <span class="hljs-tag">&lt;<span class="hljs-name">kbd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">key-d</span>&gt;</span>D<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span></pre></section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

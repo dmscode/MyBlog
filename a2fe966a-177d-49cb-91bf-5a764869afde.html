@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snippets - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">Snippets</h1>
+      <section><p>这里是一些 CSS 片段，每个文件夹中有两个文件：</p>
+<ul>
+<li><code>Style.css</code> 是 CSS 片段，可以放到 <code>.obsidian/snippets</code> 文件夹下，记得在 <code>设置——外观——CSS代码片段</code> 中启用，此方法全局生效；</li>
+<li><code>view.js</code> 是 Dataview 的视图文件，通过在笔记中插入此视图，实现局部启用对应样式。</li>
+</ul>
+<p>如果这些样式需要大范围（对许多笔记）起作用，就用第一种方法，如果只是个别笔记用到，那用第一种方法就稍微有那么点拖累性能了，毕竟这些不常用到的代码会一直被加载，所以可以考虑使用第二种方法。</p>
+<p>第二种方法插入会在笔记中显示一行小字，以便能够找到这个代码块，并不至于遗忘这里插入了样式。如不喜欢，可在调用视图时给出 <code>hide: 1</code> 参数，格式如下：</p>
+<pre class="hljs js" lang="js">dv.<span class="hljs-keyword">view</span>(<span class="hljs-string">&#x27;对应的视图名称&#x27;</span>, {<span class="hljs-keyword">hide</span>: <span class="hljs-number">1</span>})</pre></section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

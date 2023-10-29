@@ -1,0 +1,128 @@
+:root {
+  font-size: 18px;
+  line-height: 1.8;
+  --side-width: 240px;
+  --content-width: 800px;
+}
+html, body {
+  margin: 0;
+}
+a {
+  color: #0969da;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+main {
+  position: relative;
+  left: 0;
+  transition: left .5s;
+}
+article {
+  box-sizing: border-box;
+  margin: 0 auto !important;
+  padding: 45px;
+  min-width: 200px;
+  max-width: var(--content-width);
+}
+article > h1.note-title {
+  text-align: center;
+}
+article.markdown-body {
+  font-size: 1rem;
+}
+article.markdown-body p {
+  text-indent: 2em;
+}
+foot {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  color: #9C9C9F;
+  text-align: center;
+}
+aside {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: calc(50% + var(--content-width)/2);
+  z-index: 10;
+  background-color: #FFF;
+  padding: 1rem;
+  width: calc(50vw - var(--content-width)/2);
+  min-width: var(--side-width);
+  max-width: 360px;
+  line-height: 1.4;
+  --nav-color: #9c9c9c;
+  transition: left .5s;
+}
+aside > .toggle {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  cursor: pointer;
+}
+aside > .aside-content {
+  height: 100%;
+  overflow-y: auto;
+}
+aside ul {
+  margin: 0;
+  padding: 0;
+}
+aside ul > li {
+  list-style: none;
+  border-left: var(--nav-color) 3px solid;
+  padding-left: .5rem;
+  margin-bottom: .5rem;
+}
+aside ul > li > a {
+  color: var(--nav-color);
+}
+aside .nav .home:hover i {
+  color: #0969da;
+}
+aside .nav .meow:hover i {
+  color: #FF3355;
+}
+aside .nav .gotop:hover i {
+  color: #ffbb00;
+}
+aside .toc {
+  font-size: .72rem;
+}
+aside .toc li.active {
+  --nav-color: #0969da;
+}
+@media (min-width: 800px) And (max-width: 1280px) {
+  body.show-side > main {
+    left: calc(50vw - var(--content-width)/2 - var(--side-width));
+    width: 100%;
+  }
+  body.show-side aside {
+    left: calc(100vw - var(--side-width));
+  }
+  aside > .toggle {
+    display: block;
+  }
+}
+@media (max-width: 800px) {
+  body.show-side > main {
+    left:  calc(0px - var(--side-width));
+    width: 100%;
+  }
+  body.show-side aside {
+    left: calc(100vw  - var(--side-width));
+  }
+  .markdown-body {
+    padding: 15px;
+  }
+  aside {
+    left: 100vw;
+  }
+  aside > .toggle {
+    display: block;
+  }
+}

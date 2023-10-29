@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遇见 Syncthing - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">遇见 Syncthing</h1>
+      <section><p>目前在用 Syncthing 实现 Obsidian 的同步，用的很舒服。详见 <a href="14cb5ab4-d582-4538-9a44-f89083b9f5e6.html" title="文件同步备份路线图">文件同步备份路线图</a>。</p>
+<p>Docsify 是 Vault 中的的一个文件夹，额外同步到 Nas 上一个叫做 Web 的文件夹中，然后自动 git 提交、发布。</p>
+<p>到这里流程很简单，但是我想把我写的 Dataview 小挂件也合并进来一起发布。但是小挂件的代码边写、边用、边改，就不适合放在 Docsify 的目录下，当然想发布的话又必须合并到其中……说着有点饶了，简单列表示意一下：</p>
+<pre class="hljs">/
+|-- Notes             <span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span>. 笔记目录
+|-- Dataview          <span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span>. Dataview 相关代码目录
+    |-- Widgets       <span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span>. 想要发布的小挂件目录
+|-- Docsify           <span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span>. 发布的内容目录，对应 Nas 中的 Web 目录
+    |-- Dataview      <span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span>. Dataview 相关文章
+        |-- Widgets   <span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span>. 发布时期望小挂件目录在这里</pre><p>注意上面最后一个 Widgets 目录在我的 Vault 中是不存在的。</p>
+<p>然后我创建了如下同步流程：</p>
+<pre class="hljs mermaid" lang="mermaid">flowchart LR
+
+subgraph PC
+  subgraph PCOB[Obsidian]
+    PCDoc[Docsify]
+    PCWid[Widgets]
+  end
+end
+
+subgraph Nas
+  subgraph NasOB[Obsidian]
+
+  end
+  subgraph NasDoc[Web]
+    NasWid[Widgets]
+  end
+end
+
+PCOB <--->|Syncthing|NasOB
+PCDoc --->|Syncthing|NasDoc
+PCWid --->|Syncthing|NasWid</pre><p>这里的重点是第二条线（Docsify --&gt; Web）的同步中排除 Widgets 文件夹，仅在 Nas 端这边排除即可，因为只有这边 Web 目录中多出了这个文件夹。</p>
+<p>如此实现了相对复杂的文件同步，再借助过滤，Widgets 的同步中排除了 js 和 css 文件，这样就只剩下说明文档被一同发布了。</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot><script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

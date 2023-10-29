@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件同步备份路线图 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">文件同步备份路线图</h1>
+      <section><pre class="hljs mermaid" lang="mermaid">flowchart TB
+%% 笔记本电脑
+subgraph NoteBook[Computer]
+  subgraph NotObs[Obsidian]
+    NotZJI[wo.zji.me]
+    NotDV[Dataview]
+  end
+  NotShare[ShareFolder]
+  NotEnpass[Enpass]
+end
+%% Nas
+subgraph Nas[Nas]
+  subgraph NasApps[Apps]
+    subgraph NasObs[Obsidian]
+    end
+    NasEnpass[Enpass]
+  end
+  subgraph Web[Web]
+    subgraph NasZJI[wo.zji.me]
+      NasDV[Dataview]
+    end
+  end
+end
+%% Clouds
+subgraph Clouds[Clouds]
+  subgraph OneDrive[OneDrive]
+    OneApps[Apps]
+  end
+  subgraph InfiniCloud[InfiniCloud]
+    InfApps[Apps]
+  end
+  subgraph Github[Github]
+    GitObs[Obsidian]
+    GitZJI[wo.zji.me]
+  end
+end
+%% Phone
+subgraph Phone[Phone]
+  PhoObs[Obsidian]
+  PhoEnpass[Enpass]
+  PhoShare[ShareFolder]
+end
+%% 关系标注
+NotObs <--->|Syncthing| NasObs
+NotObs <--->|Syncthing| PhoObs
+PhoObs <--->|Syncthing| NasObs
+
+NotShare <--->|Syncthing| PhoShare
+
+NotZJI --->|"Syncthing (Not include Dataview)"| NasZJI
+
+NasZJI --->|AutoPushGit.js| GitZJI
+NasObs --->|AutoPushGit.js| GitObs
+
+NotEnpass <--->|Webdav| NasEnpass
+PhoEnpass <--->|Webdav| NasEnpass
+
+NasApps --->|GoodSync| OneApps
+NasApps --->|GoodSync| InfApps
+
+NotDV --->|Syncthing| NasDV
+
+%% 节点样式
+style NoteBook fill:#c2ccd0,color:#FFF
+style Nas fill:#88ada6,color:#FFF
+style Clouds fill:#e3f9fd,color:#333
+style Phone fill:#425066,color:#FFF
+style Github fill:#75878a,color:#FFF
+
+style NotObs fill:#725e82,color:#FFF
+style NasObs fill:#725e82,color:#FFF
+style PhoObs fill:#725e82,color:#FFF
+style GitObs fill:#725e82,color:#FFF
+
+style NotEnpass fill:#0d449b,color:#FFF
+style NasEnpass fill:#0d449b,color:#FFF
+style PhoEnpass fill:#0d449b,color:#FFF
+
+style NasApps fill:#4c8dae,color:#FFF
+style OneApps fill:#4c8dae,color:#FFF
+style InfApps fill:#4c8dae,color:#FFF
+
+%% Syncthing 线条
+linkStyle 0 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 1 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 2 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 3 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 4 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 11 stroke:#0891d1,stroke-width:4px,color:#0891d1
+
+%% AutoPushGit.js 线条
+linkStyle 5 stroke:#057748,stroke-width:4px,color:#057748
+linkStyle 6 stroke:#057748,stroke-width:4px,color:#057748
+
+%% Webdav 线条
+linkStyle 7 stroke:#e29c45,stroke-width:4px,color:#e29c45
+linkStyle 8 stroke:#e29c45,stroke-width:4px,color:#e29c45
+
+%% Webdav 线条
+linkStyle 9 stroke:#ec513e,stroke-width:4px,color:#ec513e
+linkStyle 10 stroke:#ec513e,stroke-width:4px,color:#ec513e</pre></section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot><script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

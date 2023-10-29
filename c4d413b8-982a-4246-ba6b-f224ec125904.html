@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的笔记规范 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">我的笔记规范</h1>
+      <section><blockquote>
+<p>使用方法在不断演变着，不直接修改过去的笔记了，新的折腾会不断附加在后面，也算记录一下折腾的心路历程。——2023-10-24 07:54:33</p>
+</blockquote>
+<p>Obsidian 和  Docsify  都太自由了，导致如果无拘无束，我会很快把它们弄乱掉。</p>
+<p>接下来，我要整理 Obsidian 中的内容，同时构建 Docsify  上面的输出（就是这个网站）。我得给自己一份规范，避免又跑偏了。</p>
+<h2 id="%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">使用规范</h2><h3 id="Obsidian">Obsidian</h3><ul>
+<li>只装必须的插件，测试内容放到 Sandbox 中，以免污染主 vault</li>
+<li>只添加必要的功能性的脚本，不为了炫技添加不是必须的功能</li>
+<li>重新构思笔记规划<ul>
+<li>思考许多存而不看的笔记的处理方法</li>
+<li>对不同的需求进行分区处理</li>
+</ul>
+</li>
+</ul>
+<h3 id="Docsify">Docsify</h3><ul>
+<li>全局尽量精简，每个插件都认真思考其必要性</li>
+<li>单页面任意添加脚本，尽情折腾（好耶(≧∇≦)ﾉ</li>
+<li>笔记按板块存放，为了便于查找可以分子文件夹</li>
+<li>侧边目录用层级归类内容</li>
+<li>不存在线性索引，但可以通过 changeLogs 页面了解时间顺序上的变化。（手动添加）</li>
+</ul>
+<h2 id="%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82">一些运作细节</h2><p>记录下来以备日后参照，因为时间久了老忘记自己怎么把这一堆东西组合在一起运作的了。</p>
+<h3 id="Obsidian">Obsidian</h3><ul>
+<li>Syncthing 实现多端同步</li>
+<li>NAS 上用 GoodSync 实现分发备份到多个网盘</li>
+<li>NAS 上用 AutoPushGit.js 脚本每日自动提交到 github</li>
+</ul>
+<h3 id="Docsify">Docsify</h3><ul>
+<li>Syncthing 实现笔记到 NAS 的 Web 目录（单向）</li>
+<li>http-server 实现 NAS 上的 web 服务</li>
+<li>NAS 上用 AutoPushGit.js 脚本每日自动提交到 github</li>
+<li>Github Actions 自动部署</li>
+</ul>
+<h2 id="%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA">仓库的构建</h2><blockquote>
+<p>Append at 2023-06-10 08:18:29</p>
+</blockquote>
+<p>这挺复杂的。第一次，我刚开始用 Obsidian，兴奋地把自己所有笔记相关的东西都塞了进去。后来发现有点混乱。而且每次打开，Obsidian 都会所有所有笔记，缓存它们的元数据。也就是笔记越多，打开越慢，毕竟都要读一遍。</p>
+<p>所以后来我分拆了笔记，但这又导致非常割裂，两边都有常用的内容，每次都要思考我应该打开哪个笔记本。</p>
+<p>这次我原本打算把笔记按照使用频繁程度分成三个仓库：</p>
+<ul>
+<li>归档：几乎不会用到的，单独一个仓库，避免浪费算力</li>
+<li>知识：知识库，都是一些会用到，但也不是很常用的。</li>
+<li>笔记：日常类似草稿的笔记，可以做各种日程规划，思维导图，写文章，反正就是每天会打开的。</li>
+</ul>
+<p>我觉得很合理，但一想到要维护三个仓库，就很不耐烦。所以最终选择：<strong>渐进式创建仓库和整理笔记</strong>。</p>
+<ul>
+<li>创建一个新的，空的仓库，并从零开始使用，这就是我日常最常用的仓库了。</li>
+<li>当前仓库视作归档，需要的时候过来翻阅，然后顺便把有价值的东西整理到该在的地方</li>
+<li>随着时间推移，这里只剩下需要归档的内容，这时候删掉配置和插件，只保留笔记本身，作为归档。</li>
+</ul>
+<h2 id="%E7%94%9F%E6%88%90%E5%99%A8">生成器</h2><blockquote>
+<p>Append at 2023-10-24 07:57:53</p>
+</blockquote>
+<p>Docsify 是不错，但是小问题也不少，每次折腾都得查询一番，然后修改的结果可能还完全南辕北辙。所以自己写了一个静态展站成器，这样就完全可控了。不过使用原则上和 Docsify 基本一致，并彻底贯彻无线性索引，每一条笔记都是一个单独的页面，每一条笔记都在单独成长。</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">使用规范</a></li><li data-hash="Obsidian" style="margin-left: 3em"><a href="#Obsidian">Obsidian</a></li><li data-hash="Docsify" style="margin-left: 3em"><a href="#Docsify">Docsify</a></li><li data-hash="%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82" style="margin-left: 1.5em"><a href="#%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82">一些运作细节</a></li><li data-hash="Obsidian" style="margin-left: 3em"><a href="#Obsidian">Obsidian</a></li><li data-hash="Docsify" style="margin-left: 3em"><a href="#Docsify">Docsify</a></li><li data-hash="%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA" style="margin-left: 1.5em"><a href="#%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA">仓库的构建</a></li><li data-hash="%E7%94%9F%E6%88%90%E5%99%A8" style="margin-left: 1.5em"><a href="#%E7%94%9F%E6%88%90%E5%99%A8">生成器</a></li></ul></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

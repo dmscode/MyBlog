@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeLine - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">TimeLine</h1>
+      <section><p>时间线显示，用来记录一些时间顺序的内容，当然也可自由发挥。</p>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</h2><p>以下任选其一即可：</p>
+<h3 id="CSS%20%E7%89%87%E6%AE%B5">CSS 片段</h3><p>将 <code>Style.css</code> 放到 <code>.obsidian/snippets</code> 文件夹下，在 <code>设置——外观——CSS代码片段</code> 中启用，此方法全局生效。</p>
+<h3 id="Dataview%20%E8%A7%86%E5%9B%BE">Dataview 视图</h3><p>在需要使用此样式的笔记中插入如下代码段，代码段的语言设置为 <code>dataviewjs</code>（文档中为避免被错误的执行，均写为 js）</p>
+<pre class="hljs js" lang="js">dv.<span class="hljs-keyword">view</span>(<span class="hljs-string">&#x27;Timeline&#x27;</span>)</pre><h2 id="%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B">使用示例</h2><p>此样式针对 <code>timeline</code> 类型的 Callouts 生效，会让其中的无序列表以时间线格式显示，在每一项的开始可以有一条加粗内容，会显示在时间轴左侧，一条斜体内容，会显示在时间轴右侧，这两者均不是必须的。</p>
+<p>先看效果：</p>
+<p><img src="3ff17a9d-c0fe-47d5-a10f-2179f0f9e63e.md" alt=""></p>
+<p>再看对应的代码：</p>
+<pre class="hljs markdown" lang="markdown"><span class="hljs-quote">&gt; [!timeline] 时间线样式示例</span>
+<span class="hljs-quote">&gt; - <span class="hljs-strong">**日期**</span> <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span>
+<span class="hljs-quote">&gt; - 对应的说明文字</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span>
+<span class="hljs-quote">&gt; - <span class="hljs-strong">**日期**</span> <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*时间*</span> 对应的说明文字</span></pre><h2 id="%E4%BB%A3%E7%A0%81%E4%B8%8B%E8%BD%BD">代码下载</h2><p><a href="https://afdian.net/item/e808efe84f7a11ed86ec52540025c377" title="https://afdian.net/item/e808efe84f7a11ed86ec52540025c377">https://afdian.net/item/e808efe84f7a11ed86ec52540025c377</a></p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li><li data-hash="CSS%20%E7%89%87%E6%AE%B5" style="margin-left: 3em"><a href="#CSS%20%E7%89%87%E6%AE%B5">CSS 片段</a></li><li data-hash="Dataview%20%E8%A7%86%E5%9B%BE" style="margin-left: 3em"><a href="#Dataview%20%E8%A7%86%E5%9B%BE">Dataview 视图</a></li><li data-hash="%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B">使用示例</a></li><li data-hash="%E4%BB%A3%E7%A0%81%E4%B8%8B%E8%BD%BD" style="margin-left: 1.5em"><a href="#%E4%BB%A3%E7%A0%81%E4%B8%8B%E8%BD%BD">代码下载</a></li></ul></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

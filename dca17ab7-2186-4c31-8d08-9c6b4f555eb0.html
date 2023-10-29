@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widgets - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">Widgets</h1>
+      <section><h1 id="Obsidian%20sidebar%20widgets.">Obsidian sidebar widgets.</h1><p>Obsidian 的侧边栏小挂件，其实就是用 Dataview 插件写的一些功能组件（自定义视图），可以放在一篇笔记内，然后把这篇笔记拖到侧边栏，这样就有侧边栏小挂件啦~</p>
+<p>也可以放在白板（canvas）中，优点是更自由的布局，缺点是移动端目前不支持，而且即便支持大概也很难用和电脑端相同的布局方案。</p>
+<p>当然这些视图你也可以放在任意笔记中，比如大家都喜欢去装扮的入口笔记。</p>
+<h2 id="%E6%94%AF%E6%8C%81">支持</h2><p>如果这些东西对您有帮助，希望可以到我的爱发电——<a href="https://afdian.net/item/e808efe84f7a11ed86ec52540025c377" title="https://afdian.net/item/e808efe84f7a11ed86ec52540025c377">https://afdian.net/item/e808efe84f7a11ed86ec52540025c377</a> 支持一下。这样才有动力更新下去啊。</p>
+<p>（<strong>付费后可以获得全部代码</strong>）</p>
+<h2 id="%E4%BD%BF%E7%94%A8">使用</h2><ul>
+<li>首先必须安装 <a href="https://github.com/blacksmithgu/obsidian-dataview" title="Dataview">Dataview</a> 插件，然后在设定中开启 <code>Enable JavaScript Queries</code>。</li>
+<li>每个组件文件夹中的 README.md 文件中都写有详细的使用方法。</li>
+<li>注意代码块的语言需设定为：<code>dataviewjs</code>（文档中为避免被错误的执行，均写为 js）</li>
+<li><strong>必须先插入前置组件 Base</strong></li>
+<li>推荐每次更新完整覆盖，因为可能有一些细节上的关联修改。</li>
+</ul>
+<h2 id="%E7%BB%86%E8%8A%82">细节</h2><ul>
+<li>每个组件最好是独立的代码块</li>
+<li>推荐关闭 Dataview 设置中的 <code>Automatic View Refreshing</code>，此设置旨在自动更新 Dataview 的查询结果，但在实际使用中，随着笔记的编辑，Dataview 的查询结果会不断刷新（闪烁）</li>
+</ul>
+<h2 id="%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88">效果预览</h2><p>插件配色完全取决于主题配色，所以在不同主题下的颜色各有不同。</p>
+<p><img src="23b93241-4ff6-424e-884b-03759f59387a.md" alt=""></p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="Obsidian%20sidebar%20widgets." style="margin-left: 0em"><a href="#Obsidian%20sidebar%20widgets.">Obsidian sidebar widgets.</a></li><li data-hash="%E6%94%AF%E6%8C%81" style="margin-left: 1.5em"><a href="#%E6%94%AF%E6%8C%81">支持</a></li><li data-hash="%E4%BD%BF%E7%94%A8" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8">使用</a></li><li data-hash="%E7%BB%86%E8%8A%82" style="margin-left: 1.5em"><a href="#%E7%BB%86%E8%8A%82">细节</a></li><li data-hash="%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88" style="margin-left: 1.5em"><a href="#%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88">效果预览</a></li></ul></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:11:41</foot>
+</body>
+</html>

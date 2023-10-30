@@ -45,3 +45,12 @@ document.addEventListener('scroll', ()=>{
   })
   setTocActive(nowHeading)
 })
+
+// Callouts
+window.addEventListener('load', ()=>{
+  document.body.querySelectorAll('article .callout.is-collapsible').forEach((el)=>{
+    el.addEventListener('click', ()=>{
+      el.classList.toggle('is-collapsed')
+    })
+  })
+})

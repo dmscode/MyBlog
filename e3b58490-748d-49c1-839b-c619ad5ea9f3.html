@@ -16,12 +16,7 @@
       <h1 class="note-title">Task</h1>
       <section><h1 id="%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%E7%BB%84%E4%BB%B6">任务列表组件</h1><p>任务列表组件。注意：此挂件细节上基于我个人使用的任务标记方案：</p>
 <ul>
-<li><input disabled="" type="checkbox"> <code>- [ ]</code> 一般任务。确定需要去完成，但是没有特别的优先级</li>
-<li><input checked="" disabled="" type="checkbox"> <code>- [x]</code> 已完成。已经完成，应该被归档的任务，应该不被显示（或者只显示当日已完成） ✅ 2023-08-03</li>
-<li>[!]  <code>- [!]</code> 重要的。应该首先被完成的任务。</li>
-<li>[&gt;]  <code>- [&gt;]</code> 计划中的。打算去完成，但是是在未来的某一刻，即目前优先级很低</li>
-<li>[?] <code>- [?]</code> 未确定的。尚未确定是否要这样做，表示需要再深入思考</li>
-</ul>
+<li class="task" data-task=" "><i class="fa-regular fa-circle"></i> <code>- [ ]</code> 一般任务。确定需要去完成，但是没有特别的优先级</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> <code>- [x]</code> 已完成。已经完成，应该被归档的任务，应该不被显示（或者只显示当日已完成） ✅ 2023-08-03</li><li class="task" data-task="!"><i class="fa-solid fa-circle-exclamation"></i>  <code>- [!]</code> 重要的。应该首先被完成的任务。</li><li class="task" data-task="&gt;"><i class="fa-solid fa-circle-chevron-right"></i>  <code>- [&gt;]</code> 计划中的。打算去完成，但是是在未来的某一刻，即目前优先级很低</li><li class="task" data-task="?"><i class="fa-solid fa-circle-question"></i> <code>- [?]</code> 未确定的。尚未确定是否要这样做，表示需要再深入思考</li></ul>
 <p>同时搭配 Dataview 和 Tasks 两个插件共同支持的日期标记方案：</p>
 <table>
 <thead>
@@ -62,19 +57,9 @@
     <span class="hljs-keyword">page</span>: <span class="hljs-string">&#x27;&#x27;</span>,
     <span class="hljs-keyword">group</span>: [<span class="hljs-string">&#x27;Past&#x27;</span>, <span class="hljs-string">&#x27;Today&#x27;</span>, <span class="hljs-string">&#x27;Todo&#x27;</span>, <span class="hljs-string">&#x27;Future&#x27;</span>, <span class="hljs-string">&#x27;Will&#x27;</span>, <span class="hljs-string">&#x27;Maybe&#x27;</span>, <span class="hljs-string">&#x27;Done&#x27;</span>]
 })</pre><ul>
-<li><code>page</code> 要检索的页面路径，会当做 <a href="https://blacksmithgu.github.io/obsidian-dataview/api/code-reference/#dvpagepath" title="dv.page">dv.page</a> 的参数传入；</li>
-<li><code>pages</code> 要检索的页面，会当做 <a href="https://blacksmithgu.github.io/obsidian-dataview/api/code-reference/#dvpagessource" title="dv.pages">dv.pages</a> 的参数传入，这两个属性只需要设定一个，如果两个都设定，则取 <code>pages</code> 设定，都不设定则默认查询素有页面</li>
-<li><code>group</code> 要显示的组<ul>
-<li><code>Past</code>：截止日期在今天之前的未完成任务；</li>
-<li><code>Today</code>：截止日期在今天的未完成任务；</li>
-<li><code>Todo</code>：没有截止日期的未完成任务；</li>
-<li><code>Future</code>：截止日期在未来的未完成任务</li>
-<li><code>Will</code>：状态标记为 <code>&gt;</code> 的任务</li>
-<li><code>Maybe</code>：状态标记为 <code>?</code> 的任务</li>
-<li><code>Done</code>：今日完成的任务</li>
-</ul>
-</li>
-</ul>
+<li><code>page</code> 要检索的页面路径，会当做 <a href="https://blacksmithgu.github.io/obsidian-dataview/api/code-reference/#dvpagepath" title="dv.page">dv.page</a> 的参数传入；</li><li><code>pages</code> 要检索的页面，会当做 <a href="https://blacksmithgu.github.io/obsidian-dataview/api/code-reference/#dvpagessource" title="dv.pages">dv.pages</a> 的参数传入，这两个属性只需要设定一个，如果两个都设定，则取 <code>pages</code> 设定，都不设定则默认查询素有页面</li><li><code>group</code> 要显示的组<ul>
+<li><code>Past</code>：截止日期在今天之前的未完成任务；</li><li><code>Today</code>：截止日期在今天的未完成任务；</li><li><code>Todo</code>：没有截止日期的未完成任务；</li><li><code>Future</code>：截止日期在未来的未完成任务</li><li><code>Will</code>：状态标记为 <code>&gt;</code> 的任务</li><li><code>Maybe</code>：状态标记为 <code>?</code> 的任务</li><li><code>Done</code>：今日完成的任务</li></ul>
+</li></ul>
 <h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F">自定义样式</h2><p>可以自行修改 view.css 中的内容，结构和样式完全分离，所以可改造空间很大。</p>
 <h2 id="%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E">细节说明</h2><p>状态标记为 <code>!</code> 的任务会在每个组的最前面。</p>
 <p>此组件目前未依赖 Base 组件。</p>
@@ -96,6 +81,6 @@
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:35:55</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/30 19:52:22</foot>
 </body>
 </html>

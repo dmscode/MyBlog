@@ -18,13 +18,7 @@
 <p>白板（Canvas）是 Obsidian 中可以自由布局的笔记形式，而且卡片内支持 Markdown。我们知道 Markdown 支持混入 HTML，那在白板卡片中框架其他页面（小挂件），是不是可行呢？答案是可以的。</p>
 <p>到这里并不完美，因为白板中的卡片默认是有边距的，而我们会希望小组件充满整个卡片。是的，可以写一段 CSS Snippets，但这样是对所有白板笔记生效的，似乎副作用有点大。然后正好找到一款插件 <a href="https://github.com/Lisandra-dev/obsidian-canvas-css-class" title="Canvas CSS Class">Canvas CSS Class</a>，作用就是给白板笔记加入一个类（class），也可以给特定的白板笔记加入你预设的类。这样在 CSS 中就可以针对性的定义了。</p>
 <h2 id="%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C">具体操作</h2><ul>
-<li>安装 <a href="https://github.com/Lisandra-dev/obsidian-canvas-css-class" title="Canvas CSS Class">Canvas CSS Class</a>并启用</li>
-<li>打开打算放置挂件的白板笔记，Ctrl+P 输入 canvas，找到 <code>Canvas CSS class:Add a CSS Class to the active canvas</code> 命令</li>
-<li>输入你自定义的类（class），并记住，比如我使用的是 <code>start-widget</code> </li>
-<li>创建 CSS Snippets，位置在 <code>.obsidian/snippets</code> 中，名称随意，在其中放入后续代码</li>
-<li>记得在 <code>设置——外观——CSS 代码片段</code> 中开启此片段</li>
-<li>至此准备工作完成</li>
-</ul>
+<li>安装 <a href="https://github.com/Lisandra-dev/obsidian-canvas-css-class" title="Canvas CSS Class">Canvas CSS Class</a>并启用</li><li>打开打算放置挂件的白板笔记，Ctrl+P 输入 canvas，找到 <code>Canvas CSS class:Add a CSS Class to the active canvas</code> 命令</li><li>输入你自定义的类（class），并记住，比如我使用的是 <code>start-widget</code> </li><li>创建 CSS Snippets，位置在 <code>.obsidian/snippets</code> 中，名称随意，在其中放入后续代码</li><li>记得在 <code>设置——外观——CSS 代码片段</code> 中开启此片段</li><li>至此准备工作完成</li></ul>
 <p>CSS 代码（注意每一条开启的 <code>.start-widget</code> 是和上面自定义的类对应的）：</p>
 <pre class="hljs css" lang="css">
 <span class="hljs-comment">/* ---- 白板起始页样式 ---- */</span>
@@ -74,6 +68,6 @@
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/10/29 17:35:55</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/10/30 19:52:22</foot>
 </body>
 </html>

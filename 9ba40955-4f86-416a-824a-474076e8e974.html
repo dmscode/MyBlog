@@ -52,7 +52,11 @@ const code = <span class="hljs-string">`&gt; [!danger] 未索引笔记
   <span class="hljs-keyword">return</span> unIndex
 }).<span class="hljs-built_in">map</span>(<span class="hljs-function"><span class="hljs-params">p</span>=&gt;</span>p.file.link).join(<span class="hljs-string">&#x27; | &#x27;</span>)
 <span class="hljs-comment">// 插入元素输出</span>
-dv.el(<span class="hljs-string">&#x27;div&#x27;</span>, code)</pre></section>
+dv.el(<span class="hljs-string">&#x27;div&#x27;</span>, code)</pre><h2 id="%E7%BA%AF%E5%B9%B3%E7%AC%94%E8%AE%B0">纯平笔记</h2><blockquote><p>Append at 2023-11-01 19:58:15</p>
+</blockquote><p>上面的思想更进一步，就是我称之为“纯平笔记（FlatNote）”的结构了。即笔记之间相互平等，所以完全并列，于是便没有了文件夹，也没有了顺序。这符合知识点之间本来的关系。然后通过相互链接和索引来关联和组织。</p>
+<p>应该说 Notion 等数据库笔记本身就是这种结构。而 Obsidian 这种基于文件系统的笔记很容易被文件夹和排序给绕进去。但是当文件数量增大，基于文件夹和文件排序的查找变得非常低效。</p>
+<p>然后基于这个思路，打造了现在的笔记站生成器（FlatNote）。</p>
+</section>
     </article>
   </main>
   <aside>
@@ -66,9 +70,10 @@ dv.el(<span class="hljs-string">&#x27;div&#x27;</span>, code)</pre></section>
         </ul>
       </div>
       
+      <div class="meta"><ul><small>created: 2023-07-31 17:31:39</small><br><small>updated: 2023-11-01 20:03:38</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/10/30 19:52:22</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/2 07:28:18</foot>
 </body>
 </html>

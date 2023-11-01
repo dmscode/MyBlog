@@ -17,10 +17,10 @@
 <h2 id="%E5%8E%9F%E5%88%99">原则</h2><ul>
 <li>任务细化，便于消除，及时获得成就感</li><li>按项目分类，根据心情状态，随意选择推进哪个项目</li><li>通过任务状态进行分类，但要优化标记数量，避免日后再看不知所云</li></ul>
 <h2 id="%E6%83%85%E5%86%B5%EF%BC%88%E6%80%9D%E8%80%83%EF%BC%89">情况（思考）</h2><p>我日常就是几个项目，按着心情推进。但是很容易都卡在比较不想去做的位置，然后就咕咕咕了。解决的方法就是任务细化，把一个困难的任务细化成无数个简单易完成的小任务，这样就能一点点推进了。但这样的问题就是任务数量会变得比较大。</p>
-<h3 id="%E6%97%B6%E9%97%B4%E7%BA%BF%EF%BC%88TimeLine%EF%BC%89">时间线（TimeLine）</h3><p>如果使用时间线，那就乱了，因为我这些小任务并没有明确的开始结束如期，最多只能说是线性的，毕竟有时候一些任务必须按顺序推进。但是多个项目之间又是并行关系，因为我可以任意选择今天做哪个项目。</p>
-<h3 id="%E5%9B%9B%E8%B1%A1%E9%99%90%EF%BC%88Four%20Quadrant%EF%BC%89">四象限（Four Quadrant）</h3><p>确实，我的任务会有一定的区分，比如下一步要做的，后续需要做的，计划中为了会做的，考虑着是不是要做的……如果归纳整理一下大概也能划入四象限进行管理。但怎么分项目，每个项目画一个坐标轴？但是有些象限可能长期空着，而有些象限会非常拥挤（都被我划分成小任务了）。</p>
+<h3 id="%E6%97%B6%E9%97%B4%E7%BA%BF%EF%BC%88TimeLine%EF%BC%89">时间线（TimeLine）</h3><p>如果使用时间线，那就乱了，因为我这些小任务并没有明确的开始结束日期，最多只能说是线性的，毕竟有时候一些任务必须按顺序推进。但是多个项目之间又是并行关系，因为我可以任意选择今天做哪个项目。</p>
+<h3 id="%E5%9B%9B%E8%B1%A1%E9%99%90%EF%BC%88Four%20Quadrant%EF%BC%89">四象限（Four Quadrant）</h3><p>确实，我的任务会有一定的区分，比如下一步要做的，后续需要做的，计划中分为了会做的，考虑着是不是要做的……如果归纳整理一下大概也能划入四象限进行管理。但怎么分项目，每个项目画一个坐标轴？但是有些象限可能长期空着，而有些象限会非常拥挤（都被我划分成小任务了）。</p>
 <h3 id="%E8%AE%AE%E7%A8%8B%EF%BC%88Agenda%EF%BC%89">议程（Agenda）</h3><p>Org-mode 的 agenda 是我非常喜欢的功能，但是 emacs 我实在用不惯。可是那种一键让任务清清楚楚排列在眼前的感觉真的好呀！</p>
-<h3 id="%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89">看板（kanban）</h3><p>很容易按项目划分和总览，但是 Obsidian 中的看板不能在内部分组，所以并不适合我的需求。而如果使用 Trello 之类工具也会有很多问题，比如数据不在本地，连续任务输入可能并不符合我的习惯等。而且我的任务有一定先后关系，如果单纯的按重要程度等分列会丢失这种顺序关系。</p>
+<h3 id="%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89">看板（kanban）</h3><p>很容易按项目划分和总览，但是 Obsidian 中的看板不能在内部分组<a href="#footnote-1"><sup>[1]</sup></a>，所以并不适合我的需求。而如果使用 Trello 之类工具也会有很多问题，比如数据不在本地，连续任务输入可能并不符合我的习惯等。而且我的任务有一定先后关系，如果单纯的按重要程度等分列会丢失这种顺序关系。</p>
 <h2 id="%E8%A7%84%E5%88%92">规划</h2><ul>
 <li>按项目划分，这样做某个项目的时候就专注其中</li><li>可以总览，跟翻牌子似的选择今天想推进哪个项目</li><li>按任务状态分组展示</li></ul>
 <p>所以大概应该是个表格，横轴是逐个任务，纵轴是按状态的任务分组。</p>
@@ -31,6 +31,7 @@
 <li class="task" data-task=" "><i class="fa-regular fa-circle"></i> <code>- [ ]</code> 一般任务。确定需要去完成，但是没有特别的优先级</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> <code>- [x]</code> 已完成。已经完成，应该被归档的任务，应该不被显示（或者只显示当日已完成） ✅ 2023-08-03</li><li class="task" data-task="!"><i class="fa-solid fa-circle-exclamation"></i>  <code>- [!]</code> 重要的。应该首先被完成的任务。</li><li class="task" data-task="&gt;"><i class="fa-solid fa-circle-chevron-right"></i>  <code>- [&gt;]</code> 计划中的。打算去完成，但是是在未来的某一刻，即目前优先级很低</li><li class="task" data-task="?"><i class="fa-solid fa-circle-question"></i> <code>- [?]</code> 未确定的。尚未确定是否要这样做，表示需要再深入思考</li></ul>
 <p>这样就形成了一个类看板的 agenda。</p>
 <h2 id="%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89">实践（待续）</h2><p>得先列出一定数量的待办，然后再书写查询，这样便于测试，所以这件事情还得稍微等一段时间。</p>
+<p><strong id="footnote-1">[1]</strong>: 这里我并不清楚当初想表达的是什么了。现在思考，觉得看板也是可行的，但是查询起来可能有些问题？！时间日期的标注方式和 Dataview 有所不同。- 2023-11-01 19:27:26</p>
 </section>
     </article>
   </main>
@@ -44,10 +45,19 @@
           <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
         </ul>
       </div>
-      <div class="toc"><ul><li data-hash="%E5%8E%9F%E5%88%99" style="margin-left: 1.5em"><a href="#%E5%8E%9F%E5%88%99">原则</a></li><li data-hash="%E6%83%85%E5%86%B5%EF%BC%88%E6%80%9D%E8%80%83%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%83%85%E5%86%B5%EF%BC%88%E6%80%9D%E8%80%83%EF%BC%89">情况（思考）</a></li><li data-hash="%E6%97%B6%E9%97%B4%E7%BA%BF%EF%BC%88TimeLine%EF%BC%89" style="margin-left: 3em"><a href="#%E6%97%B6%E9%97%B4%E7%BA%BF%EF%BC%88TimeLine%EF%BC%89">时间线（TimeLine）</a></li><li data-hash="%E5%9B%9B%E8%B1%A1%E9%99%90%EF%BC%88Four%20Quadrant%EF%BC%89" style="margin-left: 3em"><a href="#%E5%9B%9B%E8%B1%A1%E9%99%90%EF%BC%88Four%20Quadrant%EF%BC%89">四象限（Four Quadrant）</a></li><li data-hash="%E8%AE%AE%E7%A8%8B%EF%BC%88Agenda%EF%BC%89" style="margin-left: 3em"><a href="#%E8%AE%AE%E7%A8%8B%EF%BC%88Agenda%EF%BC%89">议程（Agenda）</a></li><li data-hash="%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89" style="margin-left: 3em"><a href="#%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89">看板（kanban）</a></li><li data-hash="%E8%A7%84%E5%88%92" style="margin-left: 1.5em"><a href="#%E8%A7%84%E5%88%92">规划</a></li><li data-hash="%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E7%BB%86%E5%8C%96" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E7%BB%86%E5%8C%96">实现方法细化</a></li><li data-hash="%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89">实践（待续）</a></li></ul></div>
+      <div class="toc"><ul><li data-hash="%E5%8E%9F%E5%88%99" style="margin-left: 1.5em"><a href="#%E5%8E%9F%E5%88%99">原则</a></li>
+<li data-hash="%E6%83%85%E5%86%B5%EF%BC%88%E6%80%9D%E8%80%83%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%83%85%E5%86%B5%EF%BC%88%E6%80%9D%E8%80%83%EF%BC%89">情况（思考）</a></li>
+<li data-hash="%E6%97%B6%E9%97%B4%E7%BA%BF%EF%BC%88TimeLine%EF%BC%89" style="margin-left: 3em"><a href="#%E6%97%B6%E9%97%B4%E7%BA%BF%EF%BC%88TimeLine%EF%BC%89">时间线（TimeLine）</a></li>
+<li data-hash="%E5%9B%9B%E8%B1%A1%E9%99%90%EF%BC%88Four%20Quadrant%EF%BC%89" style="margin-left: 3em"><a href="#%E5%9B%9B%E8%B1%A1%E9%99%90%EF%BC%88Four%20Quadrant%EF%BC%89">四象限（Four Quadrant）</a></li>
+<li data-hash="%E8%AE%AE%E7%A8%8B%EF%BC%88Agenda%EF%BC%89" style="margin-left: 3em"><a href="#%E8%AE%AE%E7%A8%8B%EF%BC%88Agenda%EF%BC%89">议程（Agenda）</a></li>
+<li data-hash="%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89" style="margin-left: 3em"><a href="#%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89">看板（kanban）</a></li>
+<li data-hash="%E8%A7%84%E5%88%92" style="margin-left: 1.5em"><a href="#%E8%A7%84%E5%88%92">规划</a></li>
+<li data-hash="%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E7%BB%86%E5%8C%96" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E7%BB%86%E5%8C%96">实现方法细化</a></li>
+<li data-hash="%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89">实践（待续）</a></li></ul></div>
+      <div class="meta"><ul><small>created: 2023-07-10 16:00:00</small><br><small>updated: 2023-11-01 19:27:27</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/10/30 19:52:22</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/2 07:28:18</foot>
 </body>
 </html>

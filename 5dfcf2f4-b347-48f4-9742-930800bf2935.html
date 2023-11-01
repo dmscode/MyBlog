@@ -47,6 +47,8 @@ PCOB <--->|Syncthing|NasOB
 PCDoc --->|Syncthing|NasDoc
 PCWid --->|Syncthing|NasWid</pre><p>这里的重点是第二条线（Docsify --&gt; Web）的同步中排除 Widgets 文件夹，仅在 Nas 端这边排除即可，因为只有这边 Web 目录中多出了这个文件夹。</p>
 <p>如此实现了相对复杂的文件同步，再借助过滤，Widgets 的同步中排除了 js 和 css 文件，这样就只剩下说明文档被一同发布了。</p>
+<blockquote><p>Append at 2023-11-01 20:05:12</p>
+</blockquote><p>现在使用新的网站生成器，同步规则没有这么复杂了，不过上面思路在一些特殊情况下依然值得参考。</p>
 </section>
     </article>
   </main>
@@ -61,10 +63,11 @@ PCWid --->|Syncthing|NasWid</pre><p>这里的重点是第二条线（Docsify --&
         </ul>
       </div>
       
+      <div class="meta"><ul><small>created: 2023-09-14 14:22:00</small><br><small>updated: 2023-11-01 20:05:47</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/10/30 19:52:22</foot><script type="module">
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/2 07:28:18</foot><script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>

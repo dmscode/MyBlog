@@ -13,7 +13,7 @@
   <main>
     <article class="markdown-body">
       <h1 class="note-title">我的笔记规范</h1>
-      <section><blockquote><p>使用方法在不断演变着，不直接修改过去的笔记了，新的折腾会不断附加在后面，也算记录一下折腾的心路历程。——2023-10-24 07:54:33</p>
+      <section><blockquote><p>使用方法在不断演变着，尽量不直接修改过去的笔记了，新的折腾会不断附加在后面，也算记录一下折腾的心路历程。——2023-10-24 07:54:33</p>
 </blockquote><p>Obsidian 和  Docsify  都太自由了，导致如果无拘无束，我会很快把它们弄乱掉。</p>
 <p>接下来，我要整理 Obsidian 中的内容，同时构建 Docsify  上面的输出（就是这个网站）。我得给自己一份规范，避免又跑偏了。</p>
 <h2 id="%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">使用规范</h2><h3 id="Obsidian">Obsidian</h3><ul>
@@ -38,6 +38,9 @@
 <li>创建一个新的，空的仓库，并从零开始使用，这就是我日常最常用的仓库了。</li><li>当前仓库视作归档，需要的时候过来翻阅，然后顺便把有价值的东西整理到该在的地方</li><li>随着时间推移，这里只剩下需要归档的内容，这时候删掉配置和插件，只保留笔记本身，作为归档。</li></ul>
 <h2 id="%E7%94%9F%E6%88%90%E5%99%A8">生成器</h2><blockquote><p>Append at 2023-10-24 07:57:53</p>
 </blockquote><p>Docsify 是不错，但是小问题也不少，每次折腾都得查询一番，然后修改的结果可能还完全南辕北辙。所以自己写了一个静态展站成器，这样就完全可控了。不过使用原则上和 Docsify 基本一致，并彻底贯彻无线性索引，每一条笔记都是一个单独的页面，每一条笔记都在单独成长。</p>
+<blockquote><p>Append at 2023-11-01 18:21:19</p>
+</blockquote><ul>
+<li>尽量简单，持续问自己：还能更简单么？真的有必要么？</li><li>这只是我笔记的附属，最好让它自动化，无负担，无感知的存在</li></ul>
 </section>
     </article>
   </main>
@@ -51,10 +54,18 @@
           <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
         </ul>
       </div>
-      <div class="toc"><ul><li data-hash="%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">使用规范</a></li><li data-hash="Obsidian" style="margin-left: 3em"><a href="#Obsidian">Obsidian</a></li><li data-hash="Docsify" style="margin-left: 3em"><a href="#Docsify">Docsify</a></li><li data-hash="%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82" style="margin-left: 1.5em"><a href="#%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82">一些运作细节</a></li><li data-hash="Obsidian" style="margin-left: 3em"><a href="#Obsidian">Obsidian</a></li><li data-hash="Docsify" style="margin-left: 3em"><a href="#Docsify">Docsify</a></li><li data-hash="%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA" style="margin-left: 1.5em"><a href="#%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA">仓库的构建</a></li><li data-hash="%E7%94%9F%E6%88%90%E5%99%A8" style="margin-left: 1.5em"><a href="#%E7%94%9F%E6%88%90%E5%99%A8">生成器</a></li></ul></div>
+      <div class="toc"><ul><li data-hash="%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83">使用规范</a></li>
+<li data-hash="Obsidian" style="margin-left: 3em"><a href="#Obsidian">Obsidian</a></li>
+<li data-hash="Docsify" style="margin-left: 3em"><a href="#Docsify">Docsify</a></li>
+<li data-hash="%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82" style="margin-left: 1.5em"><a href="#%E4%B8%80%E4%BA%9B%E8%BF%90%E4%BD%9C%E7%BB%86%E8%8A%82">一些运作细节</a></li>
+<li data-hash="Obsidian" style="margin-left: 3em"><a href="#Obsidian">Obsidian</a></li>
+<li data-hash="Docsify" style="margin-left: 3em"><a href="#Docsify">Docsify</a></li>
+<li data-hash="%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA" style="margin-left: 1.5em"><a href="#%E4%BB%93%E5%BA%93%E7%9A%84%E6%9E%84%E5%BB%BA">仓库的构建</a></li>
+<li data-hash="%E7%94%9F%E6%88%90%E5%99%A8" style="margin-left: 1.5em"><a href="#%E7%94%9F%E6%88%90%E5%99%A8">生成器</a></li></ul></div>
+      <div class="meta"><ul><small>created: 2023-06-06 15:42:08</small><br><small>updated: 2023-11-01 18:24:53</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/10/30 19:52:22</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/2 07:28:18</foot>
 </body>
 </html>

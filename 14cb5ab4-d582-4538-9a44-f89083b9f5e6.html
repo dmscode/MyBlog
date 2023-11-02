@@ -17,10 +17,7 @@
       <section><pre class="hljs mermaid" lang="mermaid">flowchart TB
 %% 笔记本电脑
 subgraph NoteBook[Computer]
-  subgraph NotObs[Obsidian]
-    NotZJI[wo.zji.me]
-    NotDV[Dataview]
-  end
+  NotObs[Obsidian]
   NotShare[ShareFolder]
   NotEnpass[Enpass]
 end
@@ -32,9 +29,7 @@ subgraph Nas[Nas]
     NasEnpass[Enpass]
   end
   subgraph Web[Web]
-    subgraph NasZJI[wo.zji.me]
-      NasDV[Dataview]
-    end
+    NasZJI[zji.me]
   end
 end
 %% Clouds
@@ -47,7 +42,7 @@ subgraph Clouds[Clouds]
   end
   subgraph Github[Github]
     GitObs[Obsidian]
-    GitZJI[wo.zji.me]
+    GitZJI[zji.me]
   end
 end
 %% Phone
@@ -63,7 +58,7 @@ PhoObs <--->|Syncthing| NasObs
 
 NotShare <--->|Syncthing| PhoShare
 
-NotZJI --->|"Syncthing (Not include Dataview)"| NasZJI
+NasObs --->|FlatNote| NasZJI
 
 NasZJI --->|AutoPushGit.js| GitZJI
 NasObs --->|AutoPushGit.js| GitObs
@@ -73,8 +68,6 @@ PhoEnpass <--->|Webdav| NasEnpass
 
 NasApps --->|GoodSync| OneApps
 NasApps --->|GoodSync| InfApps
-
-NotDV --->|Syncthing| NasDV
 
 %% 节点样式
 style NoteBook fill:#c2ccd0,color:#FFF
@@ -101,8 +94,6 @@ linkStyle 0 stroke:#0891d1,stroke-width:4px,color:#0891d1
 linkStyle 1 stroke:#0891d1,stroke-width:4px,color:#0891d1
 linkStyle 2 stroke:#0891d1,stroke-width:4px,color:#0891d1
 linkStyle 3 stroke:#0891d1,stroke-width:4px,color:#0891d1
-linkStyle 4 stroke:#0891d1,stroke-width:4px,color:#0891d1
-linkStyle 11 stroke:#0891d1,stroke-width:4px,color:#0891d1
 
 %% AutoPushGit.js 线条
 linkStyle 5 stroke:#057748,stroke-width:4px,color:#057748
@@ -128,11 +119,11 @@ linkStyle 10 stroke:#ec513e,stroke-width:4px,color:#ec513e</pre></section>
         </ul>
       </div>
       
-      <div class="meta"><ul><small>created: 2023-06-19 15:24:44</small><br><small>updated: 2023-10-28 15:58:28</small><ul></div>
+      <div class="meta"><ul><small>created: 2023-06-19 15:24:44</small><br><small>updated: 2023-11-02 08:02:45</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/11/2 07:28:18</foot><script type="module">
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/3 00:00:23</foot><script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>

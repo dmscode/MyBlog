@@ -114,9 +114,7 @@ end
 
 %% 通知规则
 subgraph Rule
-  subgraph Group[包含任意]
-
-  end
+  Group[包含任意]
 end
 
 %% 通知处理
@@ -129,18 +127,18 @@ Apps ---> Rule ---> Do
 style Apps fill:#425066,color:#FFF
 style Rule fill:#ffa400,color:#FFF
 style Group fill:#ffc773,color:#333
-style Do fill:#057748,color:#FFF</pre><h2 id="%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92">微信消息增强提醒</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
+style Do fill:#057748,color:#FFF</pre><h2 id="%E5%9B%BA%E5%AE%9A%E5%BF%AB%E9%80%92%E4%BF%A1%E6%81%AF">固定快递信息</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
 
 %% 通知来源
 subgraph Apps
-  any[微信]
+  any[短信]
 end
 
 %% 通知规则
 subgraph Rule
   subgraph Group[包含任意]
     %% 特定人的消息
-    1["标题-正则匹配：名字|名字"]
+    1["通知-匹配正则：【菜鸟驿站】|邻里驿站|【来取】|\d-\d-\d+|取件码"]
   end
 end
 
@@ -171,12 +169,12 @@ style Do fill:#057748,color:#FFF</pre></section>
 <li data-hash="%E6%97%A0%E9%9C%80%E8%AE%B0%E5%BD%95" style="margin-left: 1.5em"><a href="#%E6%97%A0%E9%9C%80%E8%AE%B0%E5%BD%95">无需记录</a></li>
 <li data-hash="%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92" style="margin-left: 1.5em"><a href="#%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92">微信消息增强提醒</a></li>
 <li data-hash="%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7%E5%88%AB%E8%80%81%E5%8F%AB" style="margin-left: 1.5em"><a href="#%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7%E5%88%AB%E8%80%81%E5%8F%AB">聊天工具别老叫</a></li>
-<li data-hash="%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92" style="margin-left: 1.5em"><a href="#%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92">微信消息增强提醒</a></li></ul></div>
-      <div class="meta"><ul><small>created: 2023-06-29 05:55:48</small><br><small>updated: 2023-10-27 20:18:47</small><ul></div>
+<li data-hash="%E5%9B%BA%E5%AE%9A%E5%BF%AB%E9%80%92%E4%BF%A1%E6%81%AF" style="margin-left: 1.5em"><a href="#%E5%9B%BA%E5%AE%9A%E5%BF%AB%E9%80%92%E4%BF%A1%E6%81%AF">固定快递信息</a></li></ul></div>
+      <div class="meta"><ul><small>created: 2023-06-29 05:55:48</small><br><small>updated: 2023-11-02 08:21:03</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/11/2 07:28:18</foot><script type="module">
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/3 00:00:23</foot><script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
   mermaid.initialize({ startOnLoad: true });
 </script>

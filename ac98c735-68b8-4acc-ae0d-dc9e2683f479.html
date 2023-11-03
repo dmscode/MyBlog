@@ -47,7 +47,7 @@ data.forEach((item, i)=&gt;{
   let total = 0
   item.forEach((col, k) =&gt; k &amp;&amp; (total+=Number(col)))
   /<span class="hljs-symbol">*</span> 拼接表格代码 <span class="hljs-symbol">*</span>/
-  tableCode += `|<span class="hljs-string"> $String{(i+1).padStart(2,&#x27;0&#x27;)} </span>|<span class="hljs-string"> ${item.join(&#x27; </span>|<span class="hljs-string"> &#x27;)} </span>|<span class="hljs-string"> ${total} </span>|<span class="hljs-string">`
+  tableCode += `|<span class="hljs-string"> $String{(i+1).padStart(2,&#x27;0&#x27;)} </span>|<span class="hljs-string"> ${item.join(&#x27; </span>|<span class="hljs-string"> &#x27;)} </span>|<span class="hljs-string"> ${total} </span>|<span class="hljs-string">\n`
 })
 /* 如果有纵向汇总需求，比如单科平均成绩等，可以在下面增加计算代码 */
 /* 比较简单的方法就是用 dv.span 进行输出，会自动渲染 markdown 代码 */
@@ -98,10 +98,10 @@ dv.span(tableCode)</span></pre><h2 id="%E6%95%88%E6%9E%9C">效果</h2><p>就可�
 <li data-hash="%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96%E5%92%8C%E8%A7%A3%E6%9E%90" style="margin-left: 1.5em"><a href="#%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96%E5%92%8C%E8%A7%A3%E6%9E%90">数据读取和解析</a></li>
 <li data-hash="%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%84%E7%90%86%E4%B8%8E%E8%BE%93%E5%87%BA" style="margin-left: 1.5em"><a href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%84%E7%90%86%E4%B8%8E%E8%BE%93%E5%87%BA">数据的处理与输出</a></li>
 <li data-hash="%E6%95%88%E6%9E%9C" style="margin-left: 1.5em"><a href="#%E6%95%88%E6%9E%9C">效果</a></li></ul></div>
-      <div class="meta"><ul><small>created: 2023-11-03 17:33:58</small><br><small>updated: 2023-11-03 20:04:33</small><ul></div>
+      <div class="meta"><ul><small>created: 2023-11-03 17:33:58</small><br><small>updated: 2023-11-03 20:08:41</small><ul></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/11/3 20:07:37</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/3 20:09:58</foot>
 </body>
 </html>

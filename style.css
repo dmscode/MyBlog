@@ -49,6 +49,17 @@ article.markdown-body mark {
   text-decoration: underline wavy 3px rgba(255, 66, 88, .5);
   text-underline-offset: -0.1rem;
 }
+article.markdown-body kbd {
+  display: inline-block;
+  background-color: #333338;
+  color: #E3E3EC;
+  border: 1px solid #E3E3EC;
+  border-radius: 3px;
+  padding: 0 .5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 0 0 #E3E3EC;
+  line-height: inherit;
+}
 foot {
   display: block;
   width: 100%;

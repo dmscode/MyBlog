@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="github-markdown.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
 </head>
 <body>
   <main>
@@ -87,6 +88,41 @@
 <p>在其中寻找一个适合自己的平衡点，这是很必要的。</p>
 <p>类似的问题不只是限于美化，还有功能，每一个功能的增加也是要靠性能换的，所以插件装不装，装哪个，也值得斟酌。确实，做个笔记还要考虑这么多很烦人啊！但渐渐发现很多事情都存在着类似的矛盾，都需要为它们寻找平衡点。除非，完全不美化，不增加功能……但是当你选择 Obsidian 而不是系统记事本的时候，不也是在这些问题上寻找的平衡么……</p>
       </div>
+    </div><div data-callout-metadata="" data-callout-fold="" data-callout="faq" class="callout callout-faq is-collapsible is-collapsed" id="%E8%BF%99%E4%B8%80%E5%9D%97%E5%9D%97%E5%8F%AF%E4%BB%A5%E6%8A%98%E5%8F%A0%E7%9A%84%E6%98%AF%E8%87%AA%E5%B7%B1%E5%86%99%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%90%97%EF%BC%9F">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-question"></i></div>
+        <div class="callout-title-inner">这一块块可以折叠的是自己写代码实现的吗？</div>
+        <div class="callout-fold"><i class="fa-solid fa-chevron-down"></i></div>
+      </div>
+      <div class="callout-content">
+        <p>不是，Obsidian 中有个叫做 callouts 的功能 <a href="https://help.obsidian.md/How+to/Use+callouts" title="https://help.obsidian.md/How+to/Use+callouts">https://help.obsidian.md/How+to/Use+callouts</a> （这个功能真的超多人问）</p>
+<p>这个不是 markdown 原生语法，所以很多支持 markdown 的地方虽然都有类似功能，但是语法各不相同。（目前 Githubb 的语法和 Obsidian 基本一致 <a href="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts" title="https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts">https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts</a> ）</p>
+<p>当然，我网站上是我自己写代码改造解释器实现的（此条可以不用在意，不重要</p>
+      </div>
+    </div><div data-callout-metadata="" data-callout-fold="" data-callout="faq" class="callout callout-faq is-collapsible is-collapsed" id="%E6%89%8B%E6%9C%BA%E7%89%88%E7%BC%96%E8%BE%91%E6%97%B6%E5%BA%95%E4%B8%8B%E6%9C%89%E5%BF%AB%E9%80%9F%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%B7%A5%E5%85%B7%E6%9D%A1%EF%BC%8C%E7%94%B5%E8%84%91%E7%89%88%E6%B2%A1%E6%9C%89%E2%80%A6%E2%80%A6">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-question"></i></div>
+        <div class="callout-title-inner">手机版编辑时底下有快速格式的工具条，电脑版没有……</div>
+        <div class="callout-fold"><i class="fa-solid fa-chevron-down"></i></div>
+      </div>
+      <div class="callout-content">
+        <p>电脑版可以安装一个叫做 cMenu 的第三方插件来实现。搜索时会看到一个叫做 Editing Toolbar 的插件，比较新，也比较强，但加入了一些非原生 markdown 的东西，这方面我比较排斥（因为我很注重语法的通用性，不能离开一些插件就不能用了），不过因为加入的肯定是 HTML 和 CSS，所以只是 markdown 不纯粹，倒也不会过度影响迁移。</p>
+<p>我自己实际安装确认了一下，cMenu 日常就够用的，而且很简洁。</p>
+      </div>
+    </div><div data-callout-metadata="" data-callout-fold="" data-callout="faq" class="callout callout-faq is-collapsible is-collapsed" id="%E6%AE%B5%E8%90%BD%E6%80%8E%E4%B9%88%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B%EF%BC%9F">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-question"></i></div>
+        <div class="callout-title-inner">段落怎么首行缩进？</div>
+        <div class="callout-fold"><i class="fa-solid fa-chevron-down"></i></div>
+      </div>
+      <div class="callout-content">
+        <p>这就是一个 CSS 样式。在 Obsidian 中可以通过添加 CSS 片段（CSS Snippets）来实现。方法如下：</p>
+<ul>
+<li>打开自己笔记仓库所在文件夹（可以在左侧目录中找一个文件夹右键——在系统资源管理器中显示），找到一个叫做 <code>.obsidian</code> 的文件夹，进去</li><li>如果没找到这个文件夹，记得打开显示隐藏文件再看看</li><li>然后在其中的 <code>snippets</code> 文件夹（没有则自己新建）中新建一个 css 文件，比如叫做 <code>custom.css</code>，那这个文件的路径是这样的：<code>.obsidian/snippets/custom.css</code></li><li>在这个 css 文件中（没有编辑器就用记事本打开），粘贴下方代码，<code>p</code> 代表的是段落元素，<code>text-indent</code> 是说首行缩进距离，<code>2em</code> 大概就是两倍字符宽度</li><li>保存好之后并没有任何效果，这是正常的。还要到 Obsidian 的设置——外观（拉到最底下）——CSS 代码片段中开启你刚才定义的样式</li></ul>
+<pre class="hljs css" lang="css"><span class="hljs-selector-tag">p</span> {
+   <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">2em</span>;
+}</pre>
+      </div>
     </div></section>
     </article>
   </main>
@@ -105,8 +141,11 @@
 <li data-hash="%E9%82%A3%E6%88%91%E5%A4%8D%E5%88%B6%E8%BF%87%E6%9D%A5%E4%B8%8D%E5%B0%B1%E8%A1%8C%E4%BA%86" style="margin-left: 1.5em"><a href="#%E9%82%A3%E6%88%91%E5%A4%8D%E5%88%B6%E8%BF%87%E6%9D%A5%E4%B8%8D%E5%B0%B1%E8%A1%8C%E4%BA%86">那我复制过来不就行了</a></li>
 <li data-hash="%E5%8F%AF%E4%BB%A5%E5%85%88%E6%9C%89%E4%B8%80%E4%B8%AA%E6%BC%82%E4%BA%AE%E7%9A%84%E8%B5%B7%E5%A7%8B%E9%A1%B5%E4%B9%88%EF%BC%9F" style="margin-left: 1.5em"><a href="#%E5%8F%AF%E4%BB%A5%E5%85%88%E6%9C%89%E4%B8%80%E4%B8%AA%E6%BC%82%E4%BA%AE%E7%9A%84%E8%B5%B7%E5%A7%8B%E9%A1%B5%E4%B9%88%EF%BC%9F">可以先有一个漂亮的起始页么？</a></li>
 <li data-hash="%E8%B5%B7%E5%A7%8B%E9%A1%B5%E5%8F%AF%E4%BB%A5%E5%85%88%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%9E%B6%E5%AD%90%EF%BC%8C%E7%84%B6%E5%90%8E%E9%9A%8F%E7%9D%80%E7%AC%94%E8%AE%B0%E5%A2%9E%E5%8A%A0%E5%86%8D%E5%BE%80%E9%87%8C%E5%A1%AB%E4%B9%88%EF%BC%9F" style="margin-left: 1.5em"><a href="#%E8%B5%B7%E5%A7%8B%E9%A1%B5%E5%8F%AF%E4%BB%A5%E5%85%88%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%9E%B6%E5%AD%90%EF%BC%8C%E7%84%B6%E5%90%8E%E9%9A%8F%E7%9D%80%E7%AC%94%E8%AE%B0%E5%A2%9E%E5%8A%A0%E5%86%8D%E5%BE%80%E9%87%8C%E5%A1%AB%E4%B9%88%EF%BC%9F">起始页可以先有一个空架子，然后随着笔记增加再往里填么？</a></li>
-<li data-hash="%E7%BE%8E%E5%8C%96%E7%9A%84%E6%82%96%E8%AE%BA%EF%BC%88%E8%80%81%E9%BC%A0%E8%A1%A5%E5%85%85%EF%BC%89" style="margin-left: 1.5em"><a href="#%E7%BE%8E%E5%8C%96%E7%9A%84%E6%82%96%E8%AE%BA%EF%BC%88%E8%80%81%E9%BC%A0%E8%A1%A5%E5%85%85%EF%BC%89">美化的悖论（老鼠补充）</a></li></ul></div>
-      <div class="meta"><small>created: 2023-11-07 08:04:03</small><br><small>updated: 2023-11-07 09:16:22</small></div>
+<li data-hash="%E7%BE%8E%E5%8C%96%E7%9A%84%E6%82%96%E8%AE%BA%EF%BC%88%E8%80%81%E9%BC%A0%E8%A1%A5%E5%85%85%EF%BC%89" style="margin-left: 1.5em"><a href="#%E7%BE%8E%E5%8C%96%E7%9A%84%E6%82%96%E8%AE%BA%EF%BC%88%E8%80%81%E9%BC%A0%E8%A1%A5%E5%85%85%EF%BC%89">美化的悖论（老鼠补充）</a></li>
+<li data-hash="%E8%BF%99%E4%B8%80%E5%9D%97%E5%9D%97%E5%8F%AF%E4%BB%A5%E6%8A%98%E5%8F%A0%E7%9A%84%E6%98%AF%E8%87%AA%E5%B7%B1%E5%86%99%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%90%97%EF%BC%9F" style="margin-left: 1.5em"><a href="#%E8%BF%99%E4%B8%80%E5%9D%97%E5%9D%97%E5%8F%AF%E4%BB%A5%E6%8A%98%E5%8F%A0%E7%9A%84%E6%98%AF%E8%87%AA%E5%B7%B1%E5%86%99%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%90%97%EF%BC%9F">这一块块可以折叠的是自己写代码实现的吗？</a></li>
+<li data-hash="%E6%89%8B%E6%9C%BA%E7%89%88%E7%BC%96%E8%BE%91%E6%97%B6%E5%BA%95%E4%B8%8B%E6%9C%89%E5%BF%AB%E9%80%9F%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%B7%A5%E5%85%B7%E6%9D%A1%EF%BC%8C%E7%94%B5%E8%84%91%E7%89%88%E6%B2%A1%E6%9C%89%E2%80%A6%E2%80%A6" style="margin-left: 1.5em"><a href="#%E6%89%8B%E6%9C%BA%E7%89%88%E7%BC%96%E8%BE%91%E6%97%B6%E5%BA%95%E4%B8%8B%E6%9C%89%E5%BF%AB%E9%80%9F%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%B7%A5%E5%85%B7%E6%9D%A1%EF%BC%8C%E7%94%B5%E8%84%91%E7%89%88%E6%B2%A1%E6%9C%89%E2%80%A6%E2%80%A6">手机版编辑时底下有快速格式的工具条，电脑版没有……</a></li>
+<li data-hash="%E6%AE%B5%E8%90%BD%E6%80%8E%E4%B9%88%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B%EF%BC%9F" style="margin-left: 1.5em"><a href="#%E6%AE%B5%E8%90%BD%E6%80%8E%E4%B9%88%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B%EF%BC%9F">段落怎么首行缩进？</a></li></ul></div>
+      <div class="meta"><small>created: 2023-11-07 08:04:03</small><br><small>updated: 2023-11-07 15:45:49</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -115,6 +154,6 @@
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/11/7 09:18:34</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/7 15:46:27</foot>
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杂志起始页视图 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">杂志起始页视图</h1>
+      <section><p>这是一个自用视图，一些细节并未设置为可修改。</p>
+<p>调用方法：</p>
+<pre class="hljs js" lang="js">dv.view(<span class="hljs-string">&#x27;Start&#x27;</span>, {
+  <span class="hljs-attr">navs</span>: {
+    基础页面: [
+      <span class="hljs-string">&#x27;🏠Start|Start.md&#x27;</span>,
+      <span class="hljs-string">&#x27;📇Index|Index.md&#x27;</span>,
+      <span class="hljs-string">`📝Memos|Life/Logs/<span class="hljs-subst">${<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getFullYear()}</span>.md`</span>,
+      <span class="hljs-string">&#x27;⛳Sandbox|Inbox/Sandbox.md&#x27;</span>,
+    ],
+    生活列表: [
+      <span class="hljs-string">&#x27;💳刷卡记录|Life/List/刷卡记录.md&#x27;</span>,
+      <span class="hljs-string">&#x27;💰缴费记录|Life/List/缴费记录.md&#x27;</span>,
+      <span class="hljs-string">&#x27;🛒购物清单|Life/List/购物清单.md&#x27;</span>,
+      <span class="hljs-string">&#x27;📰服务订阅|Life/List/服务订阅.md&#x27;</span>,
+    ]
+  }
+})</pre><p>选项中可以给出多个导航组，每个链接的名称和地址用 <code>|</code>分隔。</p>
+<p>下面生活缴费记录是读取 <code>Life/List/缴费记录.md</code> 中的内容，将每个 Section 下第一个时间作为最新缴费时间，计算和当前的间隔天数。</p>
+<h2 id="%E6%95%85%E4%BA%8B">故事</h2><p>本来这个视图很简单，用 dataview 的的方法渲染 callouts 就行了，还可以折叠，然后写好了，测试完了。结果第二天一更新 Dataview 发现这个方法失效了……大无语，算了，自己写元素代码吧，成功了，很好，终于结束了，第二天一更新 Dataview，嘿，用它插入的元素不能自定义代码了……大无语，插入元素的功能也自己写吧。写完发现，Dataview 显然也认识到了这些问题，全都更新修复了。</p>
+<p>哼唧！</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      
+      <div class="meta"><small>created: 2023-11-10 15:56:55</small><br><small>updated: 2023-11-10 16:16:01</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <script async
+    src="https://state.zji.me/script.js"
+    data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
+    data-do-not-track="true"
+    data-domains="zji.me"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/11 00:00:22</foot>
+</body>
+</html>

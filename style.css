@@ -44,6 +44,9 @@ article.markdown-body {
 article.markdown-body p {
   text-indent: 2em;
 }
+article.markdown-body p * {
+  text-indent: 0;
+}
 article.markdown-body mark {
   background-color: rgba(0, 0, 0, 0);
   text-decoration: underline wavy 3px rgba(255, 66, 88, .5);

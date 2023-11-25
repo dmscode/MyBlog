@@ -24,7 +24,7 @@
 <h2 id="%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%AE%BE%E7%BD%AE%20QuickAdd">第三步：设置 QuickAdd</h2><p><strong>注意</strong>：QuickAdd 弹出的输入框在你按下 Esc 按键时会直接消失，导致未保存的数据丢失，留意一下这个细节就好。</p>
 <p>进入 QuickAdd 之后开启 <code>Use Multi-line Input Prompt</code>，多行输入框是很适合用来碎碎念的，但这是一个全局设定，日后有多条 QuickAdd 动作之后可以考虑这个设定的取舍。</p>
 <p>然后我们开始添加 Capture。这里说一个小技巧，QuickAdd 的设置中排版有点误导理解，你把窗口宽度调窄一点，忽然就变得好懂了。大概是这样的结构：</p>
-<p><img src="0697d1fa-a53c-4ea6-822e-3c9dd64c2a06.jpeg" alt=""></p>
+<p><img src="7c6cbc48-bcb8-4f6c-9ec3-a1b9af7566d4.jpeg" alt=""></p>
 <ul>
 <li>按钮：Manage Macros —— 显然这不是我们需要的</li><li>输入框：Name —— 输入一个名字</li><li>下拉选框：Template —— 默认选择 Template 的选择框，点一下，看到四个选项，先不追求弄懂，我们就先选择 Capture</li><li>按钮：Add Choice —— 到这里忽然就理解了，第一个按钮和我们无关。然后取个名字，选择类型，点击这个按钮添加。</li></ul>
 <p>添加以后上面就出现了这个名字的内容，后面有五个图标：闪电、齿轮、两个方框、垃圾桶、三根横线，这些图标应该能够理解个大概，我们点亮闪电（用途后面讲解），然后点击齿轮图标进行设置。</p>
@@ -51,6 +51,28 @@
 <pre class="hljs md" lang="md"><span class="hljs-attribute">obsidian</span>://advanced-uri?vault=Notes&amp;commandid=quickadd%<span class="hljs-number">253</span>Achoice%<span class="hljs-number">253</span>A404c557d-d9f2-<span class="hljs-number">4</span>d1b-<span class="hljs-number">8</span>d4f-<span class="hljs-number">5</span>b0c115c4395</pre><p>尝试关掉 Obsidian，然后在浏览器中打开这个链接，于是，不光 Obsidian 被打开了，还弹出了碎碎念的输入框。我会在 uTools 里用“快捷命令”这款插件来调用这个链接，当然各种其他插件都可以，毕竟，这里需要的只是打开一个链接。</p>
 <p>我还会在手机（Android）上用“快捷方式”或者“Anywhere~”来调用这个链接，实现在手机上的快速碎碎念。</p>
 <p>如果多读一读 Advanced URI 的文档，并有一点编程基础的话，也可以实现在其他地方编辑完内容，一键发送进 Obsidian 中， 比如在 uTools 的输入框里碎碎念，然后快速发送过来。</p>
+<h2 id="%E7%AC%AC%E5%85%AB%E6%AD%A5%EF%BC%9A%E4%B8%BE%E6%A0%97%E5%AD%90">第八步：举栗子</h2><p>uTools 安装“快捷命令”插件。再次提醒，上面给出那个链接随便一个网址收藏类插件都能解决，下面展示为什么我用这个插件。</p>
+<p>uTools 中输入“新建快捷命令”，进入新建命令面板。</p>
+<p>左侧：</p>
+<ul>
+<li>匹配类型：关键词</li><li>关键词：<code>Digu</code>，然后回车（这里可以根据你的爱好随便写）</li></ul>
+<p>右侧粘贴如下代码，可能无法使用 <kbd class=key-ctrl>Ctrl</kbd> + <kbd class=key-v>V</kbd> 进行粘贴，右键然后选择 <code>Paste</code> 就行了。留意一下上方的环境为：<code>quickcommand</code> 。</p>
+<pre class="hljs js" lang="js">const lengthNum = <span class="hljs-function">(<span class="hljs-params">num, <span class="hljs-built_in">length</span> = <span class="hljs-number">2</span></span>) =&gt;</span> String(num).padStart(<span class="hljs-built_in">length</span>, <span class="hljs-string">&#x27;0&#x27;</span>);
+const <span class="hljs-built_in">now</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+const <span class="hljs-built_in">year</span> = <span class="hljs-built_in">now</span>.getFullYear()
+const <span class="hljs-built_in">month</span> = lengthNum(<span class="hljs-built_in">now</span>.getMonth() + <span class="hljs-number">1</span>)
+const <span class="hljs-built_in">day</span> = lengthNum(<span class="hljs-built_in">now</span>.getDate())
+const <span class="hljs-built_in">hour</span> = lengthNum(<span class="hljs-built_in">now</span>.getHours())
+const <span class="hljs-built_in">minute</span> = lengthNum(<span class="hljs-built_in">now</span>.getMinutes())
+const notePath = <span class="hljs-string">`Life/Logs/<span class="hljs-subst">${<span class="hljs-built_in">year</span>}</span>.md`</span>
+const replaceMark = <span class="hljs-string">`## 碎碎念\\n\\n`</span>
+const input = <span class="hljs-string">&#x27;{{subinput:DiguDigu}}&#x27;</span>.<span class="hljs-built_in">trim</span>()
+<span class="hljs-keyword">if</span>(input) visit(<span class="hljs-string">`obsidian://advanced-uri?filepath=<span class="hljs-subst">${encodeURIComponent(notePath)}</span>&amp;searchregex=<span class="hljs-subst">${encodeURIComponent(encodeURIComponent(replaceMark))}</span>&amp;replace=<span class="hljs-subst">${encodeURIComponent(encodeURIComponent(<span class="hljs-string">`## 碎碎念
+
+- <span class="hljs-subst">${input}</span> ➕ <span class="hljs-subst">${<span class="hljs-built_in">year</span>}</span>-<span class="hljs-subst">${<span class="hljs-built_in">month</span>}</span>-<span class="hljs-subst">${<span class="hljs-built_in">day</span>}</span> <span class="hljs-subst">${<span class="hljs-built_in">hour</span>}</span>:<span class="hljs-subst">${<span class="hljs-built_in">minute</span>}</span> ^Digu<span class="hljs-subst">${+<span class="hljs-built_in">now</span>}</span>
+`</span>))}</span>`</span>)</pre><p>其中 <code>const notePath = </code> 后面照猫画虎改为自己的路径。保存。</p>
+<p>然后在 uTools 中输入 <code>Digu</code>（你设定的关键词）回车，然后输入碎碎念的内容，再回车，不出意外就自动插入到你的碎碎念笔记中了。出意外……可能那个笔记就乱了，2333</p>
+<p>这样就实现了在软件外先输入再启动软件进行保存，不过这个输入框也可能丢数据。</p>
 </section>
     </article>
   </main>
@@ -70,8 +92,9 @@
 <li data-hash="%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8" style="margin-left: 1.5em"><a href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E4%BD%BF%E7%94%A8">第四步：使用</a></li>
 <li data-hash="%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%B0%B1%E5%BE%AE%E5%8D%9A" style="margin-left: 1.5em"><a href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%B0%B1%E5%BE%AE%E5%8D%9A">第五步：就微博</a></li>
 <li data-hash="%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E6%9C%89%E6%8A%80%E5%B7%A7" style="margin-left: 1.5em"><a href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E6%9C%89%E6%8A%80%E5%B7%A7">第六步：有技巧</a></li>
-<li data-hash="%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9AAnywhere" style="margin-left: 1.5em"><a href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9AAnywhere">第七步：Anywhere</a></li></ul></div>
-      <div class="meta"><small>created: 2023-11-23 17:39:27</small><br><small>updated: 2023-11-23 19:21:22</small></div>
+<li data-hash="%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9AAnywhere" style="margin-left: 1.5em"><a href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%EF%BC%9AAnywhere">第七步：Anywhere</a></li>
+<li data-hash="%E7%AC%AC%E5%85%AB%E6%AD%A5%EF%BC%9A%E4%B8%BE%E6%A0%97%E5%AD%90" style="margin-left: 1.5em"><a href="#%E7%AC%AC%E5%85%AB%E6%AD%A5%EF%BC%9A%E4%B8%BE%E6%A0%97%E5%AD%90">第八步：举栗子</a></li></ul></div>
+      <div class="meta"><small>created: 2023-11-23 17:39:27</small><br><small>updated: 2023-11-25 18:33:25</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -80,6 +103,6 @@
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/11/25 00:00:27</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/25 18:35:04</foot>
 </body>
 </html>

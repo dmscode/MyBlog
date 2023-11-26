@@ -14,24 +14,7 @@
   <main>
     <article class="markdown-body">
       <h1 class="note-title">文件同步备份路线图</h1>
-      <section><pre class="hljs mermaid" lang="mermaid">flowchart TB
-%% 笔记本电脑
-subgraph NoteBook[Computer]
-  NotObs[Obsidian]
-  NotShare[ShareFolder]
-  NotEnpass[Enpass]
-end
-%% Nas
-subgraph Nas[Nas]
-  subgraph NasApps[Apps]
-    subgraph NasObs[Obsidian]
-    end
-    NasEnpass[Enpass]
-  end
-  subgraph Web[Web]
-    NasZJI[zji.me]
-  end
-end
+      <section><pre class="hljs mermaid" lang="mermaid">flowchart LR
 %% Clouds
 subgraph Clouds[Clouds]
   subgraph OneDrive[OneDrive]
@@ -51,23 +34,44 @@ subgraph Phone[Phone]
   PhoEnpass[Enpass]
   PhoShare[ShareFolder]
 end
+%% Nas
+subgraph Nas[Nas]
+  subgraph NasApps[Apps]
+    subgraph NasObs[Obsidian]
+    end
+    NasEnpass[Enpass]
+  end
+  subgraph Web[Web]
+    NasZJI[zji.me]
+  end
+end
+%% 笔记本电脑
+subgraph NoteBook[Computer]
+  NotObs[Obsidian]
+  NotEnpass[Enpass]
+  NotShare[ShareFolder]
+end
+
 %% 关系标注
-NotObs <--->|Syncthing| NasObs
-NotObs <--->|Syncthing| PhoObs
-PhoObs <--->|Syncthing| NasObs
+%% 电脑和 Nas
+NotObs <--->|Syncthing 00| NasObs
 
-NotShare <--->|Syncthing| PhoShare
+%% Nas 和 Clouds
+NasObs --->|FlatNote 01| NasZJI
 
-NasObs --->|FlatNote| NasZJI
+NasZJI --->|AutoPushGit.js 02| GitZJI
+NasObs --->|AutoPushGit.js 03| GitObs
 
-NasZJI --->|AutoPushGit.js| GitZJI
-NasObs --->|AutoPushGit.js| GitObs
+NasApps --->|GoodSync 04| OneApps
+NasApps --->|GoodSync 05| InfApps
 
-NotEnpass <--->|Webdav| NasEnpass
-PhoEnpass <--->|Webdav| NasEnpass
+%% 电脑和手机
+NotObs <--->|Syncthing 06| PhoObs
+NotShare <--->|Syncthing 07| PhoShare
+NotEnpass <--->|Enpass Wifi Sync 08| PhoEnpass
 
-NasApps --->|GoodSync| OneApps
-NasApps --->|GoodSync| InfApps
+%% 手机和 Nas
+PhoObs <--->|Syncthing 09| NasObs
 
 %% 节点样式
 style NoteBook fill:#c2ccd0,color:#FFF
@@ -91,21 +95,21 @@ style InfApps fill:#4c8dae,color:#FFF
 
 %% Syncthing 线条
 linkStyle 0 stroke:#0891d1,stroke-width:4px,color:#0891d1
-linkStyle 1 stroke:#0891d1,stroke-width:4px,color:#0891d1
-linkStyle 2 stroke:#0891d1,stroke-width:4px,color:#0891d1
-linkStyle 3 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 6 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 7 stroke:#0891d1,stroke-width:4px,color:#0891d1
+linkStyle 9 stroke:#0891d1,stroke-width:4px,color:#0891d1
 
 %% AutoPushGit.js 线条
-linkStyle 5 stroke:#057748,stroke-width:4px,color:#057748
-linkStyle 6 stroke:#057748,stroke-width:4px,color:#057748
+linkStyle 2 stroke:#057748,stroke-width:4px,color:#057748
+linkStyle 3 stroke:#057748,stroke-width:4px,color:#057748
+
+%% GoodSync 线条
+linkStyle 4 stroke:#ec513e,stroke-width:4px,color:#ec513e
+linkStyle 5 stroke:#ec513e,stroke-width:4px,color:#ec513e
 
 %% Webdav 线条
-linkStyle 7 stroke:#e29c45,stroke-width:4px,color:#e29c45
-linkStyle 8 stroke:#e29c45,stroke-width:4px,color:#e29c45
-
-%% Webdav 线条
-linkStyle 9 stroke:#ec513e,stroke-width:4px,color:#ec513e
-linkStyle 10 stroke:#ec513e,stroke-width:4px,color:#ec513e</pre></section>
+linkStyle 1 stroke:#e29c45,stroke-width:4px,color:#e29c45
+linkStyle 8 stroke:#e29c45,stroke-width:4px,color:#e29c45</pre></section>
     </article>
   </main>
   <aside>
@@ -119,7 +123,7 @@ linkStyle 10 stroke:#ec513e,stroke-width:4px,color:#ec513e</pre></section>
         </ul>
       </div>
       
-      <div class="meta"><small>created: 2023-06-19 15:24:44</small><br><small>updated: 2023-11-02 08:02:45</small></div>
+      <div class="meta"><small>created: 2023-06-19 15:24:44</small><br><small>updated: 2023-11-26 13:27:20</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -128,7 +132,7 @@ linkStyle 10 stroke:#ec513e,stroke-width:4px,color:#ec513e</pre></section>
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/11/26 00:00:21</foot><script type="module">
+  <foot>©2022~2023 稻米鼠. Last build at 2023/11/27 00:00:27</foot><script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true });
   </script>

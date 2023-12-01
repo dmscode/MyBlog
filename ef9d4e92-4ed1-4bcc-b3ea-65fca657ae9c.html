@@ -34,9 +34,10 @@
 <li>好消息：Obsidian 对于笔记和附件的链接并不注重路径，可以单凭文件名查找到 。所以修改文件夹名称并没有很大负担。</li><li>坏消息：一些插件的引用和排除是需要明确指定文件夹的。虽然比较好修改，但是要记得把影响到的地方都修改到。</li></ul>
 <h2 id="%E5%9B%BE%E6%A0%87%E5%92%8C%E6%95%B0%E5%AD%97%E5%BA%8F%E5%8F%B7%E5%85%B1%E5%AD%98">图标和数字序号共存</h2><p>图标就是为了好找，侧重鼠标点击操作时的快速定位。这个完全外挂，去除无任何影响。</p>
 <p>数字也是为了好找，侧重键盘搜索时的便捷性；在此之外，数字也提供了条理性。</p>
-<p><strong>PS：</strong> 2023-08-01 07:59:56</p>
-<p><mark>我还是放弃了序号 ，因为我忽然又想加入文件夹，虽然预留了插入的空间，但是我有强迫症啊。想想自己总是来回折腾，这个方法大概不太适合我。</mark></p>
+<p><strong>PS:</strong> 2023-08-01 07:59:56 我还是放弃了序号 ，因为我忽然又想加入文件夹，虽然预留了插入的空间，但是我有强迫症啊。想想自己总是来回折腾，这个方法大概不太适合我。</p>
+<p><strong>PS:</strong> 2023-12-01 09:45:51 我又决定回归序号，因为当笔记更多之后，没有好的文件结构导致感受上十分混乱。这次参照了《杜威十进制图书分类法》</p>
 <h2 id="%E7%90%86%E8%AE%BA%EF%BC%8C%E6%88%96%E8%80%85%E8%AF%B4%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A7%84%E8%8C%83">理论，或者说给自己的规范</h2><p>文件夹层级控制在两层，第一层表示大方向，第二层是这个方向下的细致划分。每一层的文件夹不超过 10 个，这样便于翻找，而且应该也没什么东西需要超过十个类别的划分。如果有，那就是划分的不够好。</p>
+<p><strong>PS:</strong> 2023-12-01 09:45:51 上面这条规范是最初设定的，已经比较接近《杜威十进制图书分类法》了，不过现在我接受了三层目录（如果有必要），然后第三层目录之下可以无线数量的放入子目录，就像某个分类内的书籍数量是不限制的。</p>
 <h2 id="%E5%AE%9E%E8%B7%B5%EF%BC%8C%E5%92%8C%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E7%9A%84%E8%AF%B4%E6%98%8E%EF%BC%88%E5%B7%B2%E5%BC%83%E7%94%A8%20%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E%EF%BC%89">实践，和一些细节的说明（已弃用  <small>2023-08-01 08:02:51</small>）</h2><pre class="hljs">\
 |- <span class="hljs-number">000</span>_Inbox         <span class="hljs-params">...</span><span class="hljs-params">...</span> 收集箱
 |  |- <span class="hljs-number">010</span>_Idea       <span class="hljs-params">...</span><span class="hljs-params">...</span> 闪念
@@ -53,7 +54,7 @@
 |- ZJI               <span class="hljs-params">...</span><span class="hljs-params">...</span> Docsify 博客</pre><ul>
 <li>两端排序。比如 Inbox 必然固定在第一位，而 src 希望一直在最后面</li><li>ZJI 这个属于特例，算是额外挂载在这个笔记系统中的独立部分，而不加编号就必然出现在最后。此内容随时可能移出成为独立体系</li><li>Dataview 的视图并没有要求特定的文件夹，不过我喜欢集中放置，这样比较有条理。</li><li>这里普通/通用资源文件夹的名称为小写，特定类别/插件的文件夹名称首字母大写</li><li>系统模板我用的很少，但是一些插件或者功能会依赖它，所以在使用过程中几乎必然会需要它存在，所以放在资源中最末尾。</li><li>QuickAdd 和 Templater 都可能用到脚本，但是在 Obsidian 中直接编辑脚本文件的可能性非常小。</li></ul>
 <h2 id="%E6%94%B9%E5%90%8D%E7%9A%84%E5%BD%B1%E5%93%8D">改名的影响</h2><p>目前如果文件夹需要改名，会产生影响的主要集中在 src 文件夹内，但这几个插件目前看起来是长期必须的。所以设定好应该也不会动了。</p>
-<h2 id="%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E">当前目录结构 <small>2023-08-01 08:02:51</small></h2><pre class="hljs">/:.
+<h2 id="%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%EF%BC%88%E5%B7%B2%E5%BC%83%E7%94%A8%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E%EF%BC%89">当前目录结构 （已弃用 <small>2023-08-01 08:02:51</small>）</h2><pre class="hljs">/:.
 ├───<span class="hljs-variable">Computer</span>       …………  电脑 、编程、技术相关
 ├───<span class="hljs-variable">Inbox</span>          …………  收集箱
 │   └───<span class="hljs-variable">WebClipper</span> …………  网络摘抄（此处仅为摘抄工具的默认目录，整理后会移至其他目录）
@@ -67,7 +68,30 @@
 │   ├───<span class="hljs-variable">Template</span>   …………  系统的模板（当前未使用）
 │   └───<span class="hljs-variable">Templater</span>  …………  <span class="hljs-variable">Templater</span> 的模板
 ├───<span class="hljs-variable"><span class="hljs-class">Work</span></span>           …………  工作相关，可能放待办事项等
-└───<span class="hljs-variable">ZJI</span>            …………  <span class="hljs-variable">Docsify</span> 博客</pre></section>
+└───<span class="hljs-variable">ZJI</span>            …………  <span class="hljs-variable">Docsify</span> 博客</pre><h2 id="%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%3Csmall%3E2023-12-01%2009%2051%2059%3C/small%3E">当前目录结构 <small>2023-12-01 09:51:59</small></h2><pre class="hljs">\
+|<span class="hljs-string">-- 000_Inbox ············· 收集箱
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 010_Collection ···· 收集之后待整理的内容
+</span>|<span class="hljs-string">   `-- 090_Sandbox ······· 测试用笔记
+</span>|<span class="hljs-string">-- 100_Note ·············· 知识相关的笔记
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 110_Computer ······ 计算机
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 120_Note ·········· 笔记
+</span>|<span class="hljs-string">   `-- 190_Archive ······· 已归档，比如写完的系列文章等
+</span>|<span class="hljs-string">-- 200_Life ·············· 生活相关的笔记
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 210_Logs ·········· 碎碎念
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 220_Daily ········· 日记
+</span>|<span class="hljs-string">   `-- 290_Fragments ····· 琐碎信息
+</span>|<span class="hljs-string">-- 300_List ·············· 各种记录列表，待办
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 310_Ledger ········ 消费相关
+</span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- 320_Tasks ········· 任务相关
+</span>|<span class="hljs-string">   `-- 390_Pages ········· 查询汇总页面
+`-- 900_Resource ·········· 笔记和插件用到的资源
+  </span>|<span class="hljs-string">-- 910_Assets ·········· 附件
+  </span>|<span class="hljs-string">   `-- 911_Images ······ 图片
+  `-- 990_Plugins ········· 插件资源
+      </span>|<span class="hljs-string">-- 991_DataView ···· DataView
+      </span>|<span class="hljs-string">-- 992_QuickAdd ···· QuickAdd
+      </span>|<span class="hljs-string">-- 993_Templater ··· Templater
+      `-- 999_Scripts ····· 脚本</span></pre></section>
     </article>
   </main>
   <aside>
@@ -87,8 +111,9 @@
 <li data-hash="%E7%90%86%E8%AE%BA%EF%BC%8C%E6%88%96%E8%80%85%E8%AF%B4%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A7%84%E8%8C%83" style="margin-left: 1.5em"><a href="#%E7%90%86%E8%AE%BA%EF%BC%8C%E6%88%96%E8%80%85%E8%AF%B4%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A7%84%E8%8C%83">理论，或者说给自己的规范</a></li>
 <li data-hash="%E5%AE%9E%E8%B7%B5%EF%BC%8C%E5%92%8C%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E7%9A%84%E8%AF%B4%E6%98%8E%EF%BC%88%E5%B7%B2%E5%BC%83%E7%94%A8%20%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E8%B7%B5%EF%BC%8C%E5%92%8C%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E7%9A%84%E8%AF%B4%E6%98%8E%EF%BC%88%E5%B7%B2%E5%BC%83%E7%94%A8%20%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E%EF%BC%89">实践，和一些细节的说明（已弃用  <small>2023-08-01 08:02:51</small>）</a></li>
 <li data-hash="%E6%94%B9%E5%90%8D%E7%9A%84%E5%BD%B1%E5%93%8D" style="margin-left: 1.5em"><a href="#%E6%94%B9%E5%90%8D%E7%9A%84%E5%BD%B1%E5%93%8D">改名的影响</a></li>
-<li data-hash="%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E" style="margin-left: 1.5em"><a href="#%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E">当前目录结构 <small>2023-08-01 08:02:51</small></a></li></ul></div>
-      <div class="meta"><small>created: 2023-06-11 14:13:51</small><br><small>updated: 2023-10-28 20:52:19</small></div>
+<li data-hash="%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%EF%BC%88%E5%B7%B2%E5%BC%83%E7%94%A8%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%EF%BC%88%E5%B7%B2%E5%BC%83%E7%94%A8%20%3Csmall%3E2023-08-01%2008%2002%2051%3C/small%3E%EF%BC%89">当前目录结构 （已弃用 <small>2023-08-01 08:02:51</small>）</a></li>
+<li data-hash="%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%3Csmall%3E2023-12-01%2009%2051%2059%3C/small%3E" style="margin-left: 1.5em"><a href="#%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%20%3Csmall%3E2023-12-01%2009%2051%2059%3C/small%3E">当前目录结构 <small>2023-12-01 09:51:59</small></a></li></ul></div>
+      <div class="meta"><small>created: 2023-06-11 14:13:51</small><br><small>updated: 2023-12-01 17:03:54</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -97,6 +122,6 @@
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/12/1 00:00:39</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/12/2 00:01:02</foot>
 </body>
 </html>

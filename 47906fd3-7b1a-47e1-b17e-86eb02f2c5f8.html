@@ -14,7 +14,7 @@
   <main>
     <article class="markdown-body">
       <h1 class="note-title">UUID</h1>
-      <section><p>我想用 ID 作为笔记的唯一识别符，主要是用在内容的发布上，新笔记当然很简单，套用一个模板就可以了，参见：<a href="67f6a6d7-f91a-40c2-b0bb-a35c765fdb32.html" title="UUID">UUID</a></p>
+      <section><p>我想用 ID 作为笔记的唯一识别符，主要是用在内容的发布上，新笔记当然很简单，套用一个模板就可以了，参见：<a href="404.html" title="0026_UUID">0026_UUID</a></p>
 <p>另一个问题是怎么给已有的笔记添加 ID，这有点麻烦，得写个脚本跑一下。但又想到 Dataview 可以很轻松的判断笔记是否具有某个 frontmatter 属性，就可以快速过滤获得未设定 ID 的笔记，然后进行进一步处理。但是，Dataview 本身不具有修改文件的功能，这得调用 Obsidian 的 Api 去实现。然后我就写了这么个视图（view）</p>
 <p>调用视图会在笔记中显示一个按钮，用来触发批量修改；一个列表，列出当前没有 ID 的笔记。</p>
 <p>一个问题，有些文件夹的内容不需要处理。我是在代码中直接排出的，也就是说你在使用中如果有需要得自行修改这部分代码。我本来是想做到设定参数中的，但是因为是正则，想想算了（懒</p>
@@ -33,7 +33,7 @@
         </ul>
       </div>
       
-      <div class="meta"><small>created: 2023-10-20 16:35:26</small><br><small>updated: 2023-12-12 09:49:43</small></div>
+      <div class="meta"><small>created: 2023-10-20 16:35:26</small><br><small>updated: 2023-12-13 16:34:54</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -42,6 +42,6 @@
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/12/13 00:00:52</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/12/13 17:09:57</foot>
 </body>
 </html>

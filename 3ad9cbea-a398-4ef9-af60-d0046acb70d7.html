@@ -28,9 +28,12 @@
 <p>额外的项目：Inbox（未归类）</p>
 <p>计划使用的任务状态：</p>
 <ul>
-<li class="task" data-task=" "><i class="fa-regular fa-circle"></i> <code>- [ ]</code> 一般任务。确定需要去完成，但是没有特别的优先级</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> <code>- [x]</code> 已完成。已经完成，应该被归档的任务，应该不被显示（或者只显示当日已完成） ✅ 2023-08-03</li><li class="task" data-task="!"><i class="fa-solid fa-circle-exclamation"></i>  <code>- [!]</code> 重要的。应该首先被完成的任务。</li><li class="task" data-task="&gt;"><i class="fa-solid fa-circle-chevron-right"></i>  <code>- [&gt;]</code> 计划中的。打算去完成，但是是在未来的某一刻，即目前优先级很低</li><li class="task" data-task="?"><i class="fa-solid fa-circle-question"></i> <code>- [?]</code> 未确定的。尚未确定是否要这样做，表示需要再深入思考</li></ul>
+<li class="task" data-task=" "><i class="fa-regular fa-circle"></i> <code>- [ ]</code> 一般任务。确定需要去完成，但是没有特别的优先级</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> <code>- [x]</code> 已完成。已经完成，应该被归档的任务，应该不被显示（或者只显示当日已完成） ✅ 2023-08-03</li><li class="task" data-task="!"><i class="fa-solid fa-circle-exclamation"></i> <code>- [!]</code> 重要的。应该首先被完成的任务。</li><li class="task" data-task="&gt;"><i class="fa-solid fa-circle-chevron-right"></i> <code>- [&gt;]</code> 计划中的。打算去完成，但是是在未来的某一刻，即目前优先级很低</li><li class="task" data-task="?"><i class="fa-solid fa-circle-question"></i> <code>- [?]</code> 未确定的。尚未确定是否要这样做，表示需要再深入思考</li></ul>
 <p>这样就形成了一个类看板的 agenda。</p>
 <h2 id="%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89">实践（待续）</h2><p>得先列出一定数量的待办，然后再书写查询，这样便于测试，所以这件事情还得稍微等一段时间。</p>
+<h2 id="%E5%AE%9E%E8%B7%B5%20%3Csmall%3E2023-12-13%2015%2051%2051%3C/small%3E">实践 <small>2023-12-13 15:51:51</small></h2><h2 id="Dataview">Dataview</h2><p>查询可以，查询出来的任务也可以操作（点击切换完成状态），但是对于任务的文本无法修改，这就导致显示的时候会显示着任务中的创建时间等信息，看着比较长，比较乱。</p>
+<h2 id="Tasks">Tasks</h2><p>也可以查询，查询结果可以直接操作，而且是弹出界面，可以完整的对任务进行任何编辑。但是如果用脚本修改了任务的显示文字，还是会带来影响，而且它对于任务中的时间信息的添加顺序敏感，顺序一错就不识别了，这太难受了。除非全盘使用它进行各种操作。</p>
+<h2 id="%E7%9B%AE%E5%89%8D">目前</h2><p>用 Dataview 写了一个查询视图，但是不是使用 Dataview 内置的方法展示出来，而是完全自己构建的，这样显示效果完全可控，但是不可以直接操作。通过 blockId 实现精准链接，然后点击到任务文件中操作。就纯粹为了颜值（阅读效率）而妥协的。</p>
 <p><strong id="footnote-1">[1]</strong>: 这里我并不清楚当初想表达的是什么了。现在思考，觉得看板也是可行的，但是查询起来可能有些问题？！时间日期的标注方式和 Dataview 有所不同。- 2023-11-01 19:27:26</p>
 </section>
     </article>
@@ -53,8 +56,12 @@
 <li data-hash="%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89" style="margin-left: 3em"><a href="#%E7%9C%8B%E6%9D%BF%EF%BC%88kanban%EF%BC%89">看板（kanban）</a></li>
 <li data-hash="%E8%A7%84%E5%88%92" style="margin-left: 1.5em"><a href="#%E8%A7%84%E5%88%92">规划</a></li>
 <li data-hash="%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E7%BB%86%E5%8C%96" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E7%BB%86%E5%8C%96">实现方法细化</a></li>
-<li data-hash="%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89">实践（待续）</a></li></ul></div>
-      <div class="meta"><small>created: 2023-07-10 16:00:00</small><br><small>updated: 2023-11-01 19:27:27</small></div>
+<li data-hash="%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E8%B7%B5%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89">实践（待续）</a></li>
+<li data-hash="%E5%AE%9E%E8%B7%B5%20%3Csmall%3E2023-12-13%2015%2051%2051%3C/small%3E" style="margin-left: 1.5em"><a href="#%E5%AE%9E%E8%B7%B5%20%3Csmall%3E2023-12-13%2015%2051%2051%3C/small%3E">实践 <small>2023-12-13 15:51:51</small></a></li>
+<li data-hash="Dataview" style="margin-left: 1.5em"><a href="#Dataview">Dataview</a></li>
+<li data-hash="Tasks" style="margin-left: 1.5em"><a href="#Tasks">Tasks</a></li>
+<li data-hash="%E7%9B%AE%E5%89%8D" style="margin-left: 1.5em"><a href="#%E7%9B%AE%E5%89%8D">目前</a></li></ul></div>
+      <div class="meta"><small>created: 2023-07-10 16:00:00</small><br><small>updated: 2023-12-13 15:57:54</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -63,6 +70,6 @@
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2023 稻米鼠. Last build at 2023/12/13 00:00:52</foot>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/12/13 17:09:57</foot>
 </body>
 </html>

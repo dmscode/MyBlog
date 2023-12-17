@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的复式记账 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">我的复式记账</h1>
+      <section><h2 id="%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88">一、为什么</h2><p>我的困扰：</p>
+<ul>
+<li>我帮别人买东西，用支付宝付款，对方用微信给我转账。一般流水账会记录两笔交易，而很难给这两笔交易建立直观的联系。事后看报表时也很容易被这两笔其实不属于我自身消费的交易影响。如果是多人 AA 制，你负责汇总后付款给商家，那这个账目更加混乱。</li><li>在网络上，在超市里……常常会一次购买很多东西，然后一起结账。传统方式或者记作一笔，但是可能买的东西应该被归属到不同的几个分类，放在一起，日后的报表就没什么参考价值了；但如果分开记录，那么当我们发现账目对不上想查一下问题所在时就麻烦了，因为你的支付记录和你的账目是对不上的（支付记录显示的是总额，而账目上分开了，并且这几笔之间没什么明确的联系）。</li><li>手续费，比如提现时扣除的手续费。记录为转账，但是付款账户和收款账户的金额对不上（付款账户这边多了手续费），手续费单独记一笔支出，又是两笔难以被关联起来的记录。</li><li>……</li></ul>
+<h2 id="%E4%BA%8C%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88">二、是什么</h2><blockquote><p><strong>以下不是定义，是纯粹的我个人的理解，用来解决我的记账问题足够，至于和严谨的定义有多大出入，我不在意</strong></p>
+</blockquote><p>把某一次事件涉及到的所有帐户变动记录在一起，算是一条账目。对，就这么简单，但是这样做之后，上面的问题就都可以解决了。</p>
+<ul>
+<li>帮人买东西<ul>
+<li>支付宝   -100</li><li>微信     +100</li></ul>
+</li><li>超市购物<ul>
+<li>信用卡   -300</li><li>米面     +100</li><li>生活用品  +50</li><li>工具     +150</li></ul>
+</li><li>提现<ul>
+<li>微信     -100.1</li><li>手续费    +0.1</li><li>银行卡    +100</li></ul>
+</li></ul>
+<h2 id="%E4%B8%89%E3%80%81%E5%B0%8F%E7%BA%A6%E5%AE%9A">三、小约定</h2><p>每笔记录的数值总额为 0。<strong>必须</strong></p>
+<p>于是就可以把每笔交易都看做账户间的转账，这边转出的数额和那边转入的数额必然相等，于是数值总和为 0。</p>
+<p>所以，上面“提现”条目中，手续费和其他账户并列在了一起，即“手续费”被看做了一个账户，我要提现，就得把对应的手续费转入这个账户。日后我看一下这个账户里的钱，就知道我在手续费上支出了多少。思考：在传统记账中，手续费会被算做什么？支出账目中的一个分类。现在呢，它是支出类目（一级分类）中的一个账户（二级分类）。</p>
+<p>再复习一下，看超市购物条目。米面，生活用品，工具，也都是支出类目下的账户，购物就是向这些账户（类目）中转钱。日后统计这些账户中的金额，就知道在某方面花了多少钱。</p>
+<p>那帮人买东西呢？买东西，就是向某个消费账户转钱，这里怎么没体现出来呢？因为买的东西不归我，而钱上我也没有损失，对于我来说，本质上相当于一次从支付宝到微信的转账。这样记录就完全可以，但如果是两个人合买呢？</p>
+<ul>
+<li>和朋友聚餐，AA<ul>
+<li>餐饮      +50</li><li>支付宝    -100</li><li>微信      +50</li></ul>
+</li></ul>
+<p>吃这顿饭，总共花了 100 元，我用支付宝付的款，朋友从微信上给了我 50 元，我在餐饮这个类目上的的消费增加了 50 元。</p>
+<h2 id="%E5%9B%9B%E3%80%81%E5%A4%A7%E7%B1%BB%E7%9B%AE">四、大类目</h2><blockquote><p><strong>如果你喜欢，你完全可以按着自己情况去设定，这些只是参考，不过确实很合理。以及，下方的解读仍然是充满主观色彩的个人理解</strong></p>
+</blockquote><ul>
+<li><strong>资产（Assets）</strong>：钱包里的钱，存折里的钱，属于你的“资产”</li><li><strong>负债（Liabilities）</strong>：信用卡、花呗、白条……的欠款，房贷，车贷，各种你欠别人的“债务”</li><li><strong>开支（Expenses）</strong>：你把钱花出去的方法/渠道/方向，或者理解为支出项目的具体分类</li><li><strong>收入（Income）</strong>：你来钱的渠道/类型，例如工资、奖金、股息等，或者理解为收入项目的具体分类</li><li><strong>平衡（Equity）</strong>：如果一笔钱不想列为开支，或不想列为收入，那么就放入这一大类</li></ul>
+<p>所以，一般的，各种资金账户属于上面两个大类，而收支的分类属于下面三个大类。但我们把一切看做账户，一切资金变动都是账户之间的转账，然后按事件分组，记录一切金额的变动。于是完成“我的”复式记账。</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E4%B8%80%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88">一、为什么</a></li>
+<li data-hash="%E4%BA%8C%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E4%BA%8C%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88">二、是什么</a></li>
+<li data-hash="%E4%B8%89%E3%80%81%E5%B0%8F%E7%BA%A6%E5%AE%9A" style="margin-left: 1.5em"><a href="#%E4%B8%89%E3%80%81%E5%B0%8F%E7%BA%A6%E5%AE%9A">三、小约定</a></li>
+<li data-hash="%E5%9B%9B%E3%80%81%E5%A4%A7%E7%B1%BB%E7%9B%AE" style="margin-left: 1.5em"><a href="#%E5%9B%9B%E3%80%81%E5%A4%A7%E7%B1%BB%E7%9B%AE">四、大类目</a></li></ul></div>
+      <div class="meta"><small>created: 2023-12-17 17:59:01</small><br><small>updated: 2023-12-17 19:14:53</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <script async
+    src="https://state.zji.me/script.js"
+    data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
+    data-do-not-track="true"
+    data-domains="zji.me"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/12/17 19:24:28</foot>
+</body>
+</html>

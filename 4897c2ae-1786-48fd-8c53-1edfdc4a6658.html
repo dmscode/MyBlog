@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>复式记账的折腾与思考 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">复式记账的折腾与思考</h1>
+      <section><p>最近一些天一直在折腾这个，期间冒出很多感触，不过没记住……所以在开篇的时候，我也不知道我会写些什么。</p>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88">为什么</h2><p>想用复式记账，觉得这种方法应用在我的场景中很合理。那就去用啊，但是对于个人记账，似乎没什么很简单的复式记账工具。而且我有数据迁移恐惧，总想让方案长久稳定，或者数据切实可以被自己把握。</p>
+<p>被很多人，很多次安利了 Beancount，很好，很强，很程序员。适合我也不适合我。这个读到后面你会体会到的。</p>
+<p>其实如果我能在我的上网本（当 Nas 用）上跑起来，也就没有后面的问题了，无论手机电脑，都打开网页记账，查看各种历史、汇总、报表……但很可怜的，我的上网本跑不起来。</p>
+<h2 id="%E8%A6%81%E4%BB%80%E4%B9%88">要什么</h2><p>很简单，就是记账。然后随时可以知道自己还有几块钱，避免买东西买嗨了全是赤字。万一发现记错了，可以回顾对照着查证一下。</p>
+<p>本来 Excel 也能做，但是复式记账弄进去公式也不太好写吧。公式我也不怎么会写。</p>
+<p>Beancount 的数据格式是非常吸引我的，很简单的纯文本，可读性很高。这很简单，很纯粹，如果我在手机上也能看，能（方便地）添加，就很好。</p>
+<p>但，没有……</p>
+<h2 id="%E8%87%AA%E5%B7%B1%E5%81%9A">自己做</h2><p>纯文本，读取，解析，显示出来，不算麻烦吧。添加就是追加内容，也不算麻烦吧。修改……就直接编辑文本吧。这么简单，好像可以自己弄一下。</p>
+<p>Beancount 的官方查看工具 fava 并不关注文件后缀，所以账本文件后缀是 md 也没所谓。账本放在 Obsidian 的笔记中，合理。然后用 Dataview 写个视图，能读，能添加，够了。（注：其实 Dataview 的 <code>dv.io.load</code> 读取文件也不挑后缀）</p>
+<p>然后大概写出来了，也完全够我用，应该就会这么用下去，然后可能随时根据需求完善一下代码。</p>
+<p>以上，是这番操作的流水账。</p>
+<h2 id="%E8%B0%88%E5%93%B2%E5%AD%A6">谈哲学</h2><p>从学 React 开始，我知道了：有些东西想要理解透彻，先要理解作者的设计哲学。我想做好复式记账，就从读 Beancount 的文档开始吧。</p>
+<p>挺吃力的，而且我也没读完。但已经让我陷入了矛盾，一夜的碾转反侧之后，我想通了：</p>
+<ul>
+<li>在作者眼中，与其说是一个账本，不如说是一个 TimeLine，这很合理，也很不合理。合理是因为可以把一些相关的信息记录进去，日后阅读容易理解；不合理是因为到了这个程度都可以当时间轴笔记用了，这让我觉得有点不纯粹（我的笔记是独立的）。</li><li>作者的用法是依靠各种 importer，因为外国各种账单，对账单，隔一段时间导入到程序里，做一些备注，整理一下来了解自己的财务状况，这很合理。但我的习惯是花一笔记一笔，毕竟事后整理可能就忘记买了什么（比如在超市），忘记在哪里买的（微信扫某些小贩显示的收款人是他的姓名，我不认识他们）。</li><li>用法和场景都不一样，如果我把作者的思想硬往我的场景上套，就乱了。</li></ul>
+<h2 id="%E5%86%8D%E9%97%AE%E8%A6%81%E4%BB%80%E4%B9%88">再问要什么</h2><p>这是根本问题，如果我决定不记账了，上面这些全都是梦幻泡影，于我无甚瓜葛。所以，这个问题对于后续的一切都是决定性的，方向性的。</p>
+<ul>
+<li>记账：因为确实对我有用</li><li>复式记账：因为想把账目理的更清楚</li><li>记录：消费（变动）一笔，记录一笔</li><li>查看：总览每个账户余额，自己的净资产，最近的消费记录</li></ul>
+<p>我的需求大概就这么多，而且四年的记账条目也才千余笔，这个数据量，怎样处理都不会有太大压力。</p>
+<h2 id="%E5%86%8D%E8%B0%88%E5%81%9A%E4%BB%80%E4%B9%88">再谈做什么</h2><ul>
+<li>纯文本保存数据，很好，我很喜欢</li><li>记录中我大概只需要一种语法，就是交易记录，用复式的思想和格式记录每一笔交易，而一切皆交易，一切皆转账。</li></ul>
+<p>至此，Beancount 已经和我关系不大了，但我想用它的语法。因为，它既然已经设计的那么强大和完善，如果我使用它的语法，进可攻退可守，毫无后顾之忧了。进：我想丰富自己程序的功能，就增加对相应语法的支持就行了；退：自己玩腻了，抱着数据冲进 Beancount 就无痛迁移了，而且现在在电脑端我也能随时用 fava 查看我的账本。这比我自己设计一种新的语言格式，一路踩过各种坑，可要轻松美好多了。</p>
+<h2 id="%E5%B0%B1%E9%A1%BA%E4%BA%86">就顺了</h2><p>于是就满足自己的这点基础需求，撸个小脚本，很好，很满意。简陋，但是够我用了。一点也不会看着别的山上草青青，便心猿意马躁动不安。</p>
+<p>其实就是，想通了。</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="%E4%B8%BA%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88">为什么</a></li>
+<li data-hash="%E8%A6%81%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E8%A6%81%E4%BB%80%E4%B9%88">要什么</a></li>
+<li data-hash="%E8%87%AA%E5%B7%B1%E5%81%9A" style="margin-left: 1.5em"><a href="#%E8%87%AA%E5%B7%B1%E5%81%9A">自己做</a></li>
+<li data-hash="%E8%B0%88%E5%93%B2%E5%AD%A6" style="margin-left: 1.5em"><a href="#%E8%B0%88%E5%93%B2%E5%AD%A6">谈哲学</a></li>
+<li data-hash="%E5%86%8D%E9%97%AE%E8%A6%81%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E5%86%8D%E9%97%AE%E8%A6%81%E4%BB%80%E4%B9%88">再问要什么</a></li>
+<li data-hash="%E5%86%8D%E8%B0%88%E5%81%9A%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E5%86%8D%E8%B0%88%E5%81%9A%E4%BB%80%E4%B9%88">再谈做什么</a></li>
+<li data-hash="%E5%B0%B1%E9%A1%BA%E4%BA%86" style="margin-left: 1.5em"><a href="#%E5%B0%B1%E9%A1%BA%E4%BA%86">就顺了</a></li></ul></div>
+      <div class="meta"><small>created: 2023-12-21 19:27:30</small><br><small>updated: 2023-12-21 20:24:30</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <script async
+    src="https://state.zji.me/script.js"
+    data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
+    data-do-not-track="true"
+    data-domains="zji.me"></script>
+  <foot>©2022~2023 稻米鼠. Last build at 2023/12/22 00:00:29</foot>
+</body>
+</html>

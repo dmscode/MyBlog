@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0029_Obsidian 插件 QuickAdd 中 AI 助理（AI Assistant）的设置与使用（初步） - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+  <main>
+    <article class="markdown-body">
+      <h1 class="note-title">0029_Obsidian 插件 QuickAdd 中 AI 助理（AI Assistant）的设置与使用（初步）</h1>
+      <section><blockquote><p>全篇文字描述，因为我懒得截图，但我会把步骤写得很细致，所以照着操作肯定没问题。</p>
+</blockquote><h2 id="%E4%B8%80%E3%80%81%E7%AC%94%E8%AE%B0%E4%B8%8E%20AI">一、笔记与 AI</h2><p>最初的时候我是不太能接受这两者的结合的，因为现在的 AI 也算不上什么智能，至少说，它没有区分对错的能力，会把自己臆造的信息当成真的，信誓旦旦的讲给你听。这种不可靠的东西放在笔记里是不是有点太胡闹，至少太不严谨了呢？</p>
+<p>后来发现终究还是我思路被局限了。为什么一定是用它来生成内容呢，它还可以有一些其他用法的。</p>
+<p>比如 Markdown 的表格语法就很难写，后期更难调整。那如果让 AI：<code>帮我生成一个三行六列的表格，其中第 3、6 列居中，最末一列右对齐，其他左对齐。列标题分别为：可爱、卖萌、帅气、聪明、阳光、的我</code>，是不是就很简单呢？（这个提示语的要求有点多了，生成的结果可能有小错误，但修改一下比自己去写还是要简单的）。又或者让它帮你格式化一下你修改过的表格什么的，这还是很便利的。</p>
+<p>对，AI 爱出错，所以一定要在它生成之后有一个自己审查的环节，这很重要。当然，也可以把一些任务进行拆解，让 AI 处理它擅长的，回避它不擅长或者不好描述需求的事情。昨天我在群里举了这样的例子：</p>
+<blockquote><p>比如我要用复式记账，当然你也不需要理解复式记账，只需要知道我记账的格式是这样的：</p>
+<p>2024-03-10 * &quot;淘宝&quot; &quot;咖啡豆一磅&quot; 支出账户 -72 CNY 零食开销 +72 CNY</p>
+<p>这样的格式自己写起来有点麻烦，就可以用 AI，这样就能用自然语言记账了。但是实际使用 AI 又会发现这个提示词非常不好写，你得解释清除每个细节，会非常烦（并且因为提示词很长，花费也高）</p>
+<p>但是如果可以编程（搭配其他处理流程），就可以让 AI 提取日期（如果没有日期就使用今天的日期），消费平台（列出可选项），支出账户，支出分类，金额，备注，以列表形式返回。然后自己套一下模板（这样可以保证格式上完全无差错）</p>
+</blockquote><p>AI 擅长理解自然语言，并从中提炼出你需要的信息。这个功能自己编程实现会非常困难，而用 AI 就极其轻松。同时向 AI 传递太多需求它就会搞错，丢失信息，但是这种场景下的输入一般都很简短，出错概率不高，而且回避了解释模板的大量需求（我测试了一阵子，想要让 AI 套用不出错需要的描述还是挺多的）。</p>
+<p>所以，扬长避短啦。而且上面这个例子推广到记录待办、灵感……都可以的。算是一些专门方向的助理了。</p>
+<p>好，总结一下：</p>
+<ul>
+<li>AI 有用，主要是用来辅助</li><li>合理运用，扬长避短</li><li>尽量减少要求，降低出错概率</li><li>辅助其他流程，搭配完成复杂操作</li></ul>
+<p>所以，单纯的问答式 AI 助理其实并不算强，能整合进其他流程的助理才能真正爆发生产力。于是绕不开的编程能力的重要性。</p>
+<h2 id="%E4%BA%8C%E3%80%81%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D">二、有点意思</h2><p>支持 AI 的插件很多，但我觉得 QuickAdd 有点意思，理由如下：</p>
+<ul>
+<li>接入 AI 很简单，而且支持第三方（代理）API</li><li>本身属于 Obsidian 必备插件</li><li>可以简单搭建日常使用流程（小白友好）</li><li>可以自己编写脚本（上限非常高）</li></ul>
+<p>所以我非常关注这个插件的 AI 能力，在它升级了 1.8.1 之后，也就是可以使用第三方 API 之后，就开始了研究。以下记录初步的设定过程，供各位参考。</p>
+<p><strong>重要提示：建议严格遵照我的操作顺序</strong>。因为其中的一些东西涉及变成层面的声明和注册，顺序错了会出现奇怪的问题，就类似“拿起笔来写笔记”，拿笔和写笔记这两件事情的顺序颠倒就……如果真的搞错顺序了，重启 Obsidian 能解决大部分问题。</p>
+<h2 id="%E4%B8%89%E3%80%81%E8%8A%B1%E9%92%B1">三、花钱</h2><p>用 AI 是得花钱的。当然这里特指购买 OpenAI （就是最出名的那个 AI）的服务，如果是自己本地搭建肯定就不用了，但我们现在是基础流程啦。</p>
+<p>但是花钱也不容易的，因为国内的信用卡没法付款，很多人都卡在这个问题上。不过有问题就有办法，可以通过一些代理商来使用，付款简单了，但是因为是透过代理商使用，就需要填写代理商的 API 地址，早期版本的 QuickAdd 没提供这个设定，所以我一直等到了现在。</p>
+<p>列举一些代理商：</p>
+<ul>
+<li><a href="https://openrouter.ai/" title="https://openrouter.ai/">https://openrouter.ai/</a></li><li><a href="https://openai-sb.com/" title="https://openai-sb.com/">https://openai-sb.com/</a></li><li><a href="https://www.closeai-asia.com/" title="https://www.closeai-asia.com/">https://www.closeai-asia.com/</a></li><li><a href="https://api2d.com/" title="https://api2d.com/">https://api2d.com/</a></li><li><a href="https://aigptx.top/" title="https://aigptx.top/">https://aigptx.top/</a></li><li><a href="https://aiproxy.io/" title="https://aiproxy.io/">https://aiproxy.io/</a></li></ul>
+<p>大家自己判断选择。最终你需要获取的信息有两个：API 的地址，API_Key。一些平台提供初期的免费试用，虽然额度很低，但基本可以让你用来跑通初期流程。</p>
+<h2 id="%E5%9B%9B%E3%80%81%E8%AE%BE%E7%BD%AE%20AI%20%E5%8A%A9%E7%90%86">四、设置 AI 助理</h2><p>打开 QuickAdd 插件的设置，首先关闭最后一项：<code>Disable Al &amp; Online features</code>，这样就会在上面出现：<code>`AI Assistant</code> 的按钮了。点击进入设定。</p>
+<p>第一项 <code>Providers</code>（供应商），进入之后自带 OpenAI，点击后面的 <code>Edit</code>（编辑）。</p>
+<ul>
+<li><code>Endpoint</code> 填写你获取到的 API 地址</li><li><code>API Key</code> 填写你获取到的 API_Key</li></ul>
+<p>填写好之后保存，最好再检查一下确实修改保存了，因为我被坑了一次就是 API_Key 并没保存，然后调试一直出错。</p>
+<p>下面的一些项目：</p>
+<ul>
+<li><code>Prompt Template Folder Path</code> 这个必须设置，说是提示词的模板文件夹（后面我会解释，你可以先选定一个空的文件夹）</li><li><code>Show Assistant</code> 这个建议先开启，用来显示操作时的 AI 状态，调试好以后可以关闭，毕竟开着稍微有点烦（尤其是在移动端）</li></ul>
+<h2 id="%E4%BA%94%E3%80%81%E7%90%86%E8%A7%A3%E5%AE%8F">五、理解宏</h2><p>Macro（宏）指的是用来完成某个任务的一系列操作，借助宏可以完成一些复杂的（不止一个步骤）的任务。这很强，但是很多 QuickAdd 用户其实并没用过这个功能（就比如我）。</p>
+<p>我们会发现有一个 <code>Manage Macros</code> 的按钮，就是管理宏，于是觉得如果我想使用宏，第一步肯定是从这里进入，然后我就被坑了很多圈（嗷嗷哭</p>
+<p>QuickAdd 的逻辑是创建一条指令对应一个同名的宏，更合理的操作如下：</p>
+<ul>
+<li>提示词是 <code>Name</code> 的文本框里输入一个名字，比如：AI</li><li>后面下拉选框（默认是 Template，长得很像个白色按钮）中选择 <code>Macro</code></li><li>点击后面的 <code>Add Choice</code> 按钮</li></ul>
+<p>现在我们多了一条指令，借着对这条指令进行操作：</p>
+<ul>
+<li>点击指令后面的闪电图标，使之点亮，这样我们在命令面板中就能调用这条命令了（不点亮则需要在命令中使用 QuickAdd: Run QuickAdd 命令，然后再选择）</li><li>点击指令后面的齿轮图标进入设置</li><li>点击加号按钮，创建同名宏</li><li>这时候前面下拉选框中出现了 AI（就是我们这个指令的同名宏），并且后面没有了加号按钮</li><li>点击后面的齿轮图标（吐槽：这里居然换了另一种风格的图标，设计不统一）</li></ul>
+<p>到此，我们完成了宏的创建，此时这个宏已经可以在宏管理中看到和修改了（当然也可以按着刚才的方式进入管理）。</p>
+<h2 id="%E5%85%AD%E3%80%81%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF">六、创建模板</h2><p>先理解我们想要做什么。输入内容，发送给 AI，获得 AI 的答案，将答案输出。这是最基本的操作，今天我们就完成这个。</p>
+<p>这里要先解释一下提示词模板。在实际流程中，发送给 AI 的是这个模板的内容，这样的好处是我们可以在里面设定一些每次都要有的提示词。但是今天我们只做最简单的，就创建一个非常简单的模板。</p>
+<p>在前面设定的提示词模板文件夹中创建一篇笔记，就叫做：Ask.md 吧，注意如果你使用了一些自动更新 frontmatter 的插件，比如自动更新创建和更新时间这种，需要把这个文件夹排除在外。毕竟你不希望每次都向 AI 发送一些无用的信息浪费你的小钱钱。</p>
+<p>笔记里的内容十分简单：</p>
+<p></p>
+<p>不用代码块哦，就非常简单的输入上面这些文字就行。这代表了我们使用时自己输入的内容。你可以参考这里获得更多参数：<a href="https://quickadd.obsidian.guide/docs/FormatSyntax" title="Format syntax">Format syntax</a></p>
+<p>所以其实我们没有附加任何其他提示语。</p>
+<h2 id="%E4%B8%83%E3%80%81%E8%AE%BE%E7%BD%AE%E5%AE%8F">七、设置宏</h2><p>现在我们回去编辑宏，第一步当然是添加一个 AI 了，找一下宏编辑界面里的机器人图标，点一下。出现了一条 <code>Al Assistant</code> 的任务，我们点击后面齿轮图标进行设置：</p>
+<ul>
+<li><code>Prompt Template</code> 提示词模板，开启，并选择刚才的 Ask 模板，如果找不到模板，大概是你提示词模板文件夹没有设置对（这个设置需要手动填写，没有自动提示，差评）。如果不开启这一项，则会在使用时提示你选择需要的模板，如果有多个模板也可以这样使用。</li><li><code>Model</code> 一般默认的 gpt-3.5-turbo 就够用，如果发送的字数很多，可以选择下面的 16k，1106 等。gpt-4 价格挺高的，请先确认自己能够承受再选用。</li><li><code>Output variable name</code> 不用修改，但得记一下，后面要用</li><li><code>Show advanced settings</code> 高级选项不需要动，但以后如果仔细了解一下的话，可以使你获取到的答案更符合预期，比如更加严谨还是更加放飞之类的。</li><li><code>System Prompt</code> 这里输入系统级的对 AI 预设的提示词，默认的内容大概就是你是 Obsidian 中的的智能助理，应该帮助用户更好的整理笔记，回答使用 markdown 格式，以及一些格式细节。你可以参照这个思路进行修改，可以使用中文描述。</li></ul>
+<p>于是 AI 设置好了，但是现在 AI 的回答只是输出到了一个变量，我们是看不见的。我们要把这个变量写入到文档中才行。</p>
+<p>还是在宏编辑界面，现在已经有一条任务了，就是刚才设置的 AI 助理，我们添加一个 <code>Capture</code>，就是和机器人那个图标在同一行的按钮。于是有了第二条任务，任务的名字不重要，我们点击后面的齿轮图标进行设置：</p>
+<ul>
+<li><code>Capture To</code> 捕获到，这里开启下面的选项：<code>Capture to active file</code>，捕获到当前激活的笔记。</li><li>如果你有不同需求可以按需设置，毕竟这里就是最基础的 Capture 功能设定</li><li>直接看最后一项：<code>Capture format</code>，开启，在下面的文本框中输入<code>{{value:output}}</code>，意思是输出 <code>output</code> 这个变量（前面 AI 输出的变量名称）的值。</li></ul>
+<p>现在就全设置好了，一路点叉（或者按 Esc 按键）回来就好了。</p>
+<h2 id="%E5%85%AB%E3%80%81%E4%BD%BF%E7%94%A8">八、使用</h2><p>找一篇文档，进入编辑状态，光标在上面闪烁着，打开命令，查找 AI，运行，就会有输入框，输入你的问题，提交，等一下，答案就输出在笔记中了。</p>
+<p>什么，报错了？先重启一下 Obsidian 再试，设定没问题的话这样基本就正常了。</p>
+<h2 id="%E4%B9%9D%E3%80%81%E5%85%B6%E4%BB%96">九、其他</h2><p>你问它日期或者时间之类 AI 给不出准确结果的，但是你可以先告诉他时间日期（参照： <a href="https://quickadd.obsidian.guide/docs/FormatSyntax" title="Format syntax">Format syntax</a>）。提示词模板可以写的比较复杂，比如：</p>
+<p>请将  转换为大写形式</p>
+<p>这样就能将你输入的小写字母以大写的形式返回了。当然这没什么用，我只是为了让你理解啦。</p>
+<p>当然也可以组合更复杂的流程，如果有编程能力也可以写脚本参与数据处理。</p>
+<h2 id="%E5%8D%81%E3%80%81%E8%BF%98%E6%9C%89">十、还有</h2><p>学会了喵？那口干舌燥的大老鼠是不是可以拥有一杯咖啡呢？ <a href="https://afdian.net/a/daomishu" title="https://afdian.net/a/daomishu">https://afdian.net/a/daomishu</a> （眼巴巴</p>
+</section>
+    </article>
+  </main>
+  <aside>
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li class="meow"><a href="https://afdian.net/a/daomishu" target="_blank"><i class="fa-solid fa-heart"></i> Meow~</a></li>
+          <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
+        </ul>
+      </div>
+      <div class="toc"><ul><li data-hash="%E4%B8%80%E3%80%81%E7%AC%94%E8%AE%B0%E4%B8%8E%20AI" style="margin-left: 1.5em"><a href="#%E4%B8%80%E3%80%81%E7%AC%94%E8%AE%B0%E4%B8%8E%20AI">一、笔记与 AI</a></li>
+<li data-hash="%E4%BA%8C%E3%80%81%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D" style="margin-left: 1.5em"><a href="#%E4%BA%8C%E3%80%81%E6%9C%89%E7%82%B9%E6%84%8F%E6%80%9D">二、有点意思</a></li>
+<li data-hash="%E4%B8%89%E3%80%81%E8%8A%B1%E9%92%B1" style="margin-left: 1.5em"><a href="#%E4%B8%89%E3%80%81%E8%8A%B1%E9%92%B1">三、花钱</a></li>
+<li data-hash="%E5%9B%9B%E3%80%81%E8%AE%BE%E7%BD%AE%20AI%20%E5%8A%A9%E7%90%86" style="margin-left: 1.5em"><a href="#%E5%9B%9B%E3%80%81%E8%AE%BE%E7%BD%AE%20AI%20%E5%8A%A9%E7%90%86">四、设置 AI 助理</a></li>
+<li data-hash="%E4%BA%94%E3%80%81%E7%90%86%E8%A7%A3%E5%AE%8F" style="margin-left: 1.5em"><a href="#%E4%BA%94%E3%80%81%E7%90%86%E8%A7%A3%E5%AE%8F">五、理解宏</a></li>
+<li data-hash="%E5%85%AD%E3%80%81%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF" style="margin-left: 1.5em"><a href="#%E5%85%AD%E3%80%81%E5%88%9B%E5%BB%BA%E6%A8%A1%E6%9D%BF">六、创建模板</a></li>
+<li data-hash="%E4%B8%83%E3%80%81%E8%AE%BE%E7%BD%AE%E5%AE%8F" style="margin-left: 1.5em"><a href="#%E4%B8%83%E3%80%81%E8%AE%BE%E7%BD%AE%E5%AE%8F">七、设置宏</a></li>
+<li data-hash="%E5%85%AB%E3%80%81%E4%BD%BF%E7%94%A8" style="margin-left: 1.5em"><a href="#%E5%85%AB%E3%80%81%E4%BD%BF%E7%94%A8">八、使用</a></li>
+<li data-hash="%E4%B9%9D%E3%80%81%E5%85%B6%E4%BB%96" style="margin-left: 1.5em"><a href="#%E4%B9%9D%E3%80%81%E5%85%B6%E4%BB%96">九、其他</a></li>
+<li data-hash="%E5%8D%81%E3%80%81%E8%BF%98%E6%9C%89" style="margin-left: 1.5em"><a href="#%E5%8D%81%E3%80%81%E8%BF%98%E6%9C%89">十、还有</a></li></ul></div>
+      <div class="meta"><small>created: 2024-03-11 18:14:28</small><br><small>updated: 2024-03-11 18:16:32</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <script async
+    src="https://state.zji.me/script.js"
+    data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
+    data-do-not-track="true"
+    data-domains="zji.me"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024/3/12 00:00:20</foot>
+</body>
+</html>

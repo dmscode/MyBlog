@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="github-markdown.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="atom-one-dark.min.css">
-
+  
 </head>
 <body>
   <main>
@@ -16,143 +15,139 @@
       <h1 class="note-title">Android 通知处理</h1>
       <section><p>使用 <a href="https://play.google.com/store/apps/details?id=com.samruston.buzzkill" title="BuzzKill">BuzzKill</a> 进行处理，这里记录一下自己设定的规则，重点不在规则本身，而是处理思路。</p>
 <p>我尽量将同类处理放在同一个规则中，这样可以做的限定相对会模糊，但是够用。</p>
-<h2 id="%E8%87%AA%E5%8A%A8%E7%A7%BB%E9%99%A4">自动移除</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
-
-%% 通知来源
-subgraph Apps
-  any[任意 App]
-end
-
-%% 通知规则
-subgraph Rule
-  subgraph Group[群组-包含任意]
-    %% 某猫猫的规则自动更新，a、b 是规则的名称
-    1["内容-正则匹配：更新(a|b)成功"]
-    %% 中国移动的流量短信，周提醒是例行提醒，如果真的用超了是会有其他提醒的，所以不看也罢
-    2["内容-包含：【流量周提醒】"]
-    %% 联通的余额提醒太频繁了
-    3["内容-正则匹配：(手机号码)可用额度已不足\d+元"]
-  end
-end
-
-%% 通知处理
-Do[移除-立刻]
-
-%% 连线
-Apps ---> Rule ---> Do
-
-%% 节点样式
-style Apps fill:#425066,color:#FFF
-style Rule fill:#ffa400,color:#FFF
-style Group fill:#ffc773,color:#333
-style Do fill:#057748,color:#FFF</pre><h2 id="%E6%97%A0%E9%9C%80%E8%AE%B0%E5%BD%95">无需记录</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
-
-%% 通知来源
-subgraph Apps
-  any[任意 App]
-end
-
-%% 通知规则
-subgraph Rule
-  subgraph Group[群组-包含任意]
-    %% PWA 应用自带的复制网址通知
-    1["内容-完全匹配：点按即可复制该应用的网址"]
-    %% PWA 应用：微博
-    2["标题-完全匹配：微博"]
-    %% 某猫猫的速度显示
-    3["内容-正则匹配：\d+ Bytes\/s↑	\d+ Bytes\/s↓"]
-    %% KWGT 挂件更新通知
-    4["标题-完全匹配：服务正在运行"]
-    %% 输入法切换通知
-    5["标题-完全匹配：选择输入法"]
-    %% 快贴
-    6["标题-完全匹配：快贴服务运行中,点击复制"]
-  end
-end
-
-%% 通知处理
-Do[从通知历史删除]
-
-%% 连线
-Apps ---> Rule ---> Do
-
-%% 节点样式
-style Apps fill:#425066,color:#FFF
-style Rule fill:#ffa400,color:#FFF
-style Group fill:#ffc773,color:#333
-style Do fill:#057748,color:#FFF</pre><h2 id="%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92">微信消息增强提醒</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
-
-%% 通知来源
-subgraph Apps
-  any[微信]
-end
-
-%% 通知规则
-subgraph Rule
-  subgraph Group[包含任意]
-    %% 特定人的消息
-    1["标题-正则匹配：名字|名字"]
-  end
-end
-
-%% 通知处理
-Do[自定义提醒]
-
-%% 连线
-Apps ---> Rule ---> Do
-
-%% 节点样式
-style Apps fill:#425066,color:#FFF
-style Rule fill:#ffa400,color:#FFF
-style Group fill:#ffc773,color:#333
-style Do fill:#057748,color:#FFF</pre><h2 id="%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7%E5%88%AB%E8%80%81%E5%8F%AB">聊天工具别老叫</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
-
-%% 通知来源
-subgraph Apps
-  any["微信QQ"]
-end
-
-%% 通知规则
-subgraph Rule
-  Group[包含任意]
-end
-
-%% 通知处理
-Do["冷却：此对话-3 分钟内"]
-
-%% 连线
-Apps ---> Rule ---> Do
-
-%% 节点样式
-style Apps fill:#425066,color:#FFF
-style Rule fill:#ffa400,color:#FFF
-style Group fill:#ffc773,color:#333
-style Do fill:#057748,color:#FFF</pre><h2 id="%E5%9B%BA%E5%AE%9A%E5%BF%AB%E9%80%92%E4%BF%A1%E6%81%AF">固定快递信息</h2><pre class="hljs mermaid" lang="mermaid">flowchart LR
-
-%% 通知来源
-subgraph Apps
-  any[短信]
-end
-
-%% 通知规则
-subgraph Rule
-  subgraph Group[包含任意]
-    %% 特定人的消息
-    1["通知-匹配正则：【菜鸟驿站】|邻里驿站|【来取】|\d-\d-\d+|取件码"]
-  end
-end
-
-%% 通知处理
-Do[自定义提醒]
-
-%% 连线
-Apps ---> Rule ---> Do
-
-%% 节点样式
-style Apps fill:#425066,color:#FFF
-style Rule fill:#ffa400,color:#FFF
-style Group fill:#ffc773,color:#333
-style Do fill:#057748,color:#FFF</pre></section>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Apps</th>
+<th>Where</th>
+<th align="left">Method</th>
+<th align="left">Rules</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>固定快递取件码</td>
+<td>短信</td>
+<td>通知</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>【菜鸟驿站】|邻里驿站|【来取】|\d-\d-\d+|取件码</code></td>
+<td>堆叠（固定防止被清除）</td>
+</tr>
+<tr>
+<td>微信消息加强提醒</td>
+<td>微信</td>
+<td>标题</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>name_1|name_2</code></td>
+<td>自定义提醒</td>
+</tr>
+<tr>
+<td>无需记录的通知</td>
+<td>任意</td>
+<td>内容</td>
+<td align="left">完全匹配</td>
+<td align="left">点按即可复制该应用的网址</td>
+<td>从历史通知中删除</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>\d+ Bytes\/s↑	\d+ Bytes\/s↓</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">服务正在运行</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">选择输入法</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">快贴服务运行中,点击复制</td>
+<td></td>
+</tr>
+<tr>
+<td>聊天软件别老叫</td>
+<td>微信 &amp; QQ</td>
+<td>通知</td>
+<td align="left">包含任意</td>
+<td align="left"></td>
+<td>此会话冷却三分钟</td>
+</tr>
+<tr>
+<td>自动移除通知</td>
+<td>任意</td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>更新.*成功</code></td>
+<td>立刻移除通知</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>【流量周?提醒】</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>176\d{8}可用额度已不足\d+元</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">查看权限设置</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">包含任意</td>
+<td align="left">中国移动</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code>【.*?移动】|10分满意</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td align="left">群组</td>
+<td align="left">内容 正则匹配 <code>^[^\[]</code> + 通知 完全匹配 QQ</td>
+<td></td>
+</tr>
+</tbody></table>
+</section>
     </article>
   </main>
   <aside>
@@ -165,12 +160,8 @@ style Do fill:#057748,color:#FFF</pre></section>
           <li class="gotop"><a href="#"><i class="fa-solid fa-plane-up"></i> Top</a></li>
         </ul>
       </div>
-      <div class="toc"><ul><li data-hash="%E8%87%AA%E5%8A%A8%E7%A7%BB%E9%99%A4" style="margin-left: 1.5em"><a href="#%E8%87%AA%E5%8A%A8%E7%A7%BB%E9%99%A4">自动移除</a></li>
-<li data-hash="%E6%97%A0%E9%9C%80%E8%AE%B0%E5%BD%95" style="margin-left: 1.5em"><a href="#%E6%97%A0%E9%9C%80%E8%AE%B0%E5%BD%95">无需记录</a></li>
-<li data-hash="%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92" style="margin-left: 1.5em"><a href="#%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E5%A2%9E%E5%BC%BA%E6%8F%90%E9%86%92">微信消息增强提醒</a></li>
-<li data-hash="%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7%E5%88%AB%E8%80%81%E5%8F%AB" style="margin-left: 1.5em"><a href="#%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7%E5%88%AB%E8%80%81%E5%8F%AB">聊天工具别老叫</a></li>
-<li data-hash="%E5%9B%BA%E5%AE%9A%E5%BF%AB%E9%80%92%E4%BF%A1%E6%81%AF" style="margin-left: 1.5em"><a href="#%E5%9B%BA%E5%AE%9A%E5%BF%AB%E9%80%92%E4%BF%A1%E6%81%AF">固定快递信息</a></li></ul></div>
-      <div class="meta"><small>created: 2023-06-29 05:55:48</small><br><small>updated: 2023-11-02 08:21:03</small></div>
+      
+      <div class="meta"><small>created: 2023-06-29 05:55:48</small><br><small>updated: 2024-03-29 09:04:44</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
@@ -179,9 +170,6 @@ style Do fill:#057748,color:#FFF</pre></section>
     data-website-id="746d3aee-45c2-4dea-b72f-0cfb7891afe3"
     data-do-not-track="true"
     data-domains="zji.me"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024/3/29 00:00:22</foot><script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024/3/30 00:00:41</foot>
 </body>
 </html>

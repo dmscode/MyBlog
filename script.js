@@ -37,6 +37,8 @@ const setTocActive = (hash, force=false)=>{
   })
 }
 setTocActive(nowHash, true)
+/** 页面滚动，切换菜单按钮显示状态 */
+let pageScrollY = window.scrollY
 document.addEventListener('scroll', ()=>{
   let nowHeading = ''
   document.body.querySelectorAll('article >section >h1, article >section >h2, article >section >h3, article >section >h4, article >section >h5, article >section >h6').forEach((el)=>{
@@ -44,6 +46,15 @@ document.addEventListener('scroll', ()=>{
     if(posY < window.scrollY+window.innerHeight/2) nowHeading = el.id
   })
   setTocActive(nowHeading)
+  /** 页面滚动，切换菜单按钮显示状态 */
+  const scrollY = window.scrollY
+  if(pageScrollY < scrollY){
+    document.body.querySelector('aside > .toggle').style.top = '-110%'
+  }
+  if(pageScrollY > scrollY){
+    document.body.querySelector('aside > .toggle').style.top = '0'
+  }
+  pageScrollY = scrollY
 })
 
 // Callouts

@@ -21,22 +21,24 @@ i.fa-classic,
 i.fa-regular,
 i.fa-solid,
 i.far,
-i.fas { font-size: .8em; }
+i.fas {
+  font-size: 0.8em;
+}
 main {
   position: relative;
   left: 0;
-  transition: left .5s;
+  transition: left 0.5s;
 }
 article {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 45px;
+  padding: 2rem 0;
   min-width: 200px;
   max-width: var(--content-width);
 }
 article > h1.note-title {
   text-align: center;
-  margin: .5rem 0 1.5rem;
+  margin: 0.5rem 0 1.5rem;
 }
 .markdown-body article p {
   text-indent: 2em;
@@ -47,12 +49,12 @@ article > h1.note-title {
 .markdown-body article kbd {
   display: inline-block;
   background-color: #333338;
-  color: #E3E3EC;
-  border: 1px solid #E3E3EC;
+  color: #e3e3ec;
+  border: 1px solid #e3e3ec;
   border-radius: 3px;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   font-weight: bold;
-  box-shadow: 0 4px 0 0 #E3E3EC;
+  box-shadow: 0 4px 0 0 #e3e3ec;
   line-height: inherit;
 }
 foot {
@@ -64,14 +66,14 @@ foot {
 }
 #side-menu {
   box-sizing: border-box;
+  max-height: 100vh;
   position: fixed;
   top: 0;
-  left: calc(50% + var(--content-width)/2);
-  transition: left .5s;
+  left: calc(50% + var(--content-width) / 2);
+  transition: left 0.5s;
   z-index: 10;
   background-color: var(--color-canvas-default);
-  padding: 1rem;
-  width: calc(50vw - var(--content-width)/2);
+  width: calc(50vw - var(--content-width) / 2);
   min-width: var(--side-width);
   max-width: 360px;
   line-height: 1.4;
@@ -88,12 +90,17 @@ foot {
   align-items: center;
   cursor: pointer;
   color: var(--color-fg-subtle);
+  background-color: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  transition: top 0.2s;
 }
 #side-menu > .toggle > i {
   font-size: 1.6rem;
 }
 #side-menu > .aside-content {
-  height: 100%;
+  max-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
   overflow-y: auto;
 }
 #side-menu ul {
@@ -103,23 +110,23 @@ foot {
 #side-menu ul > li {
   list-style: none;
   border-left: var(--color-fg-subtle) 3px solid;
-  padding-left: .5rem;
-  margin-bottom: .5rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 #side-menu ul > li > a {
   color: var(--color-fg-subtle);
 }
 #side-menu .toc {
-  font-size: .72rem;
+  font-size: 0.72rem;
 }
 #side-menu .toc li.active {
-  border-color: var(--color-accent-fg)
+  border-color: var(--color-accent-fg);
 }
 #side-menu .toc li.active > a {
-  color: var(--color-accent-fg)
+  color: var(--color-accent-fg);
 }
 #side-menu small {
-  font-size: .6rem;
+  font-size: 0.6rem;
 }
 .callout {
   /* --callout-color: 108, 153, 187; */
@@ -127,22 +134,22 @@ foot {
   overflow: hidden;
   border-radius: 3px;
   margin: 1rem 0;
-  background-color: rgba(var(--callout-color), .05);
-  padding: .8rem, 1.2rem;
+  background-color: rgba(var(--callout-color), 0.05);
+  padding: 0.8rem, 1.2rem;
 }
 .callout.is-collapsible .callout-title {
   cursor: pointer;
 }
 .callout-title {
   display: flex;
-  gap: .3rem;
+  gap: 0.3rem;
   color: rgb(var(--callout-color));
   align-items: flex-start;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 .callout-content {
   overflow-x: auto;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 .callout-title-inner {
   font-weight: bold;
@@ -157,7 +164,7 @@ foot {
 .callout.is-collapsed > .callout-content {
   display: none;
 }
-/* .callout.callout-abstract,
+.callout.callout-abstract,
 .callout.callout-summary,
 .callout.callout-tldr,
 .callout.callout-important,
@@ -202,14 +209,17 @@ foot {
 .callout.callout-quote,
 .callout.callout-cite {
   --callout-color: 158, 158, 158;
-} */
+}
 @media (min-width: 800px) And (max-width: 1280px) {
   body.show-side > main {
-    left: calc(50vw - var(--content-width)/2 - var(--side-width));
+    left: calc(50vw - var(--content-width) / 2 - var(--side-width));
     width: 100%;
   }
   body.show-side #side-menu {
     left: calc(100vw - var(--side-width));
+  }
+  body.show-side #side-menu > .toggle {
+    top: 0 !important;
   }
   #side-menu > .toggle {
     display: flex;
@@ -217,11 +227,14 @@ foot {
 }
 @media (max-width: 800px) {
   body.show-side > main {
-    left:  calc(0px - var(--side-width));
+    left: calc(0px - var(--side-width));
     width: 100%;
   }
   body.show-side #side-menu {
-    left: calc(100vw  - var(--side-width));
+    left: calc(100vw - var(--side-width));
+  }
+  body.show-side #side-menu > .toggle {
+    top: 0 !important;
   }
   .markdown-body {
     padding: 15px;

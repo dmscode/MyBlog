@@ -1,0 +1,273 @@
+:root {
+  font-size: 18px;
+  line-height: 1.8;
+  --side-width: 240px;
+  --content-width: 800px;
+}
+body,
+body.markdown-body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  box-sizing: border-box;
+}
+.markdown-body a {
+  text-decoration: none;
+}
+.markdown-body a:hover {
+  text-decoration: none;
+}
+i.fa-classic,
+i.fa-regular,
+i.fa-solid,
+i.far,
+i.fas { font-size: .8em; }
+main {
+  position: relative;
+  left: 0;
+  transition: left .5s;
+}
+article {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 45px;
+  min-width: 200px;
+  max-width: var(--content-width);
+}
+article > h1.note-title {
+  text-align: center;
+  margin: .5rem 0 1.5rem;
+}
+.markdown-body article p {
+  text-indent: 2em;
+}
+.markdown-body article p * {
+  text-indent: 0;
+}
+.markdown-body article kbd {
+  display: inline-block;
+  background-color: #333338;
+  color: #E3E3EC;
+  border: 1px solid #E3E3EC;
+  border-radius: 3px;
+  padding: 0 .5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 0 0 #E3E3EC;
+  line-height: inherit;
+}
+foot {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  color: var(--color-fg-subtle);
+  text-align: center;
+}
+#side-menu {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: calc(50% + var(--content-width)/2);
+  transition: left .5s;
+  z-index: 10;
+  background-color: var(--color-canvas-default);
+  padding: 1rem;
+  width: calc(50vw - var(--content-width)/2);
+  min-width: var(--side-width);
+  max-width: 360px;
+  line-height: 1.4;
+  color: var(--color-fg-subtle);
+}
+#side-menu > .toggle {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-fg-subtle);
+}
+#side-menu > .toggle > i {
+  font-size: 1.6rem;
+}
+#side-menu > .aside-content {
+  height: 100%;
+  overflow-y: auto;
+}
+#side-menu ul {
+  margin: 0;
+  padding: 0;
+}
+#side-menu ul > li {
+  list-style: none;
+  border-left: var(--color-fg-subtle) 3px solid;
+  padding-left: .5rem;
+  margin-bottom: .5rem;
+}
+#side-menu ul > li > a {
+  color: var(--color-fg-subtle);
+}
+#side-menu .toc {
+  font-size: .72rem;
+}
+#side-menu .toc li.active {
+  border-color: var(--color-accent-fg)
+}
+#side-menu .toc li.active > a {
+  color: var(--color-accent-fg)
+}
+#side-menu small {
+  font-size: .6rem;
+}
+.callout {
+  /* --callout-color: 108, 153, 187; */
+  --callout-color: 66, 72, 81;
+  overflow: hidden;
+  border-radius: 3px;
+  margin: 1rem 0;
+  background-color: rgba(var(--callout-color), .05);
+  padding: .8rem, 1.2rem;
+}
+.callout.is-collapsible .callout-title {
+  cursor: pointer;
+}
+.callout-title {
+  display: flex;
+  gap: .3rem;
+  color: rgb(var(--callout-color));
+  align-items: flex-start;
+  padding: .5rem 1rem;
+}
+.callout-content {
+  overflow-x: auto;
+  padding: .5rem 1rem;
+}
+.callout-title-inner {
+  font-weight: bold;
+  color: rgb(var(--callout-color));
+}
+.callout-fold > i {
+  transition: transform 100ms ease-in-out;
+}
+.callout.is-collapsed .callout-fold > i {
+  transform: rotate(-90deg);
+}
+.callout.is-collapsed > .callout-content {
+  display: none;
+}
+/* .callout.callout-abstract,
+.callout.callout-summary,
+.callout.callout-tldr,
+.callout.callout-important,
+.callout.callout-tip,
+.callout.callout-hint {
+  --callout-color: 115,187,178;
+}
+.callout.callout-info {
+  --callout-color: 108,153,187;
+}
+.callout.callout-todo {
+  --callout-color: 108,153,187;
+}
+.callout.callout-success,
+.callout.callout-check,
+.callout.callout-done {
+  --callout-color: 168,195,115;
+}
+.callout.callout-question,
+.callout.callout-help,
+.callout.callout-faq {
+  --callout-color: 213,118,63;
+}
+.callout.callout-warning,
+.callout.callout-caution,
+.callout.callout-attention {
+  --callout-color: 213,118,63;
+}
+.callout.callout-failure,
+.callout.callout-fail,
+.callout.callout-missing,
+.callout.callout-danger,
+.callout.callout-error {
+  --callout-color: 208,66,85;
+}
+.callout.callout-bug {
+  --callout-color: 208,66,85;
+}
+.callout.callout-example {
+  --callout-color: 158,134,200;
+}
+.callout.callout-quote,
+.callout.callout-cite {
+  --callout-color: 158, 158, 158;
+} */
+@media (min-width: 800px) And (max-width: 1280px) {
+  body.show-side > main {
+    left: calc(50vw - var(--content-width)/2 - var(--side-width));
+    width: 100%;
+  }
+  body.show-side #side-menu {
+    left: calc(100vw - var(--side-width));
+  }
+  #side-menu > .toggle {
+    display: flex;
+  }
+}
+@media (max-width: 800px) {
+  body.show-side > main {
+    left:  calc(0px - var(--side-width));
+    width: 100%;
+  }
+  body.show-side #side-menu {
+    left: calc(100vw  - var(--side-width));
+  }
+  .markdown-body {
+    padding: 15px;
+  }
+  #side-menu {
+    left: 100vw;
+  }
+  #side-menu > .toggle {
+    display: flex;
+  }
+}
+#home {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+#home header > h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 3em;
+  font-weight: 200;
+}
+#home header > p {
+  font-weight: 200;
+  color: var(--color-fg-subtle);
+}
+#home article ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+#home article li {
+  list-style: none;
+  padding: 0 1rem;
+  margin: 0;
+}
+#home article li > a {
+  color: var(--color-fg-subtle);
+}
+#home article li:hover {
+  border-bottom: var(--color-accent-fg) 2px solid;
+}
+#home article li:hover > a {
+  color: var(--color-accent-fg);
+}

@@ -145,7 +145,7 @@ foot {
   gap: 0.3rem;
   color: rgb(var(--callout-color));
   align-items: flex-start;
-  padding: 0.5rem 1rem;
+  padding: 0;
 }
 .callout-content {
   overflow-x: auto;

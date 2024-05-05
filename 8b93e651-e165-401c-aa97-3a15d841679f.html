@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【CSS Snippet】时间轴 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+<style class="css-snippet">/**
+ * TimeLine
+ * @author: 稻米鼠
+ * @description: 显示时间轴的 callout 视图
+ * @created: 2023-09-16 09:23:10
+ * @updated: 2024-05-05
+ * @version: 0.0.1
+ */
+.callout[data-callout="timeline"] {
+  --callout-color: 0, 191, 188;
+  --callout-icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gantt-chart"><path d="M8 6h10"/><path d="M6 12h9"/><path d="M11 18h7"/></svg>;
+}
+.callout[data-callout="timeline"] > .callout-content > ul {
+  position: relative;
+  margin-left: 7rem;
+  padding-left: 6rem;
+  padding-bottom: 1rem;
+  border-left: 3px solid rgba(0, 191, 188);
+  font-size: 1rem;
+}
+.callout[data-callout="timeline"] > .callout-content > ul::before {
+  content: " ";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  box-sizing: border-box;
+  left: -7px;
+  top: -12px;
+  border: 2px solid rgba(0, 191, 188);
+  border-radius: 50%;
+}
+.callout[data-callout="timeline"] > .callout-content > ul > li {
+  position: relative;
+  margin-bottom: .3rem;
+  line-height: 1.6rem;
+  list-style: none;
+}
+.callout[data-callout="timeline"] > .callout-content > ul > li > strong:first-child {
+  position: absolute;
+  left: -13rem;
+  display: block;
+  width: 6rem;
+  font-size: .8rem;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.2rem;
+  margin-top: .2rem;
+  border: 2px solid rgba(0, 191, 188);
+  border-radius: 12px;
+}
+.callout[data-callout="timeline"] > .callout-content > ul > li > em:first-child,
+.callout[data-callout="timeline"] > .callout-content > ul > li > strong:first-child+em {
+  position: absolute;
+  left: -5rem;
+  display: block;
+  width: 4rem;
+  color: white;
+  font-size: .8rem;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.2rem;
+  margin-top: .2rem;
+  background-color: rgba(0, 191, 188);
+  border-radius: 12px;
+}
+.callout[data-callout="timeline"] > .callout-content > ul > li > em:first-child::before,
+.callout[data-callout="timeline"] > .callout-content > ul > li > strong:first-child+em::before {
+  content: " ";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  left: calc(-1rem - 6px);
+  top: calc(.8rem - 4px);
+  background-color: rgba(0, 191, 188);
+  border-radius: 50%;
+}</style>
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【CSS Snippet】时间轴</h1>
+      <section><div data-callout-metadata="" data-callout-fold="" data-callout="timeline" class="callout callout-timeline" id="%E5%B0%B1%E6%98%AF%E5%B1%95%E7%A4%BA%E8%BF%99%E6%A0%B7%E7%9A%84%E6%97%B6%E9%97%B4%E7%BA%BF">
+      <div class="callout-title">
+        
+        <div class="callout-title-inner">就是展示这样的时间线</div>
+        
+      </div>
+      <div class="callout-content">
+        <ul>
+<li><strong>2024-05-01</strong> <em>00:00</em> 就是开始放假吧</li><li><em>05:45</em> 我是想晚点起的，奈何睡不着了</li><li><em>06:30</em> 啊，咖啡啊，真的是续命的呢~</li><li><strong>2024-05-02</strong> <em>08:00</em> 其实这就是个无序列表</li><li><strong>日期啦</strong> 列表项最开始的加粗内容作为日期</li><li><em>时间啦</em> 列表项最开始的斜体内容作为时间显示</li><li>反正日期和时间都省略也不是不行</li></ul>
+      </div>
+    </div><p>将如下代码保存到 <code>.obsidian/snippets/TimeLine.css</code> 文件中（自行创建文件），然后在 Obsidian 设置——外观——代码片段中开启。即可使用 <code>timeline</code> 类型 callouts 创建这种堆叠卡片了。</p>
+<pre class="hljs css" lang="css"><span class="hljs-comment">/**
+ * TimeLine
+ * @author: 稻米鼠
+ * @description: 显示时间轴的 callout 视图
+ * @created: 2023-09-16 09:23:10
+ * @updated: 2024-05-05
+ * @version: 0.0.1
+ */</span>
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> {
+  <span class="hljs-attr">--callout-color</span>: <span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>;
+  <span class="hljs-attr">--callout-icon</span>: &lt;svg xmlns=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> width=<span class="hljs-string">&quot;24&quot;</span> height=<span class="hljs-string">&quot;24&quot;</span> viewBox=<span class="hljs-string">&quot;0 0 24 24&quot;</span> fill=<span class="hljs-string">&quot;none&quot;</span> stroke=<span class="hljs-string">&quot;currentColor&quot;</span> stroke-width=<span class="hljs-string">&quot;2&quot;</span> stroke-linecap=<span class="hljs-string">&quot;round&quot;</span> stroke-linejoin=<span class="hljs-string">&quot;round&quot;</span> class=<span class="hljs-string">&quot;lucide lucide-gantt-chart&quot;</span>&gt;&lt;path d=<span class="hljs-string">&quot;M8 6h10&quot;</span>/&gt;&lt;path d=<span class="hljs-string">&quot;M6 12h9&quot;</span>/&gt;&lt;path d=<span class="hljs-string">&quot;M11 18h7&quot;</span>/&gt;&lt;/svg&gt;;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">7rem</span>;
+  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">6rem</span>;
+  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">3px</span> solid <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>);
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span><span class="hljs-selector-pseudo">::before</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot; &quot;</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">13px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">13px</span>;
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">left</span>: -<span class="hljs-number">7px</span>;
+  <span class="hljs-attribute">top</span>: -<span class="hljs-number">12px</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">margin-bottom</span>: .<span class="hljs-number">3rem</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6rem</span>;
+  <span class="hljs-attribute">list-style</span>: none;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span><span class="hljs-selector-pseudo">:first</span>-child {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">left</span>: -<span class="hljs-number">13rem</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">6rem</span>;
+  <span class="hljs-attribute">font-size</span>: .<span class="hljs-number">8rem</span>;
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2rem</span>;
+  <span class="hljs-attribute">margin-top</span>: .<span class="hljs-number">2rem</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">12px</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">em</span><span class="hljs-selector-pseudo">:first</span>-child,
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span><span class="hljs-selector-pseudo">:first</span>-child+<span class="hljs-selector-tag">em</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">left</span>: -<span class="hljs-number">5rem</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">4rem</span>;
+  <span class="hljs-attribute">color</span>: white;
+  <span class="hljs-attribute">font-size</span>: .<span class="hljs-number">8rem</span>;
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2rem</span>;
+  <span class="hljs-attribute">margin-top</span>: .<span class="hljs-number">2rem</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">12px</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">em</span><span class="hljs-selector-pseudo">:first</span>-child<span class="hljs-selector-pseudo">::before</span>,
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span><span class="hljs-selector-pseudo">:first</span>-child+<span class="hljs-selector-tag">em</span><span class="hljs-selector-pseudo">::before</span> {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot; &quot;</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">left</span>: <span class="hljs-built_in">calc</span>(-<span class="hljs-number">1rem</span> - <span class="hljs-number">6px</span>);
+  <span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(.<span class="hljs-number">8rem</span> - <span class="hljs-number">4px</span>);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+}</pre><p>上面示例的 callout 代码如下，供参考：</p>
+<pre class="hljs md" lang="md"><span class="hljs-quote">&gt; [!timeline] 就是展示这样的时间线</span>
+<span class="hljs-quote">&gt; - <span class="hljs-strong">**2024-05-01**</span> <span class="hljs-emphasis">*00:00*</span> 就是开始放假吧</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*05:45*</span> 我是想晚点起的，奈何睡不着了</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*06:30*</span> 啊，咖啡啊，真的是续命的呢~</span>
+<span class="hljs-quote">&gt; - <span class="hljs-strong">**2024-05-02**</span> <span class="hljs-emphasis">*08:00*</span> 其实这就是个无序列表</span>
+<span class="hljs-quote">&gt; - <span class="hljs-strong">**日期啦**</span> 列表项最开始的加粗内容作为日期</span>
+<span class="hljs-quote">&gt; - <span class="hljs-emphasis">*时间啦*</span> 列表项最开始的斜体内容作为时间显示</span>
+<span class="hljs-quote">&gt; - 反正日期和时间都省略也不是不行</span></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="home"><a href="/changelogs">Changelogs</a></li>
+          <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~</a></li>
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      
+      <div class="meta"><small>created: 2024-05-05 18:37:29</small><br><small>updated: 2024-05-05 18:48:48</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-06 00:00:13</foot>
+</body>
+</html>

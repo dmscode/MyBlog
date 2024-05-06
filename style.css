@@ -210,6 +210,11 @@ foot {
 .callout.callout-cite {
   --callout-color: 158, 158, 158;
 }
+/** 一点样式修正 */
+.callout ul,
+.callout ol {
+  margin-top: 1rem;
+}
 @media (min-width: 800px) And (max-width: 1280px) {
   body.show-side > main {
     left: calc(50vw - var(--content-width) / 2 - var(--side-width));

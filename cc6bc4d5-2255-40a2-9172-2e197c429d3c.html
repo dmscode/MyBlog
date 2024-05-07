@@ -109,7 +109,7 @@
 <ul>
 <li>依次切换列表的显示方向，是不同的列表，而不是列表项，同一个列表的列表项所在方向相同</li></ul>
 <ul>
-<li>灵活使用 <code>-</code>、<code>+</code>、<code>*</code> 作为列表项的前缀符号就可以便捷地书写了</li><li>连续使用相同符号，气泡就在同一边</li></ul>
+<li>灵活使用 <code class="inline-code">-</code>、<code class="inline-code">+</code>、<code class="inline-code">*</code> 作为列表项的前缀符号就可以便捷地书写了</li><li>连续使用相同符号，气泡就在同一边</li></ul>
 <p>2024-05-06 07:05:51</p>
 <ul>
 <li>时间怎么写呢？</li></ul>
@@ -117,8 +117,8 @@
 <li>普通文字（段落）就可以了</li><li>也可以使用 callout 的折叠功能</li></ul>
 <p>可爱的小老鼠抱着空空的咖啡杯流着口水冲了出来，看看没人注意到他，又垂头丧气的回去了……</p>
       </div>
-    </div><p>将如下代码保存到 <code>.obsidian/snippets/ChatBubble.css</code> 文件中（自行创建文件），然后在 Obsidian 设置——外观——代码片段中开启。即可使用 <code>chat-bubble</code> 类型 callouts 创建这种对话气泡了。</p>
-<pre class="hljs css" lang="css"><span class="hljs-comment">/**
+    </div><p>将如下代码保存到 <code class="inline-code">.obsidian/snippets/ChatBubble.css</code> 文件中（自行创建文件），然后在 Obsidian 设置——外观——代码片段中开启。即可使用 <code class="inline-code">chat-bubble</code> 类型 callouts 创建这种对话气泡了。</p>
+<pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-comment">/**
  * 聊天气泡
  * @author: 稻米鼠
  * @description: 显示聊天气泡的 callout 视图
@@ -201,8 +201,8 @@
 <span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;chat-bubble&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> <span class="hljs-selector-tag">ul</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">2</span>n) &gt; <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">::before</span> {
   <span class="hljs-attribute">right</span>: -<span class="hljs-number">1rem</span>;
   <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1rem</span> solid <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--bubble-right));
-}</pre><p>上面示例的 callout 代码如下，供参考：</p>
-<pre class="hljs md" lang="md"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">[!chat-bubble]+ 聊天气泡的效果</span>
+}</code></pre><p>上面示例的 callout 代码如下，供参考：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">[!chat-bubble]+ 聊天气泡的效果</span>
 <span class="hljs-meta prompt_">&gt;</span> 
 <span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">- 依然是 callout 配合无序列表的形式，文字多也完全没问题的。</span>
 <span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">+ 依次切换列表的显示方向，是不同的列表，而不是列表项，同一个列表的列表项所在方向相同</span>
@@ -213,7 +213,7 @@
 <span class="hljs-meta prompt_">&gt;</span> 
 <span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">- 时间怎么写呢？</span>
 <span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">+ 普通文字（段落）就可以了</span>
-<span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">+ 也可以使用 callout 的折叠功能</span></pre></section>
+<span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">+ 也可以使用 callout 的折叠功能</span></code></pre></section>
     </article>
   </main>
   <aside id="side-menu">
@@ -222,16 +222,17 @@
       <div class="nav">
         <ul>
           <li class="home"><a href="/">Home</a></li>
-          <li class="home"><a href="/changelogs">Changelogs</a></li>
-          <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
           <li class="gotop"><a href="#">Top</a></li>
         </ul>
       </div>
+      <a class="coffee" href="https://afdian.net/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
       
       <div class="meta"><small>created: 2024-05-06 07:01:53</small><br><small>updated: 2024-05-06 08:20:42</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-05-07 00:00:12</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-08 00:00:23</foot>
 </body>
 </html>

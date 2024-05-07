@@ -15,7 +15,7 @@
       <h1 class="note-title">【Templater】快速 kbd 标签</h1>
       <section><p>kbd 标签是 HTML 中用来标记按键名称的标签，例如这样：<kbd class=key-shift>Shift</kbd> + <kbd class=key-ctrl>Ctrl</kbd> + <kbd class=key-t>T</kbd> 。</p>
 <p>我使用 Templater 插件来实现快速将选中（输入）的按键添加 kbd 标签。</p>
-<h2 id="%E6%A8%A1%E6%9D%BF%E5%A6%82%E4%B8%8B%EF%BC%9A">模板如下：</h2><pre class="hljs md" lang="md">&lt;%*
+<h2 id="%E6%A8%A1%E6%9D%BF%E5%A6%82%E4%B8%8B%EF%BC%9A">模板如下：</h2><pre class="hljs-code-block"><code class="hljs md" lang="md">&lt;%*
   <span class="hljs-comment">/**
    * 快速 kbd 标签
    * <span class="hljs-doctag">@author</span>: 稻米鼠
@@ -48,7 +48,7 @@
     <span class="hljs-keyword">const</span> className = <span class="hljs-string">&#x27;key-&#x27;</span>+(<span class="hljs-regexp">/^[a-z0-9]+$/i</span>.<span class="hljs-title function_">test</span>(s) ? s.<span class="hljs-title function_">toLowerCase</span>() : keyNames[s])
     <span class="hljs-keyword">return</span> <span class="hljs-string">`&lt;kbd class=<span class="hljs-subst">${className}</span>&gt;<span class="hljs-subst">${s}</span>&lt;/kbd&gt;`</span>
   })
-%&gt;</pre><h2 id="%E7%9B%B8%E5%85%B3%E6%A0%B7%E5%BC%8F%EF%BC%9A">相关样式：</h2><pre class="hljs css" lang="css"><span class="hljs-selector-tag">kbd</span> {
+%&gt;</code></pre><h2 id="%E7%9B%B8%E5%85%B3%E6%A0%B7%E5%BC%8F%EF%BC%9A">相关样式：</h2><pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-selector-tag">kbd</span> {
   <span class="hljs-attribute">display</span>: inline-block;
   <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#333338</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#E3E3EC</span>;
@@ -57,8 +57,8 @@
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> .<span class="hljs-number">5rem</span>;
   <span class="hljs-attribute">font-weight</span>: bold;
   <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">#E3E3EC</span>;
-}</pre><h2 id="%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E%EF%BC%9A">细节说明：</h2><ul>
-<li>可以选中整个组合键部分，一次转换</li><li>加号前后有无空格均可</li><li>为每个按键添加了对应的类（class），可以自行定义样式</li><li><code>+</code> 作为按键之间的连接符号会不会混淆呢？完全不会，因为没有 <code>+</code> 这个按键，只有一个等号键（不考虑小键盘区）</li></ul>
+}</code></pre><h2 id="%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E%EF%BC%9A">细节说明：</h2><ul>
+<li>可以选中整个组合键部分，一次转换</li><li>加号前后有无空格均可</li><li>为每个按键添加了对应的类（class），可以自行定义样式</li><li><code class="inline-code">+</code> 作为按键之间的连接符号会不会混淆呢？完全不会，因为没有 <code class="inline-code">+</code> 这个按键，只有一个等号键（不考虑小键盘区）</li></ul>
 </section>
     </article>
   </main>
@@ -68,11 +68,12 @@
       <div class="nav">
         <ul>
           <li class="home"><a href="/">Home</a></li>
-          <li class="home"><a href="/changelogs">Changelogs</a></li>
-          <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
           <li class="gotop"><a href="#">Top</a></li>
         </ul>
       </div>
+      <a class="coffee" href="https://afdian.net/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
       <div class="toc"><ul><li data-hash="%E6%A8%A1%E6%9D%BF%E5%A6%82%E4%B8%8B%EF%BC%9A" style="margin-left: 1.5em"><a href="#%E6%A8%A1%E6%9D%BF%E5%A6%82%E4%B8%8B%EF%BC%9A">模板如下：</a></li>
 <li data-hash="%E7%9B%B8%E5%85%B3%E6%A0%B7%E5%BC%8F%EF%BC%9A" style="margin-left: 1.5em"><a href="#%E7%9B%B8%E5%85%B3%E6%A0%B7%E5%BC%8F%EF%BC%9A">相关样式：</a></li>
 <li data-hash="%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E%EF%BC%9A" style="margin-left: 1.5em"><a href="#%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E%EF%BC%9A">细节说明：</a></li></ul></div>
@@ -80,6 +81,6 @@
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-05-07 00:00:12</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-08 00:00:23</foot>
 </body>
 </html>

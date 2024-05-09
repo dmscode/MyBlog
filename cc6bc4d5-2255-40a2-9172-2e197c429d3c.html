@@ -13,8 +13,8 @@
  * @author: 稻米鼠
  * @description: 显示聊天气泡的 callout 视图
  * @created: 2024-05-06
- * @updated: 2024-05-06
- * @version: 0.0.1
+ * @updated: 2024-05-09
+ * @version: 0.0.2
  */
 
  .callout[data-callout="chat-bubble"] {
@@ -62,6 +62,9 @@
   border-radius: 1rem;
   margin: .5rem 0;
   list-style: none;
+}
+.callout[data-callout="chat-bubble"] > .callout-content ul > li > .list-bullet {
+  display: none;
 }
 .callout[data-callout="chat-bubble"] > .callout-content ul > li::before {
   position: absolute;
@@ -123,8 +126,8 @@
  * @author: 稻米鼠
  * @description: 显示聊天气泡的 callout 视图
  * @created: 2024-05-06
- * @updated: 2024-05-06
- * @version: 0.0.1
+ * @updated: 2024-05-09
+ * @version: 0.0.2
  */</span>
 
  <span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;chat-bubble&quot;</span>]</span> {
@@ -172,6 +175,9 @@
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">1rem</span>;
   <span class="hljs-attribute">margin</span>: .<span class="hljs-number">5rem</span> <span class="hljs-number">0</span>;
   <span class="hljs-attribute">list-style</span>: none;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;chat-bubble&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-class">.list-bullet</span> {
+  <span class="hljs-attribute">display</span>: none;
 }
 <span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;chat-bubble&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">::before</span> {
   <span class="hljs-attribute">position</span>: absolute;
@@ -233,6 +239,6 @@
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-05-09 00:00:17</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-10 00:00:22</foot>
 </body>
 </html>

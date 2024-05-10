@@ -13,8 +13,8 @@
  * @author: 稻米鼠
  * @description: 显示时间轴的 callout 视图
  * @created: 2023-09-16 09:23:10
- * @updated: 2024-05-05
- * @version: 0.0.1
+ * @updated: 2024-05-10
+ * @version: 0.0.2
  */
 .callout[data-callout="timeline"] {
   --callout-color: 0, 191, 188;
@@ -45,7 +45,11 @@
   line-height: 1.6rem;
   list-style: none;
 }
-.callout[data-callout="timeline"] > .callout-content > ul > li > strong:first-child {
+.callout[data-callout="timeline"] > .callout-content > ul > li > .list-bullet {
+  display: none;
+}
+.callout[data-callout="timeline"] > .callout-content > ul > li > strong:first-child,
+.callout[data-callout="timeline"] > .callout-content > ul > li > .list-bullet + strong {
   position: absolute;
   left: -13rem;
   display: block;
@@ -59,7 +63,8 @@
   border-radius: 12px;
 }
 .callout[data-callout="timeline"] > .callout-content > ul > li > em:first-child,
-.callout[data-callout="timeline"] > .callout-content > ul > li > strong:first-child+em {
+.callout[data-callout="timeline"] > .callout-content > ul > li > .list-bullet + em,
+.callout[data-callout="timeline"] > .callout-content > ul > li > strong + em {
   position: absolute;
   left: -5rem;
   display: block;
@@ -106,8 +111,8 @@
  * @author: 稻米鼠
  * @description: 显示时间轴的 callout 视图
  * @created: 2023-09-16 09:23:10
- * @updated: 2024-05-05
- * @version: 0.0.1
+ * @updated: 2024-05-10
+ * @version: 0.0.2
  */</span>
 <span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> {
   <span class="hljs-attr">--callout-color</span>: <span class="hljs-number">0</span>, <span class="hljs-number">191</span>, <span class="hljs-number">188</span>;
@@ -138,7 +143,11 @@
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6rem</span>;
   <span class="hljs-attribute">list-style</span>: none;
 }
-<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span><span class="hljs-selector-pseudo">:first</span>-child {
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-class">.list-bullet</span> {
+  <span class="hljs-attribute">display</span>: none;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span><span class="hljs-selector-pseudo">:first</span>-child,
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-class">.list-bullet</span> + <span class="hljs-selector-tag">strong</span> {
   <span class="hljs-attribute">position</span>: absolute;
   <span class="hljs-attribute">left</span>: -<span class="hljs-number">13rem</span>;
   <span class="hljs-attribute">display</span>: block;
@@ -152,7 +161,8 @@
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">12px</span>;
 }
 <span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">em</span><span class="hljs-selector-pseudo">:first</span>-child,
-<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span><span class="hljs-selector-pseudo">:first</span>-child+<span class="hljs-selector-tag">em</span> {
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-class">.list-bullet</span> + <span class="hljs-selector-tag">em</span>,
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;timeline&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-content</span> &gt; <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">strong</span> + <span class="hljs-selector-tag">em</span> {
   <span class="hljs-attribute">position</span>: absolute;
   <span class="hljs-attribute">left</span>: -<span class="hljs-number">5rem</span>;
   <span class="hljs-attribute">display</span>: block;
@@ -205,6 +215,6 @@
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-05-10 00:00:22</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-11 00:00:24</foot>
 </body>
 </html>

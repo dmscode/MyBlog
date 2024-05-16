@@ -17,9 +17,9 @@
 <p>有插件可以完成这个操作，但是在我的环境下有时候会有冲突，而且其他功能我也用不上，还是自己写一个样式用起来更加安逸。</p>
 <p>每个人的需求不同，所以本页提供了一个代码生成器，用来生成个性的 CSS Snippet。</p>
 <h2 id="%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</h2><ul>
-<li>默认图标是指对于没有单独设置的文件夹设置 📁 和 📂 图标，未设置图标的文件使用 📄 图标。</li><li>输入框内一行一条定义，接受两种定义格式：<ul>
+<li>默认图标是指对于没有单独设置的文件夹设置 📁 和 📂 图标，未设置图标的文件使用 📄 图标。</li><li>模糊匹配是匹配路径尾部，即只写文件夹/文件名称也可以，这时候同名文件夹可以获得相同的图标。</li><li>输入框内一行一条定义，接受两种定义格式：<ul>
 <li><code class="inline-code">&quot;路径&quot; &quot;emoji&quot;</code></li><li><code class="inline-code">[emoji](路径)</code></li></ul>
-</li><li>对于定义使用松散匹配，第一对双引号或小括号中的内容作为路径，第二对双引号中提取第一个 emoji 作为图标。</li></ul>
+</li><li>对于定义使用松散匹配，第一对双引号或小括号中的内容作为路径，第二对双引号中提取第一个 emoji 作为图标。</li><li>由于 emoji 数量庞大，很难完整匹配，如果有个别处理出错，则严格按照上面格式书写，即不依靠本程序自行提取。</li></ul>
 <h2 id="%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7">使用技巧</h2><ul>
 <li>可以直接到设定文件图标的插件文件夹找到 <code class="inline-code">data.json</code> 文件，将相关行直接复制过来</li><li>对于文件可以在笔记中创建链接，然后在链接标题中添加 emoji 的方法创建规则</li><li>对于文件夹，可以右键文件夹——<code class="inline-code">Search in folder</code>（在此文件夹中搜索），然后复制搜索框中内容用来创建规则</li></ul>
 <h2 id="%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B">规则示例</h2><pre class="hljs-code-block"><code class="hljs test" lang="test">其他文字什么的完全不影响呢~
@@ -52,11 +52,11 @@ path:<span class="hljs-string">&quot;100_Note/&quot;</span> <span class="hljs-st
 <li data-hash="%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7">使用技巧</a></li>
 <li data-hash="%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B" style="margin-left: 1.5em"><a href="#%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B">规则示例</a></li>
 <li data-hash="%E6%96%87%E4%BB%B6%E6%A0%91%E5%9B%BE%E6%A0%87%E6%A0%B7%E5%BC%8F%E7%89%87%E6%AE%B5%E7%94%9F%E6%88%90%E5%99%A8" style="margin-left: 1.5em"><a href="#%E6%96%87%E4%BB%B6%E6%A0%91%E5%9B%BE%E6%A0%87%E6%A0%B7%E5%BC%8F%E7%89%87%E6%AE%B5%E7%94%9F%E6%88%90%E5%99%A8">文件树图标样式片段生成器</a></li></ul></div>
-      <div class="meta"><small>created: 2024-05-08 14:08:55</small><br><small>updated: 2024-05-08 16:02:06</small></div>
+      <div class="meta"><small>created: 2024-05-08 14:08:55</small><br><small>updated: 2024-05-16 21:59:52</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-05-16 00:00:30</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-17 00:01:24</foot>
 <script class="post-script">/**
  * 文件树 Emoji 图标样式片段生成器
  * @author: 稻米鼠
@@ -69,6 +69,9 @@ const root = document.getElementById('File_Tree_Emoji_Icon_generator');
 root.innerHTML = `
 <div class="default_icon_switch_area">
   <label for="default_icon_switch">使用默认图标：</label><input type="checkbox" checked id="default_icon_switch">
+</div>
+<div class="fuzzy_match_area">
+  <label for="fuzzy_match">使用模糊匹配：</label><input type="checkbox" checked id="fuzzy_match">
 </div>
 <div class="rule_input_area">
   <label for="rule_input">图标规则：</label><br>
@@ -88,10 +91,11 @@ root.innerHTML = `
 </style>
 `
 const default_icon_switch = root.querySelector('#default_icon_switch');
+const fuzzy_match = root.querySelector('#fuzzy_match');
 const rule_input = root.querySelector('#rule_input');
 const rule_output = root.querySelector('#rule_output_area > code');
 
-const emojiReg = /((\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55])/
+const emojiReg = /^.*([\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E6}-\u{1F1FF}]).*$/u
 
 const generateSnippet = () => {
   const useDefaultIcon = default_icon_switch.checked;
@@ -120,8 +124,7 @@ const generateSnippet = () => {
  * 文件树 Emoji 图标 CSS Snippet
  * @ToolPage: https://zji.me/f3dd77e2-5650-497a-976c-b4a74612b500
  * @author: 稻米鼠
- * @created: 2024-05-08
- * @updated: ${new Date().toLocaleDateString('zh-CN', {year: 'numeric', month: '2-digit', day: '2-digit',}).replace(/\//g, '-')}
+ * @generated: ${new Date().toLocaleDateString('zh-CN', {year: 'numeric', month: '2-digit', day: '2-digit',}).replace(/\//g, '-')}
  */
 .nav-folder > .nav-folder-title > .nav-folder-title-content::before,
 .nav-file > .nav-file-title > .nav-file-title-content::before {
@@ -141,7 +144,8 @@ const generateSnippet = () => {
   }
   rules.sort((a, b) => a.path.localeCompare(b.path)).forEach(({emoji, path})=>{
     path = path.replace(/\\/g, '/')
-    const selector = /\.md/.test(path) ? `.nav-file > .nav-file-title[data-path="${path}"] > .nav-file-title-content::before` : `.nav-folder > .nav-folder-title[data-path="${path}"] > .nav-folder-title-content::before`
+    const preMark = fuzzy_match.checked ? `$` : ''
+    const selector = /\.md/.test(path) ? `.nav-file > .nav-file-title[data-path${preMark}="${path}"] > .nav-file-title-content::before` : `.nav-folder > .nav-folder-title[data-path${preMark}="${path}"] > .nav-folder-title-content::before`
     code += `
 ${selector} {
   content: "${emoji}";

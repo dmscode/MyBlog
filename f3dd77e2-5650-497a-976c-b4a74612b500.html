@@ -56,7 +56,7 @@ path:<span class="hljs-string">&quot;100_Note/&quot;</span> <span class="hljs-st
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-05-17 00:01:24</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-18 00:03:53</foot>
 <script class="post-script">/**
  * 文件树 Emoji 图标样式片段生成器
  * @author: 稻米鼠
@@ -140,12 +140,32 @@ const generateSnippet = () => {
 }
 .nav-file > .nav-file-title > .nav-file-title-content::before {
   content: "📄";
-}`
+}
+.nav-file > .nav-file-title[data-path$=".jpg"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".jpeg"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".png"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".gif"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".bmp"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".svg"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".webp"] > .nav-file-title-content::before {
+  content: "🖼️";
+}
+.nav-file > .nav-file-title[data-path$=".css"] > .nav-file-title-content::before {
+  content: "🎨";
+}
+.nav-file > .nav-file-title[data-path$=".js"] > .nav-file-title-content::before {
+  content: "⚙️";
+}
+.nav-file > .nav-file-title[data-path$=".htm"] > .nav-file-title-content::before,
+.nav-file > .nav-file-title[data-path$=".html"] > .nav-file-title-content::before {
+  content: "🌐";
+}
+`
   }
   rules.sort((a, b) => a.path.localeCompare(b.path)).forEach(({emoji, path})=>{
     path = path.replace(/\\/g, '/')
     const preMark = fuzzy_match.checked ? `$` : ''
-    const selector = /\.md/.test(path) ? `.nav-file > .nav-file-title[data-path${preMark}="${path}"] > .nav-file-title-content::before` : `.nav-folder > .nav-folder-title[data-path${preMark}="${path}"] > .nav-folder-title-content::before`
+    const selector = /\.[a-zA-Z0-9]+/.test(path) ? `.nav-file > .nav-file-title[data-path${preMark}="${path}"] > .nav-file-title-content::before` : `.nav-folder > .nav-folder-title[data-path${preMark}="${path}"] > .nav-folder-title-content::before`
     code += `
 ${selector} {
   content: "${emoji}";

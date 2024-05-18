@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【Dataview】列出无效链接 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【Dataview】列出无效链接</h1>
+      <section><p>最近在整理笔记，多软件协同操作笔记文件，移动、修改、批量编辑……因为路径变化导致一些笔记内链位置对应不上就非常正常。为了快速定位到这些问题，就写了个小脚本来解决。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-comment">/**
+ * 列出所有无效内链
+ * <span class="hljs-doctag">@author</span>: 稻米鼠
+ * <span class="hljs-doctag">@description</span>: 列出所有笔记中的无效内链
+ * <span class="hljs-doctag">@created</span>: 2024-05-18
+ * <span class="hljs-doctag">@updated</span>: 2024-05-18
+ * <span class="hljs-doctag">@version</span>: 0.0.1
+ */</span>
+<span class="hljs-comment">// 遍历所有笔记</span>
+dv.<span class="hljs-title function_">pages</span>().<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">p</span>=&gt;</span>{
+  <span class="hljs-comment">// 所有外链，无协议（非网络链接），不存在对应文件</span>
+  <span class="hljs-keyword">const</span> links = p.<span class="hljs-property">file</span>.<span class="hljs-property">outlinks</span>.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">l</span>=&gt;</span>!<span class="hljs-regexp">/^\w+:\/\//</span>.<span class="hljs-title function_">test</span>(l.<span class="hljs-property">path</span>)).<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">l</span>=&gt;</span>!app.<span class="hljs-property">vault</span>.<span class="hljs-property">fileMap</span>[l.<span class="hljs-property">path</span>])
+  <span class="hljs-keyword">if</span>(!links.<span class="hljs-property">length</span>) <span class="hljs-keyword">return</span>
+  <span class="hljs-comment">// 输出文件链接</span>
+  dv.<span class="hljs-title function_">span</span>(p.<span class="hljs-property">file</span>.<span class="hljs-property">link</span>)
+  <span class="hljs-comment">// 输出无效内链列表</span>
+  dv.<span class="hljs-property">container</span>.<span class="hljs-property">innerHTML</span> += <span class="hljs-string">`&lt;ul&gt;<span class="hljs-subst">${links.map(l=&gt;{
+    <span class="hljs-keyword">const</span> linkItem = <span class="hljs-string">&#x27;&lt;code&gt;&#x27;</span>+l.path+<span class="hljs-string">&#x27;&lt;/code&gt;&#x27;</span>+(l.subpath ? <span class="hljs-string">&#x27; # &#x27;</span>+l.subpath : <span class="hljs-string">&#x27;&#x27;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`&lt;li&gt;<span class="hljs-subst">${linkItem}</span>&lt;/li&gt;`</span>
+    }).join(<span class="hljs-string">&#x27;\n&#x27;</span>)}</span>&lt;ul/&gt;`</span>
+})</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.net/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-05-18 17:03:56</small><br><small>updated: 2024-05-18 17:13:03</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-05-19 00:00:31</foot>
+</body>
+</html>

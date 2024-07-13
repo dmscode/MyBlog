@@ -350,7 +350,7 @@ mark.gray-highlighter {
 <pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
   tR += `&lt;<span class="hljs-keyword">mark</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight yellow-highlighter&quot;</span>&gt;<span class="hljs-variable">${tp</span>.<span class="hljs-keyword">file</span>.selection()}&lt;/<span class="hljs-keyword">mark</span>&gt;`
 %&gt;</code></pre><p>选中文字，然后插入此模板即可对选中文字进行高亮（样式根据需求自行修改，如需要多种样式可以考虑创建多个模板）。可以在 Templater 插件中设置模板快捷键，实现选中文字，一键高亮的效果。</p>
-<h2 id="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</h2><p>新建捕获（Capture），捕获到当前文件（Capture to active file），捕获格式（Capture format）：<code class="inline-code">&lt;mark class=&quot;more-highlight yellow-highlighter&quot;&gt;&lt;/mark&gt;</code>。</p>
+<h2 id="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</h2><p>新建捕获（Capture），捕获到当前文件（Capture to active file），捕获格式（Capture format）：<code class="inline-code">&lt;mark class=&quot;more-highlight yellow-highlighter&quot;&gt;{{value}}&lt;/mark&gt;</code>。</p>
 <p>点亮指令前闪电图标之后，即可在 Obsidian 的快捷键设置页面找到指令，设置快捷键了。</p>
 <p>如果常用多种样式，可以设置多个捕获，然后将它们放入一个组（Multi）内，点亮组前面的闪电，给它设定一个快捷键。这样选中文字，快捷键，选择需要的样式即可。</p>
 <h2 id="%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">全部样式示例代码</h2><p>供查阅具体样式的引用方法。</p>
@@ -749,6 +749,6 @@ settings:
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-07-13 08:44:36</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-07-13 14:40:44</foot>
 </body>
 </html>

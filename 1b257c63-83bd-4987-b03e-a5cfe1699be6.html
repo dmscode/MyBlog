@@ -350,10 +350,22 @@ mark.gray-highlighter {
 <pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
   tR += `&lt;<span class="hljs-keyword">mark</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight yellow-highlighter&quot;</span>&gt;<span class="hljs-variable">${tp</span>.<span class="hljs-keyword">file</span>.selection()}&lt;/<span class="hljs-keyword">mark</span>&gt;`
 %&gt;</code></pre><p>选中文字，然后插入此模板即可对选中文字进行高亮（样式根据需求自行修改，如需要多种样式可以考虑创建多个模板）。可以在 Templater 插件中设置模板快捷键，实现选中文字，一键高亮的效果。</p>
-<h2 id="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</h2><p>新建捕获（Capture），捕获到当前文件（Capture to active file），捕获格式（Capture format）：<code class="inline-code">&lt;mark class=&quot;more-highlight yellow-highlighter&quot;&gt;{{value}}&lt;/mark&gt;</code>。</p>
+<p>使用如下模板，可以清除选中内容的高亮（不需要精确选中，只要完全包含高亮区域即可，选择更多内容无影响）：</p>
+<pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
+  tR += tp.<span class="hljs-keyword">file</span>.selection().<span class="hljs-keyword">replace</span>(/&lt;<span class="hljs-keyword">mark</span>\s+<span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight(-\w+)?\s+\w+-highlighter&quot;</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;).<span class="hljs-keyword">replace</span>(/&lt;\/<span class="hljs-keyword">mark</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;)
+%&gt;</code></pre><p>清除高亮的模板对两个类的前后顺序敏感，精准匹配主要是为了避免和其他插件冲突，如果你不介意，可以用下面的的模板，稳定清除全部 <code class="inline-code">mark</code> 标签：</p>
+<pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
+  tR += tp.file.selection().<span class="hljs-built_in">replace</span>(<span class="hljs-regexp">/&lt;mark[^&gt;]*?&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-built_in">replace</span>(<span class="hljs-regexp">/&lt;\/mark&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>)
+%&gt;</code></pre><h2 id="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</h2><p>新建捕获（Capture），捕获到当前文件（Capture to active file），捕获格式（Capture format）：<code class="inline-code">&lt;mark class=&quot;more-highlight yellow-highlighter&quot;&gt;{{value}}&lt;/mark&gt;</code>。</p>
 <p>点亮指令前闪电图标之后，即可在 Obsidian 的快捷键设置页面找到指令，设置快捷键了。</p>
 <p>如果常用多种样式，可以设置多个捕获，然后将它们放入一个组（Multi）内，点亮组前面的闪电，给它设定一个快捷键。这样选中文字，快捷键，选择需要的样式即可。</p>
-<h2 id="%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">全部样式示例代码</h2><p>供查阅具体样式的引用方法。</p>
+<p>但是用 QuickAdd 清除高亮会麻烦一些，要建立一个宏（Macro），宏里面添加一个用户脚本，脚本可以保存在任何位置，比如叫做 <code class="inline-code">清除高亮.js</code>：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">module.exports = async ({<span class="hljs-keyword">app</span>}) =&gt; {
+  <span class="hljs-keyword">app</span>.workspace.activeEditor.editor.replaceSelection(<span class="hljs-keyword">app</span>.workspace.activeEditor.editor.getSelection().<span class="hljs-keyword">replace</span>(/&lt;<span class="hljs-keyword">mark</span>\s+<span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight(-\w+)?\s+\w+-highlighter&quot;</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;).<span class="hljs-keyword">replace</span>(/&lt;\/<span class="hljs-keyword">mark</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;))
+};</code></pre><p>然后可能要重启 Obisidian 之后生效，同样的，如果不想过于精准匹配，则改用下方的写法：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">module.<span class="hljs-built_in">exports</span> = <span class="hljs-keyword">async</span> ({app}) =&gt; {
+  app.workspace.activeEditor.editor.replaceSelection(app.workspace.activeEditor.editor.getSelection().replace(<span class="hljs-regexp">/&lt;mark[^&gt;]*?&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>).replace(<span class="hljs-regexp">/&lt;\/mark&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>))
+};</code></pre><h2 id="%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">全部样式示例代码</h2><p>供查阅具体样式的引用方法。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">- 黄色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight yellow-highlighter&quot;</span>&gt;</span>黄色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
 - 绿色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight green-highlighter&quot;</span>&gt;</span>绿色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
 - 蓝色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight blue-highlighter&quot;</span>&gt;</span>蓝色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
@@ -745,10 +757,10 @@ settings:
 <li data-hash="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE" style="margin-left: 1.5em"><a href="#%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</a></li>
 <li data-hash="%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" style="margin-left: 1.5em"><a href="#%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">全部样式示例代码</a></li>
 <li data-hash="CSS%20Snippet" style="margin-left: 1.5em"><a href="#CSS%20Snippet">CSS Snippet</a></li></ul></div>
-      <div class="meta"><small>created: 2024-07-13 08:01:23</small><br><small>updated: 2024-07-13 08:28:54</small></div>
+      <div class="meta"><small>created: 2024-07-13 08:01:23</small><br><small>updated: 2024-07-14 17:52:54</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-07-14 08:04:12</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-07-14 17:53:48</foot>
 </body>
 </html>

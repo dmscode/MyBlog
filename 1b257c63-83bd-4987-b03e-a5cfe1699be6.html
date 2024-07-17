@@ -14,8 +14,8 @@
  * @author: 稻米鼠
  * @description: Add more highlight styles, but keep the code as readable as possible.
  * @created: 2024-07-08 20:43:28
- * @updated: 2024-07-08 20:43:31
- * @version: 0.0.1
+ * @updated: 2024-07-17 16:54:06
+ * @version: 0.0.2
  */
 /* @settings
 
@@ -237,6 +237,7 @@ mark.more-highlight {
   padding: 0.1em 0.2em;
   border-radius: 0.8em 0.3em;
   background: transparent;
+  color: var(--text-normal);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   background-image: linear-gradient(
@@ -248,10 +249,10 @@ mark.more-highlight {
     rgba(var(--mark-style-color), .5) 90%,
     rgba(var(--mark-style-color), .7) 100%,
     transparent 100%
-  ),
-  linear-gradient(
-    90deg,
-    transparent  96%,
+    ),
+    linear-gradient(
+      90deg,
+      transparent  96%,
     rgba(var(--mark-style-color), 1) 98%,
     rgba(var(--mark-style-color), 0.8) 100%
   );
@@ -260,12 +261,13 @@ mark.more-highlight-half {
   margin: 0 -0.2em;
   padding: 0 0.2em;
   background: transparent;
+  color: var(--text-normal);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   background: 
-    radial-gradient(farthest-side,rgba(var(--mark-style-color), .8) 98%,#0000) bottom left,
-    linear-gradient(rgb(var(--mark-style-color)) 0 0) bottom,
-    radial-gradient(farthest-side,rgba(var(--mark-style-color), .8) 98%,#0000) bottom right;
+  radial-gradient(farthest-side,rgba(var(--mark-style-color), .8) 98%,#0000) bottom left,
+  linear-gradient(rgb(var(--mark-style-color)) 0 0) bottom,
+  radial-gradient(farthest-side,rgba(var(--mark-style-color), .8) 98%,#0000) bottom right;
   background-size:var(--half-mark-height) var(--half-mark-height),calc(100% - var(--half-mark-height)) var(--half-mark-height);
   background-repeat:no-repeat;
 }
@@ -273,6 +275,7 @@ mark.more-highlight-underline {
   margin: 0 -0.2em;
   padding: 0 0.2em;
   background: transparent;
+  color: var(--text-normal);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   text-decoration: underline wavy rgb(var(--mark-style-color)) var(--wavy-mark-height);
@@ -281,12 +284,12 @@ mark.more-highlight-rainbow {
   margin: 0 -0.2em;
   padding: 0 0.2em;
   background: transparent;
+  color: transparent;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  color: transparent;
   background: 
-    linear-gradient(90deg, rgb(var(--mark-style-color)), rgb(var(--mark-style-color))),
-    linear-gradient(90deg, rgb(var(--mark-highlighter-red)), rgb(var(--mark-highlighter-yellow)), rgb(var(--mark-highlighter-purple)));
+  linear-gradient(90deg, rgb(var(--mark-style-color)), rgb(var(--mark-style-color))),
+  linear-gradient(90deg, rgb(var(--mark-highlighter-red)), rgb(var(--mark-highlighter-yellow)), rgb(var(--mark-highlighter-purple)));
   background-size: 100% var(--rainbow-mark-height), 0 var(--rainbow-mark-height);
   background-repeat: no-repeat;
   background-position: 100% 100%, 0 100%;
@@ -295,12 +298,14 @@ mark.more-highlight-rainbow {
 }
 mark.more-highlight-rainbow:hover {
   color: var(--text-normal);
+  color: var(--text-normal);
   background-size: 0 var(--rainbow-mark-height), 100% var(--rainbow-mark-height);
 }
 mark.more-highlight-mask {
   margin: 0 -0.2em;
   padding: 0 0.2em;
   background: transparent;
+  color: var(--text-normal);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   text-decoration: underline solid rgb(var(--mark-style-color)) var(--mask-mark-height);
@@ -416,8 +421,8 @@ mark.gray-highlighter {
  * @author: 稻米鼠
  * @description: Add more highlight styles, but keep the code as readable as possible.
  * @created: 2024-07-08 20:43:28
- * @updated: 2024-07-08 20:43:31
- * @version: 0.0.1
+ * @updated: 2024-07-17 16:54:06
+ * @version: 0.0.2
  */</span>
 <span class="hljs-comment">/* @settings
 
@@ -639,6 +644,7 @@ settings:
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.1em</span> <span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0.8em</span> <span class="hljs-number">0.3em</span>;
   <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
   -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(
@@ -650,10 +656,10 @@ settings:
     <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">5</span>) <span class="hljs-number">90%</span>,
     <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">7</span>) <span class="hljs-number">100%</span>,
     transparent <span class="hljs-number">100%</span>
-  ),
-  <span class="hljs-built_in">linear-gradient</span>(
-    <span class="hljs-number">90deg</span>,
-    transparent  <span class="hljs-number">96%</span>,
+    ),
+    <span class="hljs-built_in">linear-gradient</span>(
+      <span class="hljs-number">90deg</span>,
+      transparent  <span class="hljs-number">96%</span>,
     <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), <span class="hljs-number">1</span>) <span class="hljs-number">98%</span>,
     <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), <span class="hljs-number">0.8</span>) <span class="hljs-number">100%</span>
   );
@@ -662,12 +668,13 @@ settings:
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
   -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">background</span>: 
-    <span class="hljs-built_in">radial-gradient</span>(farthest-side,<span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">8</span>) <span class="hljs-number">98%</span>,<span class="hljs-number">#0000</span>) bottom left,
-    <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-number">0</span> <span class="hljs-number">0</span>) bottom,
-    <span class="hljs-built_in">radial-gradient</span>(farthest-side,<span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">8</span>) <span class="hljs-number">98%</span>,<span class="hljs-number">#0000</span>) bottom right;
+  <span class="hljs-built_in">radial-gradient</span>(farthest-side,<span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">8</span>) <span class="hljs-number">98%</span>,<span class="hljs-number">#0000</span>) bottom left,
+  <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-number">0</span> <span class="hljs-number">0</span>) bottom,
+  <span class="hljs-built_in">radial-gradient</span>(farthest-side,<span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">8</span>) <span class="hljs-number">98%</span>,<span class="hljs-number">#0000</span>) bottom right;
   <span class="hljs-attribute">background-size</span>:<span class="hljs-built_in">var</span>(--half-mark-height) <span class="hljs-built_in">var</span>(--half-mark-height),<span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-built_in">var</span>(--half-mark-height)) <span class="hljs-built_in">var</span>(--half-mark-height);
   <span class="hljs-attribute">background-repeat</span>:no-repeat;
 }
@@ -675,6 +682,7 @@ settings:
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
   -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">text-decoration</span>: underline wavy <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-built_in">var</span>(--wavy-mark-height);
@@ -683,12 +691,12 @@ settings:
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: transparent;
   -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">box-decoration-break</span>: clone;
-  <span class="hljs-attribute">color</span>: transparent;
   <span class="hljs-attribute">background</span>: 
-    <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color))),
-    <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-red)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-yellow)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-purple)));
+  <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color))),
+  <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-red)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-yellow)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-purple)));
   <span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height), <span class="hljs-number">0</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height);
   <span class="hljs-attribute">background-repeat</span>: no-repeat;
   <span class="hljs-attribute">background-position</span>: <span class="hljs-number">100%</span> <span class="hljs-number">100%</span>, <span class="hljs-number">0</span> <span class="hljs-number">100%</span>;
@@ -697,12 +705,14 @@ settings:
 }
 <span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-rainbow</span><span class="hljs-selector-pseudo">:hover</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
   <span class="hljs-attribute">background-size</span>: <span class="hljs-number">0</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height), <span class="hljs-number">100%</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height);
 }
 <span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-mask</span> {
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
   <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
   -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">box-decoration-break</span>: clone;
   <span class="hljs-attribute">text-decoration</span>: underline solid <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-built_in">var</span>(--mask-mark-height);
@@ -761,6 +771,6 @@ settings:
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-07-17 00:00:25</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-07-17 16:55:01</foot>
 </body>
 </html>

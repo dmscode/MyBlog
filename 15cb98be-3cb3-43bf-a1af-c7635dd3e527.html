@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dataview 中文文档 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">Dataview 中文文档</h1>
+      <section><h2 id="%E5%89%8D%E8%A8%80">前言</h2><p>这不是严格的文档汉化，里面会有我的理解、备注等。你可以当做是文档，也可以当做是教程，但同时，这些事写给我自己的。一方面作为备忘，另一方面，学习一项技能做好的方法就是整理它的文档吧。</p>
+<p>如果有用，还希望支持一下~<a href="https://afdian.com/a/daomishu" title="请我喝杯咖啡" class="External-link" target="_blank">请我喝杯咖啡</a>可好？</p>
+<p>基于 v0.5.67 SHA: <code class="inline-code">15b8d527e3d5822c5ef9bfd23f528a64769d545b</code></p>
+<h2 id="%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE">插件设置</h2><ul>
+<li>Enable inline queries（启用内联查询）<ul>
+<li><mark>内联/行内都是指内容在某行文字之内，而不是单独一段（块）</mark></li></ul>
+</li><li>Enable Javascript queries（启用 JS 语言查询）</li><li>Enable inline JavaScript queries （启用 JS 内联查询）</li><li>Enable inline field highlighting in reading view（启用阅读视图中的内联字段高亮）</li><li>Enable inline field highlighting in Live Preview（启用实时预览中的内联字段高亮）</li></ul>
+<h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%EF%BC%88Codeblocks%EF%BC%89">代码块（Codeblocks）</h3><ul>
+<li>DataviewjS keyword（DataviewJS 关键字）</li><li>Inline query prefix（内联查询前缀）</li><li>JavaScript inline query prefix（JavaScript 内联查询前缀）</li><li>Code block inline queries（代码块内联查询）</li></ul>
+<h3 id="%E8%A7%86%E5%9B%BE%EF%BC%88View%EF%BC%89">视图（View）</h3><ul>
+<li>Display result count（显示结果数量）</li><li>Warn on empty result（结果为空时显示提示信息）</li><li>Render null as（如何渲染 null 值）</li><li>Automatic view refreshing（当保险库有更新时自动刷新视图）（<mark>我一般关掉，不然写一个字刷新一次，太烦</mark>）</li><li>Refresh interval（刷新频率，即笔记更新后多久刷新视图）（<mark>不想关掉，又不想过于干扰写作，可以适当调大这个值</mark>）</li><li>Date format（日期格式）</li><li>Date + time format（日期时间格式）</li></ul>
+<h3 id="%E8%A1%A8%E6%A0%BC%EF%BC%88Tables%EF%BC%89">表格（Tables）</h3><ul>
+<li>Primary column name（主列名，表格中自动生成的链接到源文件的列名称）</li><li>Grouped column name（组列名，当表格进行分组时，这一列的名称）</li></ul>
+<h3 id="%E4%BB%BB%E5%8A%A1%EF%BC%88Tasks%EF%BC%89">任务（Tasks）</h3><ul>
+<li>Automatic task completion tracking（自动任务完成追踪，开启后任务完成时会标记任务完成时间）</li><li>Use emoji shorthand for completion（使用 emoji 简写来表示完成）</li><li>Completion field name（完成字段名称，只有开启自动追踪，并且关闭 emoji 标记才可设置）</li><li>Completion date format（任务完成时间格式）</li><li>Recursive sub-task completion（递归子任务完成，即标记任务完成时这个任务的下级任务都被标记未完成）</li></ul>
+<h2 id="%E6%80%BB%E8%A7%88%EF%BC%88Overview%EF%BC%89">总览（Overview）</h2><p>Dataview 是一款针对你个人知识库的实时索引和查询引擎。你可以给你的笔记<a href="404.html#添加元数据（Adding%20Metadata）" title="添加元数据（Adding Metadata）" class="internal-link" target="">添加元数据（Adding Metadata）</a>，并使用 <a href="404.html#查询语言参考（Query%20Language%20Reference）" title="Dataview 查询语言" class="internal-link" target="">Dataview 查询语言</a>来列出、过滤、排序或分组你的数据。Dataview 保持你的查询始终是最新的（<mark>这个选项可以自行开关</mark>），并且使数据聚合变得轻松。</p>
+<p>你可以：</p>
+<ul>
+<li>通过在每日笔记中记录来跟踪你的睡眠，并自动创建你的睡眠时间表的周表。</li><li>自动收集笔记中的书签链接，并按评分排序渲染它们。</li><li>自动收集与今天日期相关的页面，并在你的每日笔记中显示它们。</li><li>查找没有标签的页面以进行后续跟进，或展示特定标签页面的漂亮视图。</li><li>创建动态视图，显示记录在笔记中的即将到来的生日或事件。</li></ul>
+<p>以及更多事情。</p>
+<div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="Dataview%20%E4%B8%BA%E6%82%A8%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%80%E7%A7%8D%E5%BF%AB%E9%80%9F%E6%90%9C%E7%B4%A2%E3%80%81%E6%98%BE%E7%A4%BA%E5%92%8C%E6%93%8D%E4%BD%9C%E6%82%A8%E4%BF%9D%E9%99%A9%E5%BA%93%E4%B8%AD%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%81">
+      <div class="callout-title">
+        
+        <div class="callout-title-inner">Dataview 为您提供了一种快速搜索、显示和操作您保险库中索引数据的方式！</div>
+        
+      </div>
+      
+    </div><p>Dataview 非常通用且性能高，能够轻松扩展至处理数十万条带注释的笔记而没有问题。</p>
+<p>如果内置的查询语言无法满足您的需求，您可以在 Dataview API 上运行任意 JavaScript 代码，并在您的笔记中自行构建所需的任何实用工具。</p>
+<div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="Dataview%20%E6%98%AF%E5%B1%95%E7%A4%BA%E5%B1%95%E7%A4%BA%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%BC%96%E8%BE%91%E7%9A%84">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="callout-title-inner">Dataview 是展示展示，而不是编辑的</div>
+        
+      </div>
+      <div class="callout-content">
+        <p>Dataview 旨在展示和计算数据。它不是用来编辑您的笔记/元数据的，并且总是会让它们（笔记）保持原样（...除非您是通过 Dataview 切换任务状态。）</p>
+      </div>
+    </div><h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Dataview">如何使用 Dataview</h3><p>Dataview 由两大构建模块组成：<strong>数据索引</strong>（Data Indexing）和<strong>数据查询</strong>（Data Querying）。</p>
+<div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E6%9B%B4%E5%A4%9A%E8%AF%A6%E6%83%85%E5%9C%A8%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3%E9%A1%B5%E9%9D%A2%E4%B8%8A">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="callout-title-inner">更多详情在相关文档页面上</div>
+        
+      </div>
+      <div class="callout-content">
+        <p>接下来的部分应该为您提供关于使用 Dataview 能做什么以及如何操作的一般概述。请确保访问链接的页面，以了解更多关于各个部分的详细信息。(<mark>因为处理链接很复杂，我会暂时忽略所有内联，反正内容不多，我都放在一个页面上了，可以通过小标题自行跳转</mark>)</p>
+      </div>
+    </div><h4 id="%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95">数据索引</h4><p>Dataview 在您的 Markdown 文件中的元数据上运行。它不能读取您的保险库中的所有内容，而只能读取特定数据。您的一些内容，如标签和项目符号（包括任务），会自动在 Dataview 中可用。您可以通过字段添加其他数据，这些字段可以位于文件顶部的 YAML Frontmatter 中，或者通过使用 <code class="inline-code">[key:: value]</code> 语法在您的内容中间使用内联字段。Dataview 索引这些数据，使其可供您查询。（<mark>简言之，不能全文搜索，只能根据笔记的特殊属性进行查询，或者对列表进行查询</mark>）</p>
+<p>Dataview 索引某些信息，如标签和列表项，以及您通过字段添加的数据。只有在 Dataview 查询中才可用索引数据！</p>
+<p>例如，一个文件可能看起来像这样：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-meta">---</span>
+<span class="hljs-attr">author:</span> <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
+<span class="hljs-attr">published:</span> <span class="hljs-number">1845</span>
+<span class="hljs-attr">tags:</span> <span class="hljs-string">poems</span>
+<span class="hljs-meta">---
+</span>
+<span class="hljs-comment"># The Raven</span>
+
+<span class="hljs-string">Once</span> <span class="hljs-string">upon</span> <span class="hljs-string">a</span> <span class="hljs-string">midnight</span> <span class="hljs-string">dreary,</span> <span class="hljs-string">while</span> <span class="hljs-string">I</span> <span class="hljs-string">pondered,</span> <span class="hljs-string">weak</span> <span class="hljs-string">and</span> <span class="hljs-string">weary,</span>
+<span class="hljs-string">Over</span> <span class="hljs-string">many</span> <span class="hljs-string">a</span> <span class="hljs-string">quaint</span> <span class="hljs-string">and</span> <span class="hljs-string">curious</span> <span class="hljs-string">volume</span> <span class="hljs-string">of</span> <span class="hljs-string">forgotten</span> <span class="hljs-string">lore—</span></code></pre><p>或者像这样</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-selector-id">#poems</span>
+
+# <span class="hljs-selector-tag">The</span> <span class="hljs-selector-tag">Raven</span>
+
+<span class="hljs-selector-tag">From</span> <span class="hljs-selector-attr">[author:: Edgar Allan Poe]</span>, <span class="hljs-selector-tag">written</span> <span class="hljs-selector-tag">in</span> (<span class="hljs-attribute">published</span>:: <span class="hljs-number">1845</span>)
+
+<span class="hljs-selector-tag">Once</span> <span class="hljs-selector-tag">upon</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">midnight</span> <span class="hljs-selector-tag">dreary</span>, <span class="hljs-selector-tag">while</span> <span class="hljs-selector-tag">I</span> <span class="hljs-selector-tag">pondered</span>, <span class="hljs-selector-tag">weak</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">weary</span>,
+<span class="hljs-selector-tag">Over</span> <span class="hljs-selector-tag">many</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">quaint</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">curious</span> <span class="hljs-selector-tag">volume</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">forgotten</span> <span class="hljs-selector-tag">lore</span>—</code></pre><p>在索引的元数据（或者您可以查询的内容）方面，它们是相同的，只是它们的注释风格不同。您想要如何注释您的元数据取决于您和您的个人偏好。有了这个文件，您将拥有元数据字段 &quot;author&quot; 可用，以及 Dataview 自动为您提供的所有隐式字段，比如标签或笔记标题。</p>
+<div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E6%95%B0%E6%8D%AE%E9%9C%80%E8%A6%81%E8%A2%AB%E7%B4%A2%E5%BC%95">
+      <div class="callout-title">
+        
+        <div class="callout-title-inner">数据需要被索引</div>
+        
+      </div>
+      <div class="callout-content">
+        <p>在上述例子中，您无法在 Dataview 中使用诗歌本身：它是一个段落，不是元数据字段，也不是 Dataview 自动索引的内容。它不是 Dataview 索引的一部分，因此您将无法查询它。</p>
+<p><mark>这样做的好处是查询速度快，并且足以满足大部分需求。但是对于深度用户，这样带来的局限性也是非常大的。不过深度用户可以通过其他方法开启更复杂的查询。</mark></p>
+      </div>
+    </div><h4 id="%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2">数据查询</h4><p>您可以借助查询来访问索引数据。</p>
+<p>您可以用三种不同的方式来编写查询：使用 Dataview 查询语言、作为内联语句，或者以最灵活但最复杂的方式：用 JavaScript 查询。（<mark>学它的查询语言只能用在它这里，但是学习 JS 可以应用的地方可太多了，而且灵活性上 JS 也强了太多，所以我选择……</mark>）</p>
+<p>Dataview 查询语言（DQL）为您提供了一个广泛而强大的工具箱，用于查询、显示和操作您的数据。内联查询使您能够在笔记中的任何地方显示一个确切的索引值。您也可以通过这种方式进行计算。有了 DQL，您可能在数据之旅中不需要任何 JavaScript。（<mark>完全按着它的思路去使用，大概确实是的。但如果自己的想法多一点，想要的多一点，还是得 JS</mark>）</p>
+<p>DQL 查询由几个部分组成：</p>
+<ul>
+<li>选择一种查询类型，它决定了您的查询输出外观（格式）</li><li>零个或一个 FROM 语句，用于选择特定的标签或文件夹（或另一个来源）来查看</li><li>零到多个其他数据命令，帮助您过滤、分组和排序您想要的输出</li></ul>
+<p>例如，一个查询可能看起来像这样：</p>
+<pre class="hljs-code-block"><code class="hljs"><span class="hljs-string">``</span><span class="hljs-string">`dataview
+LIST
+`</span><span class="hljs-string">``</span></code></pre><p>这将列出你保险库中的所有文件。（<mark>查询类型：LIST，其它参数全省略，则默认整个仓库</mark>）</p>
+<div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%E6%98%AF%E5%94%AF%E4%B8%80%E5%BF%85%E9%9C%80%E7%9A%84">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="callout-title-inner">查询类型是唯一必需的</div>
+        
+      </div>
+      <div class="callout-content">
+        <p>对于一个有效的 DQL 查询，您需要的只有查询类型（在日历视图上，还需要一个日期字段）。</p>
+      </div>
+    </div><p>一个添加了更多限制条件的查询看起来像这个样子：</p>
+<pre class="hljs-code-block"><code class="hljs">```dataview
+LIST
+FROM #poems
+WHERE author = <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
+```</code></pre><p>这个查询列出了您的保险库中所有带有标签 #poems 并且有一个名为 author 的字段，其值为 Edgar Allan Poe 的文件。这个查询将找到我们上面提到的例子页面。</p>
+<p>LIST 只是您可以使用的四种查询类型之一。例如，使用 TABLE 类型，我们可以在我们的输出中添加一些更多的信息：</p>
+<pre class="hljs-code-block"><code class="hljs">```dataview
+<span class="hljs-keyword">TABLE</span> author, published, <span class="hljs-keyword">file</span>.inlinks <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;Mentions&quot;</span>
+<span class="hljs-keyword">FROM</span> #poems
+```</code></pre><p>返回的结果像这样：</p>
+<table>
+<thead>
+<tr>
+<th>File (3)</th>
+<th>author</th>
+<th>published</th>
+<th>Mentions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The Bells</td>
+<td>Edgar Allan Poe</td>
+<td>1849</td>
+<td></td>
+</tr>
+<tr>
+<td>The New Colossus</td>
+<td>Emma Lazarus</td>
+<td>1883</td>
+<td>- [[Favorite Poems]]</td>
+</tr>
+<tr>
+<td>The Raven</td>
+<td>Edgar Allan Poe</td>
+<td>1845</td>
+<td>- [[Favorite Poems]]</td>
+</tr>
+</tbody></table>
+<p>尽管如此，Dataview 的能力并不仅限于此。您还可以利用函数对您的数据进行操作。请注意，这些操作仅在查询内部进行 - 您文件中的数据保持不变。</p>
+<pre class="hljs-code-block"><code class="hljs">```dataview
+<span class="hljs-keyword">TABLE</span> author, <span class="hljs-meta">date</span>(now).year - published <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;Age in Yrs&quot;</span>, <span class="hljs-meta">length</span>(<span class="hljs-keyword">file</span>.inlinks) <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;Counts of Mentions&quot;</span>
+<span class="hljs-keyword">FROM</span> #poems
+```</code></pre><p>返回结果：</p>
+<table>
+<thead>
+<tr>
+<th>File (3)</th>
+<th>author</th>
+<th>Age in Yrs</th>
+<th>Count of Mentions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The Bells</td>
+<td>Edgar Allan Poe</td>
+<td>173</td>
+<td>0</td>
+</tr>
+<tr>
+<td>The New Colossus</td>
+<td>Emma Lazarus</td>
+<td>139</td>
+<td>1</td>
+</tr>
+<tr>
+<td>The Raven</td>
+<td>Edgar Allan Poe</td>
+<td>177</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%A4%BA%E4%BE%8B%E7%AB%A0%E8%8A%82%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E4%BE%8B%E5%AD%90">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="callout-title-inner">你可以在示例章节找到更多例子</div>
+        
+      </div>
+      
+    </div><p>正如您所看到的，Dataview 不仅允许您快速且始终更新地聚合您的数据，它还可以帮助您进行操作，为您提供对数据集的新见解。浏览文档以了解更多关于如何与您的数据交互的信息。</p>
+<p>以新的方式探索您的保险库，享受乐趣！</p>
+<h3 id="%E8%B5%84%E6%BA%90%E5%92%8C%E5%B8%AE%E5%8A%A9">资源和帮助</h3><p>此文档不是唯一可以在您的数据之旅中帮助您的地方。查看资源和支持，获取有用页面和视频的列表。</p>
+<h2 id="%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%EF%BC%89">元数据（Metadata）</h2><h3 id="%E6%B7%BB%E5%8A%A0%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Adding%20Metadata%EF%BC%89">添加元数据（Adding Metadata）</h3><p>Dataview 无法查询您保管库的所有内容。为了能够搜索、过滤和显示内容，需要对该内容建立索引。某些内容会自动索引，例如项目符号点或任务列表 - 所谓的隐式字段，下面将详细介绍 - 而其他数据需要保存在元数据字段中才能通过数据视图访问。（<mark>总而言之，一般的笔记内容它查询不到</mark>）</p>
+<h4 id="%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E5%AD%97%E6%AE%B5%E2%80%9D%EF%BC%9F">什么是“字段”？</h4><p>元数据字段是一对键和值。字段的值有一个数据类型（更多信息请参见此处），该数据类型确定该字段在查询时的行为方式。</p>
+<p>您可以向注释、列表项或任务添加任意数量的字段。</p>
+<h4 id="%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5%EF%BC%9F">如何添加字段？</h4><p>您可以通过三种不同的方式向注释添加字段。字段的外观取决于您添加它的方式。</p>
+<p>在任务或列表项上，您将拥有可用的 YAML Frontmatter 信息，但无法将它们添加到特定列表项。如果您只想将元数据添加到一个列表项或任务，请使用内联字段。</p>
+<h5 id="Frontmatter">Frontmatter</h5><p>Frontmatter 是一个常见的 Markdown 扩展，它允许将 YAML 元数据添加到页面顶部。它由 Obsidian 原生支持，并在其官方文档中进行了解释。所有 YAML Frontmatter 字段将自动用作 Dataview 字段。</p>
+<pre class="hljs-code-block"><code class="hljs yaml" lang="yaml">  <span class="hljs-string">---</span>
+  <span class="hljs-attr">alias:</span> <span class="hljs-string">&quot;document&quot;</span>
+  <span class="hljs-attr">last-reviewed:</span> <span class="hljs-number">2021-08-17</span>
+  <span class="hljs-attr">thoughts:</span>
+    <span class="hljs-attr">rating:</span> <span class="hljs-number">8</span>
+    <span class="hljs-attr">reviewable:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-string">---</span></code></pre><p>这样，您的笔记就有名为 <code class="inline-code">alias</code> 、 <code class="inline-code">last-reviewed</code> 和 <code class="inline-code">thoughts</code> 的元数据字段。其中每一个都有不同的数据类型：</p>
+<ul>
+<li><code class="inline-code">alias</code> 是一个文本字段，因为它包裹在引号中</li><li><code class="inline-code">last-reviewed</code> 是一个日期，因为它遵循 ISO 日期格式</li><li><code class="inline-code">thoughts</code> 是一个对象字段，因为它使用 YAML Frontmatter 对象语法</li></ul>
+<p>您可以使用下面的查询来查询该注释：</p>
+<pre class="hljs-code-block"><code class="hljs"><span class="hljs-string">``</span><span class="hljs-string">`dataview
+LIST
+WHERE thoughts.rating = 8
+`</span><span class="hljs-string">``</span></code></pre><h3 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88Data%20Types%EF%BC%89">数据类型（Data Types）</h3><h3 id="%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Pages%EF%BC%89">页面（笔记）元数据（Metadata on Pages）</h3><h3 id="%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Tasks%20and%20Lists%EF%BC%89">任务和列表的元数据（Metadata on Tasks and Lists）</h3><h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（# DQL, JS and Inlines）</h2><h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89">查询语言参考（Query Language Reference）</h2><h3 id="%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89">结构化查询（Structure of a Query）</h3><h3 id="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%EF%BC%88Query%20Types%EF%BC%89">查询类型（Query Types）</h3><h3 id="%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%EF%BC%88Data%20Commands%EF%BC%89">数据命令（Data Commands）</h3><h3 id="%E4%B8%8E%20SQL%20%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%88Differences%20to%20SQL%EF%BC%89">与 SQL 的差异（Differences to SQL）</h3><h3 id="%E6%9D%A5%E6%BA%90%EF%BC%88Sources%EF%BC%89">来源（Sources）</h3><h3 id="%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88Expressions%EF%BC%89">表达式（Expressions）</h3><h3 id="%E5%AD%97%E9%9D%A2%E9%87%8F%EF%BC%88Literals%EF%BC%89">字面量（Literals）</h3><h3 id="%E5%87%BD%E6%95%B0%EF%BC%88Functions%EF%BC%89">函数（Functions）</h3><h2 id="JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89">JavaScript 查询参考（JavaScript Reference）</h2><h3 id="%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89">概览（Overview）</h3><h3 id="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</h3><h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89">代码块参考（Codeblock Reference）</h3><h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89">代码块示例（Codeblock Examples）</h3><h2 id="%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89">问答和资源（FAQ and Resources）</h2><h3 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89">常见问题解答（Frequently Asked Questions）</h3><h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89">示例（Examples）</h3><h3 id="%E9%92%88%E5%AF%B9Dataview%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89">针对Dataview的开发（Developing Against Dataview）</h3><h3 id="%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89">资源与支持（Resources and Support）</h3><h2 id="%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7%EF%BC%88Friends%20of%20Dataview%EF%BC%89">增强工具（Friends of Dataview）</h2><h2 id="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</h2></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="%E5%89%8D%E8%A8%80" style="margin-left: 1.5em"><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li data-hash="%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE" style="margin-left: 1.5em"><a href="#%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE">插件设置</a></li>
+<li data-hash="%E4%BB%A3%E7%A0%81%E5%9D%97%EF%BC%88Codeblocks%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97%EF%BC%88Codeblocks%EF%BC%89">代码块（Codeblocks）</a></li>
+<li data-hash="%E8%A7%86%E5%9B%BE%EF%BC%88View%EF%BC%89" style="margin-left: 3em"><a href="#%E8%A7%86%E5%9B%BE%EF%BC%88View%EF%BC%89">视图（View）</a></li>
+<li data-hash="%E8%A1%A8%E6%A0%BC%EF%BC%88Tables%EF%BC%89" style="margin-left: 3em"><a href="#%E8%A1%A8%E6%A0%BC%EF%BC%88Tables%EF%BC%89">表格（Tables）</a></li>
+<li data-hash="%E4%BB%BB%E5%8A%A1%EF%BC%88Tasks%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%BB%E5%8A%A1%EF%BC%88Tasks%EF%BC%89">任务（Tasks）</a></li>
+<li data-hash="%E6%80%BB%E8%A7%88%EF%BC%88Overview%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%80%BB%E8%A7%88%EF%BC%88Overview%EF%BC%89">总览（Overview）</a></li>
+<li data-hash="Dataview%20%E4%B8%BA%E6%82%A8%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%80%E7%A7%8D%E5%BF%AB%E9%80%9F%E6%90%9C%E7%B4%A2%E3%80%81%E6%98%BE%E7%A4%BA%E5%92%8C%E6%93%8D%E4%BD%9C%E6%82%A8%E4%BF%9D%E9%99%A9%E5%BA%93%E4%B8%AD%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%81" style="margin-left: 1.5em"><a href="#Dataview%20%E4%B8%BA%E6%82%A8%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%80%E7%A7%8D%E5%BF%AB%E9%80%9F%E6%90%9C%E7%B4%A2%E3%80%81%E6%98%BE%E7%A4%BA%E5%92%8C%E6%93%8D%E4%BD%9C%E6%82%A8%E4%BF%9D%E9%99%A9%E5%BA%93%E4%B8%AD%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%81">Dataview 为您提供了一种快速搜索、显示和操作您保险库中索引数据的方式！</a></li>
+<li data-hash="Dataview%20%E6%98%AF%E5%B1%95%E7%A4%BA%E5%B1%95%E7%A4%BA%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%BC%96%E8%BE%91%E7%9A%84" style="margin-left: 1.5em"><a href="#Dataview%20%E6%98%AF%E5%B1%95%E7%A4%BA%E5%B1%95%E7%A4%BA%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%BC%96%E8%BE%91%E7%9A%84">Dataview 是展示展示，而不是编辑的</a></li>
+<li data-hash="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Dataview" style="margin-left: 3em"><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Dataview">如何使用 Dataview</a></li>
+<li data-hash="%E6%9B%B4%E5%A4%9A%E8%AF%A6%E6%83%85%E5%9C%A8%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3%E9%A1%B5%E9%9D%A2%E4%B8%8A" style="margin-left: 1.5em"><a href="#%E6%9B%B4%E5%A4%9A%E8%AF%A6%E6%83%85%E5%9C%A8%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3%E9%A1%B5%E9%9D%A2%E4%B8%8A">更多详情在相关文档页面上</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95" style="margin-left: 4.5em"><a href="#%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95">数据索引</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E9%9C%80%E8%A6%81%E8%A2%AB%E7%B4%A2%E5%BC%95" style="margin-left: 1.5em"><a href="#%E6%95%B0%E6%8D%AE%E9%9C%80%E8%A6%81%E8%A2%AB%E7%B4%A2%E5%BC%95">数据需要被索引</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2" style="margin-left: 4.5em"><a href="#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2">数据查询</a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%E6%98%AF%E5%94%AF%E4%B8%80%E5%BF%85%E9%9C%80%E7%9A%84" style="margin-left: 1.5em"><a href="#%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%E6%98%AF%E5%94%AF%E4%B8%80%E5%BF%85%E9%9C%80%E7%9A%84">查询类型是唯一必需的</a></li>
+<li data-hash="%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%A4%BA%E4%BE%8B%E7%AB%A0%E8%8A%82%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E4%BE%8B%E5%AD%90" style="margin-left: 1.5em"><a href="#%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%A4%BA%E4%BE%8B%E7%AB%A0%E8%8A%82%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E4%BE%8B%E5%AD%90">你可以在示例章节找到更多例子</a></li>
+<li data-hash="%E8%B5%84%E6%BA%90%E5%92%8C%E5%B8%AE%E5%8A%A9" style="margin-left: 3em"><a href="#%E8%B5%84%E6%BA%90%E5%92%8C%E5%B8%AE%E5%8A%A9">资源和帮助</a></li>
+<li data-hash="%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%EF%BC%89">元数据（Metadata）</a></li>
+<li data-hash="%E6%B7%BB%E5%8A%A0%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Adding%20Metadata%EF%BC%89" style="margin-left: 3em"><a href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Adding%20Metadata%EF%BC%89">添加元数据（Adding Metadata）</a></li>
+<li data-hash="%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E5%AD%97%E6%AE%B5%E2%80%9D%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E5%AD%97%E6%AE%B5%E2%80%9D%EF%BC%9F">什么是“字段”？</a></li>
+<li data-hash="%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5%EF%BC%9F">如何添加字段？</a></li>
+<li data-hash="Frontmatter" style="margin-left: 6em"><a href="#Frontmatter">Frontmatter</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88Data%20Types%EF%BC%89" style="margin-left: 3em"><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88Data%20Types%EF%BC%89">数据类型（Data Types）</a></li>
+<li data-hash="%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Pages%EF%BC%89" style="margin-left: 3em"><a href="#%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Pages%EF%BC%89">页面（笔记）元数据（Metadata on Pages）</a></li>
+<li data-hash="%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Tasks%20and%20Lists%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Tasks%20and%20Lists%EF%BC%89">任务和列表的元数据（Metadata on Tasks and Lists）</a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（# DQL, JS and Inlines）</a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89">查询语言参考（Query Language Reference）</a></li>
+<li data-hash="%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89" style="margin-left: 3em"><a href="#%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89">结构化查询（Structure of a Query）</a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%EF%BC%88Query%20Types%EF%BC%89" style="margin-left: 3em"><a href="#%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%EF%BC%88Query%20Types%EF%BC%89">查询类型（Query Types）</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%EF%BC%88Data%20Commands%EF%BC%89" style="margin-left: 3em"><a href="#%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%EF%BC%88Data%20Commands%EF%BC%89">数据命令（Data Commands）</a></li>
+<li data-hash="%E4%B8%8E%20SQL%20%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%88Differences%20to%20SQL%EF%BC%89" style="margin-left: 3em"><a href="#%E4%B8%8E%20SQL%20%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%88Differences%20to%20SQL%EF%BC%89">与 SQL 的差异（Differences to SQL）</a></li>
+<li data-hash="%E6%9D%A5%E6%BA%90%EF%BC%88Sources%EF%BC%89" style="margin-left: 3em"><a href="#%E6%9D%A5%E6%BA%90%EF%BC%88Sources%EF%BC%89">来源（Sources）</a></li>
+<li data-hash="%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88Expressions%EF%BC%89" style="margin-left: 3em"><a href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88Expressions%EF%BC%89">表达式（Expressions）</a></li>
+<li data-hash="%E5%AD%97%E9%9D%A2%E9%87%8F%EF%BC%88Literals%EF%BC%89" style="margin-left: 3em"><a href="#%E5%AD%97%E9%9D%A2%E9%87%8F%EF%BC%88Literals%EF%BC%89">字面量（Literals）</a></li>
+<li data-hash="%E5%87%BD%E6%95%B0%EF%BC%88Functions%EF%BC%89" style="margin-left: 3em"><a href="#%E5%87%BD%E6%95%B0%EF%BC%88Functions%EF%BC%89">函数（Functions）</a></li>
+<li data-hash="JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89" style="margin-left: 1.5em"><a href="#JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89">JavaScript 查询参考（JavaScript Reference）</a></li>
+<li data-hash="%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89" style="margin-left: 3em"><a href="#%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89">概览（Overview）</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89" style="margin-left: 3em"><a href="#%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</a></li>
+<li data-hash="%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89">代码块参考（Codeblock Reference）</a></li>
+<li data-hash="%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89">代码块示例（Codeblock Examples）</a></li>
+<li data-hash="%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89" style="margin-left: 1.5em"><a href="#%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89">问答和资源（FAQ and Resources）</a></li>
+<li data-hash="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89" style="margin-left: 3em"><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89">常见问题解答（Frequently Asked Questions）</a></li>
+<li data-hash="%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89" style="margin-left: 3em"><a href="#%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89">示例（Examples）</a></li>
+<li data-hash="%E9%92%88%E5%AF%B9Dataview%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89" style="margin-left: 3em"><a href="#%E9%92%88%E5%AF%B9Dataview%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89">针对Dataview的开发（Developing Against Dataview）</a></li>
+<li data-hash="%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89" style="margin-left: 3em"><a href="#%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89">资源与支持（Resources and Support）</a></li>
+<li data-hash="%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7%EF%BC%88Friends%20of%20Dataview%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7%EF%BC%88Friends%20of%20Dataview%EF%BC%89">增强工具（Friends of Dataview）</a></li>
+<li data-hash="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</a></li></ul></div>
+      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-01 21:53:02</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-08-01 21:56:02</foot>
+</body>
+</html>

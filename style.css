@@ -208,6 +208,9 @@ pre.hljs-code-block:hover > .copy-code {
 .callout.is-collapsed > .callout-content {
   display: none;
 }
+.callout.callout-note {
+  --callout-color: 68, 138, 255;
+}
 .callout.callout-abstract,
 .callout.callout-summary,
 .callout.callout-tldr,
@@ -217,7 +220,7 @@ pre.hljs-code-block:hover > .copy-code {
   --callout-color: 115, 187, 178;
 }
 .callout.callout-info {
-  --callout-color: 108, 153, 187;
+  --callout-color: 0, 184, 212;
 }
 .callout.callout-todo {
   --callout-color: 108, 153, 187;

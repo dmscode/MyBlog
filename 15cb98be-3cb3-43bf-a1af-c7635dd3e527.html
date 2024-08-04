@@ -16,10 +16,10 @@
       <section><h2 id="%E5%89%8D%E8%A8%80">前言</h2><p>这不是严格的文档汉化，里面会有我的理解、备注等。你可以当做是文档，也可以当做是教程，但同时，这些是写给我自己的，就是我的读书笔记啦。一方面作为备忘，另一方面，学习一项技能做好的方法就是整理它的文档吧。</p>
 <p>如果有用，还希望支持一下~<a href="https://afdian.com/a/daomishu" title="请我喝杯咖啡" class="External-link" target="_blank">请我喝杯咖啡</a>可好？</p>
 <p>基于 v0.5.67 SHA: <code class="inline-code">15b8d527e3d5822c5ef9bfd23f528a64769d545b</code></p>
-<div data-callout-metadata="" data-callout-fold="" data-callout="warning" class="callout callout-warning" id="%E5%B8%8C%E6%9C%9B%E4%BD%A0%E4%B8%8D%E8%A6%81%E5%B0%9D%E8%AF%95%E7%9B%B4%E6%8E%A5%E5%B0%86%E6%9C%AC%E6%96%87%E5%AE%8C%E6%95%B4%E6%91%98%E6%8A%84%E5%88%B0%20Obsidian%20%E7%9A%84%E7%AC%94%E8%AE%B0%E4%B8%AD%EF%BC%8C%E5%8F%AF%E4%BC%9A%E6%AF%94%E8%BE%83%E5%8D%A1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%A4%AA%E9%95%BF%E4%BA%86%E3%80%82">
+<div data-callout-metadata="" data-callout-fold="" data-callout="warning" class="callout callout-warning" id="%E5%B8%8C%E6%9C%9B%E4%BD%A0%E4%B8%8D%E8%A6%81%E5%B0%9D%E8%AF%95%E7%9B%B4%E6%8E%A5%E5%B0%86%E6%9C%AC%E6%96%87%E5%AE%8C%E6%95%B4%E6%91%98%E6%8A%84%E5%88%B0%20Obsidian%20%E7%9A%84%E7%AC%94%E8%AE%B0%E4%B8%AD%EF%BC%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E8%BE%83%E5%8D%A1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%A4%AA%E9%95%BF%E4%BA%86%E3%80%82">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-        <div class="callout-title-inner">希望你不要尝试直接将本文完整摘抄到 Obsidian 的笔记中，可会比较卡，因为太长了。</div>
+        <div class="callout-title-inner">希望你不要尝试直接将本文完整摘抄到 Obsidian 的笔记中，可能会比较卡，因为太长了。</div>
         
       </div>
       
@@ -2370,7 +2370,498 @@ where meta(section).subpath = <span class="hljs-string">&quot;Next Actions&quot;
 ```</code></pre><h6 id="%3Ccode%20class=%22inline-code%22%3Emeta(link).type%3C/code%3E"><code class="inline-code">meta(link).type</code></h6><p>根据链接是指向整个文件、文件内的标题，还是文件内的块，具有值 &quot;file&quot;、&quot;header&quot; 或 &quot;block&quot;。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js">meta(<span class="hljs-string">[[My Project]]</span>).<span class="hljs-built_in">type</span> = <span class="hljs-string">&quot;file&quot;</span>
 meta(<span class="hljs-string">[[My Project#Next Actions]]</span>).<span class="hljs-built_in">type</span> = <span class="hljs-string">&quot;header&quot;</span>
-meta(<span class="hljs-string">[[My Project#^9bcbe8]]</span>).<span class="hljs-built_in">type</span> = <span class="hljs-string">&quot;block&quot;</span></code></pre><h2 id="JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89">JavaScript 查询参考（JavaScript Reference）</h2><h3 id="%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89">概览（Overview）</h3><h3 id="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</h3><h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89">代码块参考（Codeblock Reference）</h3><h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89">代码块示例（Codeblock Examples）</h3><h2 id="%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89">问答和资源（FAQ and Resources）</h2><h3 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89">常见问题解答（Frequently Asked Questions）</h3><h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89">示例（Examples）</h3><h3 id="%E9%92%88%E5%AF%B9Dataview%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89">针对Dataview的开发（Developing Against Dataview）</h3><h3 id="%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89">资源与支持（Resources and Support）</h3><h2 id="%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7%EF%BC%88Friends%20of%20Dataview%EF%BC%89">增强工具（Friends of Dataview）</h2><h2 id="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</h2></section>
+meta(<span class="hljs-string">[[My Project#^9bcbe8]]</span>).<span class="hljs-built_in">type</span> = <span class="hljs-string">&quot;block&quot;</span></code></pre><h2 id="JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89">JavaScript 查询参考（JavaScript Reference）</h2><h3 id="%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89">概览（Overview）</h3><p>Dataview JavaScript API 允许执行任意 JavaScript 代码，并可以访问 dataview 索引和查询引擎，这对于复杂视图或与其他插件的相互操作非常有用。API 有两种风格：面向插件的和面向用户的（或称为“内联 API 使用”）。</p>
+<h4 id="%E5%86%85%E8%81%94%E8%AE%BF%E9%97%AE">内联访问</h4><p>你可以通过以下方式创建一个“DataviewJS”块：</p>
+<pre class="hljs-code-block"><code class="hljs dataviewjs" lang="dataviewjs">dv.pages(<span class="hljs-string">&quot;#thing&quot;</span>)...</code></pre><p>在此类代码块中执行的代码可以访问 <code class="inline-code">dv</code> 变量，该变量提供了整个代码块相关的 dataview API（例如 <code class="inline-code">dv.table()</code>, <code class="inline-code">dv.pages()</code> 等）。更多信息，请查看代码块 API 参考。</p>
+<h4 id="%E6%8F%92%E4%BB%B6%E8%AE%BF%E9%97%AE">插件访问</h4><p>你可以通过 <code class="inline-code">app.plugins.plugins.dataview.api</code> 访问 Dataview 插件 API（来自其他插件或控制台）；这个 API 与代码块参考类似，但由于缺少隐式文件来执行查询，参数略有不同。更多信息，请查看插件 API 参考。（<mark>讲得很好，但是这两个 API 参考，其实被链接到了一个地方，就是下面的代码块参考，其实插件访问的说明在 问答和资源——针对 Dataview 的开发 中</mark>）</p>
+<h3 id="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</h3><p>Dataview 中结果列表的通用表示是 <code class="inline-code">DataArray</code>，这是 JavaScript 数组的一个代理版本，具有扩展的功能。数据数组支持索引和迭代（通过 <code class="inline-code">for</code> 和 <code class="inline-code">for ... of</code> 循环），与普通数组相似，但还包括许多数据操作运算符，如 <code class="inline-code">sort</code>、<code class="inline-code">groupBy</code>、<code class="inline-code">distinct</code>、<code class="inline-code">where</code> 等，使得操作表格数据更加方便。</p>
+<h4 id="%E5%88%9B%E5%BB%BA">创建</h4><p>数据数组由大多数可以返回多个结果的 Dataview API 返回，例如 <code class="inline-code">dv.pages()</code>。您还可以使用 <code class="inline-code">dv.array(&lt;array&gt;)</code> 明确地将普通 JavaScript 数组转换为 Dataview 数组。如果您想将数据数组转换回普通数组，请使用 <code class="inline-code">DataArray#array()</code>。（==这个 # 有点怪，我觉得应该用 <code class="inline-code">.</code>，我测试了，用 # 不行，用 <code class="inline-code">.</code> 可以，那就是原文写错了吧？==）</p>
+<h4 id="%E7%B4%A2%E5%BC%95%E5%92%8C%E8%BD%AC%E6%8D%A2">索引和转换</h4><p>数据数组支持与普通数组相同的常规索引（如 <code class="inline-code">array[0]</code>），但重要的是，它们还支持查询语言风格的“转换”：如果您用字段名称索引数据数组（如 <code class="inline-code">array.field</code>），它会自动将数组中的每个元素映射到 <code class="inline-code">field</code>，如果 <code class="inline-code">field</code> 本身也是一个数组，则会扁平化 <code class="inline-code">field</code>。</p>
+<p>例如，<code class="inline-code">dv.pages().file.name</code> 将返回您库中所有文件名的数据数组；<code class="inline-code">dv.pages(&quot;#books&quot;).genres</code> 将返回您书籍中所有流派的扁平化列表。</p>
+<h4 id="%E5%8E%9F%E5%A7%8B%E6%8E%A5%E5%8F%A3">原始接口</h4><p>以下是数据数组实现的完整接口供参考：</p>
+<pre class="hljs-code-block"><code class="hljs ts" lang="ts"><span class="hljs-comment">/** 将数组元素映射到某个值的函数。 */</span>
+export type <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">O</span>&gt; <span class="hljs-operator">=</span> (elem: <span class="hljs-type">T</span>, index: number, arr: <span class="hljs-type">T</span>[]) <span class="hljs-operator">=&gt;</span> <span class="hljs-type">O</span>;
+
+<span class="hljs-comment">/** 比较两种类型的函数。 */</span>
+export type <span class="hljs-type">ArrayComparator</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-operator">=</span> (a: <span class="hljs-type">T</span>, b: <span class="hljs-type">T</span>) <span class="hljs-operator">=&gt;</span> number;
+
+<span class="hljs-comment">/**
+ * 代理接口，允许操作基于数组的数据。数据数组上的所有函数生成一个新数组
+ * （即数组是不可变的）。
+ */</span>
+export interface <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt; {
+    <span class="hljs-comment">/** 数组中元素的总数。 */</span>
+    length: number;
+
+    <span class="hljs-comment">/** 将数据数组过滤为仅匹配给定谓词的元素。 */</span>
+    <span class="hljs-keyword">where</span>(predicate: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+    <span class="hljs-comment">/** &#x27;where&#x27; 的别名，适合想要数组语义的人。 */</span>
+    filter(predicate: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+
+    <span class="hljs-comment">/** 通过对每个元素应用函数来映射数据数组中的元素。 */</span>
+    map<span class="hljs-operator">&lt;</span><span class="hljs-type">U</span><span class="hljs-operator">&gt;</span>(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">U</span>&gt;;
+    <span class="hljs-comment">/** 通过对每个元素应用函数来映射数据数组中的元素，然后扁平化结果以生成新数组。 */</span>
+    flatMap<span class="hljs-operator">&lt;</span><span class="hljs-type">U</span><span class="hljs-operator">&gt;</span>(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>[]&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">U</span>&gt;;
+    <span class="hljs-comment">/** 可变地更改数组中的每个值，返回可以进一步链接的相同数组。 */</span>
+    mutate(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-keyword">any</span>&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-keyword">any</span>&gt;;
+
+    <span class="hljs-comment">/** 将数组中的条目总数限制为给定值。 */</span>
+    limit(count: number): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+    <span class="hljs-comment">/**
+     * 获取数组的切片。如果 `start` 未定义，则假定为 0；
+     * 如果 `end` 未定义，则假定为数组的末尾。
+     */</span>
+    slice(start<span class="hljs-operator">?</span>: number, end<span class="hljs-operator">?</span>: number): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+    <span class="hljs-comment">/** 将此数据数组中的值与另一个可迭代对象/数据数组/数组连接。 */</span>
+    concat(other: <span class="hljs-type">Iterable</span>&lt;<span class="hljs-type">T</span>&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+
+    <span class="hljs-comment">/** 返回给定元素的第一个索引（可选地从指定位置开始搜索） */</span>
+    indexOf(element: <span class="hljs-type">T</span>, fromIndex<span class="hljs-operator">?</span>: number): number;
+    <span class="hljs-comment">/** 返回满足给定谓词的第一个元素。 */</span>
+    find(pred: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;): <span class="hljs-type">T</span> <span class="hljs-operator">|</span> undefined;
+    <span class="hljs-comment">/** 查找满足给定谓词的第一个元素的索引。如果未找到，则返回 -1。 */</span>
+    findIndex(pred: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;, fromIndex<span class="hljs-operator">?</span>: number): number;
+    <span class="hljs-comment">/** 如果数组包含给定元素，则返回 true，否则返回 false。 */</span>
+    includes(element: <span class="hljs-type">T</span>): boolean;
+
+    <span class="hljs-comment">/**
+     * 返回通过将数组中的每个元素转换为字符串并与给定分隔符连接得到的字符串
+     * （默认为 &#x27;, &#x27;）。
+     */</span>
+    join(sep<span class="hljs-operator">?</span>: string): string;
+
+    <span class="hljs-comment">/**
+     * 返回按给定键排序的数组；可以提供可选的比较器，用于比较键，而不是使用默认的 Dataview 比较器。
+     */</span>
+    sort<span class="hljs-operator">&lt;</span><span class="hljs-type">U</span><span class="hljs-operator">&gt;</span>(key: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt;, direction<span class="hljs-operator">?</span>: <span class="hljs-string">&quot;asc&quot;</span> <span class="hljs-operator">|</span> <span class="hljs-string">&quot;desc&quot;</span>, comparator<span class="hljs-operator">?</span>: <span class="hljs-type">ArrayComparator</span>&lt;<span class="hljs-type">U</span>&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+
+    <span class="hljs-comment">/**
+     * 返回按给定键分组的数组；结果数组将具有以下形式的对象
+     * { key: &lt;key value&gt;, rows: DataArray }。
+     */</span>
+    groupBy<span class="hljs-operator">&lt;</span><span class="hljs-type">U</span><span class="hljs-operator">&gt;</span>(key: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt;, comparator<span class="hljs-operator">?</span>: <span class="hljs-type">ArrayComparator</span>&lt;<span class="hljs-type">U</span>&gt;): <span class="hljs-type">DataArray</span>&lt;{ key: <span class="hljs-type">U</span>; rows: <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt; }&gt;;
+
+    <span class="hljs-comment">/**
+     * 返回不同的条目。如果提供了键，则返回具有不同键的行。
+     */</span>
+    distinct<span class="hljs-operator">&lt;</span><span class="hljs-type">U</span><span class="hljs-operator">&gt;</span>(key<span class="hljs-operator">?</span>: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt;, comparator<span class="hljs-operator">?</span>: <span class="hljs-type">ArrayComparator</span>&lt;<span class="hljs-type">U</span>&gt;): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-type">T</span>&gt;;
+
+    <span class="hljs-comment">/** 如果谓词对所有值都为真，则返回 true。 */</span>
+    every(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;): boolean;
+    <span class="hljs-comment">/** 如果谓词对至少一个值为真，则返回 true。 */</span>
+    <span class="hljs-keyword">some</span>(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;): boolean;
+    <span class="hljs-comment">/** 如果谓词对所有值为假，则返回 true。 */</span>
+    none(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, boolean&gt;): boolean;
+
+    <span class="hljs-comment">/** 返回数据数组中的第一个元素。如果数组为空，则返回 undefined。 */</span>
+    first(): <span class="hljs-type">T</span>;
+    <span class="hljs-comment">/** 返回数据数组中的最后一个元素。如果数组为空，则返回 undefined。 */</span>
+    last(): <span class="hljs-type">T</span>;
+
+    <span class="hljs-comment">/** 将此数据数组中的每个元素映射到给定键，然后扁平化。 */</span>
+    to(key: string): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-keyword">any</span>&gt;;
+    <span class="hljs-comment">/**
+     * 递归展开给定键，基于该键扁平化树结构为平面数组。对于处理
+     * 具有“子任务”的层次数据非常有用。
+     */</span>
+    expand(key: string): <span class="hljs-type">DataArray</span>&lt;<span class="hljs-keyword">any</span>&gt;;
+
+    <span class="hljs-comment">/** 对数组中的每个元素运行一个 lambda。 */</span>
+    forEach(f: <span class="hljs-type">ArrayFunc</span>&lt;<span class="hljs-type">T</span>, void&gt;): void;
+
+    <span class="hljs-comment">/** 计算数组中元素的总和。 */</span>
+    sum(): number;
+
+    <span class="hljs-comment">/** 计算数组中元素的平均值。 */</span>
+    avg(): number;
+
+    <span class="hljs-comment">/** 计算数组中元素的最小值。 */</span>
+    <span class="hljs-built_in">min</span>(): number;
+
+    <span class="hljs-comment">/** 计算数组中元素的最大值。 */</span>
+    <span class="hljs-built_in">max</span>(): number;
+
+    <span class="hljs-comment">/** 将其转换为普通的 JavaScript 数组。 */</span>
+    array(): <span class="hljs-type">T</span>[];
+
+    <span class="hljs-comment">/** 允许直接迭代数组。 */</span>
+    [<span class="hljs-type">Symbol</span>.iterator](): <span class="hljs-type">Iterator</span>&lt;<span class="hljs-type">T</span>&gt;;
+
+    <span class="hljs-comment">/** 将索引映射到值。 */</span>
+    [index: number]: <span class="hljs-keyword">any</span>;
+    <span class="hljs-comment">/** 字段的自动扁平化。等同于隐式调用 `array.to(&quot;field&quot;)` */</span>
+    [field: string]: <span class="hljs-keyword">any</span>;
+}</code></pre><h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89">代码块参考（Codeblock Reference）</h3><p>Dataview JavaScript 代码块使用 <code class="inline-code">dataviewjs</code> 语言规范创建：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataviewjs
+dv.table([], ...)
+`</span><span class="hljs-string">``</span></code></pre><p>API 通过隐式提供 <code class="inline-code">dv</code>（或 <code class="inline-code">dataview</code>）变量，您可以通过它查询信息、渲染 HTML 和配置视图。</p>
+<p>异步 API 调用标记为 <code class="inline-code">⌛</code>。</p>
+<h4 id="%E6%9F%A5%E8%AF%A2">查询</h4><p>查询方法允许您查询 Dataview 索引以获取页面元数据；要渲染这些数据，请使用渲染部分中的方法。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.current()%3C/code%3E"><code class="inline-code">dv.current()</code></h5><p>获取当前脚本执行页面的信息（通过 <code class="inline-code">dv.page()</code>）。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.pages(source)%3C/code%3E"><code class="inline-code">dv.pages(source)</code></h5><p>接受一个字符串参数 <code class="inline-code">source</code>，其形式与查询语言源相同。
+返回一个数据数组的页面对象，这些对象是包含所有页面字段的普通对象。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.pages() =&gt; 您库中的所有页面
+dv.pages(<span class="hljs-string">&quot;<span class="hljs-subst">#books</span>&quot;</span>) =&gt; 所有带有标签 <span class="hljs-string">&#x27;books&#x27;</span> 的页面
+dv.pages(<span class="hljs-string">&#x27;&quot;folder&quot;&#x27;</span>) =&gt; 来自文件夹 <span class="hljs-string">&quot;folder&quot;</span> 的所有页面
+dv.pages(<span class="hljs-string">&quot;<span class="hljs-subst">#<span class="hljs-literal">yes</span></span> or -<span class="hljs-subst">#<span class="hljs-literal">no</span></span>&quot;</span>) =&gt; 所有带有标签 <span class="hljs-comment">#yes 的页面，或不带标签 #no 的页面</span>
+dv.pages(<span class="hljs-string">&#x27;&quot;folder&quot; or #tag&#x27;</span>) =&gt; 所有带有标签 <span class="hljs-comment">#tag 的页面，或来自文件夹 &quot;folder&quot; 的页面</span></code></pre><p>请注意，文件夹需要在字符串中用双引号括起来（即 <code class="inline-code">dv.pages(&quot;folder&quot;)</code> 不起作用，但 <code class="inline-code">dv.pages(&#39;&quot;folder&quot;&#39;)</code> 起作用）——这是为了与查询语言中源的写法完全匹配。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.pagePaths(source)%3C/code%3E"><code class="inline-code">dv.pagePaths(source)</code></h5><p>与 <code class="inline-code">dv.pages</code> 相同，但仅返回匹配给定源的页面路径的数据数组。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.pagePaths(<span class="hljs-string">&quot;<span class="hljs-subst">#books</span>&quot;</span>) =&gt; 带有标签 <span class="hljs-string">&#x27;books&#x27;</span> 的页面路径</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.page(path)%3C/code%3E"><code class="inline-code">dv.page(path)</code></h5><p>将简单路径或链接映射到完整的页面对象，其中包含所有页面字段。自动进行链接解析，如果未提供，则会自动确定扩展名。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.<span class="hljs-keyword">page</span>(<span class="hljs-string">&quot;Index&quot;</span>) =&gt; /<span class="hljs-keyword">Index</span> 的页面对象
+dv.<span class="hljs-keyword">page</span>(<span class="hljs-string">&quot;books/The Raisin.md&quot;</span>) =&gt; /books/The Raisin.md 的页面对象</code></pre><h4 id="%E6%B8%B2%E6%9F%93">渲染</h4><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.el(element,%20text)%3C/code%3E"><code class="inline-code">dv.el(element, text)</code></h5><p>在给定的 HTML 元素中渲染任意文本。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.<span class="hljs-built_in">el</span>(<span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;这是一些粗体文本&quot;</span>);</code></pre><p>您可以通过 <code class="inline-code">cls</code> 指定要添加到元素的自定义类，通过 <code class="inline-code">attr</code> 指定附加属性：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.<span class="hljs-title function_ invoke__">el</span>(<span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;这是一些文本&quot;</span>, { <span class="hljs-attr">cls</span>: <span class="hljs-string">&quot;dataview dataview-class&quot;</span>, <span class="hljs-attr">attr</span>: { <span class="hljs-attr">alt</span>: <span class="hljs-string">&quot;不错！&quot;</span> } });</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.header(level,%20text)%3C/code%3E"><code class="inline-code">dv.header(level, text)</code></h5><p>渲染给定文本为 1 - 6 级标题。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.header(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;大标题！&quot;</span>);
+<span class="hljs-attribute">dv</span>.header(<span class="hljs-number">6</span>, <span class="hljs-string">&quot;小标题&quot;</span>);</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.paragraph(text)%3C/code%3E"><code class="inline-code">dv.paragraph(text)</code></h5><p>在段落中渲染任意文本。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.paragraph(<span class="hljs-string">&quot;这是一些文本&quot;</span>)<span class="hljs-comment">;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.span(text)%3C/code%3E"><code class="inline-code">dv.span(text)</code></h5><p>在 span 中渲染任意文本（与段落不同，没有上下填充（padding））。（<mark>这个括号补充的有点迷，span 是行内元素，而 p 是块元素，这才是重要区别。但实际效果我建议自行查看渲染出来的代码。</mark>）</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.span(<span class="hljs-string">&quot;这是一些文本&quot;</span>)<span class="hljs-comment">;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.execute(source)%3C/code%3E"><code class="inline-code">dv.execute(source)</code></h5><p>执行任意 Dataview 查询并将视图嵌入当前页面。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.execute(<span class="hljs-string">&quot;LIST FROM #tag&quot;</span>)<span class="hljs-comment">;</span>
+dv.execute(<span class="hljs-string">&quot;TABLE field1, field2 FROM #thing&quot;</span>)<span class="hljs-comment">;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.executeJs(source)%3C/code%3E"><code class="inline-code">dv.executeJs(source)</code></h5><p>执行任意 DataviewJS 查询并将视图嵌入当前页面。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.executeJs(<span class="hljs-string">&quot;dv.list([1, 2, 3])&quot;</span>)<span class="hljs-comment">;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.view(path,%20input)%3C/code%3E"><code class="inline-code">dv.view(path, input)</code></h5><p>复杂函数，允许自定义视图。将尝试在给定路径加载 JavaScript 文件，传递 <code class="inline-code">dv</code> 和 <code class="inline-code">input</code> 并允许其执行。这使您可以在多个页面之间重用自定义视图代码。请注意，这是一个异步函数，因为它涉及文件 I/O - 确保 <code class="inline-code">await</code> 结果！（==官方说是异步的，但官方没有标记 ⌛。当然，也合理，因为多数场景下并不需要等待它返回的结果，这种情况也不是必须使用 <code class="inline-code">await</code>==）</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">await dv.view(<span class="hljs-string">&quot;views/custom&quot;</span>, { arg1: <span class="hljs-params">...</span>, arg2: <span class="hljs-params">...</span> });</code></pre><p>如果您还想在视图中包含自定义 CSS，可以传递包含 <code class="inline-code">view.js</code> 和 <code class="inline-code">view.css</code> 的文件夹路径；CSS 将自动添加到视图中：</p>
+<pre class="hljs-code-block"><code class="hljs"><span class="hljs-built_in">views</span>/custom
+ -&gt; <span class="hljs-built_in">view</span>.js
+ -&gt; <span class="hljs-built_in">view</span>.css</code></pre><p>视图脚本可以访问 <code class="inline-code">dv</code> 对象（API 对象）和 <code class="inline-code">input</code> 对象，该对象正是 <code class="inline-code">dv.view()</code> 的第二个参数。</p>
+<p>请注意，<code class="inline-code">dv.view()</code> 不能从以点开头的目录读取，如 <code class="inline-code">.views</code>。以下是错误用法的示例：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">await dv.<span class="hljs-title function_ invoke__">view</span>(<span class="hljs-string">&quot;.views/view1&quot;</span>, { <span class="hljs-attr">arg1</span>: <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-attr">arg2</span>: <span class="hljs-string">&#x27;b&#x27;</span> });</code></pre><p>尝试此操作将产生以下异常：</p>
+<pre class="hljs-code-block"><code class="hljs">Dataview: custom <span class="hljs-keyword">view</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">found</span> <span class="hljs-keyword">for</span> <span class="hljs-string">&#x27;.views/view1/view.js&#x27;</span> <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;.views/view1.js&#x27;</span>.</code></pre><p>还要注意，目录路径始终从库根目录开始。（<mark>其实在没有冲突的情况下，只写文件夹名称就可以了，Dataview 找得到</mark>）</p>
+<h6 id="%E7%A4%BA%E4%BE%8B">示例</h6><p>在此示例中，我们在 <code class="inline-code">scripts</code> 目录中有一个名为 <code class="inline-code">view1.js</code> 的自定义脚本文件。</p>
+<p><strong>文件：</strong> <code class="inline-code">scripts/view1.js</code></p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">console.log(`加载 view1`);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span><span class="hljs-params">(<span class="hljs-rest_arg">...args</span>)</span> {
+  console.log(<span class="hljs-string">&#x27;foo 被调用，参数为&#x27;</span>, ...args);
+}
+foo(input)</code></pre><p>我们在 <code class="inline-code">projects</code> 下有一个 Obsidian 文档。我们将使用 <code class="inline-code">scripts/view1.js</code> 路径从该文档调用 <code class="inline-code">dv.view()</code>。</p>
+<p><strong>文档：</strong> <code class="inline-code">projects/customViews.md</code></p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">await dv.<span class="hljs-title function_ invoke__">view</span>(<span class="hljs-string">&quot;scripts/view1&quot;</span>, { <span class="hljs-attr">arg1</span>: <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-attr">arg2</span>: <span class="hljs-string">&#x27;b&#x27;</span> }) </code></pre><p>当上述脚本执行时，将打印以下内容：（<mark>什么都没有？！太正常了，内容是打印在控制台的，笔记中啥也没得显示</mark>）</p>
+<pre class="hljs-code-block"><code class="hljs">加载 view<span class="hljs-number">1</span>
+foo 被调用，参数为 {ar<span class="hljs-name">g1</span>: <span class="hljs-string">&#x27;a&#x27;</span>, ar<span class="hljs-name">g2</span>: <span class="hljs-string">&#x27;b&#x27;</span>}</code></pre><h4 id="%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE">数据视图</h4><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.list(elements)%3C/code%3E"><code class="inline-code">dv.list(elements)</code></h5><p>渲染元素的 Dataview 列表；接受普通数组和数据数组。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv<span class="hljs-selector-class">.list</span>(<span class="hljs-selector-attr">[1, 2, 3]</span>) =&gt; 列表 <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>
+dv<span class="hljs-selector-class">.list</span>(dv<span class="hljs-selector-class">.pages</span>()<span class="hljs-selector-class">.file</span>.name) =&gt; 所有文件名的列表
+dv<span class="hljs-selector-class">.list</span>(dv<span class="hljs-selector-class">.pages</span>()<span class="hljs-selector-class">.file</span>.link) =&gt; 所有文件链接的列表
+dv<span class="hljs-selector-class">.list</span>(dv<span class="hljs-selector-class">.pages</span>(<span class="hljs-string">&quot;#book&quot;</span>)<span class="hljs-selector-class">.where</span>(<span class="hljs-selector-tag">p</span> =&gt; <span class="hljs-selector-tag">p</span><span class="hljs-selector-class">.rating</span> &gt; <span class="hljs-number">7</span>)) =&gt; 所有评分大于 <span class="hljs-number">7</span> 的书籍列表</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.taskList(tasks,%20groupByFile)%3C/code%3E"><code class="inline-code">dv.taskList(tasks, groupByFile)</code></h5><p>渲染 <code class="inline-code">Task</code> 对象的 Dataview 列表，获取方式为 <code class="inline-code">page.file.tasks</code>。默认情况下，此视图将自动按来源文件对任务进行分组。如果您明确提供 <code class="inline-code">false</code> 作为第二个参数，它将作为一个统一的列表渲染。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-comment">// 列出所有标记为 &#x27;#project&#x27; 的页面中的任务</span>
+dv<span class="hljs-selector-class">.taskList</span>(dv<span class="hljs-selector-class">.pages</span>(<span class="hljs-string">&quot;#project&quot;</span>)<span class="hljs-selector-class">.file</span>.tasks)
+
+<span class="hljs-comment">// 列出所有 *未完成* 的任务，来自标记为 #project 的页面</span>
+dv<span class="hljs-selector-class">.taskList</span>(dv<span class="hljs-selector-class">.pages</span>(<span class="hljs-string">&quot;#project&quot;</span>)<span class="hljs-selector-class">.file</span><span class="hljs-selector-class">.tasks</span>
+    <span class="hljs-selector-class">.where</span>(t =&gt; !t.completed))
+
+<span class="hljs-comment">// 列出所有标记为 &#x27;#tag&#x27; 的任务，来自标记为 #project 的页面</span>
+dv<span class="hljs-selector-class">.taskList</span>(dv<span class="hljs-selector-class">.pages</span>(<span class="hljs-string">&quot;#project&quot;</span>)<span class="hljs-selector-class">.file</span><span class="hljs-selector-class">.tasks</span>
+    <span class="hljs-selector-class">.where</span>(t =&gt; t<span class="hljs-selector-class">.text</span><span class="hljs-selector-class">.includes</span>(<span class="hljs-string">&quot;#tag&quot;</span>)))
+
+<span class="hljs-comment">// 列出所有标记为 &#x27;#project&#x27; 的页面中的任务，不进行分组。</span>
+dv<span class="hljs-selector-class">.taskList</span>(dv<span class="hljs-selector-class">.pages</span>(<span class="hljs-string">&quot;#project&quot;</span>)<span class="hljs-selector-class">.file</span><span class="hljs-selector-class">.tasks</span>, false)</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.table(headers,%20elements)%3C/code%3E"><code class="inline-code">dv.table(headers, elements)</code></h5><p>渲染 Dataview 表格。<code class="inline-code">headers</code> 是列标题的数组。<code class="inline-code">elements</code> 是行的数组。每一行本身就是一个列的数组。在一行中，每个数组类型的列将以项目符号形式渲染。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.table(
+    [<span class="hljs-string">&quot;Col1&quot;</span>, <span class="hljs-string">&quot;Col2&quot;</span>, <span class="hljs-string">&quot;Col3&quot;</span>],
+        [
+            [<span class="hljs-string">&quot;Row1&quot;</span>, <span class="hljs-string">&quot;Dummy&quot;</span>, <span class="hljs-string">&quot;Dummy&quot;</span>],
+            [<span class="hljs-string">&quot;Row2&quot;</span>,
+                [<span class="hljs-string">&quot;Bullet1&quot;</span>,
+                 <span class="hljs-string">&quot;Bullet2&quot;</span>,
+                 <span class="hljs-string">&quot;Bullet3&quot;</span>],
+             <span class="hljs-string">&quot;Dummy&quot;</span>],
+            [<span class="hljs-string">&quot;Row3&quot;</span>, <span class="hljs-string">&quot;Dummy&quot;</span>, <span class="hljs-string">&quot;Dummy&quot;</span>]
+        ]
+    );</code></pre><p>一个如何渲染按评分排序的书籍信息简单表格的示例。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv<span class="hljs-selector-class">.table</span>(<span class="hljs-selector-attr">[<span class="hljs-string">&quot;File&quot;</span>, <span class="hljs-string">&quot;Genre&quot;</span>, <span class="hljs-string">&quot;Time Read&quot;</span>, <span class="hljs-string">&quot;Rating&quot;</span>]</span>, dv<span class="hljs-selector-class">.pages</span>(<span class="hljs-string">&quot;#book&quot;</span>)
+    <span class="hljs-selector-class">.sort</span>(<span class="hljs-selector-tag">b</span> =&gt; <span class="hljs-selector-tag">b</span>.rating)
+    <span class="hljs-selector-class">.map</span>(<span class="hljs-selector-tag">b</span> =&gt; <span class="hljs-selector-attr">[b.file.link, b.genre, b[<span class="hljs-string">&quot;time-read&quot;</span>]</span>, <span class="hljs-selector-tag">b</span>.rating]))</code></pre><h4 id="Markdown%20%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE">Markdown 数据视图</h4><p>将渲染为纯 Markdown 字符串的函数，您可以根据需要渲染或操作这些字符串。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.markdownTable(headers,%20values)%3C/code%3E"><code class="inline-code">dv.markdownTable(headers, values)</code></h5><p>相当于 <code class="inline-code">dv.table()</code>，渲染具有给定标题列表和 2D 数组的表格，但返回纯 Markdown。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-comment">// 渲染按评分排序的书籍信息简单表格。</span>
+const table = dv.markdownTable([<span class="hljs-string">&quot;File&quot;</span>, <span class="hljs-string">&quot;Genre&quot;</span>, <span class="hljs-string">&quot;Time Read&quot;</span>, <span class="hljs-string">&quot;Rating&quot;</span>], dv.pages(<span class="hljs-string">&quot;#book&quot;</span>)
+    .<span class="hljs-built_in">sort</span>(<span class="hljs-function"><span class="hljs-params">b</span> =&gt;</span> b.rating)
+    .<span class="hljs-built_in">map</span>(<span class="hljs-function"><span class="hljs-params">b</span> =&gt;</span> [b.file.link, b.genre, b[<span class="hljs-string">&quot;time-read&quot;</span>], b.rating]))
+
+dv.paragraph(table);</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.markdownList(values)%3C/code%3E"><code class="inline-code">dv.markdownList(values)</code></h5><p>相当于 <code class="inline-code">dv.list()</code>，渲染给定元素的列表，但返回纯 Markdown。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">const</span> markdown = dv.markdownList([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+<span class="hljs-attribute">dv</span>.paragraph(markdown);</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.markdownTaskList(tasks)%3C/code%3E"><code class="inline-code">dv.markdownTaskList(tasks)</code></h5><p>相当于 <code class="inline-code">dv.taskList()</code>，渲染任务列表，但返回纯 Markdown。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">const markdown <span class="hljs-operator">=</span> dv.markdownTaskList(dv.pages(<span class="hljs-string">&quot;#project&quot;</span>).file.tasks)<span class="hljs-comment">;</span>
+dv.paragraph(markdown)<span class="hljs-comment">;</span></code></pre><h4 id="%E5%B7%A5%E5%85%B7">工具</h4><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.array(value)%3C/code%3E"><code class="inline-code">dv.array(value)</code></h5><p>将给定值或数组转换为 Dataview 数据数组。如果值已经是数据数组，则返回原值。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) =&gt; dataview 数据数组<span class="hljs-meta"> [1, 2, 3]</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.isArray(value)%3C/code%3E"><code class="inline-code">dv.isArray(value)</code></h5><p>如果给定值是数组或 Dataview 数组，则返回 true。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.isArray(dv.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])) =&gt; true
+<span class="hljs-attribute">dv</span>.isArray([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) =&gt; true
+<span class="hljs-attribute">dv</span>.isArray({ x: <span class="hljs-number">1</span> }) =&gt; false</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.fileLink(path,%20%5Bembed?%5D,%20%5Bdisplay-name%5D)%3C/code%3E"><code class="inline-code">dv.fileLink(path, [embed?], [display-name])</code></h5><p>将文本路径转换为 Dataview <code class="inline-code">Link</code> 对象；您还可以选择指定链接是否嵌入以及其显示名称。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.fileLink(<span class="hljs-string">&quot;2021-08-08&quot;</span>) =&gt; 链接到名为 <span class="hljs-string">&quot;2021-08-08&quot;</span> 的文件
+dv.fileLink(<span class="hljs-string">&quot;book/The Raisin&quot;</span>, <span class="hljs-keyword">true</span>) =&gt; 嵌入链接到 <span class="hljs-string">&quot;The Raisin&quot;</span>
+dv.fileLink(<span class="hljs-string">&quot;Test&quot;</span>, <span class="hljs-keyword">false</span>, <span class="hljs-string">&quot;Test File&quot;</span>) =&gt; 链接到文件 <span class="hljs-string">&quot;Test&quot;</span>，显示名称为 <span class="hljs-string">&quot;Test File&quot;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.sectionLink(path,%20section,%20%5Bembed?%5D,%20%5Bdisplay?%5D)%3C/code%3E"><code class="inline-code">dv.sectionLink(path, section, [embed?], [display?])</code></h5><p>将文本路径 + 部分名称转换为 Dataview <code class="inline-code">Link</code> 对象；您还可以选择指定链接是否嵌入及其显示名称。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.sectionLink(<span class="hljs-string">&quot;Index&quot;</span>, <span class="hljs-string">&quot;Books&quot;</span>) =&gt; <span class="hljs-string">[[Index#Books]]</span>
+dv.sectionLink(<span class="hljs-string">&quot;Index&quot;</span>, <span class="hljs-string">&quot;Books&quot;</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&quot;My Books&quot;</span>) =&gt; <span class="hljs-string">[[Index#Books|My Books]]</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.blockLink(path,%20blockId,%20%5Bembed?%5D,%20%5Bdisplay?%5D)%3C/code%3E"><code class="inline-code">dv.blockLink(path, blockId, [embed?], [display?])</code></h5><p>将文本路径 + 块 ID 转换为 Dataview <code class="inline-code">Link</code> 对象；您可以选择指定链接是否嵌入及其显示名称。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.blockLink(<span class="hljs-string">&quot;Notes&quot;</span>, <span class="hljs-string">&quot;12gdhjg3&quot;</span>) =&gt; <span class="hljs-string">[[Index#^12gdhjg3]]</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.date(text)%3C/code%3E"><code class="inline-code">dv.date(text)</code></h5><p>将文本和链接强制转换为 luxon <code class="inline-code">DateTime</code>；如果提供的是 <code class="inline-code">DateTime</code>，则返回原值。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.date(<span class="hljs-string">&quot;2021-08-08&quot;</span>) =&gt; <span class="hljs-number">2021</span>年<span class="hljs-number">8</span>月<span class="hljs-number">8</span>日的 DateTime
+<span class="hljs-attribute">dv</span>.date(dv.fileLink(<span class="hljs-string">&quot;2021-08-07&quot;</span>)) =&gt; <span class="hljs-number">2021</span>年<span class="hljs-number">8</span>月<span class="hljs-number">7</span>日的 DateTime</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.duration(text)%3C/code%3E"><code class="inline-code">dv.duration(text)</code></h5><p>将文本强制转换为 luxon <code class="inline-code">Duration</code>；使用与 Dataview 持续时间类型相同的解析规则。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.duration(<span class="hljs-string">&quot;8 minutes&quot;</span>) =&gt; 持续时间 { <span class="hljs-number">8</span> 分钟 }
+<span class="hljs-attribute">dv</span>.duration(<span class="hljs-string">&quot;9 hours, 2 minutes, 3 seconds&quot;</span>) =&gt; 持续时间 { <span class="hljs-number">9</span> 小时, <span class="hljs-number">2</span> 分钟, <span class="hljs-number">3</span> 秒 }</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.compare(a,%20b)%3C/code%3E"><code class="inline-code">dv.compare(a, b)</code></h5><p>根据 Dataview 的默认比较规则比较两个任意 JavaScript 值；如果您正在编写自定义比较器并希望回退到默认行为，则非常有用。如果 <code class="inline-code">a &lt; b</code>，返回负值；如果 <code class="inline-code">a = b</code>，返回 0；如果 <code class="inline-code">a &gt; b</code>，返回正值。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.compare(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = -<span class="hljs-number">1</span>
+<span class="hljs-attribute">dv</span>.compare(<span class="hljs-string">&quot;yes&quot;</span>, <span class="hljs-string">&quot;no&quot;</span>) = <span class="hljs-number">1</span>
+<span class="hljs-attribute">dv</span>.compare({ what: <span class="hljs-number">0</span> }, { what: <span class="hljs-number">0</span> }) = <span class="hljs-number">0</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.equal(a,%20b)%3C/code%3E"><code class="inline-code">dv.equal(a, b)</code></h5><p>比较两个任意 JavaScript 值，如果它们根据 Dataview 的默认比较规则相等，则返回 true。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.equal(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = false
+<span class="hljs-attribute">dv</span>.equal(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) = true</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.clone(value)%3C/code%3E"><code class="inline-code">dv.clone(value)</code></h5><p>深度克隆任何 Dataview 值，包括日期、数组和链接。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.clone(<span class="hljs-number">1</span>) = <span class="hljs-number">1</span>
+<span class="hljs-attribute">dv</span>.clone({ a: <span class="hljs-number">1</span> }) = { a: <span class="hljs-number">1</span> }</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.parse(value)%3C/code%3E"><code class="inline-code">dv.parse(value)</code></h5><p>将任意字符串对象解析为复杂的 Dataview 类型
+（主要支持链接、日期和持续时间）。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.parse(<span class="hljs-string">&quot;[[A]]&quot;</span>) = 链接 { path: A }
+<span class="hljs-attribute">dv</span>.parse(<span class="hljs-string">&quot;2020-08-14&quot;</span>) = DateTime { <span class="hljs-number">2020</span>-<span class="hljs-number">08</span>-<span class="hljs-number">14</span> }
+<span class="hljs-attribute">dv</span>.parse(<span class="hljs-string">&quot;9 seconds&quot;</span>) = 持续时间 { <span class="hljs-number">9</span> 秒 }</code></pre><h4 id="%E6%96%87%E4%BB%B6%20I/O">文件 I/O</h4><p>这些实用方法都包含在 <code class="inline-code">dv.io</code> 子 API 中，并且都是 <em>异步的</em>（标记为 ⌛）。（<mark>使用相对路径可能不成功，我一般使用相对于根目录的相对路径，但也可能是我书写的相对路径格式不对</mark>）</p>
+<h5 id="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.io.csv(path,%20%5Borigin-file%5D)%3C/code%3E">⌛ <code class="inline-code">dv.io.csv(path, [origin-file])</code></h5><p>从给定路径（链接或字符串）加载 CSV。相对路径将相对于可选的原始文件解析（如果未提供，则默认为当前文件）。返回一个 Dataview 数组，每个元素包含一个 CSV 值的对象；如果文件不存在，则返回 <code class="inline-code">undefined</code>。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">await dv.io.csv(<span class="hljs-string">&quot;hello.csv&quot;</span>) =&gt; <span class="hljs-meta">[</span>{ column1: <span class="hljs-params">...</span>, column2: <span class="hljs-params">...</span>}, <span class="hljs-params">...</span><span class="hljs-meta">]</span></code></pre><h5 id="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.io.load(path,%20%5Borigin-file%5D)%3C/code%3E">⌛ <code class="inline-code">dv.io.load(path, [origin-file])</code></h5><p>异步加载给定路径（链接或字符串）的内容。相对路径将相对于可选的原始文件解析（如果未提供，则默认为当前文件）。返回文件的字符串内容，如果文件不存在，则返回 <code class="inline-code">undefined</code>。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-keyword">await</span> dv.io.load(<span class="hljs-string">&quot;File&quot;</span>) =&gt; <span class="hljs-string">&quot;# 文件\n这是一个示例文件...&quot;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.io.normalize(path,%20%5Borigin-file%5D)%3C/code%3E"><code class="inline-code">dv.io.normalize(path, [origin-file])</code></h5><p>将相对链接或路径转换为绝对路径。如果提供了 <code class="inline-code">origin-file</code>，则解析就像从该文件解析链接；如果没有，则路径相对于当前文件解析。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv<span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.normalize</span>(<span class="hljs-string">&quot;Test&quot;</span>) =&gt; <span class="hljs-string">&quot;dataview/test/Test.md&quot;</span>，如果在 <span class="hljs-string">&quot;dataview/test&quot;</span> 内
+dv<span class="hljs-selector-class">.io</span><span class="hljs-selector-class">.normalize</span>(<span class="hljs-string">&quot;Test&quot;</span>, <span class="hljs-string">&quot;dataview/test2/Index.md&quot;</span>) =&gt; <span class="hljs-string">&quot;dataview/test2/Test.md&quot;</span>，与当前文件无关</code></pre><h4 id="%E6%9F%A5%E8%AF%A2%E8%AF%84%E4%BC%B0">查询评估</h4><h5 id="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.query(source,%20%5Bfile,%20settings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.query(source, [file, settings])</code></h5><p>执行一个 Dataview 查询，并将结果作为结构化返回。此函数的返回类型因执行的查询类型而异，但始终会返回一个带有 <code class="inline-code">type</code> 的对象，表示返回类型。此版本的 <code class="inline-code">query</code> 返回结果类型 —— 您可能想使用 <code class="inline-code">tryQuery</code>，它在查询执行失败时抛出错误。</p>
+<pre class="hljs-code-block"><code class="hljs javascript" lang="javascript"><span class="hljs-keyword">await</span> dv.query(<span class="hljs-string">&quot;LIST FROM <span class="hljs-subst">#tag</span>&quot;</span>) =&gt;
+    { successful: <span class="hljs-literal">true</span>, value: { type: <span class="hljs-string">&quot;list&quot;</span>, values: [value1, value2, ...] } }
+
+<span class="hljs-keyword">await</span> dv.query(`TABLE WITHOUT ID file.name, value FROM <span class="hljs-string">&quot;path&quot;</span>`) =&gt;
+    { successful: <span class="hljs-literal">true</span>, value: { type: <span class="hljs-string">&quot;table&quot;</span>, headers: [<span class="hljs-string">&quot;file.name&quot;</span>, <span class="hljs-string">&quot;value&quot;</span>], values: [[<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-number">1</span>], [<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-number">2</span>]] } }
+
+<span class="hljs-keyword">await</span> dv.query(<span class="hljs-string">&quot;TASK WHERE due&quot;</span>) =&gt;
+    { successful: <span class="hljs-literal">true</span>, value: { type: <span class="hljs-string">&quot;task&quot;</span>, values: [task1, task2, ...] } }</code></pre><p><code class="inline-code">dv.query</code> 接受两个额外的可选参数：</p>
+<ol>
+<li><code class="inline-code">file</code>：解析查询的文件路径（在引用 <code class="inline-code">this</code> 的情况下）。默认为当前文件。</li><li><code class="inline-code">settings</code>：运行查询的执行设置。这主要是一个高级用例（建议您直接检查 API 实现以查看所有可用选项）。</li></ol>
+<h5 id="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.tryQuery(source,%20%5Bfile,%20settings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.tryQuery(source, [file, settings])</code></h5><p>与 <code class="inline-code">dv.query</code> 完全相同，但在短脚本中更方便，因为：执行失败将作为 JavaScript 异常引发，而不是结果类型。</p>
+<h5 id="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.queryMarkdown(source,%20%5Bfile%5D,%20%5Bsettings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.queryMarkdown(source, [file], [settings])</code></h5><p>相当于 <code class="inline-code">dv.query()</code>，但返回渲染的 Markdown。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-keyword">await</span> dv.queryMarkdown(<span class="hljs-string">&quot;LIST FROM <span class="hljs-subst">#tag</span>&quot;</span>) =&gt;
+    { successful: <span class="hljs-literal">true</span>, value: { <span class="hljs-string">&quot;- [[Page 1]]\n- [[Page 2]]&quot;</span> } }</code></pre><h5 id="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.tryQueryMarkdown(source,%20%5Bfile%5D,%20%5Bsettings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.tryQueryMarkdown(source, [file], [settings])</code></h5><p>与 <code class="inline-code">dv.queryMarkdown()</code> 完全相同，但在解析失败时抛出错误。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.tryEvaluate(expression,%20%5Bcontext%5D)%3C/code%3E"><code class="inline-code">dv.tryEvaluate(expression, [context])</code></h5><p>评估任意 Dataview 表达式（如 <code class="inline-code">2 + 2</code> 或 <code class="inline-code">link(&quot;text&quot;)</code> 或 <code class="inline-code">x * 9</code>）；在解析或
+评估失败时抛出 <code class="inline-code">Error</code>。<code class="inline-code">this</code> 是一个始终可用的隐式变量，指代当前文件。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.tryEvaluate(<span class="hljs-string">&quot;2 + 2&quot;</span>) =&gt; <span class="hljs-number">4</span>
+<span class="hljs-attribute">dv</span>.tryEvaluate(<span class="hljs-string">&quot;x + 2&quot;</span>, {x: <span class="hljs-number">3</span>}) =&gt; <span class="hljs-number">5</span>
+<span class="hljs-attribute">dv</span>.tryEvaluate(<span class="hljs-string">&quot;length(this.file.tasks)&quot;</span>) =&gt; 当前文件中的任务数量</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.evaluate(expression,%20%5Bcontext%5D)%3C/code%3E"><code class="inline-code">dv.evaluate(expression, [context])</code></h5><p>评估任意 Dataview 表达式（如 <code class="inline-code">2 + 2</code> 或 <code class="inline-code">link(&quot;text&quot;)</code> 或 <code class="inline-code">x * 9</code>），返回结果的 <code class="inline-code">Result</code> 对象。您可以通过检查 <code class="inline-code">result.successful</code> 解包结果类型（然后获取 <code class="inline-code">result.value</code> 或 <code class="inline-code">result.error</code>）。如果您想要一个在评估失败时抛出错误的简单 API，请使用 <code class="inline-code">dv.tryEvaluate</code>。</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.evaluate(<span class="hljs-string">&quot;2 + 2&quot;</span>) =&gt; 成功 { value: <span class="hljs-number">4</span> }
+dv.evaluate(<span class="hljs-string">&quot;2 +&quot;</span>) =&gt; 失败 { error: <span class="hljs-string">&quot;Failed to parse ... &quot;</span> }</code></pre><h3 id="%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89">代码块示例（Codeblock Examples）</h3><h4 id="%E5%88%86%E7%BB%84%E4%B9%A6%E7%B1%8D">分组书籍</h4><p>按类型分组书籍，然后通过简单使用 Dataview 渲染 API 为每个类型创建一个按评分排序的表格：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-keyword">for</span> (let group of dv.pages(<span class="hljs-string">&quot;#book&quot;</span>).<span class="hljs-built_in">groupBy</span>(<span class="hljs-function"><span class="hljs-params">p</span> =&gt;</span> p.genre)) {
+    dv.header(<span class="hljs-number">3</span>, group.key);
+    dv.table([<span class="hljs-string">&quot;名称&quot;</span>, <span class="hljs-string">&quot;阅读时间&quot;</span>, <span class="hljs-string">&quot;评分&quot;</span>],
+        group.rows
+            .<span class="hljs-built_in">sort</span>(<span class="hljs-function"><span class="hljs-params">k</span> =&gt;</span> k.rating, <span class="hljs-string">&#x27;desc&#x27;</span>)
+            .<span class="hljs-built_in">map</span>(<span class="hljs-function"><span class="hljs-params">k</span> =&gt;</span> [k.file.link, k[<span class="hljs-string">&quot;time-read&quot;</span>], k.rating]))
+}</code></pre><p><img src="https://blacksmithgu.github.io/obsidian-dataview/assets/grouped-book-example.png" alt="分组书籍示例"></p>
+<h4 id="%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E7%9B%B4%E6%8E%A5%E5%92%8C%E9%97%B4%E6%8E%A5%E9%93%BE%E6%8E%A5%E7%9A%84%E9%A1%B5%E9%9D%A2">查找所有直接和间接链接的页面</h4><p>使用简单的集合 + 栈深度优先搜索来查找所有链接到当前笔记或您选择的笔记的笔记：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-built_in">let</span> page = dv.current().file.path;
+<span class="hljs-built_in">let</span> pages = <span class="hljs-built_in">new</span> Set();
+
+<span class="hljs-built_in">let</span> stack = [page];
+<span class="hljs-keyword">while</span> (stack.<span class="hljs-built_in">length</span> &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-built_in">let</span> <span class="hljs-built_in">elem</span> = stack.<span class="hljs-built_in">pop</span>();
+    <span class="hljs-built_in">let</span> meta = dv.page(<span class="hljs-built_in">elem</span>);
+    <span class="hljs-keyword">if</span> (!meta) continue;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">let</span> inlink of meta.file.inlinks.<span class="hljs-built_in">concat</span>(meta.file.outlinks).<span class="hljs-built_in">array</span>()) {
+        console.<span class="hljs-built_in">log</span>(inlink);
+        <span class="hljs-keyword">if</span> (pages.has(inlink.path)) continue;
+        pages.add(inlink.path);
+        stack.<span class="hljs-built_in">push</span>(inlink.path);
+    }
+}
+
+// 数据现在是每个直接或间接链接到当前页面的页面的文件元数据。
+<span class="hljs-built_in">let</span> data = dv.<span class="hljs-built_in">array</span>(Array.from(pages)).<span class="hljs-built_in">map</span>(p =&gt; dv.page(p));</code></pre><h2 id="%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89">问答和资源（FAQ and Resources）</h2><h3 id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89">常见问题解答（Frequently Asked Questions）</h3><p>一系列关于 Dataview 查询和表达式语言的常见问题。</p>
+<h4 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%8C%E5%90%8D%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%88%E5%A6%82%20&quot;from&quot;%EF%BC%8C&quot;where&quot;%EF%BC%89%EF%BC%9F">如何使用与关键字同名的字段（如 &quot;from&quot;，&quot;where&quot;）？</h4><p>Dataview 提供了一个特殊的“虚拟”字段 <code class="inline-code">row</code>，可以通过它获取与 Dataview 关键字冲突的字段：</p>
+<pre class="hljs-code-block"><code class="hljs javascript" lang="javascript"><span class="hljs-keyword">row</span>.<span class="hljs-keyword">from</span> <span class="hljs-comment">/* 同 &quot;from&quot; */</span>
+<span class="hljs-keyword">row</span>.<span class="hljs-keyword">where</span> <span class="hljs-comment">/* 同 &quot;where&quot; */</span></code></pre><h4 id="%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E5%90%8D%E7%A7%B0%E4%B8%AD%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%9F">如何访问名称中带空格的字段？</h4><p>有两种方法：</p>
+<ol>
+<li>使用该字段的规范化 Dataview 名称——只需将名称转换为小写并用短横线（&quot;-&quot;）替换空格。例如，<code class="inline-code">Field With Space In It</code> 变为 <code class="inline-code">field-with-space-in-it</code>。</li><li>使用隐式的 <code class="inline-code">row</code> 字段：<pre class="hljs-code-block"><code class="hljs javascript" lang="javascript">row<span class="hljs-selector-attr">[<span class="hljs-string">&quot;Field With Space In It&quot;</span>]</span></code></pre></li></ol>
+<h4 id="%E4%BD%A0%E4%BB%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%9F">你们有没有学习资源的列表？</h4><p>有的！请查看资源页面。</p>
+<h4 id="%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F">我可以保存查询结果以便重用吗？</h4><p>您可以使用 <code class="inline-code">dv.view</code> 函数编写可重用的 JavaScript 查询。在 DQL 中，除了可以将查询写入模板并使用该模板（可以使用<a href="https://help.obsidian.md/Plugins/Templates" title="核心插件模板" class="External-link" target="_blank">核心插件模板</a>或流行的社区插件<a href="https://obsidian.md/plugins?id=templater-obsidian" title="Templater" class="External-link" target="_blank">Templater</a>），您还可以通过内联 DQL <strong>在元数据字段中保存计算</strong>，例如：</p>
+<pre class="hljs-code-block"><code class="hljs markdown" lang="markdown">start:: <span class="hljs-number">07</span>h00m
+end:: <span class="hljs-number">18</span>h00m
+pause:: <span class="hljs-number">01</span>h30m
+duration:: `= <span class="hljs-keyword">this</span>.end - <span class="hljs-keyword">this</span>.start - <span class="hljs-keyword">this</span>.pause`</code></pre><p>您可以列出该值（在我们的示例中为 9h 30m），例如在一个表格中，而无需重复计算：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
+<span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">start</span>, <span class="hljs-keyword">end</span>, duration
+<span class="hljs-keyword">WHERE</span> duration
+```</code></pre><p>这将返回：</p>
+<table>
+<thead>
+<tr>
+<th>Files (1)</th>
+<th>start</th>
+<th>end</th>
+<th>duration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>示例</td>
+<td>7 小时</td>
+<td>18 小时</td>
+<td>9 小时，30 分钟</td>
+</tr>
+</tbody></table>
+<p><strong>但将内联 DQL 存储在字段中有一个限制</strong>：虽然结果中显示的值是计算后的值，但<strong>元数据字段中保存的值仍然是您的内联 DQL 算式</strong>。该值实际上是 <code class="inline-code">= this.end - this.start - this.pause</code>。这意味着您无法过滤内联的结果，例如：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
+<span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">start</span>, <span class="hljs-keyword">end</span>, duration
+<span class="hljs-keyword">WHERE</span> duration <span class="hljs-operator">&gt;</span> dur(&quot;10h&quot;)
+```</code></pre><p>这将返回示例页面，即使结果不符合 <code class="inline-code">WHERE</code> 子句，因为您比较的值是 <code class="inline-code">= this.end - this.start - this.pause</code>，而不是一个持续时间。</p>
+<h4 id="%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E8%A1%A8%E6%A0%BC%E6%9F%A5%E8%AF%A2%E7%9A%84%E7%BB%93%E6%9E%9C%E8%AE%A1%E6%95%B0%EF%BC%9F">如何隐藏表格查询的结果计数？</h4><p>在 Dataview 0.5.52 中，您可以通过设置隐藏表格和任务查询的结果计数。前往 Dataview 的设置 -&gt; 显示结果计数。</p>
+<h4 id="%E5%A6%82%E4%BD%95%E4%B8%BA%E6%88%91%E7%9A%84%E6%9F%A5%E8%AF%A2%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F%EF%BC%9F">如何为我的查询设置样式？</h4><p>您可以使用 <a href="https://help.obsidian.md/Extending+Obsidian/CSS+snippets" title="CSS 片段" class="External-link" target="_blank">CSS 片段</a>为 Obsidian 定义自定义样式。因此，如果您将 <code class="inline-code">cssclasses: myTable</code> 定义为一个属性，并启用下面的片段，您可以设置 Dataview 表格的背景颜色。类似地，针对 <code class="inline-code">TASK</code> 或 <code class="inline-code">LIST</code> 查询的外部 <code class="inline-code">&lt;ul&gt;</code>，您可以分别使用 <code class="inline-code">ul.contains-task-list</code> 或 <code class="inline-code">ul.list-view-ul</code>。</p>
+<pre class="hljs-code-block"><code class="hljs css" lang="css">.<span class="hljs-property">myTable</span> dataview.<span class="hljs-property">table</span> {
+    <span class="hljs-built_in">background</span>-<span class="hljs-type">color</span>: <span class="hljs-built_in">green</span>
+}</code></pre><p>通常情况下，页面上的特定表格没有唯一的 ID，因此提到的目标适用于任何定义了该 <code class="inline-code">cssclasses</code> 的笔记和<strong>所有</strong>表格。目前，您无法使用普通查询针对特定表格，但如果您使用 JavaScript，可以通过以下方式直接将 <code class="inline-code">clsname</code> 类添加到查询结果中：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv<span class="hljs-selector-class">.container</span><span class="hljs-selector-class">.className</span> += <span class="hljs-string">&#x27; clsname&#x27;</span></code></pre><p>然而，有一个技巧可以使用标签在 Obsidian 中针对任何表格，如下面的示例所示，这适用于任何包含该标签的表格。这适用于手动和 Dataview 生成的表格。要使下面的片段生效，请在表格输出的 <em>任何地方</em> 添加标签 <code class="inline-code">#myId</code>。</p>
+<pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-selector-attr">[href=<span class="hljs-string">&quot;#myId&quot;</span>]</span> {
+    <span class="hljs-attribute">display</span>: none; <span class="hljs-comment">/* 隐藏表格视图中的标签 */</span>
+}
+
+<span class="hljs-selector-tag">table</span><span class="hljs-selector-pseudo">:has</span>(<span class="hljs-selector-attr">[href=<span class="hljs-string">&quot;#myId&quot;</span>]</span>) {
+   <span class="hljs-comment">/* 按照您的喜好样式化表格 */</span>
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#262626</span>;
+  &amp; <span class="hljs-selector-tag">tr</span><span class="hljs-selector-pseudo">:nth-child</span>(even) <span class="hljs-selector-tag">td</span><span class="hljs-selector-pseudo">:first</span>-child {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#3f3f3f</span>;
+  }
+}</code></pre><p>这将使整个表格背景为灰色，且每个偶数行的第一个单元格为不同的灰色变体。<strong>免责声明：</strong> 我们不是样式专家，这只是一个示例，展示了样式化表格不同部分所需的一些语法。</p>
+<p>此外，在<a href="https://s-blu.github.io/obsidian_dataview_example_vault/20%20Dataview%20Queries/Style%20dataview%20table%20columns/" title="样式化 Dataview 表格列" class="External-link" target="_blank">样式化 Dataview 表格列</a>中，@s-blu 描述了一种使用 <code class="inline-code">&lt;span&gt;</code> 样式化表格单元格（和列）不同部分的替代技巧。</p>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89">示例（Examples）</h3><p>一小部分 Dataview 查询语言的简单用法。</p>
+<hr>
+<p>显示游戏文件夹中的所有游戏，按评分排序，并附带一些元数据：</p>
+<p><strong>查询</strong></p>
+<pre class="hljs-code-block"><code class="hljs sql" lang="sql"><span class="hljs-keyword">TABLE</span>
+  <span class="hljs-type">time</span>-played <span class="hljs-keyword">AS</span> &quot;游戏时长&quot;,
+  length <span class="hljs-keyword">AS</span> &quot;长度&quot;,
+  rating <span class="hljs-keyword">AS</span> &quot;评分&quot;
+<span class="hljs-keyword">FROM</span> &quot;games&quot;
+SORT rating <span class="hljs-keyword">DESC</span></code></pre><p><strong>输出</strong>（<mark>只是演示一下输出格式，别点了，这里的都不是有效链接</mark>）</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>游戏时长</th>
+<th>长度</th>
+<th>评分</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#" title="Outer Wilds" class="internal-link" target="">Outer Wilds</a></td>
+<td>2020年11月19日 - 21日</td>
+<td>15小时</td>
+<td>9.5</td>
+</tr>
+<tr>
+<td><a href="#" title="Minecraft" class="internal-link" target="">Minecraft</a></td>
+<td>一直在玩。</td>
+<td>2000小时</td>
+<td>9.5</td>
+</tr>
+<tr>
+<td><a href="#" title="Pillars of Eternity 2" class="internal-link" target="">Pillars of Eternity 2</a></td>
+<td>2019年8月 - 10月</td>
+<td>100小时</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<hr>
+<p>列出所有 MOBA 或 CRPG 类型的游戏。</p>
+<p><strong>查询</strong></p>
+<pre class="hljs-code-block"><code class="hljs sql" lang="sql"><span class="hljs-keyword">LIST</span> <span class="hljs-keyword">FROM</span> <span class="hljs-literal">#games</span>/mobas <span class="hljs-keyword">OR</span> <span class="hljs-literal">#games</span>/crpg</code></pre><p><strong>输出</strong>（<mark>只是演示一下输出格式，别点了，这里的都不是有效链接</mark>）</p>
+<ul>
+<li><a href="#" title="League of Legends" class="internal-link" target="">League of Legends</a></li><li><a href="#" title="Pillars of Eternity 2" class="internal-link" target="">Pillars of Eternity 2</a></li></ul>
+<hr>
+<p>列出所有未完成项目中的任务：</p>
+<p><strong>查询</strong></p>
+<pre class="hljs-code-block"><code class="hljs sql" lang="sql"><span class="hljs-keyword">TASK</span> <span class="hljs-keyword">FROM</span> <span class="hljs-string">&quot;dataview&quot;</span></code></pre><p><strong>输出</strong>（<mark>只是演示一下输出格式，别点了，这里的都不是有效链接</mark>）</p>
+<p><a href="#" title="dataview/Project A" class="internal-link" target="">dataview/Project A</a></p>
+<ul>
+<li class="task" data-task=" "><i class="fa-regular fa-circle"></i> 我是一个任务。</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> 我是另一个任务。</li></ul>
+<p><a href="#" title="dataview/Project A" class="internal-link" target="">dataview/Project A</a></p>
+<ul>
+<li class="task" data-task=" "><i class="fa-regular fa-circle"></i> 我可能是一个任务，但谁知道呢。<ul>
+<li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> 确定这是否是一个任务。</li></ul>
+</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> 我是一个已完成的任务。</li></ul>
+<hr>
+<p>列出 <code class="inline-code">books</code> 文件夹中的所有文件，按最后修改时间排序：</p>
+<p><strong>查询</strong></p>
+<pre class="hljs-code-block"><code class="hljs sql" lang="sql"><span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">file</span>.mtime <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;最后修改时间&quot;</span>
+FROM <span class="hljs-string">&quot;books&quot;</span>
+<span class="hljs-keyword">SORT</span> <span class="hljs-keyword">file</span>.mtime <span class="hljs-keyword">DESC</span></code></pre><p><strong>输出</strong>（<mark>只是演示一下输出格式，别点了，这里的都不是有效链接</mark>）</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>最后修改时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="#" title="Atomic Habits" class="internal-link" target="">Atomic Habits</a></td>
+<td>2021年8月7日 11:06 PM</td>
+</tr>
+<tr>
+<td><a href="#" title="Can&#39;t Hurt Me" class="internal-link" target="">Can&#39;t Hurt Me</a></td>
+<td>2021年8月7日 10:58 PM</td>
+</tr>
+<tr>
+<td><a href="#" title="Deep Work" class="internal-link" target="">Deep Work</a></td>
+<td>2021年8月7日 10:52 PM</td>
+</tr>
+</tbody></table>
+<hr>
+<p>列出所有标题中包含日期的文件（格式为 <code class="inline-code">yyyy-mm-dd</code>），并按日期顺序列出。</p>
+<p><strong>查询</strong></p>
+<pre class="hljs-code-block"><code class="hljs sql" lang="sql">LIST <span class="hljs-built_in">file</span>.<span class="hljs-built_in">day</span> WHERE <span class="hljs-built_in">file</span>.<span class="hljs-built_in">day</span>
+SORT <span class="hljs-built_in">file</span>.<span class="hljs-built_in">day</span> DESC</code></pre><p><strong>输出</strong>（<mark>只是演示一下输出格式，别点了，这里的都不是有效链接</mark>）</p>
+<ul>
+<li><a href="#" title="2021-08-07" class="internal-link" target="">2021-08-07</a>: 2021年8月7日</li><li><a href="#" title="2020-08-10" class="internal-link" target="">2020-08-10</a>: 2020年8月10日</li></ul>
+<h3 id="%E9%92%88%E5%AF%B9%20Dataview%20%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89">针对 Dataview 的开发（Developing Against Dataview）</h3><p>Dataview 包含一个面向插件的高级 API，以及 TypeScript 定义和一个工具库；要安装它，只需使用：</p>
+<pre class="hljs-code-block"><code class="hljs bash" lang="bash">npm <span class="hljs-keyword">install</span> -D obsidian-dataview</code></pre><p>要验证是否安装了正确的版本，可以运行 <code class="inline-code">npm list obsidian-dataview</code>。如果未报告最新版本（当前为 0.5.64），可以执行：</p>
+<pre class="hljs-code-block"><code class="hljs bash" lang="bash"><span class="hljs-attribute">npm</span> install obsidian-dataview@<span class="hljs-number">0</span>.<span class="hljs-number">5</span>.<span class="hljs-number">64</span></code></pre><p><strong>注意</strong>：如果您的本地系统尚未安装 <a href="http://git-scm.com/" title="Git" class="External-link" target="_blank">Git</a>，则需要先安装它。您可能需要重启设备以完成 Git 安装，然后才能安装 Dataview API。</p>
+<h4 id="%E8%AE%BF%E9%97%AE%20Dataview%20API">访问 Dataview API</h4><p>您可以使用 <code class="inline-code">getAPI()</code> 函数获取 Dataview 插件 API；这将返回一个 <code class="inline-code">DataviewApi</code> 对象，提供各种实用工具，包括渲染 dataview、检查 dataview 版本、挂钩 dataview 事件生命周期以及查询 dataview 元数据。</p>
+<pre class="hljs-code-block"><code class="hljs ts" lang="ts">import { getAPI } from <span class="hljs-string">&quot;obsidian-dataview&quot;</span><span class="hljs-comment">;</span>
+
+const api <span class="hljs-operator">=</span> getAPI()<span class="hljs-comment">;</span></code></pre><p>有关可用的完整 API 定义，请查看 <a href="https://github.com/blacksmithgu/obsidian-dataview/blob/master/src/index.ts" title="index.ts" class="External-link" target="_blank">index.ts</a> 或插件 API 定义 <a href="https://github.com/blacksmithgu/obsidian-dataview/blob/master/src/api/plugin-api.ts" title="plugin-api.ts" class="External-link" target="_blank">plugin-api.ts</a>。</p>
+<h4 id="%E7%BB%91%E5%AE%9A%20Dataview%20%E4%BA%8B%E4%BB%B6">绑定 Dataview 事件</h4><p>您可以绑定到 dataview 元数据事件，这些事件在所有文件更新和更改时触发：</p>
+<pre class="hljs-code-block"><code class="hljs ts" lang="ts"><span class="hljs-keyword">plugin</span>.registerEvent(<span class="hljs-keyword">plugin</span>.<span class="hljs-keyword">app</span>.metadataCache.<span class="hljs-keyword">on</span>(<span class="hljs-string">&quot;dataview:index-ready&quot;</span>, () =&gt; {
+    ...
+}));
+
+<span class="hljs-keyword">plugin</span>.registerEvent(<span class="hljs-keyword">plugin</span>.<span class="hljs-keyword">app</span>.metadataCache.<span class="hljs-keyword">on</span>(<span class="hljs-string">&quot;dataview:metadata-change&quot;</span>,
+    (<span class="hljs-keyword">type</span>, <span class="hljs-keyword">file</span>, oldPath?) =&gt; { ... }));</code></pre><p>有关所有钩子在 MetadataCache 上的事件，请查看 <a href="https://github.com/blacksmithgu/obsidian-dataview/blob/master/src/index.ts" title="index.ts" class="External-link" target="_blank">index.ts</a>。</p>
+<h4 id="%E5%80%BC%E5%B7%A5%E5%85%B7">值工具</h4><p>您可以访问各种类型工具，允许您检查对象的类型并通过 <code class="inline-code">Values</code> 进行比较：</p>
+<pre class="hljs-code-block"><code class="hljs ts" lang="ts"><span class="hljs-keyword">import</span> { getAPI, <span class="hljs-title class_">Values</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;obsidian-dataview&quot;</span>;
+
+<span class="hljs-keyword">const</span> field = <span class="hljs-title function_">getAPI</span>(plugin.<span class="hljs-property">app</span>)?.<span class="hljs-title function_">page</span>(<span class="hljs-string">&#x27;sample.md&#x27;</span>).<span class="hljs-property">field</span>;
+<span class="hljs-keyword">if</span> (!field) <span class="hljs-keyword">return</span>;
+
+<span class="hljs-keyword">if</span> (<span class="hljs-title class_">Values</span>.<span class="hljs-title function_">isHtml</span>(field)) <span class="hljs-comment">// 执行某些操作</span>
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Values</span>.<span class="hljs-title function_">isLink</span>(field)) <span class="hljs-comment">// 执行某些操作</span>
+<span class="hljs-comment">// ...</span></code></pre><h3 id="%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89">资源与支持（Resources and Support）</h3><p>开始使用 Dataview 可能会有一些学习曲线。此页面汇集了一些资源，帮助您入门。Dataview 经常会更新新功能和修复，因此请注意这些资源可能略有过时。欢迎直接为此列表、文档做贡献，或联系原始来源的作者以获取更新。</p>
+<h4 id="%E8%B5%84%E6%BA%90">资源</h4><h5 id="Obsidian%20Hub">Obsidian Hub</h5><ul>
+<li>SkepticMystic 的 <a href="https://publish.obsidian.md/hub/04+-+Guides%2C+Workflows%2C+%26+Courses/Community+Talks/YT+-+An+Introduction+to+Dataview" title="Dataview 介绍" class="External-link" target="_blank">Dataview 介绍</a>，并附有 <a href="https://publish.obsidian.md/hub/04+-+Guides%2C+Workflows%2C+%26+Courses/Guides/An+Introduction+to+Dataview" title="文本指南" class="External-link" target="_blank">文本指南</a></li></ul>
+<h5 id="YouTube%20%E8%A7%86%E9%A2%91">YouTube 视频</h5><ul>
+<li>SkepticMystic 的上述社区讲座</li><li><a href="https://www.youtube.com/watch?v=7kFEl7Ovsr8" title="Dataview 插件：如何使用这个强大的 Obsidian 插件（附示例） by Filipe Donadio" class="External-link" target="_blank">Dataview 插件：如何使用这个强大的 Obsidian 插件（附示例） by Filipe Donadio</a></li><li><a href="https://www.youtube.com/watch?v=8yjNuiSBSAM" title="用 Dataview 自动化您的 Vault - 如何在 Obsidian 中使用 Dataview by FromSergio" class="External-link" target="_blank">用 Dataview 自动化您的 Vault - 如何在 Obsidian 中使用 Dataview by FromSergio</a></li><li><a href="https://www.youtube.com/watch?v=JTObSymEvWA" title="如何使用 Obsidian Dataview 插件 by Nicole van der Hoeven" class="External-link" target="_blank">如何使用 Obsidian Dataview 插件 by Nicole van der Hoeven</a></li><li><a href="https://www.youtube.com/watch?v=lclif6l9UgQ" title="Dataview 插件介绍 - Obsidian 社区讲座" class="External-link" target="_blank">Dataview 插件介绍 - Obsidian 社区讲座</a></li></ul>
+<h4 id="%E7%A4%BA%E4%BE%8B%20Vault">示例 Vault</h4><ul>
+<li>@s-blu 很好地整理了 <a href="https://github.com/s-blu/obsidian_dataview_example_vault/" title="一个示例查询的 Vault" class="External-link" target="_blank">一个示例查询的 Vault</a>，您可以将其用作游乐场。</li></ul>
+<h4 id="%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0">博客文章</h4><ul>
+<li><a href="https://denisetodd.medium.com/obsidian-dataview-for-beginners-a-checklist-to-help-fix-your-dataview-queries-11acc57f1e48" title="Obsidian Dataview 初学者指南：帮助修复您的 dataview 查询的清单" class="External-link" target="_blank">Obsidian Dataview 初学者指南：帮助修复您的 dataview 查询的清单</a></li></ul>
+<h5 id="GitHub%20%E8%AE%A8%E8%AE%BA">GitHub 讨论</h5><p>GitHub 仓库有一个相对活跃的 <a href="https://github.com/blacksmithgu/obsidian-dataview/discussions/" title="讨论页面" class="External-link" target="_blank">讨论页面</a>，有许多已回答的问题。</p>
+<h5 id="Obsidian%20%E8%AE%BA%E5%9D%9B">Obsidian 论坛</h5><p><a href="https://forum.obsidian.md/" title="Obsidian 论坛" class="External-link" target="_blank">Obsidian 论坛</a>提供了大量问题和答案以及其他有趣的内容。尝试在论坛中搜索答案，特别是看起来是初学者的问题。</p>
+<h5 id="Discord">Discord</h5><p><a href="https://obsidian.md/community" title="Obsidian 成员小组 Discord 服务器" class="External-link" target="_blank">Obsidian 成员小组 Discord 服务器</a>有一个 <code class="inline-code">#dataview</code> 频道。再次强调，您的问题很可能之前有人问过，因此请尝试先搜索，尽管众所周知 Discord 的搜索功能可能不太稳定。如果您找不到满意的答案，这是您获得实时支持的最佳途径，但不能保证即时回复。不过，有很多乐于助人的人，所以不要害怕提问。</p>
+<h4 id="%E6%94%AF%E6%8C%81">支持</h4><p>当您有问题时，该去哪里寻求帮助？我们建议您尝试以下方法：</p>
+<ol>
+<li>在 GitHub 讨论和 Obsidian 论坛中搜索您的问题。</li><li>在 Discord 中搜索可能的解决方案。</li><li>根据问题的复杂性：<ul>
+<li>如果您需要近乎同步的沟通，请使用 Discord。请注意，我们是一个志愿者社区，回复可能会有延迟。</li><li>如果您预计您的问题需要多天时间并且需要异步沟通，请开启 GitHub 讨论。</li></ul>
+</li><li>如果您发现了错误，请在 <a href="https://github.com/blacksmithgu/obsidian-dataview/issues" title="仓库的问题页面" class="External-link" target="_blank">仓库的问题页面</a> 中报告。</li></ol>
+<h2 id="Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89">Dataview 之友（Friends of Dataview）</h2><p>以下是一些可能对 Dataview 相关工作流有帮助的插件：</p>
+<ul>
+<li><a href="https://github.com/chhoumann/MetaEdit" title="MetaEdit" class="External-link" target="_blank">MetaEdit</a> - 轻松添加或更新 YAML 属性和 Dataview 字段。</li></ul>
+<p>另外，还有一些非详尽的插件，它们利用 Dataview 进行一些功能所需的重型处理：</p>
+<ul>
+<li><a href="https://github.com/mgmeyers/obsidian-kanban" title="Kanban" class="External-link" target="_blank">Kanban</a> - 在 Obsidian 中创建基于 Markdown 的看板。</li><li><a href="http://publish.obsidian.md/breadcrumbs-docs" title="Breadcrumbs" class="External-link" target="_blank">Breadcrumbs</a> - 让您在 Obsidian vault 中可视化自定义构建的层次结构。</li><li><a href="https://github.com/mdelobelle/obsidian_supercharged_links" title="Supercharged Links" class="External-link" target="_blank">Supercharged Links</a> - 基于笔记元数据样式化 Obsidian vault 中的链接。</li></ul>
+<p>完整列表可以通过 GitHub 的 <a href="https://github.com/blacksmithgu/obsidian-dataview/network/dependents" title="Dependents" class="External-link" target="_blank">Dependents</a> 功能找到。</p>
+<h2 id="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</h2><p>可以访问：<a href="https://blacksmithgu.github.io/obsidian-dataview/changelog/" title="https://blacksmithgu.github.io/obsidian-dataview/changelog/" class="External-link" target="_blank">https://blacksmithgu.github.io/obsidian-dataview/changelog/</a>，因我无法保证实更新这些内容，所以不做翻译。</p>
+<h2 id="%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB">大老鼠喵喵叫</h2><div data-callout-metadata="" data-callout-fold="" data-callout="done" class="callout callout-done" id="%E8%AF%91%E8%80%85%E7%9A%84%E4%B8%80%E7%82%B9%E7%A2%8E%E7%A2%8E%E5%BF%B5">
+      <div class="callout-title">
+        <div class="callout-icon"><i class="fa-solid fa-check"></i></div>
+        <div class="callout-title-inner">译者的一点碎碎念</div>
+        
+      </div>
+      <div class="callout-content">
+        <p>虽然有 AI 辅助，这依然是一份蛮辛苦的工作，毕竟得了解并理解其中的每个细节，才能发现其中矛盾的地方，并标注出来。而且 AI 还会翻译失真，甚至偷工减料，都得仔细提防着，并反复比对。</p>
+<p>虽然说能做点对大家有用的事情，我就觉得挺开心的，但可以预见的，将此内容转发到其他各处，并附以：“家人们，我为你们找到宝藏啦，看在我这么辛苦的份上，点点赞啊”这样会赚到更多的热度，点赞，和小钱钱。（我倒也不介意，毕竟更多人看到了）</p>
+<p>但是，<strong>有些事情，总得有人去做吧。</strong></p>
+<p>如果，对你有帮助，请我喝杯咖啡吧（<a href="https://afdian.com/a/daomishu" title="老鼠爱发电" class="External-link" target="_blank">老鼠爱发电</a>），或者留个言（<a href="https://meta.appinn.net/t/topic/59541" title="https://meta.appinn.net/t/topic/59541" class="External-link" target="_blank">https://meta.appinn.net/t/topic/59541</a>），让我感受到读者的存在。</p>
+<p>翻译完之后还有二次校对，内链添加的工作，以及日后跟着官方文档更新……我不确定我能坚持到哪一步。如果大家都只是默默地读完离开，我就只是在孤身作战了，连读者都感受不到，如同在深夜中坚持独自前行……</p>
+      </div>
+    </div></section>
     </article>
   </main>
   <aside id="side-menu">
@@ -2564,20 +3055,91 @@ meta(<span class="hljs-string">[[My Project#^9bcbe8]]</span>).<span class="hljs-
 <li data-hash="%3Ccode%20class=%22inline-code%22%3Emeta(link).type%3C/code%3E" style="margin-left: 7.5em"><a href="#%3Ccode%20class=%22inline-code%22%3Emeta(link).type%3C/code%3E"><code class="inline-code">meta(link).type</code></a></li>
 <li data-hash="JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89" style="margin-left: 1.5em"><a href="#JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89">JavaScript 查询参考（JavaScript Reference）</a></li>
 <li data-hash="%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89" style="margin-left: 3em"><a href="#%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89">概览（Overview）</a></li>
+<li data-hash="%E5%86%85%E8%81%94%E8%AE%BF%E9%97%AE" style="margin-left: 4.5em"><a href="#%E5%86%85%E8%81%94%E8%AE%BF%E9%97%AE">内联访问</a></li>
+<li data-hash="%E6%8F%92%E4%BB%B6%E8%AE%BF%E9%97%AE" style="margin-left: 4.5em"><a href="#%E6%8F%92%E4%BB%B6%E8%AE%BF%E9%97%AE">插件访问</a></li>
 <li data-hash="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89" style="margin-left: 3em"><a href="#%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</a></li>
+<li data-hash="%E5%88%9B%E5%BB%BA" style="margin-left: 4.5em"><a href="#%E5%88%9B%E5%BB%BA">创建</a></li>
+<li data-hash="%E7%B4%A2%E5%BC%95%E5%92%8C%E8%BD%AC%E6%8D%A2" style="margin-left: 4.5em"><a href="#%E7%B4%A2%E5%BC%95%E5%92%8C%E8%BD%AC%E6%8D%A2">索引和转换</a></li>
+<li data-hash="%E5%8E%9F%E5%A7%8B%E6%8E%A5%E5%8F%A3" style="margin-left: 4.5em"><a href="#%E5%8E%9F%E5%A7%8B%E6%8E%A5%E5%8F%A3">原始接口</a></li>
 <li data-hash="%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E5%8F%82%E8%80%83%EF%BC%88Codeblock%20Reference%EF%BC%89">代码块参考（Codeblock Reference）</a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2" style="margin-left: 4.5em"><a href="#%E6%9F%A5%E8%AF%A2">查询</a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.current()%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.current()%3C/code%3E"><code class="inline-code">dv.current()</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.pages(source)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.pages(source)%3C/code%3E"><code class="inline-code">dv.pages(source)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.pagePaths(source)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.pagePaths(source)%3C/code%3E"><code class="inline-code">dv.pagePaths(source)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.page(path)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.page(path)%3C/code%3E"><code class="inline-code">dv.page(path)</code></a></li>
+<li data-hash="%E6%B8%B2%E6%9F%93" style="margin-left: 4.5em"><a href="#%E6%B8%B2%E6%9F%93">渲染</a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.el(element,%20text)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.el(element,%20text)%3C/code%3E"><code class="inline-code">dv.el(element, text)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.header(level,%20text)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.header(level,%20text)%3C/code%3E"><code class="inline-code">dv.header(level, text)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.paragraph(text)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.paragraph(text)%3C/code%3E"><code class="inline-code">dv.paragraph(text)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.span(text)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.span(text)%3C/code%3E"><code class="inline-code">dv.span(text)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.execute(source)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.execute(source)%3C/code%3E"><code class="inline-code">dv.execute(source)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.executeJs(source)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.executeJs(source)%3C/code%3E"><code class="inline-code">dv.executeJs(source)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.view(path,%20input)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.view(path,%20input)%3C/code%3E"><code class="inline-code">dv.view(path, input)</code></a></li>
+<li data-hash="%E7%A4%BA%E4%BE%8B" style="margin-left: 7.5em"><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
+<li data-hash="%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE" style="margin-left: 4.5em"><a href="#%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE">数据视图</a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.list(elements)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.list(elements)%3C/code%3E"><code class="inline-code">dv.list(elements)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.taskList(tasks,%20groupByFile)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.taskList(tasks,%20groupByFile)%3C/code%3E"><code class="inline-code">dv.taskList(tasks, groupByFile)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.table(headers,%20elements)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.table(headers,%20elements)%3C/code%3E"><code class="inline-code">dv.table(headers, elements)</code></a></li>
+<li data-hash="Markdown%20%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE" style="margin-left: 4.5em"><a href="#Markdown%20%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE">Markdown 数据视图</a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.markdownTable(headers,%20values)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.markdownTable(headers,%20values)%3C/code%3E"><code class="inline-code">dv.markdownTable(headers, values)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.markdownList(values)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.markdownList(values)%3C/code%3E"><code class="inline-code">dv.markdownList(values)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.markdownTaskList(tasks)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.markdownTaskList(tasks)%3C/code%3E"><code class="inline-code">dv.markdownTaskList(tasks)</code></a></li>
+<li data-hash="%E5%B7%A5%E5%85%B7" style="margin-left: 4.5em"><a href="#%E5%B7%A5%E5%85%B7">工具</a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.array(value)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.array(value)%3C/code%3E"><code class="inline-code">dv.array(value)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.isArray(value)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.isArray(value)%3C/code%3E"><code class="inline-code">dv.isArray(value)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.fileLink(path,%20%5Bembed?%5D,%20%5Bdisplay-name%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.fileLink(path,%20%5Bembed?%5D,%20%5Bdisplay-name%5D)%3C/code%3E"><code class="inline-code">dv.fileLink(path, [embed?], [display-name])</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.sectionLink(path,%20section,%20%5Bembed?%5D,%20%5Bdisplay?%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.sectionLink(path,%20section,%20%5Bembed?%5D,%20%5Bdisplay?%5D)%3C/code%3E"><code class="inline-code">dv.sectionLink(path, section, [embed?], [display?])</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.blockLink(path,%20blockId,%20%5Bembed?%5D,%20%5Bdisplay?%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.blockLink(path,%20blockId,%20%5Bembed?%5D,%20%5Bdisplay?%5D)%3C/code%3E"><code class="inline-code">dv.blockLink(path, blockId, [embed?], [display?])</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.date(text)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.date(text)%3C/code%3E"><code class="inline-code">dv.date(text)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.duration(text)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.duration(text)%3C/code%3E"><code class="inline-code">dv.duration(text)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.compare(a,%20b)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.compare(a,%20b)%3C/code%3E"><code class="inline-code">dv.compare(a, b)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.equal(a,%20b)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.equal(a,%20b)%3C/code%3E"><code class="inline-code">dv.equal(a, b)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.clone(value)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.clone(value)%3C/code%3E"><code class="inline-code">dv.clone(value)</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.parse(value)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.parse(value)%3C/code%3E"><code class="inline-code">dv.parse(value)</code></a></li>
+<li data-hash="%E6%96%87%E4%BB%B6%20I/O" style="margin-left: 4.5em"><a href="#%E6%96%87%E4%BB%B6%20I/O">文件 I/O</a></li>
+<li data-hash="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.io.csv(path,%20%5Borigin-file%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.io.csv(path,%20%5Borigin-file%5D)%3C/code%3E">⌛ <code class="inline-code">dv.io.csv(path, [origin-file])</code></a></li>
+<li data-hash="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.io.load(path,%20%5Borigin-file%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.io.load(path,%20%5Borigin-file%5D)%3C/code%3E">⌛ <code class="inline-code">dv.io.load(path, [origin-file])</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.io.normalize(path,%20%5Borigin-file%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.io.normalize(path,%20%5Borigin-file%5D)%3C/code%3E"><code class="inline-code">dv.io.normalize(path, [origin-file])</code></a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2%E8%AF%84%E4%BC%B0" style="margin-left: 4.5em"><a href="#%E6%9F%A5%E8%AF%A2%E8%AF%84%E4%BC%B0">查询评估</a></li>
+<li data-hash="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.query(source,%20%5Bfile,%20settings%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.query(source,%20%5Bfile,%20settings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.query(source, [file, settings])</code></a></li>
+<li data-hash="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.tryQuery(source,%20%5Bfile,%20settings%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.tryQuery(source,%20%5Bfile,%20settings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.tryQuery(source, [file, settings])</code></a></li>
+<li data-hash="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.queryMarkdown(source,%20%5Bfile%5D,%20%5Bsettings%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.queryMarkdown(source,%20%5Bfile%5D,%20%5Bsettings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.queryMarkdown(source, [file], [settings])</code></a></li>
+<li data-hash="%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.tryQueryMarkdown(source,%20%5Bfile%5D,%20%5Bsettings%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%E2%8C%9B%20%3Ccode%20class=%22inline-code%22%3Edv.tryQueryMarkdown(source,%20%5Bfile%5D,%20%5Bsettings%5D)%3C/code%3E">⌛ <code class="inline-code">dv.tryQueryMarkdown(source, [file], [settings])</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.tryEvaluate(expression,%20%5Bcontext%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.tryEvaluate(expression,%20%5Bcontext%5D)%3C/code%3E"><code class="inline-code">dv.tryEvaluate(expression, [context])</code></a></li>
+<li data-hash="%3Ccode%20class=%22inline-code%22%3Edv.evaluate(expression,%20%5Bcontext%5D)%3C/code%3E" style="margin-left: 6em"><a href="#%3Ccode%20class=%22inline-code%22%3Edv.evaluate(expression,%20%5Bcontext%5D)%3C/code%3E"><code class="inline-code">dv.evaluate(expression, [context])</code></a></li>
 <li data-hash="%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89" style="margin-left: 3em"><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E7%A4%BA%E4%BE%8B%EF%BC%88Codeblock%20Examples%EF%BC%89">代码块示例（Codeblock Examples）</a></li>
+<li data-hash="%E5%88%86%E7%BB%84%E4%B9%A6%E7%B1%8D" style="margin-left: 4.5em"><a href="#%E5%88%86%E7%BB%84%E4%B9%A6%E7%B1%8D">分组书籍</a></li>
+<li data-hash="%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E7%9B%B4%E6%8E%A5%E5%92%8C%E9%97%B4%E6%8E%A5%E9%93%BE%E6%8E%A5%E7%9A%84%E9%A1%B5%E9%9D%A2" style="margin-left: 4.5em"><a href="#%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E7%9B%B4%E6%8E%A5%E5%92%8C%E9%97%B4%E6%8E%A5%E9%93%BE%E6%8E%A5%E7%9A%84%E9%A1%B5%E9%9D%A2">查找所有直接和间接链接的页面</a></li>
 <li data-hash="%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89" style="margin-left: 1.5em"><a href="#%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%EF%BC%88FAQ%20and%20Resources%EF%BC%89">问答和资源（FAQ and Resources）</a></li>
 <li data-hash="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89" style="margin-left: 3em"><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94%EF%BC%88Frequently%20Asked%20Questions%EF%BC%89">常见问题解答（Frequently Asked Questions）</a></li>
+<li data-hash="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%8C%E5%90%8D%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%88%E5%A6%82%20&quot;from&quot;%EF%BC%8C&quot;where&quot;%EF%BC%89%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%85%B3%E9%94%AE%E5%AD%97%E5%90%8C%E5%90%8D%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%88%E5%A6%82%20&quot;from&quot;%EF%BC%8C&quot;where&quot;%EF%BC%89%EF%BC%9F">如何使用与关键字同名的字段（如 &quot;from&quot;，&quot;where&quot;）？</a></li>
+<li data-hash="%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E5%90%8D%E7%A7%B0%E4%B8%AD%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E5%90%8D%E7%A7%B0%E4%B8%AD%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%9F">如何访问名称中带空格的字段？</a></li>
+<li data-hash="%E4%BD%A0%E4%BB%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E4%BD%A0%E4%BB%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%9F">你们有没有学习资源的列表？</a></li>
+<li data-hash="%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F">我可以保存查询结果以便重用吗？</a></li>
+<li data-hash="%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E8%A1%A8%E6%A0%BC%E6%9F%A5%E8%AF%A2%E7%9A%84%E7%BB%93%E6%9E%9C%E8%AE%A1%E6%95%B0%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E5%A6%82%E4%BD%95%E9%9A%90%E8%97%8F%E8%A1%A8%E6%A0%BC%E6%9F%A5%E8%AF%A2%E7%9A%84%E7%BB%93%E6%9E%9C%E8%AE%A1%E6%95%B0%EF%BC%9F">如何隐藏表格查询的结果计数？</a></li>
+<li data-hash="%E5%A6%82%E4%BD%95%E4%B8%BA%E6%88%91%E7%9A%84%E6%9F%A5%E8%AF%A2%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F%EF%BC%9F" style="margin-left: 4.5em"><a href="#%E5%A6%82%E4%BD%95%E4%B8%BA%E6%88%91%E7%9A%84%E6%9F%A5%E8%AF%A2%E8%AE%BE%E7%BD%AE%E6%A0%B7%E5%BC%8F%EF%BC%9F">如何为我的查询设置样式？</a></li>
 <li data-hash="%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89" style="margin-left: 3em"><a href="#%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89">示例（Examples）</a></li>
-<li data-hash="%E9%92%88%E5%AF%B9Dataview%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89" style="margin-left: 3em"><a href="#%E9%92%88%E5%AF%B9Dataview%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89">针对Dataview的开发（Developing Against Dataview）</a></li>
+<li data-hash="%E9%92%88%E5%AF%B9%20Dataview%20%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89" style="margin-left: 3em"><a href="#%E9%92%88%E5%AF%B9%20Dataview%20%E7%9A%84%E5%BC%80%E5%8F%91%EF%BC%88Developing%20Against%20Dataview%EF%BC%89">针对 Dataview 的开发（Developing Against Dataview）</a></li>
+<li data-hash="%E8%AE%BF%E9%97%AE%20Dataview%20API" style="margin-left: 4.5em"><a href="#%E8%AE%BF%E9%97%AE%20Dataview%20API">访问 Dataview API</a></li>
+<li data-hash="%E7%BB%91%E5%AE%9A%20Dataview%20%E4%BA%8B%E4%BB%B6" style="margin-left: 4.5em"><a href="#%E7%BB%91%E5%AE%9A%20Dataview%20%E4%BA%8B%E4%BB%B6">绑定 Dataview 事件</a></li>
+<li data-hash="%E5%80%BC%E5%B7%A5%E5%85%B7" style="margin-left: 4.5em"><a href="#%E5%80%BC%E5%B7%A5%E5%85%B7">值工具</a></li>
 <li data-hash="%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89" style="margin-left: 3em"><a href="#%E8%B5%84%E6%BA%90%E4%B8%8E%E6%94%AF%E6%8C%81%EF%BC%88Resources%20and%20Support%EF%BC%89">资源与支持（Resources and Support）</a></li>
-<li data-hash="%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7%EF%BC%88Friends%20of%20Dataview%EF%BC%89" style="margin-left: 1.5em"><a href="#%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7%EF%BC%88Friends%20of%20Dataview%EF%BC%89">增强工具（Friends of Dataview）</a></li>
-<li data-hash="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</a></li></ul></div>
-      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-04 16:06:08</small></div>
+<li data-hash="%E8%B5%84%E6%BA%90" style="margin-left: 4.5em"><a href="#%E8%B5%84%E6%BA%90">资源</a></li>
+<li data-hash="Obsidian%20Hub" style="margin-left: 6em"><a href="#Obsidian%20Hub">Obsidian Hub</a></li>
+<li data-hash="YouTube%20%E8%A7%86%E9%A2%91" style="margin-left: 6em"><a href="#YouTube%20%E8%A7%86%E9%A2%91">YouTube 视频</a></li>
+<li data-hash="%E7%A4%BA%E4%BE%8B%20Vault" style="margin-left: 4.5em"><a href="#%E7%A4%BA%E4%BE%8B%20Vault">示例 Vault</a></li>
+<li data-hash="%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0" style="margin-left: 4.5em"><a href="#%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0">博客文章</a></li>
+<li data-hash="GitHub%20%E8%AE%A8%E8%AE%BA" style="margin-left: 6em"><a href="#GitHub%20%E8%AE%A8%E8%AE%BA">GitHub 讨论</a></li>
+<li data-hash="Obsidian%20%E8%AE%BA%E5%9D%9B" style="margin-left: 6em"><a href="#Obsidian%20%E8%AE%BA%E5%9D%9B">Obsidian 论坛</a></li>
+<li data-hash="Discord" style="margin-left: 6em"><a href="#Discord">Discord</a></li>
+<li data-hash="%E6%94%AF%E6%8C%81" style="margin-left: 4.5em"><a href="#%E6%94%AF%E6%8C%81">支持</a></li>
+<li data-hash="Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89" style="margin-left: 1.5em"><a href="#Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89">Dataview 之友（Friends of Dataview）</a></li>
+<li data-hash="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</a></li>
+<li data-hash="%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB" style="margin-left: 1.5em"><a href="#%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB">大老鼠喵喵叫</a></li></ul></div>
+      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-04 19:42:26</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-08-04 16:07:08</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-08-04 19:43:20</foot>
 </body>
 </html>

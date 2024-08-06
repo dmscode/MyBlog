@@ -36,9 +36,9 @@
         
       </div>
       <div class="callout-content">
-        <p>我保留了所有外部链接。但是内链我忽略掉了，推荐使用右侧 TOC 导航进行跳转。原因如下：</p>
-<ul>
-<li>原始文档中的很多内链并不是必须的，甚至有一点过度（此处无贬义，只是表达不添加也没什么问题）</li><li>反复跳转并无助于理解，更建议顺序阅读文档避免丢失一些细节知识</li><li>原文链接有个别是错误的，意味着以后有修改的可能，大量链接维护起来会非常复杂</li><li>没有找到比较满意的内链表达方式，毕竟相同（相近）的小标题有很多，很难从小标题表现出链接到的具体位置</li></ul>
+        <ul>
+<li>原始文档中的很多内链并不是必须的，甚至有一点过度（此处无贬义，只是表达不添加也没什么问题）</li><li>原文链接有个别是错误的</li><li>同样的关键词，有的地方反复添加内链，有的地方则没有</li></ul>
+<p>我推荐：<strong>使用右侧 TOC 导航进行跳转</strong>，通过正文内链反复跳转并无助于理解，更建议顺序阅读文档避免丢失一些细节知识。</p>
       </div>
     </div><p><mark>所有高亮文字均为我个人想法（批注），非官方文档内容</mark></p>
 <h2 id="%E6%8F%92%E4%BB%B6%E8%AE%BE%E7%BD%AE">插件设置</h2><ul>
@@ -53,7 +53,7 @@
 <li>Primary column name（主列名，表格中自动生成的链接到源文件的列名称）</li><li>Grouped column name（组列名，当表格进行分组时，这一列的名称）</li></ul>
 <h3 id="%E4%BB%BB%E5%8A%A1%EF%BC%88Tasks%EF%BC%89">任务（Tasks）</h3><ul>
 <li>Automatic task completion tracking（自动任务完成追踪，开启后任务完成时会标记任务完成时间）</li><li>Use emoji shorthand for completion（使用 emoji 简写来表示完成）</li><li>Completion field name（完成字段名称，只有开启自动追踪，并且关闭 emoji 标记才可设置）</li><li>Completion date format（任务完成时间格式）</li><li>Recursive sub-task completion（递归子任务完成，即标记任务完成时这个任务的下级任务都被标记未完成）</li></ul>
-<h2 id="%E6%80%BB%E8%A7%88%EF%BC%88Overview%EF%BC%89">总览（Overview）</h2><p>Dataview 是一款针对你个人知识库的实时索引和查询引擎。你可以给你的笔记<a href="#添加元数据（Adding%20Metadata）" title="添加元数据（Adding Metadata）" class="internal-link" target="">添加元数据（Adding Metadata）</a>，并使用 <a href="#查询语言参考（Query%20Language%20Reference）" title="Dataview 查询语言" class="internal-link" target="">Dataview 查询语言</a>来列出、过滤、排序或分组你的数据。Dataview 保持你的查询始终是最新的（<mark>这个选项可以自行开关</mark>），并且使数据聚合变得轻松。</p>
+<h2 id="%E6%80%BB%E8%A7%88%EF%BC%88Overview%EF%BC%89">总览（Overview）</h2><p>Dataview 是一款针对你个人知识库的实时索引和查询引擎。你可以给你的笔记添加元数据（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】），并使用 Dataview 查询语言（【<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言参考" class="internal-link" target="">查询语言参考</a>】）来列出、过滤、排序或分组你的数据。Dataview 保持你的查询始终是最新的（<mark>这个选项可以自行开关</mark>），并且使数据聚合变得轻松。</p>
 <p>你可以：</p>
 <ul>
 <li>通过在每日笔记中记录来跟踪你的睡眠，并自动创建你的睡眠时间表的周表。</li><li>自动收集笔记中的书签链接，并按评分排序渲染它们。</li><li>自动收集与今天日期相关的页面，并在你的每日笔记中显示它们。</li><li>查找没有标签的页面以进行后续跟进，或展示特定标签页面的漂亮视图。</li><li>创建动态视图，显示记录在笔记中的即将到来的生日或事件。</li></ul>
@@ -66,7 +66,7 @@
       </div>
       
     </div><p>Dataview 非常通用且性能高，能够轻松扩展至处理数十万条带注释的笔记而没有问题。</p>
-<p>如果内置的<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言" class="internal-link" target="">查询语言</a>无法满足您的需求，您可以在 <a href="#概览（Overview）" title="Dataview API" class="internal-link" target="">Dataview API</a>Dataview 上运行任意 JavaScript 代码，并在您的笔记中自行构建所需的任何实用工具。</p>
+<p>如果内置的查询语言（【<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言参考" class="internal-link" target="">查询语言参考</a>】）无法满足您的需求，您可以在 Dataview API（【<a href="#JavaScript%20查询参考（JavaScript%20Reference）" title="JavaScript 查询参考" class="internal-link" target="">JavaScript 查询参考</a>】） 上运行任意 JavaScript 代码，并在您的笔记中自行构建所需的任何实用工具。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="Dataview%20%E6%98%AF%E5%B1%95%E7%A4%BA%E5%B1%95%E7%A4%BA%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%BC%96%E8%BE%91%E7%9A%84">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
@@ -74,7 +74,7 @@
         
       </div>
       <div class="callout-content">
-        <p>Dataview 旨在展示和计算数据。它不是用来编辑您的笔记/元数据的，并且总是会让它们（笔记）保持原样（...除非您是通过 Dataview 切换任务状态。）</p>
+        <p>Dataview 旨在展示和计算数据。它不是用来编辑您的笔记/元数据的，并且总是会让它们（笔记）保持原样（...除非您是通过 Dataview 切换任务（【<a href="#任务（TASK）" title="查询语言参考 &gt; 查询类型 &gt; 任务" class="internal-link" target="">查询语言参考 &gt; 查询类型 &gt; 任务</a>】）状态。）</p>
       </div>
     </div><h3 id="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%20Dataview">如何使用 Dataview</h3><p>Dataview 由两大构建模块组成：<strong>数据索引</strong>（Data Indexing）和<strong>数据查询</strong>（Data Querying）。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E6%9B%B4%E5%A4%9A%E8%AF%A6%E6%83%85%E5%9C%A8%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3%E9%A1%B5%E9%9D%A2%E4%B8%8A">
@@ -86,9 +86,9 @@
       <div class="callout-content">
         <p>接下来的部分应该为您提供关于使用 Dataview 能做什么以及如何操作的一般概述。请确保访问链接的页面，以了解更多关于各个部分的详细信息。</p>
       </div>
-    </div><h4 id="%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95">数据索引</h4><p>Dataview 在您的 Markdown 文件中的元数据上运行。它不能读取您的保险库中的所有内容，而只能读取特定数据。您的一些内容，如标签和项目符号（包括任务），会自动在 Dataview 中可用。您可以通过字段添加其他数据，这些字段可以位于文件顶部的 YAML Frontmatter 中，或者通过使用 <code class="inline-code">[key:: value]</code> 语法在您的内容中间使用内联字段。Dataview 索引这些数据，使其可供您查询。（<mark>简言之，不能全文搜索，只能根据笔记的特殊属性进行查询，或者对列表进行查询</mark>）</p>
-<p>Dataview 索引某些信息，如标签和列表项，以及您通过字段添加的数据。只有在 Dataview 查询中才可用索引数据！</p>
-<p>例如，一个文件可能看起来像这样：</p>
+    </div><h4 id="%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95">数据索引</h4><p>Dataview 在您的 Markdown 文件中的元数据上运行。它不能读取您的保险库中的所有内容，而只能读取特定数据。您的一些内容，如标签和项目符号（包括任务），会自动在 Dataview 中可用（【<a href="#隐式字段" title="元数据 &gt; 添加元数据 &gt; 隐式字段" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 隐式字段</a>】）。您可以通过字段添加其他数据，这些字段可以位于文件顶部的 YAML Frontmatter 中（【<a href="#Frontmatter" title="元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; Frontmatter" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; Frontmatter</a>】），或者通过使用 <code class="inline-code">[key:: value]</code> 语法在您的内容中间使用内联字段（【<a href="#内联字段" title="元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; 内联字段" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; 内联字段</a>】）。Dataview 索引这些数据，使其可供您查询。（<mark>简言之，不能全文搜索，只能根据笔记的特殊属性进行查询，或者对列表进行查询</mark>）</p>
+<blockquote><p> [!note] Dataview 索引某些信息（【<a href="#隐式字段" title="元数据 &gt; 添加元数据 &gt; 隐式字段" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 隐式字段</a>】），如标签和列表项，以及您通过字段添加的数据。只有在 Dataview 查询中才可用索引数据！</p>
+</blockquote><p>例如，一个文件可能看起来像这样：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-meta">---</span>
 <span class="hljs-attr">author:</span> <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
 <span class="hljs-attr">published:</span> <span class="hljs-number">1845</span>
@@ -106,7 +106,7 @@
 <span class="hljs-selector-tag">From</span> <span class="hljs-selector-attr">[author:: Edgar Allan Poe]</span>, <span class="hljs-selector-tag">written</span> <span class="hljs-selector-tag">in</span> (<span class="hljs-attribute">published</span>:: <span class="hljs-number">1845</span>)
 
 <span class="hljs-selector-tag">Once</span> <span class="hljs-selector-tag">upon</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">midnight</span> <span class="hljs-selector-tag">dreary</span>, <span class="hljs-selector-tag">while</span> <span class="hljs-selector-tag">I</span> <span class="hljs-selector-tag">pondered</span>, <span class="hljs-selector-tag">weak</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">weary</span>,
-<span class="hljs-selector-tag">Over</span> <span class="hljs-selector-tag">many</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">quaint</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">curious</span> <span class="hljs-selector-tag">volume</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">forgotten</span> <span class="hljs-selector-tag">lore</span>—</code></pre><p>在索引的元数据（或者您可以查询的内容）方面，它们是相同的，只是它们的注释风格不同。您想要如何注释您的元数据取决于您和您的个人偏好。有了这个文件，您将拥有元数据字段 &quot;author&quot; 可用，以及 Dataview 自动为您提供的所有隐式字段，比如标签或笔记标题。</p>
+<span class="hljs-selector-tag">Over</span> <span class="hljs-selector-tag">many</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">quaint</span> <span class="hljs-selector-tag">and</span> <span class="hljs-selector-tag">curious</span> <span class="hljs-selector-tag">volume</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">forgotten</span> <span class="hljs-selector-tag">lore</span>—</code></pre><p>在索引的元数据（或者您可以查询的内容）方面，它们是相同的，只是它们的注释风格不同。您想要如何注释您的元数据（【<a href="#添加元数据（Adding%20Metadata）】" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>）取决于您和您的个人偏好。有了这个文件，您将拥有元数据字段 &quot;author&quot; 可用，以及 Dataview 自动为您提供的所有隐式字段（【<a href="#隐式字段" title="元数据 &gt; 添加元数据 &gt; 隐式字段" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 隐式字段</a>】），比如标签或笔记标题。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E6%95%B0%E6%8D%AE%E9%9C%80%E8%A6%81%E8%A2%AB%E7%B4%A2%E5%BC%95">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -118,11 +118,11 @@
 <p><mark>这样做的好处是查询速度快，并且足以满足大部分需求。但是对于深度用户，这样带来的局限性也是非常大的。不过深度用户可以通过其他方法开启更复杂的查询。</mark></p>
       </div>
     </div><h4 id="%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2">数据查询</h4><p>您可以借助查询来访问索引数据。</p>
-<p>您可以用三种不同的方式来编写查询：使用 Dataview 查询语言、作为内联语句，或者以最灵活但最复杂的方式：用 JavaScript 查询。（<mark>学它的查询语言只能用在它这里，但是学习 JS 可以应用的地方可太多了，而且灵活性上 JS 也强了太多，所以我选择……</mark>）</p>
-<p>Dataview 查询语言（DQL）为您提供了一个广泛而强大的工具箱，用于查询、显示和操作您的数据。内联查询使您能够在笔记中的任何地方显示一个确切的索引值。您也可以通过这种方式进行计算。有了 DQL，您可能在数据之旅中不需要任何 JavaScript。（<mark>完全按着它的思路去使用，大概确实是的。但如果自己的想法多一点，想要的多一点，还是得 JS</mark>）</p>
+<p>您可以用三种不同的方式来编写查询：使用 Dataview 查询语言（【<a href="#Dataview%20查询语言%20(DQL)" title="查询语言、JS 和行内查询 &gt; Dataview 查询语言 (DQL)" class="internal-link" target="">查询语言、JS 和行内查询 &gt; Dataview 查询语言 (DQL)</a>】）、作为内联语句（【<a href="#内联%20DQL" title="查询语言、JS 和行内查询 &gt; 内联 DQL" class="internal-link" target="">查询语言、JS 和行内查询 &gt; 内联 DQL</a>】），或者以最灵活但最复杂的方式：用 JavaScript 查询（【<a href="#Dataview%20JS" title="查询语言、JS 和行内查询 &gt; Dataview JS" class="internal-link" target="">查询语言、JS 和行内查询 &gt; Dataview JS</a>】）。（<mark>学它的查询语言只能用在它这里，但是学习 JS 可以应用的地方可太多了，而且灵活性上 JS 也强了太多，所以我选择……</mark>）</p>
+<p>Dataview 查询语言（DQL）为您提供了一个广泛而强大的工具箱，用于查询、显示和操作您的数据。内联查询（【<a href="#内联%20DQL" title="查询语言、JS 和行内查询 &gt; 内联 DQL" class="internal-link" target="">查询语言、JS 和行内查询 &gt; 内联 DQL</a>】）使您能够在笔记中的任何地方显示一个确切的索引值。您也可以通过这种方式进行计算。有了 DQL，您可能在数据之旅中不需要任何 JavaScript。（<mark>完全按着它的思路去使用，大概确实是的。但如果自己的想法多一点，想要的多一点，还是得 JS</mark>）</p>
 <p>DQL 查询由几个部分组成：</p>
 <ul>
-<li>选择一种查询类型，它决定了您的查询输出外观（格式）</li><li>零个或一个 FROM 语句，用于选择特定的标签或文件夹（或另一个来源）来查看</li><li>零到多个其他数据命令，帮助您过滤、分组和排序您想要的输出</li></ul>
+<li>选择一种查询类型（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】），它决定了您的查询输出外观（格式）</li><li>零个或一个 FROM 语句（【<a href="#FROM（来源）" title="查询语言参考 &gt; 数据命令 &gt; FROM" class="internal-link" target="">查询语言参考 &gt; 数据命令 &gt; FROM</a>】），用于选择特定的标签或文件夹（或另一个来源）来查看</li><li>零到多个其他数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】），帮助您过滤、分组和排序您想要的输出</li></ul>
 <p>例如，一个查询可能看起来像这样：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 LIST
@@ -142,7 +142,7 @@ LIST
 FROM #poems
 WHERE author = <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
 ```</code></pre><p>这个查询列出了您的保险库中所有带有标签 #poems 并且有一个名为 author 的字段，其值为 Edgar Allan Poe 的文件。这个查询将找到我们上面提到的例子页面。</p>
-<p>LIST 只是您可以使用的四种查询类型之一。例如，使用 TABLE 类型，我们可以在我们的输出中添加一些更多的信息：</p>
+<p>LIST 只是您可以使用的四种查询类型之一（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】）。例如，使用 TABLE 类型，我们可以在我们的输出中添加一些更多的信息：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 <span class="hljs-keyword">TABLE</span> author, published, <span class="hljs-keyword">file</span>.inlinks <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;Mentions&quot;</span>
 <span class="hljs-keyword">FROM</span> #poems
@@ -175,7 +175,7 @@ WHERE author = <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
 <td>- [[Favorite Poems]]</td>
 </tr>
 </tbody></table>
-<p>尽管如此，Dataview 的能力并不仅限于此。您还可以利用函数对您的数据进行操作。请注意，这些操作仅在查询内部进行 - 您文件中的数据保持不变。</p>
+<p>尽管如此，Dataview 的能力并不仅限于此。您还可以利用函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）对您的数据进行操作。请注意，这些操作仅在查询内部进行 - 您文件中的数据保持不变。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 <span class="hljs-keyword">TABLE</span> author, <span class="hljs-meta">date</span>(now).year - published <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;Age in Yrs&quot;</span>, <span class="hljs-meta">length</span>(<span class="hljs-keyword">file</span>.inlinks) <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;Counts of Mentions&quot;</span>
 <span class="hljs-keyword">FROM</span> #poems
@@ -208,23 +208,23 @@ WHERE author = <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
 <td>1</td>
 </tr>
 </tbody></table>
-<div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%A4%BA%E4%BE%8B%E7%AB%A0%E8%8A%82%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E4%BE%8B%E5%AD%90">
+<div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%A4%BA%E4%BE%8B%E7%AB%A0%E8%8A%82%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E4%BE%8B%E5%AD%90%EF%BC%88%E3%80%90%3Ca%20href=%22%20%E7%A4%BA%E4%BE%8B%EF%BC%88Examples%EF%BC%89%22%20title=%22%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%20&gt;%20%E7%A4%BA%E4%BE%8B%22%20class=%22internal-link%22%20target=%22%22%3E%E9%97%AE%E7%AD%94%E5%92%8C%E8%B5%84%E6%BA%90%20&gt;%20%E7%A4%BA%E4%BE%8B%3C/a%3E%E3%80%91%EF%BC%89">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
-        <div class="callout-title-inner">你可以在示例章节找到更多例子</div>
+        <div class="callout-title-inner">你可以在示例章节找到更多例子（【<a href="#示例（Examples）" title="问答和资源 &gt; 示例" class="internal-link" target="">问答和资源 &gt; 示例</a>】）</div>
         
       </div>
       
     </div><p>正如您所看到的，Dataview 不仅允许您快速且始终更新地聚合您的数据，它还可以帮助您进行操作，为您提供对数据集的新见解。浏览文档以了解更多关于如何与您的数据交互的信息。</p>
 <p>以新的方式探索您的保险库，享受乐趣！</p>
-<h3 id="%E8%B5%84%E6%BA%90%E5%92%8C%E5%B8%AE%E5%8A%A9">资源和帮助</h3><p>此文档不是唯一可以在您的数据之旅中帮助您的地方。查看资源和支持，获取有用页面和视频的列表。</p>
+<h3 id="%E8%B5%84%E6%BA%90%E5%92%8C%E5%B8%AE%E5%8A%A9">资源和帮助</h3><p>此文档不是唯一可以在您的数据之旅中帮助您的地方。查看资源和支持（【<a href="#资源与支持（Resources%20and%20Support）" title="问答和资源 &gt; 资源与支持" class="internal-link" target="">问答和资源 &gt; 资源与支持</a>】），获取有用页面和视频的列表。</p>
 <h2 id="%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%EF%BC%89">元数据（Metadata）</h2><p><mark>这里所说的元数据、字段，具有非常相似的含义，总之就是定义一些属性，并为属性赋值。你要关注的是属性的名称（键、key），属性的值（value），这个属性是谁的。</mark></p>
 <h3 id="%E6%B7%BB%E5%8A%A0%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Adding%20Metadata%EF%BC%89">添加元数据（Adding Metadata）</h3><p>Dataview 无法查询您保管库的所有内容。为了能够搜索、过滤和显示内容，需要对该内容建立索引。某些内容会自动索引，例如项目符号点或任务列表 - 所谓的隐式字段，下面将详细介绍 - 而其他数据需要保存在元数据字段中才能通过 Dataview 访问。（<mark>总而言之，一般的笔记内容它查询不到</mark>）</p>
-<h4 id="%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E5%AD%97%E6%AE%B5%E2%80%9D%EF%BC%9F">什么是“字段”？</h4><p>元数据字段是一对键和值。字段的值有一个数据类型（更多信息请参见此处），该数据类型确定该字段在查询时的行为方式。</p>
+<h4 id="%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E5%AD%97%E6%AE%B5%E2%80%9D%EF%BC%9F">什么是“字段”？</h4><p>元数据字段是一对键和值。字段的值有一个数据类型（更多信息请参见此处（【<a href="#数据类型（Data%20Types）" title="元数据 &gt; 数据类型" class="internal-link" target="">元数据 &gt; 数据类型</a>】）），该数据类型确定该字段在查询时的行为方式。</p>
 <p>您可以向注释、列表项或任务添加任意数量的字段。</p>
 <h4 id="%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5%EF%BC%9F">如何添加字段？</h4><p>您可以通过三种不同的方式向注释添加字段。字段的外观取决于您添加它的方式。</p>
-<p>在任务或列表项上，您将拥有可用的 YAML Frontmatter 信息，但无法将它们添加到特定列表项。如果您只想将元数据添加到一个列表项或任务，请使用内联字段。</p>
-<h5 id="Frontmatter">Frontmatter</h5><p>Frontmatter 是一个常见的 Markdown 扩展，它允许将 YAML 元数据添加到页面顶部。它由 Obsidian 原生支持，并在其官方文档中进行了解释。所有 YAML Frontmatter 字段将自动用作 Dataview 字段。</p>
+<p>在任务或列表项上，您将拥有可用的 YAML Frontmatter 信息，但无法将它们添加到特定列表项。如果您只想将元数据添加到一个列表项或任务，请使用内联字段（【<a href="#内联字段" title="元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; 内联字段" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; 内联字段</a>】）。</p>
+<h5 id="Frontmatter">Frontmatter</h5><p>Frontmatter 是一个常见的 Markdown 扩展，它允许将 YAML 元数据添加到页面顶部。它由 Obsidian 原生支持，并在其<a href="https://help.obsidian.md/Advanced+topics/YAML+front+matter" title="官方文档" class="External-link" target="_blank">官方文档</a>中进行了解释。所有 YAML Frontmatter 字段将自动用作 Dataview 字段。</p>
 <pre class="hljs-code-block"><code class="hljs yaml" lang="yaml">  <span class="hljs-string">---</span>
   <span class="hljs-attr">alias:</span> <span class="hljs-string">&quot;document&quot;</span>
   <span class="hljs-attr">last-reviewed:</span> <span class="hljs-number">2021-08-17</span>
@@ -233,7 +233,7 @@ WHERE author = <span class="hljs-string">&quot;Edgar Allan Poe&quot;</span>
     <span class="hljs-attr">reviewable:</span> <span class="hljs-literal">false</span>
   <span class="hljs-string">---</span></code></pre><p>这样，您的笔记就有名为 <code class="inline-code">alias</code> 、 <code class="inline-code">last-reviewed</code> 和 <code class="inline-code">thoughts</code> 的元数据字段。其中每一个都有不同的数据类型：</p>
 <ul>
-<li><code class="inline-code">alias</code> 是一个文本字段，因为它包裹在引号中</li><li><code class="inline-code">last-reviewed</code> 是一个日期，因为它遵循 ISO 日期格式</li><li><code class="inline-code">thoughts</code> 是一个对象字段，因为它使用 YAML Frontmatter 对象语法</li></ul>
+<li><code class="inline-code">alias</code> 是一个文本字段（【<a href="#文本（Text）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 文本" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 文本</a>】），因为它包裹在引号中</li><li><code class="inline-code">last-reviewed</code> 是一个日期（【<a href="#日期（Date）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期</a>】），因为它遵循 ISO 日期格式</li><li><code class="inline-code">thoughts</code> 是一个对象字段（【<a href="#对象（Object）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 对象" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 对象</a>】），因为它使用 YAML Frontmatter 对象语法</li></ul>
 <p>您可以使用下面的查询来查询该注释：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 LIST
@@ -316,7 +316,7 @@ WHERE thoughts.rating = 8
 </tr>
 </tbody></table>
 <p>正如您在表中看到的，如果您在元数据键名称中使用空格或大写字母，Dataview 将为您提供该键的经过净化的版本。</p>
-<p>带空格的键不能按原样在查询中使用。这里有两种可能性：要么使用经过清理的名称，该名称始终为小写，并用破折号代替空格，要么使用行变量语法。在常见问题解答中了解更多信息。</p>
+<p>带空格的键不能按原样在查询中使用。这里有两种可能性：要么使用经过清理的名称，该名称始终为小写，并用破折号代替空格，要么使用行变量语法。在常见问题解答（【<a href="#常见问题解答（Frequently%20Asked%20Questions）" title="问答和资源 &gt; 常见问题解答" class="internal-link" target="">问答和资源 &gt; 常见问题解答</a>】）中了解更多信息。</p>
 <p>如果您愿意的话，使用大写字母的键可以原样使用。经过清理的版本允许您查询键，而不受其大小写的影响，这使得使用更加方便：您可以使用清理后的键名进行查询，例如，在两个文件中分别命名为 someMetadata 和 someMetaData，而使用清理后的键 somemetadata。（<mark>总之都会被转换为小写，即大小写无关</mark>）</p>
 <h5 id="%E8%A1%A8%E6%83%85%E7%AC%A6%E5%8F%B7%E5%92%8C%E9%9D%9E%E6%8B%89%E4%B8%81%E5%AD%97%E7%AC%A6%E7%9A%84%E4%BD%BF%E7%94%A8">表情符号和非拉丁字符的使用</h5><p>命名元数据字段时不限于拉丁字符。您可以使用 UTF-8 中可用的所有字符：（<mark>可以使用中文，emoji 等</mark>）</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-title">Noël::</span> Un jeu de console
@@ -330,14 +330,14 @@ WHERE thoughts.rating = 8
         
       </div>
       <div class="callout-content">
-        <p>任务中的简写语法是一个例外。您可以使用不带括号的简写。请注意，这仅适用于列出的简写 - 所有其他字段（无论是否带有表情符号）都需要使用 <code class="inline-code">[key:: value]</code> 语法。</p>
+        <p>任务中的简写语法是一个例外。您可以使用不带括号的简写（【<a href="#字段简写" title="元数据 &gt; 任务和列表的元数据 &gt; 字段简写" class="internal-link" target="">元数据 &gt; 任务和列表的元数据 &gt; 字段简写</a>】）。请注意，这仅适用于列出的简写 - 所有其他字段（无论是否带有表情符号）都需要使用 <code class="inline-code">[key:: value]</code> 语法。</p>
       </div>
     </div><h4 id="%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5">隐式字段</h4><p>即使您没有在笔记中显式添加任何元数据，dataview 也会为您提供大量开箱即用的索引数据。隐式字段的一些示例：</p>
 <ul>
 <li>文件创建日期 (<code class="inline-code">file.cday</code>)（<mark>当你复制、同步文件时，可能导致这个日期发生变化，从而不能准确的反应笔记真实的创建日期，所以推荐在 frontmatter 中加入文件的创建和更新日期</mark>）</li><li>文件中的链接 (<code class="inline-code">file.outlinks</code>)</li><li>文件中的标签 (<code class="inline-code">file.etags</code>)</li><li>文件中的所有列表项（<code class="inline-code">file.lists</code> 和 <code class="inline-code">file.tasks</code>）</li></ul>
-<p>还有很多。可用的隐式字段会有所不同，具体取决于您查看的是页面还是列表项。在页面元数据和任务和列表元数据上查找可用隐式字段的完整列表。</p>
-<h3 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88Data%20Types%EF%BC%89">数据类型（Data Types）</h3><p>Dataview 中的所有字段都有一个类型，这决定了 Dataview 如何渲染、排序和操作该字段。您可以在“添加元数据”部分了解更多关于如何创建字段的信息，以及在页面和任务列表的元数据上有哪些可用信息。</p>
-<h4 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%9F">为什么类型很重要？</h4><p>Dataview 提供了您可以使用的函数来修改您的元数据，并允许您编写各种复杂的查询。特定的函数需要特定的数据类型才能正确工作。这意味着您的字段的数据类型决定了您可以在这些字段上使用哪些函数以及这些函数的行为。此外，根据类型，Dataview 渲染的输出数据可能会有所不同。</p>
+<p>还有很多。可用的隐式字段会有所不同，具体取决于您查看的是页面还是列表项。在页面元数据（【<a href="#页面（笔记）元数据（Metadata%20on%20Pages）" title="元数据 &gt; 页面元数据" class="internal-link" target="">元数据 &gt; 页面元数据</a>】）和任务和列表元数据（【<a href="#任务和列表的元数据（Metadata%20on%20Tasks%20and%20Lists）" title="元数据 &gt; 任务和列表的元数据" class="internal-link" target="">元数据 &gt; 任务和列表的元数据</a>】）上查找可用隐式字段的完整列表。</p>
+<h3 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%88Data%20Types%EF%BC%89">数据类型（Data Types）</h3><p>Dataview 中的所有字段都有一个类型，这决定了 Dataview 如何渲染、排序和操作该字段。您可以在“添加元数据”（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】）部分了解更多关于如何创建字段的信息，以及在页面（【<a href="#页面（笔记）元数据（Metadata%20on%20Pages）" title="元数据 &gt; 页面元数据" class="internal-link" target="">元数据 &gt; 页面元数据</a>】）和任务列表（【<a href="#任务和列表的元数据（Metadata%20on%20Tasks%20and%20Lists）" title="元数据 &gt; 任务和列表的元数据" class="internal-link" target="">元数据 &gt; 任务和列表的元数据</a>】）的元数据上有哪些可用信息。</p>
+<h4 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%9F">为什么类型很重要？</h4><p>Dataview 提供了您可以使用的函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）来修改您的元数据，并允许您编写各种复杂的查询。特定的函数需要特定的数据类型才能正确工作。这意味着您的字段的数据类型决定了您可以在这些字段上使用哪些函数以及这些函数的行为。此外，根据类型，Dataview 渲染的输出数据可能会有所不同。</p>
 <p>大多数情况下，您不需要太担心字段的类型，但如果您想对数据执行计算和其他魔法操作，您应该了解它们。</p>
 <p><mark>在任何编程中，数据类型都是非常重要的，即便是在类型无需声明并可以自动转换的脚本语言中，也应该时刻了解当前数据所处的类型。</mark></p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="example" class="callout callout-example" id="%E6%A0%B9%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B8%B2%E6%9F%93%E6%96%B9%E5%BC%8F">
@@ -369,7 +369,7 @@ WHERE file = this.file
 <td>2021-04-17 18:00</td>
 </tr>
 </tbody></table>
-<p><code class="inline-code">date1</code> 被识别为日期，而 <code class="inline-code">date2</code> 是普通的文本，对 Dataview 来说，这就是为什么 <code class="inline-code">date1</code> 被解析得与您给出的值不同的原因。在下方可以找到更多关于日期的信息。</p>
+<p><code class="inline-code">date1</code> 被识别为日期，而 <code class="inline-code">date2</code> 是普通的文本，对 Dataview 来说，这就是为什么 <code class="inline-code">date1</code> 被解析得与您给出的值不同的原因。在下方可以找到更多关于日期的信息（【<a href="#日期（Date）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期</a>】）。</p>
       </div>
     </div><p><mark>不理解数据类型，就很难进行高级操作；而理解了数据类型，其实也就入门了编程。</mark></p>
 <h4 id="%E5%8F%AF%E7%94%A8%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B">可用字段类型</h4><p>Dataview 预设几种字段类型，以覆盖常见的使用情况。</p>
@@ -415,7 +415,7 @@ Example:: <span class="hljs-literal">false</span></code></pre><h5 id="%E6%97%A5%
 ```dataview
 LIST birthday
 WHERE birthday.month = date(now).month
-```</code></pre><p>返回这个月所有生日。对 date(now) 感到好奇吗？在“字面量”下阅读更多。</p>
+```</code></pre><p>返回这个月所有生日。对 date(now) 感到好奇吗？在“字面量”（【<a href="#日期" title="查询语言参考 &gt; 字面量 &gt; 日期" class="internal-link" target="">查询语言参考 &gt; 字面量 &gt; 日期</a>】）下阅读更多。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E6%98%BE%E7%A4%BA%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
@@ -423,7 +423,7 @@ WHERE birthday.month = date(now).month
         
       </div>
       <div class="callout-content">
-        <p>Dataview 以人类可读的格式渲染日期对象，即 <code class="inline-code">3:15 PM - February 26, 2021</code>。您可以在 Dataview 的“设置”_“常规”中通过“日期格式”和“日期+时间格式”来调整这种格式的外观。如果您只想在特定查询中调整格式，请使用 <code class="inline-code">dateformat</code> 函数。</p>
+        <p>Dataview 以人类可读的格式渲染日期对象，即 <code class="inline-code">3:15 PM - February 26, 2021</code>。您可以在 Dataview 的“设置”_“常规”中通过“日期格式”和“日期+时间格式”来调整这种格式的外观。如果您只想在特定查询中调整格式，请使用 <code class="inline-code">dateformat</code> 函数（【<a href="#`dateformat(date|datetime,%20string)`" title="查询语言参考 &gt; 函数 &gt; 工具函数 &gt; <code class="inline-code">dateformat(date|datetime, string)</code>" class="internal-link" target="">查询语言参考 &gt; 函数 &gt; 工具函数 &gt; <code class="inline-code">dateformat(date|datetime, string)</code></a>】）。</p>
       </div>
     </div><h5 id="%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%EF%BC%88Duration%EF%BC%89">持续时间（Duration）</h5><p>持续时间是形如 <code class="inline-code">&lt;时间&gt; &lt;单位&gt;</code> 的文本，例如 &quot;6 hours&quot; 或 &quot;4 minutes&quot;。常见的英文缩写如 &quot;6hrs&quot; 或 &quot;2m&quot; 也是可以接受的。您可以在同一个字段中指定多个单位，即 &quot;6hr 4min&quot;，也可以选择使用逗号分隔：&quot;6 hours, 4 minutes&quot;。(<mark>这种就必须使用英文了，因为程序只认识英文写法</mark>)</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-attribute">Example</span>:: <span class="hljs-number">7</span> hours
@@ -431,7 +431,7 @@ WHERE birthday.month = date(now).month
 <span class="hljs-attribute">Example</span>:: <span class="hljs-number">4</span>min
 <span class="hljs-attribute">Example</span>:: <span class="hljs-number">6</span>hr7min
 <span class="hljs-attribute">Example</span>:: <span class="hljs-number">9</span> years, <span class="hljs-number">8</span> months, <span class="hljs-number">4</span> days, <span class="hljs-number">16</span> hours, <span class="hljs-number">2</span> minutes
-<span class="hljs-attribute">Example</span>:: <span class="hljs-number">9</span> yrs <span class="hljs-number">8</span> min</code></pre><p>要找到被识别为持续时间的完整值列表，您可以查阅 Dataview 文档中的 &quot;字面量&quot; 部分，那里会列出所有被接受的时间单位和格式。</p>
+<span class="hljs-attribute">Example</span>:: <span class="hljs-number">9</span> yrs <span class="hljs-number">8</span> min</code></pre><p>要找到被识别为持续时间的完整值列表，您可以查阅 Dataview 文档中的 &quot;字面量&quot;（【<a href="#持续时间" title="查询语言参考 &gt; 字面量 &gt; 持续时间" class="internal-link" target="">查询语言参考 &gt; 字面量 &gt; 持续时间</a>】） 部分，那里会列出所有被接受的时间单位和格式。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E6%97%A5%E6%9C%9F%E5%92%8C%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4%E7%9A%84%E8%AE%A1%E7%AE%97">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -446,7 +446,7 @@ length of travel:: <span class="hljs-number">1</span> day, <span class="hljs-num
 **Arrival**: `= <span class="hljs-keyword">this</span>.departure + <span class="hljs-keyword">this</span>.length-of-travel`</code></pre><p>当您用日期进行计算时，您也可以得到持续时间：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-keyword">release</span>-<span class="hljs-type">date</span>:: <span class="hljs-number">2023</span><span class="hljs-number">-02</span><span class="hljs-number">-14</span>T12:<span class="hljs-number">00</span>
 
-`= this.<span class="hljs-keyword">release</span>-<span class="hljs-type">date</span> - <span class="hljs-type">date</span>(now)` <span class="hljs-keyword">until</span> <span class="hljs-keyword">release</span>!!</code></pre><p>对 <code class="inline-code">date(now)</code> 感到好奇吗？在“字面量”下阅读更多。</p>
+`= this.<span class="hljs-keyword">release</span>-<span class="hljs-type">date</span> - <span class="hljs-type">date</span>(now)` <span class="hljs-keyword">until</span> <span class="hljs-keyword">release</span>!!</code></pre><p>对 <code class="inline-code">date(now)</code> 感到好奇吗？在“字面量”（【<a href="#日期" title="查询语言参考 &gt; 字面量 &gt; 日期" class="internal-link" target="">查询语言参考 &gt; 字面量 &gt; 日期</a>】）下阅读更多。</p>
       </div>
     </div><h5 id="%E9%93%BE%E6%8E%A5%EF%BC%88Link%EF%BC%89">链接（Link）</h5><p>Obsidian 链接如 <code class="inline-code">[[Page]]</code> 或者 <code class="inline-code">[[Page|Page Display]]</code>。（<mark>这里示例的是定义一个链接，其实本质上是“文本”，然后 Dataview 对文本进行解析，识别（渲染）为链接</mark>）</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">Example:: <span class="hljs-string">[[A Page]]</span>
@@ -511,7 +511,7 @@ WHERE file = this.file
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 <span class="hljs-keyword">TABLE</span> obj.key1, obj.key2, obj.key3
 <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">file</span> = this.<span class="hljs-keyword">file</span>
-```</code></pre><h3 id="%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Pages%EF%BC%89">页面（笔记）元数据（Metadata on Pages）</h3><p>您可以通过三种不同的方式向 Markdown 页面（笔记）添加字段——通过前置数据、内联字段和隐式字段。有关前两种可能性，请阅读“如何添加元数据”。</p>
+```</code></pre><h3 id="%E9%A1%B5%E9%9D%A2%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Pages%EF%BC%89">页面（笔记）元数据（Metadata on Pages）</h3><p>您可以通过三种不同的方式向 Markdown 页面（笔记）添加字段——通过前置数据、内联字段和隐式字段。有关前两种可能性，请阅读“如何添加元数据”（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】）。</p>
 <h4 id="%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5%EF%BC%88%E9%A1%B5%E9%9D%A2%EF%BC%89">隐式字段（页面）</h4><p>Dataview 会自动向每个页面添加大量元数据。这些隐式和自动添加的字段会集中在字段 file 下。以下是可用的字段：</p>
 <table>
 <thead>
@@ -639,16 +639,13 @@ WHERE file = this.file
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">file</span>.ctime, <span class="hljs-keyword">length</span>, rating, reviewed
 <span class="hljs-keyword">FROM</span> #movies
-```</code></pre><h3 id="%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Tasks%20and%20Lists%EF%BC%89">任务和列表的元数据（Metadata on Tasks and Lists）</h3><p>就像页面一样，您还可以在列表项和任务级别添加字段，将其绑定到特定任务作为上下文。为此，您需要使用内联字段语法：</p>
+```</code></pre><h3 id="%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%20on%20Tasks%20and%20Lists%EF%BC%89">任务和列表的元数据（Metadata on Tasks and Lists）</h3><p>就像页面一样，您还可以在列表项和任务级别添加字段，将其绑定到特定任务作为上下文。为此，您需要使用内联字段语法（【<a href="#内联字段" title="元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; 内联字段" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 如何添加字段？ &gt; 内联字段</a>】）：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">- <span class="hljs-selector-attr">[ ]</span> Hello, this is some <span class="hljs-selector-attr">[metadata:: value]</span>!
 - <span class="hljs-selector-attr">[X]</span> <span class="hljs-selector-tag">I</span> finished this on <span class="hljs-selector-attr">[completion:: 2021-08-15]</span>.</code></pre><p>任务和列表项在数据上是相同的，因此您所有的项目符号都有这里描述的所有信息。</p>
-<h4 id="%E5%AD%97%E6%AE%B5%E7%AE%80%E5%86%99">字段简写</h4><p>Tasks 插件通过使用 Emoji 引入了一种不同的符号来配置与任务相关的不同日期。在 Dataview 的上下文中，这种符号称为字段简写。当前版本的 Dataview 仅支持如下所示的日期简写，优先级和重复性简写不受支持。</p>
+<h4 id="%E5%AD%97%E6%AE%B5%E7%AE%80%E5%86%99">字段简写</h4><p><a href="https://publish.obsidian.md/tasks/Introduction" title="Tasks" class="External-link" target="_blank">Tasks</a> 插件<a href="https://publish.obsidian.md/tasks/Reference/Task+Formats/Tasks+Emoji+Format" title="通过使用 Emoji" class="External-link" target="_blank">通过使用 Emoji</a> 引入了一种不同的符号来配置与任务相关的不同日期。在 Dataview 的上下文中，这种符号称为字段简写。当前版本的 Dataview 仅支持如下所示的日期简写，优先级和重复性简写不受支持。</p>
 <p>示例</p>
-<p>本周六到期 🗓️2021-08-29
-上周六完成 ✅2021-08-22
-我在 ➕1990-06-14 时完成了这个
-我可以在这个周末开始的任务 🛫2021-08-29
-我提前完成的任务 ⏳2021-08-29 ✅2021-08-22</p>
+<ul>
+<li class="task" data-task=" "><i class="fa-regular fa-circle"></i> 本周六到期 🗓️2021-08-29</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> 上周六完成 ✅2021-08-22</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> 我在 ➕1990-06-14 时完成了</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> 我可以在这个周末开始的任务 🛫2021-08-29</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> 我提前完成的任务 ⏳2021-08-29 ✅2021-08-22</li></ul>
 <p>这些 Emoji 简写有两个特点。首先，它们省略了内联字段语法（不需要 <code class="inline-code">[🗓️:: YYYY-MM-DD]</code>），其次，它们在数据上映射到文本字段名称：</p>
 <table>
 <thead>
@@ -784,10 +781,10 @@ WHERE completion = date(<span class="hljs-string">&quot;2021-08-22&quot;</span>)
 <td>此任务/列表元素的块 ID，如果已使用 <code class="inline-code">^blockId</code> 语法定义；否则为 <code class="inline-code">null</code>。</td>
 </tr>
 </tbody></table>
-<p>使用简写语法时，以下附加属性可能可用：</p>
+<p>使用简写语法（【<a href="#字段简写" title="元数据 &gt; 任务和列表的元数据 &gt; 字段简写" class="internal-link" target="">元数据 &gt; 任务和列表的元数据 &gt; 字段简写</a>】）时，以下附加属性可能可用：</p>
 <ul>
 <li><code class="inline-code">completion</code>：任务完成的日期。（<mark>真正完成了这个任务的时间</mark>）</li><li><code class="inline-code">due</code>：任务到期的日期（如果有的话）。（<mark>截止时间，类似于 deadline</mark>）</li><li><code class="inline-code">created</code>：任务创建的日期。（<mark>写下这个任务的时间</mark>）</li><li><code class="inline-code">start</code>：任务可以开始的日期。（<mark>真正开始着手去完成这个任务的时间</mark>）</li><li><code class="inline-code">scheduled</code>：任务计划进行的日期。（<mark>计划中的开始时间</mark>）</li></ul>
-<h4 id="%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5">在查询中访问隐式字段</h4><p>如果您使用的是 TASK 查询，您的任务是顶级信息，可以不带任何前缀地使用：</p>
+<h4 id="%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5">在查询中访问隐式字段</h4><p>如果您使用的是 TASK 查询（【<a href="#任务（TASK）" title="查询语言参考 &gt; 查询类型 &gt; 任务" class="internal-link" target="">查询语言参考 &gt; 查询类型 &gt; 任务</a>】），您的任务是顶级信息，可以不带任何前缀地使用：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 TASK
 WHERE !fullyCompleted
@@ -795,9 +792,9 @@ WHERE !fullyCompleted
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 LIST
 WHERE any(file.tasks, (t) =&gt; !t.fullyCompleted)
-`</span><span class="hljs-string">``</span></code></pre><p>这将返回所有包含未完成任务的文件链接。我们在页面级别返回一个任务列表，因此需要使用列表函数来查看每个元素。</p>
-<h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（# DQL, JS and Inlines）</h2><p>一旦您向相关页面添加了有用的数据，您会希望在某处实际显示它或对其进行操作。Dataview 以四种不同的方式实现这一点，所有这些都直接写在您的 Markdown 中的代码块中，并在您的库发生更改时实时重新加载。</p>
-<h3 id="Dataview%20%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%20(DQL)">Dataview 查询语言 (DQL)</h3><p>Dataview 查询语言（简称 DQL）是一种类似 SQL 的语言，也是 Dataview 的核心功能。它支持四种查询类型以产生不同的输出，数据命令用于细化、重新排序或分组您的结果，并提供丰富的函数，允许进行多种操作和调整，以实现您想要的输出。</p>
+`</span><span class="hljs-string">``</span></code></pre><p>这将返回所有包含未完成任务的文件链接。我们在页面级别返回一个任务列表，因此需要使用列表函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）（<mark>这里好像没有一个确定的函数来匹配这个链接，原文也如此。重点在于理解列表这个类型，至于这个链接……迷</mark>）来查看每个元素。</p>
+<h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（# DQL, JS and Inlines）</h2><p>一旦您向相关页面添加了有用的数据（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】），您会希望在某处实际显示它或对其进行操作。Dataview 以四种不同的方式实现这一点，所有这些都直接写在您的 Markdown 中的代码块中，并在您的库发生更改时实时重新加载。</p>
+<h3 id="Dataview%20%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%20(DQL)">Dataview 查询语言 (DQL)</h3><p>Dataview 查询语言（简称 DQL）（【<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言参考" class="internal-link" target="">查询语言参考</a>】）是一种类似 SQL 的语言，也是 Dataview 的核心功能。它支持四种查询类型（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】）以产生不同的输出，数据命令用于细化、重新排序或分组您的结果，并提供丰富的函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】），允许进行多种操作和调整，以实现您想要的输出。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="warning" class="callout callout-warning" id="%E8%AD%A6%E5%91%8A">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -805,7 +802,7 @@ WHERE any(file.tasks, (t) =&gt; !t.fullyCompleted)
         
       </div>
       <div class="callout-content">
-        <p>如果您熟悉 SQL，请阅读《与 SQL 的区别》，以避免将 DQL 与 SQL 混淆。</p>
+        <p>如果您熟悉 SQL，请阅读《与 SQL 的区别》（【<a href="#与%20SQL%20的差异（Differences%20to%20SQL）" title="查询语言参考 &gt; 与 SQL 的差异" class="internal-link" target="">查询语言参考 &gt; 与 SQL 的差异</a>】），以避免将 DQL 与 SQL 混淆。</p>
       </div>
     </div><p>您可以使用类型为 dataview 的代码块来创建 DQL 查询：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
@@ -820,7 +817,7 @@ SORT rating <span class="hljs-keyword">DESC</span>
       <div class="callout-content">
         <p>一个有效的代码块需要在开始和结束时使用反引号（<code class="inline-code">`</code>）各三个。不要将反引号与外观相似的单引号（<code class="inline-code">&#39;</code>）混淆！</p>
       </div>
-    </div><p>在查询语言参考中查找如何编写 DQL 查询的说明。如果您喜欢通过示例学习，请查看查询示例。</p>
+    </div><p>在查询语言参考（【<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言参考" class="internal-link" target="">查询语言参考</a>】）中查找如何编写 DQL 查询的说明。如果您喜欢通过示例学习，请查看查询示例（【<a href="#示例（Examples）" title="问答和资源 &gt; 示例" class="internal-link" target="">问答和资源 &gt; 示例</a>】）。</p>
 <h3 id="%E5%86%85%E8%81%94%20DQL">内联 DQL</h3><p>内联 DQL 使用内联块格式而不是代码块，并使用可配置的前缀将此内联代码块标记为 DQL 块。</p>
 <p><code class="inline-code">= this.file.name</code></p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="DQL%20%E5%89%8D%E7%BC%80%E7%9A%84%E6%9B%B4%E6%94%B9">
@@ -840,20 +837,20 @@ SORT rating <span class="hljs-keyword">DESC</span>
 `= this.someMetadataField`
 `= <span class="hljs-string">[[secondPage]]</span>.file.name`
 `= <span class="hljs-string">[[secondPage]]</span>.file.mtime`
-`= <span class="hljs-string">[[secondPage]]</span>.someMetadataField`</code></pre><p>您可以在内联 DQL 查询中使用所有可用的表达式和字面量，包括函数。另一方面，查询类型和数据命令在内联中不可用。</p>
+`= <span class="hljs-string">[[secondPage]]</span>.someMetadataField`</code></pre><p>您可以在内联 DQL 查询中使用所有可用的表达式（【<a href="#表达式（Expressions）" title="查询语言参考 &gt; 表达式" class="internal-link" target="">查询语言参考 &gt; 表达式</a>】）和字面量（【<a href="#字面量（Literals）" title="查询语言参考 &gt; 字面量" class="internal-link" target="">查询语言参考 &gt; 字面量</a>】），包括函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）。另一方面，查询类型和数据命令在内联中不可用。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">Assignment due in `= this.due - <span class="hljs-built_in">date</span>(<span class="hljs-built_in">today</span>)`
 Final paper due in `= [[Computer Science Theory]].due - <span class="hljs-built_in">date</span>(<span class="hljs-built_in">today</span>)`
 
 🏃‍♂️ Goal reached? `= choice(this.steps &gt; <span class="hljs-number">10000</span>, <span class="hljs-string">&quot;YES!&quot;</span>, <span class="hljs-string">&quot;**No**, get moving!&quot;</span>)`
 
-You have `= length(filter(link(dateformat(<span class="hljs-built_in">date</span>(<span class="hljs-built_in">today</span>), <span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>)).file.tasks, (<span class="hljs-built_in">t</span>) =&gt; !t.completed))` tasks to do. `= choice(<span class="hljs-built_in">date</span>(<span class="hljs-built_in">today</span>).<span class="hljs-built_in">weekday</span> &gt; <span class="hljs-number">5</span>, <span class="hljs-string">&quot;Take it easy!&quot;</span>, <span class="hljs-string">&quot;Time to get work done!&quot;</span>)`</code></pre><h3 id="Dataview%20JS">Dataview JS</h3><p>Dataview JavaScript API 赋予您完整的 JavaScript 功能，并提供了一种 DSL（领域特定语言）来提取 Dataview 数据和执行查询，使您能够创建任意复杂的查询和视图。与查询语言类似，您通过带有 dataviewjs 注释的代码块创建 Dataview JS 块：</p>
+You have `= length(filter(link(dateformat(<span class="hljs-built_in">date</span>(<span class="hljs-built_in">today</span>), <span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>)).file.tasks, (<span class="hljs-built_in">t</span>) =&gt; !t.completed))` tasks to do. `= choice(<span class="hljs-built_in">date</span>(<span class="hljs-built_in">today</span>).<span class="hljs-built_in">weekday</span> &gt; <span class="hljs-number">5</span>, <span class="hljs-string">&quot;Take it easy!&quot;</span>, <span class="hljs-string">&quot;Time to get work done!&quot;</span>)`</code></pre><h3 id="Dataview%20JS">Dataview JS</h3><p>Dataview JavaScript API （【<a href="#JavaScript%20查询参考（JavaScript%20Reference）" title="JavaScript 查询参考" class="internal-link" target="">JavaScript 查询参考</a>】）赋予您完整的 JavaScript 功能，并提供了一种 DSL（领域特定语言）来提取 Dataview 数据和执行查询，使您能够创建任意复杂的查询和视图。与查询语言类似，您通过带有 dataviewjs 注释的代码块创建 Dataview JS 块：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataviewjs
 <span class="hljs-keyword">let</span> pages = dv.pages(<span class="hljs-string">&quot;#books and -#books/finished&quot;</span>).<span class="hljs-keyword">where</span>(b =&gt; b.rating &gt;= <span class="hljs-number">7</span>);
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> <span class="hljs-keyword">group</span> <span class="hljs-keyword">of</span> pages.groupBy(b =&gt; b.genre)) {
    dv.header(<span class="hljs-number">3</span>, <span class="hljs-keyword">group</span><span class="hljs-built_in">.key</span>);
    dv.list(<span class="hljs-keyword">group</span>.rows.file<span class="hljs-built_in">.name</span>);
 }
-```</code></pre><p>在 JS Dataview 块内，您可以通过 <code class="inline-code">dv</code> 变量访问完整的 Dataview API。有关您可以做什么的说明，请参阅 API 文档或 API 示例。</p>
+```</code></pre><p>在 JS Dataview 块内，您可以通过 <code class="inline-code">dv</code> 变量访问完整的 Dataview API。有关您可以做什么的说明，请参阅 API 文档（【<a href="#代码块参考（Codeblock%20Reference）" title="JavaScript 查询参考 &gt; 代码块参考" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块参考</a>】）或 API 示例（【<a href="#代码块示例（Codeblock%20Examples）" title="JavaScript 查询参考 &gt; 代码块示例" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块示例</a>】）。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -875,11 +872,11 @@ You have `= length(filter(link(dateformat(<span class="hljs-built_in">date</span
       <div class="callout-content">
         <p>您可以在 Dataview 的设置中（“代码块设置”——“JavaScript 内联查询前缀”）将 <code class="inline-code">$=</code> 更改为其他标记（如 <code class="inline-code">dvjs</code>: 或 <code class="inline-code">$~</code>）。</p>
       </div>
-    </div><h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89">查询语言参考（Query Language Reference）</h2><h3 id="%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89">结构化查询（Structure of a Query）</h3><p>Dataview 提供了多种方式来编写查询，语法各不相同。</p>
-<p>本页面提供有关如何编写 Dataview 查询语言（DQL）查询的信息。如果您对如何编写内联查询感兴趣，请参阅 DQL、JS 和内联的内联部分。您可以在 JavaScript 参考中找到有关 JavaScript 查询的更多信息。</p>
+    </div><h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89">查询语言参考（Query Language Reference）</h2><h3 id="%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89">结构化查询（Structure of a Query）</h3><p>Dataview 提供了多种方式（【<a href="#查询语言、JS%20和行内查询（#%20DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）来编写查询，语法各不相同。</p>
+<p>本页面提供有关如何编写 Dataview 查询语言（DQL）查询的信息。如果您对如何编写内联查询感兴趣，请参阅 DQL、JS 和内联的内联部分（【<a href="#查询语言、JS%20和行内查询（#%20DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）。您可以在 JavaScript 参考（【<a href="#JavaScript%20查询参考（JavaScript%20Reference）" title="JavaScript 查询参考" class="internal-link" target="">JavaScript 查询参考</a>】）中找到有关 JavaScript 查询的更多信息。</p>
 <p>DQL 是一种类似 SQL 的查询语言，用于对您的数据创建不同的视图或计算。它支持：</p>
 <ul>
-<li>选择输出格式（查询类型）</li><li>从特定来源获取页面（笔记），即通过标签、文件夹或链接进行筛选</li><li>通过对字段进行简单操作（如比较、存在性检查等）过滤页面/数据</li><li>转换字段以进行显示，即通过计算或拆分多值字段</li><li>根据字段排序结果</li><li>根据字段分组结果</li><li>限制结果数量</li></ul>
+<li>选择输出格式（查询类型（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】））</li><li>从特定来源（【<a href="#来源（Sources）" title="查询语言参考 &gt; 来源" class="internal-link" target="">查询语言参考 &gt; 来源</a>】）获取页面（笔记），即通过标签、文件夹或链接进行筛选</li><li>通过对字段进行简单操作（如比较、存在性检查等）过滤页面/数据</li><li>转换字段以进行显示，即通过计算或拆分多值字段</li><li>根据字段排序结果</li><li>根据字段分组结果</li><li>限制结果数量</li></ul>
 <div data-callout-metadata="" data-callout-fold="" data-callout="warning" class="callout callout-warning" id="%E8%AD%A6%E5%91%8A">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -887,12 +884,12 @@ You have `= length(filter(link(dateformat(<span class="hljs-built_in">date</span
         
       </div>
       <div class="callout-content">
-        <p>如果您熟悉 SQL，请阅读《与 SQL 的区别》，以避免将 DQL 与 SQL 混淆。</p>
+        <p>如果您熟悉 SQL，请阅读《与 SQL 的区别》（【<a href="#与%20SQL%20的差异（Differences%20to%20SQL）" title="查询语言参考 &gt; 与 SQL 的差异" class="internal-link" target="">查询语言参考 &gt; 与 SQL 的差异</a>】），以避免将 DQL 与 SQL 混淆。</p>
       </div>
     </div><p>让我们看看如何使用 DQL。</p>
 <h4 id="DQL%20%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F">DQL 查询的一般格式</h4><p>每个查询遵循相同的结构，由以下部分组成：</p>
 <ul>
-<li>恰好一个查询类型，具有零个、一个或多个字段，具体取决于查询类型</li><li>零个或一个 FROM 数据命令，具有一个或多个来源</li><li>零个到多个其他数据命令，具有一个或多个表达式和/或其他信息，具体取决于数据命令</li></ul>
+<li>恰好一个查询类型，具有零个、一个或多个字段（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】），具体取决于查询类型</li><li>零个或一个 FROM 数据命令，具有一个或多个来源（【<a href="#来源（Sources）" title="查询语言参考 &gt; 来源" class="internal-link" target="">查询语言参考 &gt; 来源</a>】）</li><li>零个到多个其他数据命令，具有一个或多个表达式（【<a href="#表达式（Expressions）" title="查询语言参考 &gt; 表达式" class="internal-link" target="">查询语言参考 &gt; 表达式</a>】）和/或其他信息，具体取决于数据命令</li></ul>
 <p>从高层次来看，查询符合以下模式：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 <span class="hljs-tag">&lt;<span class="hljs-name">查询类型</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">字段</span>&gt;</span>
@@ -946,7 +943,7 @@ TABLE due, file.tags AS <span class="hljs-string">&quot;tags&quot;</span>, avera
         
       </div>
       
-    </div><h4 id="%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E6%BA%90">选择数据源</h4><p>除了查询类型之外，您还有多个数据命令可用，帮助您限制、细化、排序或分组查询。其中一个查询命令是 <code class="inline-code">FROM</code> 语句。<code class="inline-code">FROM</code> 接受一个来源或多个来源的组合作为参数，并将查询限制为与您的来源匹配的一组页面。</p>
+    </div><h4 id="%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E6%BA%90">选择数据源</h4><p>除了查询类型之外，您还有多个数据命令可用，帮助您限制、细化、排序或分组查询。其中一个查询命令是 <code class="inline-code">FROM</code> 语句。<code class="inline-code">FROM</code> 接受一个来源或多个来源（【<a href="#来源（Sources）" title="查询语言参考 &gt; 来源" class="internal-link" target="">查询语言参考 &gt; 来源</a>】）的组合作为参数，并将查询限制为与您的来源匹配的一组页面。</p>
 <p>它的行为与其他数据命令不同：您可以在查询的查询类型后添加零个或一个 <code class="inline-code">FROM</code> 数据命令。您不能添加多个 <code class="inline-code">FROM</code> 语句，也不能在其他数据命令之后添加它。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">列出文件夹 Books 及其子文件夹中的所有页面。
 ```dataview
@@ -975,7 +972,7 @@ FROM (#assignment <span class="hljs-literal">AND</span> <span class="hljs-string
 <p>除了 <code class="inline-code">FROM</code> 命令外，所有数据命令都可以多次使用，顺序不限（只要它们位于查询类型和 <code class="inline-code">FROM</code> 之后，如果使用了 <code class="inline-code">FROM</code>）。它们将按照书写顺序执行。</p>
 <p>可用的命令有：</p>
 <ul>
-<li>FROM：如上所述。</li><li>WHERE：根据笔记中的信息和元数据字段过滤笔记。</li><li>SORT：根据字段和方向对结果进行排序。</li><li>GROUP BY：将多个结果汇总为每组一个结果行。</li><li>LIMIT：将查询结果的数量限制为给定的数字。</li><li>FLATTEN：根据字段或计算将一个结果拆分为多个结果。</li></ul>
+<li>FROM：如上所述（【<a href="#选择数据源" title="查询语言参考 &gt; 结构化查询 &gt; 选择数据源" class="internal-link" target="">查询语言参考 &gt; 结构化查询 &gt; 选择数据源</a>】）。</li><li>WHERE：根据笔记中的信息和元数据字段过滤笔记。</li><li>SORT：根据字段和方向对结果进行排序。</li><li>GROUP BY：将多个结果汇总为每组一个结果行。</li><li>LIMIT：将查询结果的数量限制为给定的数字。</li><li>FLATTEN：根据字段或计算将一个结果拆分为多个结果。</li></ul>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">列出所有具有元数据字段 `due` 且 `due` 在今天之前的页面。
 ```dataview
 LIST
@@ -998,14 +995,14 @@ SORT created ASC
 LIMIT <span class="hljs-number">10</span>
 GROUP BY file.link
 SORT rows.file.ctime ASC
-```</code></pre><div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%E5%85%B3%E4%BA%8E%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BF%A1%E6%81%AF%E3%80%82%EF%BC%88%3Cmark%3E%E6%9A%82%E6%97%B6%E6%B2%A1%E6%9C%89%E9%93%BE%E6%8E%A5%3C/mark%3E%EF%BC%89">
+```</code></pre><div data-callout-metadata="" data-callout-fold="" data-callout="info" class="callout callout-info" id="%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%E5%85%B3%E4%BA%8E%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%EF%BC%88%E3%80%90%3Ca%20href=%22%20%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%EF%BC%88Data%2520Commands%EF%BC%89%22%20title=%22%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%20&gt;%20%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%22%20class=%22internal-link%22%20target=%22%22%3E%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%20&gt;%20%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%3C/a%3E%E3%80%91%EF%BC%89%E7%9A%84%E4%BF%A1%E6%81%AF%E3%80%82">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-circle-info"></i></div>
-        <div class="callout-title-inner">了解更多关于可用数据命令的信息。（<mark>暂时没有链接</mark>）</div>
+        <div class="callout-title-inner">了解更多关于可用数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）的信息。</div>
         
       </div>
       
-    </div><h4 id="%E7%A4%BA%E4%BE%8B%EF%BC%88%E6%9F%A5%E8%AF%A2%EF%BC%89">示例（查询）</h4><p>以下是一些示例查询。在这里可以找到更多示例。（<mark>暂时没有链接</mark>）</p>
+    </div><h4 id="%E7%A4%BA%E4%BE%8B%EF%BC%88%E6%9F%A5%E8%AF%A2%EF%BC%89">示例（查询）</h4><p>以下是一些示例查询。在这里可以找到更多示例（【<a href="#示例（Examples）" title="问答和资源 &gt; 示例" class="internal-link" target="">问答和资源 &gt; 示例</a>】）。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 TASK
 `</span><span class="hljs-string">``</span></code></pre><pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
@@ -1036,7 +1033,7 @@ FLATTEN contacts as c
 SORT <span class="hljs-built_in">link</span>(c)<span class="hljs-selector-class">.age</span> ASC
 ```</code></pre><h3 id="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%EF%BC%88Query%20Types%EF%BC%89">查询类型（Query Types）</h3><p>查询类型决定了您的 Dataview 查询的输出格式。它是您提供给 Dataview 查询的第一个也是唯一的强制性规范。可用的查询类型有四种：LIST、TABLE、TASK 和 CALENDAR。</p>
 <p>查询类型还决定了查询执行的信息级别。LIST、TABLE 和 CALENDAR 在页面级别操作，而 TASK 查询在文件.tasks 级别操作。有关更多信息，请参阅 TASK 查询类型。</p>
-<p>您可以将每种查询类型与所有可用的数据命令结合使用，以细化结果集。有关查询类型和数据命令之间相互关系的更多信息，请参阅如何使用 Dataview 和结构页面。</p>
+<p>您可以将每种查询类型与所有可用的数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）结合使用，以细化结果集。有关查询类型和数据命令之间相互关系的更多信息，请参阅如何使用 Dataview （【<a href="#如何使用%20Dataview" title="总览 &gt; 如何使用 Dataview" class="internal-link" target="">总览 &gt; 如何使用 Dataview</a>】）和结构页面（【<a href="#结构化查询（Structure%20of%20a%20Query）" title="查询语言参考 &gt; 结构化查询" class="internal-link" target="">查询语言参考 &gt; 结构化查询</a>】）。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -1046,7 +1043,7 @@ SORT <span class="hljs-built_in">link</span>(c)<span class="hljs-selector-class"
       <div class="callout-content">
         <p>查询类型决定了查询的输出格式。它是查询的唯一必须信息。</p>
       </div>
-    </div><h4 id="%E5%88%97%E8%A1%A8%EF%BC%88LIST%EF%BC%89">列表（LIST）</h4><p><code class="inline-code">LIST</code> 查询输出一个项目符号列表，包含您的文件链接或组名称（如果您选择了分组）。您可以指定最多一条附加信息与您的文件或组信息一起输出。</p>
+    </div><h4 id="%E5%88%97%E8%A1%A8%EF%BC%88LIST%EF%BC%89">列表（LIST）</h4><p><code class="inline-code">LIST</code> 查询输出一个项目符号列表，包含您的文件链接或组名称（如果您选择了分组（【<a href="#GROUP%20BY（分组）" title="查询语言参考 &gt; 数据命令 &gt; GROUP BY" class="internal-link" target="">查询语言参考 &gt; 数据命令 &gt; GROUP BY</a>】））。您可以指定最多一条附加信息与您的文件或组信息一起输出。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B%20%3Ccode%20class=%22inline-code%22%3ELIST%3C/code%3E">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -1062,7 +1059,7 @@ LIST
 `</span><span class="hljs-string">``</span></code></pre><p><strong>输出</strong>（<mark>只是演示一下输出格式，别点了，这里的都不是有效链接</mark>）</p>
 <ul>
 <li><a href="#" title="Classic Cheesecake" class="internal-link" target="">Classic Cheesecake</a></li><li><a href="#" title="Git Basics" class="internal-link" target="">Git Basics</a></li><li><a href="#" title="How to fix Git Cheatsheet" class="internal-link" target="">How to fix Git Cheatsheet</a></li><li><a href="#" title="League of Legends" class="internal-link" target="">League of Legends</a></li><li><a href="#" title="Pillars of Eternity 2" class="internal-link" target="">Pillars of Eternity 2</a></li><li><a href="#" title="Stardew Valley" class="internal-link" target="">Stardew Valley</a></li><li><a href="#" title="Dashboard" class="internal-link" target="">Dashboard</a></li></ul>
-<p>但您当然可以使用数据命令来限制要列出哪些页面：</p>
+<p>但您当然可以使用数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）来限制要列出哪些页面：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 LIST
 FROM #games/mobas OR #games/crpg
@@ -1125,7 +1122,7 @@ LIST <span class="hljs-keyword">WITHOUT</span> ID length(<span class="hljs-keywo
 ```</code></pre><p><strong>输出</strong></p>
 <ul>
 <li>3 pages of type game</li><li>1 pages of type knowledge</li><li>1 pages of type moc</li><li>1 pages of type recipe</li><li>1 pages of type summary</li></ul>
-<h4 id="%E8%A1%A8%E6%A0%BC%EF%BC%88TABLE%EF%BC%89">表格（TABLE）</h4><p>TABLE 查询类型以表格视图输出页面数据。您可以通过将零到多个元数据字段作为逗号分隔的列表添加到您的 TABLE 查询中。不仅可以使用普通的元数据字段作为列，还可以指定计算。可选地，您可以通过 <code class="inline-code">AS &lt;header&gt;</code> 语法指定表头。与所有其他查询类型一样，您可以使用数据命令来细化查询的结果集。</p>
+<h4 id="%E8%A1%A8%E6%A0%BC%EF%BC%88TABLE%EF%BC%89">表格（TABLE）</h4><p>TABLE 查询类型以表格视图输出页面数据。您可以通过将零到多个元数据字段作为逗号分隔的列表添加到您的 TABLE 查询中。不仅可以使用普通的元数据字段作为列，还可以指定计算。可选地，您可以通过 <code class="inline-code">AS &lt;header&gt;</code> 语法指定表头。与所有其他查询类型一样，您可以使用数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）来细化查询的结果集。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="TABLE%20%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -1224,7 +1221,7 @@ FROM <span class="hljs-comment">#games</span>
         
       </div>
       <div class="callout-content">
-        <p>想了解 <code class="inline-code">file.folder</code> 和 <code class="inline-code">file.etags</code> 吗？请在页面上了解更多关于隐式字段的信息。</p>
+        <p>想了解 <code class="inline-code">file.folder</code> 和 <code class="inline-code">file.etags</code> 吗？请在隐式字段页面上（【<a href="#隐式字段（页面）" title="元数据 &gt; 页面元数据 &gt; 隐式字段" class="internal-link" target="">元数据 &gt; 页面元数据 &gt; 隐式字段</a>】）了解更多关于隐式字段的信息。</p>
       </div>
     </div><h5 id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E6%A0%87%E9%A2%98">自定义列标题</h5><p>您可以使用 <code class="inline-code">AS</code> 语法为您的列指定自定义标题：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
@@ -1311,7 +1308,7 @@ file.etags <span class="hljs-keyword">AS</span> &quot;File Tags&quot;
         
       </div>
       <div class="callout-content">
-        <p>了解更多关于在表达式和函数下计算表达式和计算的能力。</p>
+        <p>了解更多关于在表达式（【<a href="#表达式（Expressions）" title="查询语言参考 &gt; 表达式" class="internal-link" target="">查询语言参考 &gt; 表达式</a>】）和函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）下计算表达式和计算的能力。</p>
       </div>
     </div><h5 id="%E6%97%A0%20ID%20%E8%A1%A8%E6%A0%BC">无 ID 表格</h5><p>如果您不想要第一列（默认是“文件”或“组”），可以使用 <code class="inline-code">TABLE WITHOUT ID</code>。<code class="inline-code">TABLE WITHOUT ID</code> 的工作方式与 TABLE 相同，但如果您添加额外信息，它不会将文件链接或组名称作为第一列输出。</p>
 <p>例如，如果您输出其他识别值，可以使用这个功能：</p>
@@ -1375,7 +1372,7 @@ file.etags <span class="hljs-keyword">AS</span> &quot;File Tags&quot;
       <div class="callout-content">
         <p>如果您想在所有情况下重命名第一列，请在 Dataview 设置中的表格设置中更改名称。</p>
       </div>
-    </div><h4 id="%E4%BB%BB%E5%8A%A1%EF%BC%88TASK%EF%BC%89">任务（TASK）</h4><p>TASK 查询输出您库中所有匹配给定数据命令（如果有）的任务的互动列表。与其他查询类型相比，TASK 查询是特殊的，因为它们返回的是任务而不是页面。这意味着所有数据命令在任务级别上操作，使您能够细致地过滤任务，例如按状态或任务本身指定的元数据进行过滤。</p>
+    </div><h4 id="%E4%BB%BB%E5%8A%A1%EF%BC%88TASK%EF%BC%89">任务（TASK）</h4><p>TASK 查询输出您库中所有匹配给定数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）（如果有）的任务的互动列表。与其他查询类型相比，TASK 查询是特殊的，因为它们返回的是任务而不是页面。这意味着所有数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）在任务级别上操作，使您能够细致地过滤任务，例如按状态或任务本身指定的元数据进行过滤。</p>
 <p>此外，TASK 查询是通过 DQL 操作文件的唯一方式。通常， Dataview 不会触及文件的内容；然而，如果您通过 Dataview 查询勾选一个任务，它也会在其原始文件中被勾选。在 Dataview 设置中的“任务设置”下，您可以选择在 Dataview 中勾选任务时自动设置完成元数据字段。请注意，这仅在您在 Dataview 块内检查任务时有效。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%3Ccode%20class=%22inline-code%22%3ETASK%3C/code%3E%20%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B">
       <div class="callout-title">
@@ -1393,7 +1390,7 @@ TASK
 <li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Buy new shoes #shopping</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Mail Paul about training schedule</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Finish the math assignment<ul>
 <li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> Finish Paper 1 [due:: 2022-08-13]</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Read again through chapter 3 [due:: 2022-09-01]</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> Write a cheatsheet [due:: 2022-08-02]</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Write a summary of chapter 1-4 [due:: 2022-09-12]</li></ul>
 </li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> Hand in physics</li><li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Get new pillows for mom #shopping</li><li class="task" data-task="x"><i class="fa-solid fa-circle-check"></i> Buy some working pencils #shopping</li></ul>
-<p>您可以像使用其他查询类型一样使用数据命令。数据命令在任务级别上执行，使任务上的隐式字段直接可用。</p>
+<p>您可以像使用其他查询类型一样使用数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）。数据命令在任务级别上执行，使任务上的隐式字段（【<a href="#隐式字段（任务）" title="元数据 &gt; 任务和列表的元数据 &gt; 隐式字段" class="internal-link" target="">元数据 &gt; 任务和列表的元数据 &gt; 隐式字段</a>】）直接可用。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 TASK
 WHERE !completed <span class="hljs-literal">AND</span> contains(tags, <span class="hljs-string">&quot;#shopping&quot;</span>)
@@ -1465,7 +1462,7 @@ WHERE urgent
 `</span><span class="hljs-string">``</span></code></pre><p><strong>输出</strong></p>
 <ul>
 <li class="task" data-task=" "><i class="fa-regular fa-circle"></i> Bedroom [urgent:: true]</li></ul>
-<h4 id="%E6%97%A5%E5%8E%86%EF%BC%88CALENDAR%EF%BC%89">日历（CALENDAR）</h4><p>CALENDAR 查询输出一个基于月份的日历，每个结果以点的形式显示在相应的日期上。CALENDAR 是唯一需要额外信息的查询类型。这些额外信息需要是所有查询页面上的日期（或未设置）。</p>
+<h4 id="%E6%97%A5%E5%8E%86%EF%BC%88CALENDAR%EF%BC%89">日历（CALENDAR）</h4><p>CALENDAR 查询输出一个基于月份的日历，每个结果以点的形式显示在相应的日期上。CALENDAR 是唯一需要额外信息的查询类型。这些额外信息需要是所有查询页面上的日期（【<a href="#日期（Date）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期</a>】）（或未设置）。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%3Ccode%20class=%22inline-code%22%3ECALENDAR%3C/code%3E%20%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B">
       <div class="callout-title">
         <div class="callout-icon"><i class="fa-solid fa-pencil"></i></div>
@@ -1479,12 +1476,12 @@ WHERE urgent
 CALENDAR file.ctime
 `</span><span class="hljs-string">``</span></code></pre><p><strong>输出</strong></p>
 <p><img src="https://blacksmithgu.github.io/obsidian-dataview/assets/calendar_query_type.png" alt=""></p>
-<p>虽然可以将 <code class="inline-code">SORT</code> 和 <code class="inline-code">GROUP BY</code> 与 <code class="inline-code">CALENDAR</code> 结合使用，但这没有效果。此外，如果给定的元数据字段包含有效日期以外的内容，日历查询将不会渲染（但字段可以为空）。为了确保您只考虑有效页面，您可以过滤有效的元数据值：</p>
+<p>虽然可以将 <code class="inline-code">SORT</code> 和 <code class="inline-code">GROUP BY</code> 与 <code class="inline-code">CALENDAR</code> 结合使用，但这没有效果。此外，如果给定的元数据字段包含有效日期（【<a href="#日期（Date）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期</a>】）以外的内容，日历查询将不会渲染（但字段可以为空）。为了确保您只考虑有效页面，您可以过滤有效的元数据值：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 CALENDAR due
 WHERE typeof(due) = <span class="hljs-string">&quot;date&quot;</span>
 ```</code></pre><h3 id="%E6%95%B0%E6%8D%AE%E5%91%BD%E4%BB%A4%EF%BC%88Data%20Commands%EF%BC%89">数据命令（Data Commands）</h3><p>Dataview 查询可以由多个命令组成。命令按顺序执行，您可以重复使用命令（例如，可以有多个 <code class="inline-code">WHERE</code> 块或多个 <code class="inline-code">GROUP BY</code> 块）。</p>
-<h4 id="FROM%EF%BC%88%E6%9D%A5%E6%BA%90%EF%BC%89">FROM（来源）</h4><p>FROM 语句确定最初将收集哪些页面，并将其传递给其他命令以进行进一步过滤。您可以从任何来源选择，可以按文件夹、按标签或按传入/传出链接进行选择。</p>
+<h4 id="FROM%EF%BC%88%E6%9D%A5%E6%BA%90%EF%BC%89">FROM（来源）</h4><p>FROM 语句确定最初将收集哪些页面，并将其传递给其他命令以进行进一步过滤。您可以从任何来源（【<a href="#来源（Sources）" title="查询语言参考 &gt; 来源" class="internal-link" target="">查询语言参考 &gt; 来源</a>】）选择，可以按文件夹、按标签或按传入/传出链接进行选择。</p>
 <ul>
 <li><strong>标签</strong>：要从某个标签（及其所有子标签）中选择，使用 <code class="inline-code">FROM #tag</code>。</li><li><strong>文件夹</strong>：要从某个文件夹（及其所有子文件夹）中选择，使用 <code class="inline-code">FROM &quot;folder&quot;</code>。</li><li><strong>单个文件</strong>：要从单个文件中选择，使用 <code class="inline-code">FROM &quot;path/to/file&quot;</code>。</li><li><strong>链接</strong>：您可以选择链接到某个文件的链接，或从某个文件的所有链接。<ul>
 <li>要获取所有链接到 <code class="inline-code">[[note]]</code> 的页面，使用 <code class="inline-code">FROM [[note]]</code>。</li><li>要获取所有链接自 <code class="inline-code">[[note]]</code> 的页面（即该文件中的所有链接），使用 <code class="inline-code">FROM outgoing([[note]])</code>。</li></ul>
@@ -1562,11 +1559,11 @@ where <span class="hljs-built_in">file</span>.tasks.<span class="hljs-keyword">t
 <p>DQL 查询是从上到下逐行执行的。它更像是一段计算机程序，而不是典型的 SQL 查询。</p>
 <p>当一行被评估时，它会生成一个结果集，并将整个集合传递给下一行 DQL，后者将处理从前一行接收到的集合。这就是为什么在 DQL 中，例如可以有多个 <code class="inline-code">WHERE</code> 子句。但在 DQL 中，它不是一个“子句”，而是一个“数据命令”。 DQL 查询的每一行（除了第一行和第二行）都是一个“数据命令”。</p>
 <h4 id="DQL%20%E6%9F%A5%E8%AF%A2%E7%9A%84%E7%BB%93%E6%9E%84">DQL 查询的结构</h4><p>DQL 查询不是以 <code class="inline-code">SELECT</code> 开头，而是以一个确定查询类型的词开头，这决定了最终结果在屏幕上的呈现方式（表格、列表、任务列表或日历）。接下来是字段列表，这实际上与 <code class="inline-code">SELECT</code> 语句后面的列列表非常相似。</p>
-<p>下一行以 <code class="inline-code">FROM</code> 开头，后面不是表名，而是一个复杂表达式，类似于 SQL 的 <code class="inline-code">WHERE</code> 子句。在这里，您可以对许多内容进行过滤，如文件中的标签、文件名、路径名等。在后台，此命令已经生成了一个结果集，这将是我们在后续行中通过“数据命令”进行进一步数据处理的初始集。</p>
+<p>下一行以 <code class="inline-code">FROM</code> 开头，后面不是表名，而是一个复杂表达式，类似于 SQL 的 <code class="inline-code">WHERE</code> 子句。在这里，您可以对许多内容进行过滤，如文件中的标签、文件名、路径名等。在后台，此命令已经生成了一个结果集，这将是我们在后续行中通过“数据命令”（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）进行进一步数据处理的初始集。</p>
 <p>您可以根据需要添加任意数量的后续行。每一行都将以数据命令开头，并重新塑造从前一行接收到的结果集。例如：</p>
 <ul>
 <li><code class="inline-code">WHERE</code> 数据命令将仅保留结果集中符合给定条件的行。这意味着，除非结果集中的所有数据都符合条件，否则该命令将传递给下一行的结果集将比从前一行接收到的结果集更小。与 SQL 不同，您可以使用任意数量的 <code class="inline-code">WHERE</code> 命令。</li><li><code class="inline-code">FLATTEN</code> 数据命令在常见 SQL 中不存在，但在 DQL 中，您可以使用它来减少结果集的深度。</li><li>DQL 与 SQL 类似，具有 <code class="inline-code">GROUP BY</code> 命令，但这一命令可以多次使用，这在常见 SQL 中是不可能的。您甚至可以连续执行多个 <code class="inline-code">SORT</code> 或 <code class="inline-code">GROUP BY</code> 命令。</li></ul>
-<h3 id="%E6%9D%A5%E6%BA%90%EF%BC%88Sources%EF%BC%89">来源（Sources）</h3><p>Dataview 源是指识别一组文件、任务或其他数据的内容。源在 Dataview 内部被索引，因此查询速度很快。源的最主要用途是 <code class="inline-code">FROM</code> 数据命令。它们也用于各种 JavaScript API 查询调用中。</p>
+<h3 id="%E6%9D%A5%E6%BA%90%EF%BC%88Sources%EF%BC%89">来源（Sources）</h3><p>Dataview 源是指识别一组文件、任务或其他数据的内容。源在 Dataview 内部被索引，因此查询速度很快。源的最主要用途是 <code class="inline-code">FROM</code> 数据命令（【<a href="#FROM（来源）" title="查询语言参考 &gt; 数据命令 &gt; FROM" class="internal-link" target="">查询语言参考 &gt; 数据命令 &gt; FROM</a>】）。它们也用于各种 JavaScript API 查询调用中。</p>
 <h4 id="%E6%9D%A5%E6%BA%90%E7%B1%BB%E5%9E%8B">来源类型</h4><p>Dataview 目前支持四种源类型。</p>
 <h5 id="%E6%A0%87%E7%AD%BE">标签</h5><p>源的形式为 <code class="inline-code">#tag</code>。这将匹配具有给定标签的所有文件/章节/任务。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
@@ -1601,8 +1598,8 @@ FROM outgoing(<span class="hljs-string">[[Dashboard]]</span>)
 <li><code class="inline-code">#tag and (&quot;folder&quot; or #other-tag)</code></li><li><code class="inline-code">(#tag1 or #tag2) and (#tag3 or #tag4)</code></li></ul>
 <h3 id="%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88Expressions%EF%BC%89">表达式（Expressions）</h3><p>Dataview 查询语言表达式是指任何可以产生值的内容：</p>
 <ul>
-<li>所有字段</li><li>所有字面量</li><li>以及计算值，如 <code class="inline-code">field - 9</code> 或函数调用。</li></ul>
-<p>基本上，所有不是查询类型或数据命令的内容都是表达式。</p>
+<li>所有字段（【<a href="#元数据（Metadata）" title="元数据" class="internal-link" target="">元数据</a>】）</li><li>所有字面量（【<a href="#字面量（Literals）" title="查询语言参考 &gt; 字面量" class="internal-link" target="">查询语言参考 &gt; 字面量</a>】）</li><li>以及计算值，如 <code class="inline-code">field - 9</code> 或函数调用（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）。</li></ul>
+<p>基本上，所有不是查询类型（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】）或数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）的内容都是表达式。</p>
 <p>以下内容在 DQL 中被视为表达式：</p>
 <pre class="hljs-code-block"><code class="hljs"><span class="hljs-comment"># 字面量</span>
 <span class="hljs-number">1</span>                   (数字)
@@ -1656,9 +1653,9 @@ TABLE duedate, <span class="hljs-built_in">class</span>, field-<span class="hljs
         
       </div>
       <div class="callout-content">
-        <p>如果字段名称包含空格、标点或其他非字母/数字字符，则可以使用 Dataview 的简化名称进行引用，该名称全部为小写，空格替换为 <code class="inline-code">-</code>。例如，<code class="inline-code">&quot;this is a field&quot;</code> 变为 <code class="inline-code">&quot;this-is-a-field&quot;</code>；<code class="inline-code">&quot;Hello!&quot;</code> 变为 <code class="inline-code">&quot;hello&quot;</code>，依此类推。有关更多信息，请参阅字段名称。</p>
+        <p>如果字段名称包含空格、标点或其他非字母/数字字符，则可以使用 Dataview 的简化名称进行引用，该名称全部为小写，空格替换为 <code class="inline-code">-</code>。例如，<code class="inline-code">&quot;this is a field&quot;</code> 变为 <code class="inline-code">&quot;this-is-a-field&quot;</code>；<code class="inline-code">&quot;Hello!&quot;</code> 变为 <code class="inline-code">&quot;hello&quot;</code>，依此类推。有关更多信息，请参阅字段名称（【<a href="#字段名称" title="元数据 &gt; 添加元数据 &gt; 字段名称" class="internal-link" target="">元数据 &gt; 添加元数据 &gt; 字段名称</a>】）。</p>
       </div>
-    </div><h5 id="%E5%AD%97%E9%9D%A2%E9%87%8F">字面量</h5><p>常量值： 像 <code class="inline-code">1</code> 或 <code class="inline-code">&quot;hello&quot;</code> 或 <code class="inline-code">date(som)</code> (&quot;月初&quot;) 这样的东西。Dataview 支持每种数据类型的字面量；在这里了解更多信息。</p>
+    </div><h5 id="%E5%AD%97%E9%9D%A2%E9%87%8F">字面量</h5><p>常量值： 像 <code class="inline-code">1</code> 或 <code class="inline-code">&quot;hello&quot;</code> 或 <code class="inline-code">date(som)</code> (&quot;月初&quot;) 这样的东西。Dataview 支持每种数据类型的字面量；在这里了解更多信息（【<a href="#字面量（Literals）" title="查询语言参考 &gt; 字面量" class="internal-link" target="">查询语言参考 &gt; 字面量</a>】）。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 LIST
 WHERE file.name = <span class="hljs-string">&quot;Scribble&quot;</span>
@@ -1700,8 +1697,8 @@ TASK
 WHERE typeof(due) = <span class="hljs-string">&quot;date&quot;</span> <span class="hljs-literal">AND</span> due &lt;= date(today)
 ```</code></pre><p>通常，通过 <code class="inline-code">WHERE due AND due &lt;= date(today)</code> 检查元数据是否可用就足够了，但检查类型是获得可预见结果的更安全方法。</p>
       </div>
-    </div><h5 id="%E5%88%97%E8%A1%A8/%E5%AF%B9%E8%B1%A1%E7%B4%A2%E5%BC%95">列表/对象索引</h5><p>您可以通过索引运算符 <code class="inline-code">list[&lt;index&gt;] </code>从列表/数组中检索数据，其中 <code class="inline-code">&lt;index&gt;</code> 是任何计算表达式。列表索引是 0 开头的，因此第一个元素是索引 0，第二个元素是索引 1，依此类推。例如，<code class="inline-code">list(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)[0] = &quot;A&quot;</code>。</p>
-<p>类似的表示法适用于对象。您可以使用 <code class="inline-code">field[&quot;nestedfield&quot;]</code> 来引用对象内部或其他类似嵌套的字段。例如，在下面定义的 YAML 中，我们可以通过 <code class="inline-code">episode_metadata[&quot;previous&quot;]</code> 引用 <code class="inline-code">previous</code>。</p>
+    </div><h5 id="%E5%88%97%E8%A1%A8/%E5%AF%B9%E8%B1%A1%E7%B4%A2%E5%BC%95">列表/对象索引</h5><p>您可以通过索引运算符 <code class="inline-code">list[&lt;index&gt;] </code>从列表/数组（【<a href="#列表（List）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 列表" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 列表</a>】）中检索数据，其中 <code class="inline-code">&lt;index&gt;</code> 是任何计算表达式。列表索引是 0 开头的，因此第一个元素是索引 0，第二个元素是索引 1，依此类推。例如，<code class="inline-code">list(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)[0] = &quot;A&quot;</code>。</p>
+<p>类似的表示法适用于对象（【<a href="#对象（Object）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 对象" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 对象</a>】）。您可以使用 <code class="inline-code">field[&quot;nestedfield&quot;]</code> 来引用对象内部或其他类似嵌套的字段。例如，在下面定义的 YAML 中，我们可以通过 <code class="inline-code">episode_metadata[&quot;previous&quot;]</code> 引用 <code class="inline-code">previous</code>。</p>
 <pre class="hljs-code-block"><code class="hljs yaml" lang="yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">aliases:</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;ABC&quot;</span>
@@ -1710,10 +1707,10 @@ WHERE typeof(due) = <span class="hljs-string">&quot;date&quot;</span> <span clas
   <span class="hljs-attr">previous:</span> <span class="hljs-string">&quot;S01E02&quot;</span>
   <span class="hljs-attr">next:</span> <span class="hljs-string">&quot;S01E04&quot;</span>
 <span class="hljs-meta">---</span></code></pre><p>您还可以通过索引运算符从对象中检索数据（对象将文本映射到数据值），此时索引为“字符串/文本”而不是数字。您还可以使用简写形式 <code class="inline-code">object.&lt;name&gt;</code>，其中 <code class="inline-code">&lt;name&gt;</code> 是要检索的值的名称。对于之前的 frontmatter 示例，我们也可以使用 <code class="inline-code">episode_metadata.previous</code> 来获取相同的值。</p>
-<p>索引表达式也适用于那些查询语言不直接支持的字段的对象。一个好的例子是 <code class="inline-code">where</code>，因为它是一个关键字。如果您的 frontmatter/metadata 包含一个名为 <code class="inline-code">where</code> 的字段，您可以通过行语法引用它：<code class="inline-code">row[&quot;where&quot;]</code>。有关更多信息，请查看常见问题中的说明和相应的问题。</p>
+<p>索引表达式也适用于那些查询语言不直接支持的字段的对象。一个好的例子是 <code class="inline-code">where</code>，因为它是一个关键字。如果您的 frontmatter/metadata 包含一个名为 <code class="inline-code">where</code> 的字段，您可以通过行语法引用它：<code class="inline-code">row[&quot;where&quot;]</code>。有关更多信息，请查看常见问题中的说明（【<a href="#常见问题解答（Frequently%20Asked%20Questions）" title="问答和资源 &gt; 常见问题解答" class="internal-link" target="">问答和资源 &gt; 常见问题解答</a>】）和<a href="https://github.com/blacksmithgu/obsidian-dataview/issues/1164" title="相应的讨论" class="External-link" target="_blank">相应的讨论</a>。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-string">``</span><span class="hljs-string">`dataview
 TABLE id, episode_metadata.next, aliases[0]
-`</span><span class="hljs-string">``</span></code></pre><h5 id="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8">函数调用</h5><p>Dataview 支持多种用于数据操作的函数，具体内容在函数文档中有详细描述。它们的一般语法为 <code class="inline-code">function(arg1, arg2, ...)</code>，例如 <code class="inline-code">lower(file.name)</code> 或 <code class="inline-code">regexmatch(&quot;A.+&quot;, file.folder)</code>。</p>
+`</span><span class="hljs-string">``</span></code></pre><h5 id="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8">函数调用</h5><p>Dataview 支持多种用于数据操作的函数，具体内容在函数文档中有详细描述（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）。它们的一般语法为 <code class="inline-code">function(arg1, arg2, ...)</code>，例如 <code class="inline-code">lower(file.name)</code> 或 <code class="inline-code">regexmatch(&quot;A.+&quot;, file.folder)</code>。</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">```dataview
 LIST
 WHERE <span class="hljs-built_in">contains</span>(file<span class="hljs-selector-class">.name</span>, <span class="hljs-string">&quot;WIP&quot;</span>)
@@ -1731,7 +1728,7 @@ WHERE <span class="hljs-built_in">string</span>(file<span class="hljs-selector-c
 CALENDAR <span class="hljs-keyword">file</span>.day
 FLATTEN all(map(<span class="hljs-keyword">file</span>.tasks, (<span class="hljs-keyword">x</span>) =&gt; <span class="hljs-keyword">x</span>.completed)) <span class="hljs-keyword">AS</span> <span class="hljs-string">&quot;allCompleted&quot;</span>
 <span class="hljs-keyword">WHERE</span> !allCompleted
-```</code></pre><h4 id="%E7%89%B9%E5%AE%9A%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BA%A4%E4%BA%92%E4%B8%8E%E5%80%BC">特定类型的交互与值</h4><p>大多数 dataview 类型与运算符有特殊的交互，或者有额外的字段可以使用索引运算符进行检索。日期、持续时间以及链接都是如此。有关日期和持续时间的更多信息，请参阅元数据类型中的相应部分。</p>
+```</code></pre><h4 id="%E7%89%B9%E5%AE%9A%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BA%A4%E4%BA%92%E4%B8%8E%E5%80%BC">特定类型的交互与值</h4><p>大多数 dataview 类型与运算符有特殊的交互，或者有额外的字段可以使用索引运算符进行检索。日期（【<a href="#日期（Date）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期</a>】）、持续时间（【<a href="#持续时间（Duration）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 持续时间" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 持续时间</a>】）以及链接都是如此。有关日期和持续时间的更多信息，请参阅元数据类型中的相应部分（【<a href="#数据类型（Data%20Types）" title="元数据 &gt; 数据类型" class="internal-link" target="">元数据 &gt; 数据类型</a>】）。</p>
 <h5 id="%E9%93%BE%E6%8E%A5">链接</h5><p>您可以通过链接“索引”来获取对应页面上的值。例如，<code class="inline-code">[[Assignment Math]].duedate</code> 将从页面 <code class="inline-code">Assignment Math</code> 获取值 <code class="inline-code">duedate</code>。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="note" class="callout callout-note" id="%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E7%9A%84%E7%B4%A2%E5%BC%95%E9%93%BE%E6%8E%A5">
       <div class="callout-title">
@@ -1742,7 +1739,7 @@ FLATTEN all(map(<span class="hljs-keyword">file</span>.tasks, (<span class="hljs
       <div class="callout-content">
         <p>如果您的链接是您在行内字段或 front-matter 中定义的字段，比如 <code class="inline-code">Class:: [[Math]]</code>，并且您想获取字段 <code class="inline-code">timetable</code>，那么您可以通过写作 <code class="inline-code">Class.timetable</code> 来索引它。使用 <code class="inline-code">[[Class]].timetable</code> 将查找名为 <code class="inline-code">Class</code> 的页面，而不是 <code class="inline-code">Math</code>！</p>
       </div>
-    </div><h3 id="%E5%AD%97%E9%9D%A2%E9%87%8F%EF%BC%88Literals%EF%BC%89">字面量（Literals）</h3><p>Dataview 查询语言字面量是表示常量值的表达式，如文本（<code class="inline-code">&quot;Science&quot;</code>）或数字（<code class="inline-code">2021</code>）。它们可以作为函数或表达式（如比较）的一部分使用。以下是一些使用字面量的查询示例：</p>
+    </div><h3 id="%E5%AD%97%E9%9D%A2%E9%87%8F%EF%BC%88Literals%EF%BC%89">字面量（Literals）</h3><p>Dataview 查询语言字面量是表示常量值的表达式，如文本（<code class="inline-code">&quot;Science&quot;</code>）或数字（<code class="inline-code">2021</code>）。它们可以作为函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）或表达式（【<a href="#表达式（Expressions）" title="查询语言参考 &gt; 表达式" class="internal-link" target="">查询语言参考 &gt; 表达式</a>】）（如比较）的一部分使用。以下是一些使用字面量的查询（【<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言参考" class="internal-link" target="">查询语言参考</a>】）示例：</p>
 <pre class="hljs-code-block"><code class="hljs md" lang="md">字面量（数字）<span class="hljs-number">2022</span> 用于比较
 ```dataview
 LIST
@@ -1840,9 +1837,9 @@ WHERE end - start &gt; dur(<span class="hljs-number">2</span> days)
         
       </div>
       <div class="callout-content">
-        <p>字面量仅在查询中使用时以这种方式解释，而在作为元数据值使用时则不是。有关字段的可能值及其数据类型，请参阅元数据类型。</p>
+        <p>字面量仅在查询中使用时以这种方式解释，而在作为元数据值使用时则不是。有关字段的可能值及其数据类型，请参阅元数据类型（【<a href="#数据类型（Data%20Types）" title="元数据 &gt; 数据类型" class="internal-link" target="">元数据 &gt; 数据类型</a>】）。</p>
       </div>
-    </div><h4 id="%E6%97%A5%E6%9C%9F">日期</h4><p>每当您使用 ISO 格式的日期字段值时，都需要将这些字段与日期对象进行比较。Dataview 提供了一些常用情况的简写，例如明天、当前周的开始等。请注意，<code class="inline-code">date()</code> 也是一个函数，可以在文本上调用以提取日期。</p>
+    </div><h4 id="%E6%97%A5%E6%9C%9F">日期</h4><p>每当您使用 ISO 格式的日期字段值（【<a href="#日期（Date）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 日期</a>】）时，都需要将这些字段与日期对象进行比较。Dataview 提供了一些常用情况的简写，例如明天、当前周的开始等。请注意，<code class="inline-code">date()</code> 也是一个函数（【<a href="#`date(any)`" title="查询语言参考 &gt; 函数 &gt; 构造函数 &gt; <code class="inline-code">date(any)</code>" class="internal-link" target="">查询语言参考 &gt; 函数 &gt; 构造函数 &gt; <code class="inline-code">date(any)</code></a>】），可以在文本上调用以提取日期。</p>
 <table>
 <thead>
 <tr>
@@ -1899,7 +1896,7 @@ WHERE end - start &gt; dur(<span class="hljs-number">2</span> days)
 <td>表示当前年结束的日期</td>
 </tr>
 </tbody></table>
-<h4 id="%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4">持续时间</h4><p>持续时间是时间跨度的表示。您可以直接定义它们，也可以通过与日期计算而创建它们，并将其用于比较等。</p>
+<h4 id="%E6%8C%81%E7%BB%AD%E6%97%B6%E9%97%B4">持续时间</h4><p>持续时间是时间跨度的表示。您可以直接定义它们（【<a href="#持续时间（Duration）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 持续时间" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 持续时间</a>】），也可以通过与日期计算而创建它们（【<a href="#持续时间（Duration）" title="元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 持续时间" class="internal-link" target="">元数据 &gt; 数据类型 &gt; 可用字段类型 &gt; 持续时间</a>】），并将其用于比较等。</p>
 <h5 id="%E7%A7%92">秒</h5><table>
 <thead>
 <tr>
@@ -2124,9 +2121,9 @@ WHERE end - start &gt; dur(<span class="hljs-number">2</span> days)
 <td>三小时、两分钟和一秒</td>
 </tr>
 </tbody></table>
-<h3 id="%E5%87%BD%E6%95%B0%EF%BC%88Functions%EF%BC%89">函数（Functions）</h3><p>Dataview 函数提供了更高级的数据操作方式。您可以在数据命令中使用函数（除了 <code class="inline-code">FROM</code>）来过滤或分组，或者将它们用作额外信息，如 <code class="inline-code">TABLE</code> 列或 <code class="inline-code">LIST</code> 查询的额外输出，以新的视角查看数据。</p>
-<h4 id="%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C">函数如何工作</h4><p>函数是另一种表达式，可以在任何可以使用表达式的地方使用。函数总是返回一个新值，并遵循以下格式：</p>
-<pre class="hljs-code-block"><code class="hljs"><span class="hljs-function"><span class="hljs-title">functionName</span><span class="hljs-params">(parameter1, parameter2)</span></span></code></pre><p>参数也是表达式，您可以使用字面量、元数据字段，甚至另一个函数作为参数。您可以在此页面的文档中找到参数所需的数据类型。请注意函数括号内的信息。方括号中的参数，例如 <code class="inline-code">link(path, [display])</code> 表示它们是可选的，可以省略。有关每个函数的默认行为，请参阅其说明。</p>
+<h3 id="%E5%87%BD%E6%95%B0%EF%BC%88Functions%EF%BC%89">函数（Functions）</h3><p>Dataview 函数提供了更高级的数据操作方式。您可以在数据命令（【<a href="#数据命令（Data%20Commands）" title="查询语言参考 &gt; 数据命令" class="internal-link" target="">查询语言参考 &gt; 数据命令</a>】）中使用函数（除了 <code class="inline-code">FROM</code>）来过滤或分组，或者将它们用作额外信息（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】），如 <code class="inline-code">TABLE</code> 列或 <code class="inline-code">LIST</code> 查询的额外输出，以新的视角查看数据。</p>
+<h4 id="%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C">函数如何工作</h4><p>函数是另一种表达式，可以在任何可以使用表达式（【<a href="#表达式（Expressions）" title="查询语言参考 &gt; 表达式" class="internal-link" target="">查询语言参考 &gt; 表达式</a>】）的地方使用。函数总是返回一个新值，并遵循以下格式：</p>
+<pre class="hljs-code-block"><code class="hljs"><span class="hljs-function"><span class="hljs-title">functionName</span><span class="hljs-params">(parameter1, parameter2)</span></span></code></pre><p>参数也是表达式（【<a href="#表达式（Expressions）" title="查询语言参考 &gt; 表达式" class="internal-link" target="">查询语言参考 &gt; 表达式</a>】），您可以使用字面量、元数据字段，甚至另一个函数作为参数。您可以在此页面的文档中找到参数所需的数据类型（【<a href="#数据类型（Data%20Types）" title="元数据 &gt; 数据类型" class="internal-link" target="">元数据 &gt; 数据类型</a>】）。请注意函数括号内的信息。方括号中的参数，例如 <code class="inline-code">link(path, [display])</code> 表示它们是可选的，可以省略。有关每个函数的默认行为，请参阅其说明。</p>
 <h4 id="%E5%9C%A8%E5%80%BC%E5%88%97%E8%A1%A8%E4%B8%8A%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0">在值列表上调用函数</h4><p>大多数函数可以应用于单个值（如 <code class="inline-code">number</code>、<code class="inline-code">string</code>、<code class="inline-code">date</code> 等）或这些值的列表。如果函数应用于列表，它也会在函数应用于列表中的每个元素后返回一个列表。例如：</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-function"><span class="hljs-title">lower</span><span class="hljs-params">(<span class="hljs-string">&quot;YES&quot;</span>)</span></span> = <span class="hljs-string">&quot;yes&quot;</span>
 <span class="hljs-function"><span class="hljs-title">lower</span><span class="hljs-params">([<span class="hljs-string">&quot;YES&quot;</span>, <span class="hljs-string">&quot;NO&quot;</span>])</span></span> = <span class="hljs-selector-attr">[<span class="hljs-string">&quot;yes&quot;</span>, <span class="hljs-string">&quot;no&quot;</span>]</span>
@@ -2233,7 +2230,7 @@ elink(<span class="hljs-string">&quot;www.google.com&quot;</span>, <span class="
 <h6 id="%3Ccode%20class=%22inline-code%22%3Eicontains(object%7Clist%7Cstring,%20value)%3C/code%3E"><code class="inline-code">icontains(object|list|string, value)</code></h6><p>不区分大小写的 <code class="inline-code">contains()</code> 版本。</p>
 <h6 id="%3Ccode%20class=%22inline-code%22%3Eecontains(object%7Clist%7Cstring,%20value)%3C/code%3E"><code class="inline-code">econtains(object|list|string, value)</code></h6><p>“精确包含”检查字符串/列表中是否找到精确匹配。此函数区分大小写。</p>
 <ul>
-<li><p>对于字符串，其行为与 <code class="inline-code">contains()</code> 相同。</p>
+<li><p>对于字符串，其行为与 <code class="inline-code">contains()</code> （【<a href="#`contains(object|list|string,%20value)`" title="查询语言参考 &gt; 函数 &gt; 对象、数组和字符串操作 &gt; <code class="inline-code">contains()</code> 等 &gt; <code class="inline-code">contains(object|list|string, value)</code>" class="internal-link" target="">查询语言参考 &gt; 函数 &gt; 对象、数组和字符串操作 &gt; <code class="inline-code">contains()</code> 等 &gt; <code class="inline-code">contains(object|list|string, value)</code></a>】）相同。</p>
 <pre class="hljs-code-block"><code class="hljs"><span class="hljs-function"><span class="hljs-title">econtains</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;Lo&quot;</span>)</span></span> = false
 <span class="hljs-function"><span class="hljs-title">econtains</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;lo&quot;</span>)</span></span> = true</code></pre></li><li><p>对于列表，检查列表中是否存在精确单词。</p>
 <pre class="hljs-code-block"><code class="hljs"><span class="hljs-function"><span class="hljs-title">econtains</span><span class="hljs-params">([<span class="hljs-string">&quot;These&quot;</span>, <span class="hljs-string">&quot;are&quot;</span>, <span class="hljs-string">&quot;words&quot;</span>], <span class="hljs-string">&quot;word&quot;</span>)</span></span> = false
@@ -2369,7 +2366,7 @@ none([<span class="hljs-string">&quot;Apple&quot;</span>, <span class="hljs-stri
 <pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-function"><span class="hljs-title">durationformat</span><span class="hljs-params">(dur(<span class="hljs-string">&quot;3 days 7 hours 43 seconds&quot;</span>)</span></span>, <span class="hljs-string">&quot;ddd&#x27;d&#x27; hh&#x27;h&#x27; ss&#x27;s&#x27;&quot;</span>) = <span class="hljs-string">&quot;003d 07h 43s&quot;</span>
 <span class="hljs-function"><span class="hljs-title">durationformat</span><span class="hljs-params">(dur(<span class="hljs-string">&quot;365 days 5 hours 49 minutes&quot;</span>)</span></span>, <span class="hljs-string">&quot;yyyy ddd hh mm ss&quot;</span>) = <span class="hljs-string">&quot;0001 000 05 49 00&quot;</span>
 <span class="hljs-function"><span class="hljs-title">durationformat</span><span class="hljs-params">(dur(<span class="hljs-string">&quot;2000 years&quot;</span>)</span></span>, <span class="hljs-string">&quot;M months&quot;</span>) = <span class="hljs-string">&quot;24000 months&quot;</span>
-<span class="hljs-function"><span class="hljs-title">durationformat</span><span class="hljs-params">(dur(<span class="hljs-string">&quot;14d&quot;</span>)</span></span>, <span class="hljs-string">&quot;s &#x27;seconds&#x27;&quot;</span>) = <span class="hljs-string">&quot;1209600 seconds&quot;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Ecurrencyformat(number,%20%5Bcurrency%5D)%3C/code%3E"><code class="inline-code">currencyformat(number, [currency])</code></h5><p>根据您当前的区域设置，呈现数字，依据 <code class="inline-code">currency</code> 代码。</p>
+<span class="hljs-function"><span class="hljs-title">durationformat</span><span class="hljs-params">(dur(<span class="hljs-string">&quot;14d&quot;</span>)</span></span>, <span class="hljs-string">&quot;s &#x27;seconds&#x27;&quot;</span>) = <span class="hljs-string">&quot;1209600 seconds&quot;</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Ecurrencyformat(number,%20%5Bcurrency%5D)%3C/code%3E"><code class="inline-code">currencyformat(number, [currency])</code></h5><p>根据 <a href="https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes" title="ISO 4217" class="External-link" target="_blank">ISO 4217</a> 中的<code class="inline-code">货币</code>代码，根据您当前的区域设置显示数字。</p>
 <pre class="hljs-code-block"><code class="hljs"><span class="hljs-attribute">number</span> = <span class="hljs-number">123456</span>.<span class="hljs-number">789</span>
 <span class="hljs-attribute">currencyformat</span>(number, <span class="hljs-string">&quot;EUR&quot;</span>) =  €<span class="hljs-number">123</span>,<span class="hljs-number">456</span>.<span class="hljs-number">79</span>  in locale: en_US
 <span class="hljs-attribute">currencyformat</span>(number, <span class="hljs-string">&quot;EUR&quot;</span>) =  <span class="hljs-number">123</span>.<span class="hljs-number">456</span>,<span class="hljs-number">79</span> € in locale: de_DE
@@ -2394,9 +2391,9 @@ where meta(section).subpath = <span class="hljs-string">&quot;Next Actions&quot;
 meta(<span class="hljs-string">[[My Project#Next Actions]]</span>).<span class="hljs-built_in">type</span> = <span class="hljs-string">&quot;header&quot;</span>
 meta(<span class="hljs-string">[[My Project#^9bcbe8]]</span>).<span class="hljs-built_in">type</span> = <span class="hljs-string">&quot;block&quot;</span></code></pre><h2 id="JavaScript%20%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83%EF%BC%88JavaScript%20Reference%EF%BC%89">JavaScript 查询参考（JavaScript Reference）</h2><h3 id="%E6%A6%82%E8%A7%88%EF%BC%88Overview%EF%BC%89">概览（Overview）</h3><p>Dataview JavaScript API 允许执行任意 JavaScript 代码，并可以访问 dataview 索引和查询引擎，这对于复杂视图或与其他插件的相互操作非常有用。API 有两种风格：面向插件的和面向用户的（或称为“内联 API 使用”）。</p>
 <h4 id="%E5%86%85%E8%81%94%E8%AE%BF%E9%97%AE">内联访问</h4><p>你可以通过以下方式创建一个“DataviewJS”块：</p>
-<pre class="hljs-code-block"><code class="hljs dataviewjs" lang="dataviewjs">dv.pages(<span class="hljs-string">&quot;#thing&quot;</span>)...</code></pre><p>在此类代码块中执行的代码可以访问 <code class="inline-code">dv</code> 变量，该变量提供了整个代码块相关的 dataview API（例如 <code class="inline-code">dv.table()</code>, <code class="inline-code">dv.pages()</code> 等）。更多信息，请查看代码块 API 参考。</p>
-<h4 id="%E6%8F%92%E4%BB%B6%E8%AE%BF%E9%97%AE">插件访问</h4><p>你可以通过 <code class="inline-code">app.plugins.plugins.dataview.api</code> 访问 Dataview 插件 API（来自其他插件或控制台）；这个 API 与代码块参考类似，但由于缺少隐式文件来执行查询，参数略有不同。更多信息，请查看插件 API 参考。（<mark>讲得很好，但是这两个 API 参考，其实被链接到了一个地方，就是下面的代码块参考，其实插件访问的说明在 问答和资源——针对 Dataview 的开发 中</mark>）</p>
-<h3 id="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</h3><p>Dataview 中结果列表的通用表示是 <code class="inline-code">DataArray</code>，这是 JavaScript 数组的一个代理版本，具有扩展的功能。数据数组支持索引和迭代（通过 <code class="inline-code">for</code> 和 <code class="inline-code">for ... of</code> 循环），与普通数组相似，但还包括许多数据操作运算符，如 <code class="inline-code">sort</code>、<code class="inline-code">groupBy</code>、<code class="inline-code">distinct</code>、<code class="inline-code">where</code> 等，使得操作表格数据更加方便。</p>
+<pre class="hljs-code-block"><code class="hljs dataviewjs" lang="dataviewjs">dv.pages(<span class="hljs-string">&quot;#thing&quot;</span>)...</code></pre><p>在此类代码块中执行的代码可以访问 <code class="inline-code">dv</code> 变量，该变量提供了整个代码块相关的 dataview API（例如 <code class="inline-code">dv.table()</code>, <code class="inline-code">dv.pages()</code> 等）。更多信息，请查看代码块 API 参考（【<a href="#代码块参考（Codeblock%20Reference）" title="JavaScript 查询参考 &gt; 代码块参考" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块参考</a>】）。</p>
+<h4 id="%E6%8F%92%E4%BB%B6%E8%AE%BF%E9%97%AE">插件访问</h4><p>你可以通过 <code class="inline-code">app.plugins.plugins.dataview.api</code> 访问 Dataview 插件 API（来自其他插件或控制台）；这个 API 与代码块参考类似，但由于缺少隐式文件来执行查询，参数略有不同。更多信息，请查看插件 API 参考（【<a href="#针对%20Dataview%20的开发（Developing%20Against%20Dataview）" title="问答和资源 &gt; 针对 Dataview 的开发" class="internal-link" target="">问答和资源 &gt; 针对 Dataview 的开发</a>】）。（<mark>讲得很好，但是这两个 API 参考，在原文中其实被链接到了一个地方，就是代码块参考，但其实插件访问的说明在 问答和资源——针对 Dataview 的开发 中</mark>）</p>
+<h3 id="%E6%95%B0%E6%8D%AE%E6%95%B0%E7%BB%84%EF%BC%88Data%20Arrays%EF%BC%89">数据数组（Data Arrays）</h3><p>Dataview 中结果列表的通用表示是 <code class="inline-code">DataArray</code>，这是 JavaScript 数组的一个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" title="代理" class="External-link" target="_blank">代理</a>版本，具有扩展的功能。数据数组支持索引和迭代（通过 <code class="inline-code">for</code> 和 <code class="inline-code">for ... of</code> 循环），与普通数组相似，但还包括许多数据操作运算符，如 <code class="inline-code">sort</code>、<code class="inline-code">groupBy</code>、<code class="inline-code">distinct</code>、<code class="inline-code">where</code> 等，使得操作表格数据更加方便。</p>
 <h4 id="%E5%88%9B%E5%BB%BA">创建</h4><p>数据数组由大多数可以返回多个结果的 Dataview API 返回，例如 <code class="inline-code">dv.pages()</code>。您还可以使用 <code class="inline-code">dv.array(&lt;array&gt;)</code> 明确地将普通 JavaScript 数组转换为 Dataview 数组。如果您想将数据数组转换回普通数组，请使用 <code class="inline-code">DataArray#array()</code>。（==这个 # 有点怪，我觉得应该用 <code class="inline-code">.</code>，我测试了，用 # 不行，用 <code class="inline-code">.</code> 可以，那就是原文写错了吧？==）</p>
 <h4 id="%E7%B4%A2%E5%BC%95%E5%92%8C%E8%BD%AC%E6%8D%A2">索引和转换</h4><p>数据数组支持与普通数组相同的常规索引（如 <code class="inline-code">array[0]</code>），但重要的是，它们还支持查询语言风格的“转换”：如果您用字段名称索引数据数组（如 <code class="inline-code">array.field</code>），它会自动将数组中的每个元素映射到 <code class="inline-code">field</code>，如果 <code class="inline-code">field</code> 本身也是一个数组，则会扁平化 <code class="inline-code">field</code>。</p>
 <p>例如，<code class="inline-code">dv.pages().file.name</code> 将返回您库中所有文件名的数据数组；<code class="inline-code">dv.pages(&quot;#books&quot;).genres</code> 将返回您书籍中所有流派的扁平化列表。</p>
@@ -2518,16 +2515,16 @@ export interface <span class="hljs-type">DataArray</span>&lt;<span class="hljs-t
 dv.table([], ...)
 `</span><span class="hljs-string">``</span></code></pre><p>API 通过隐式提供 <code class="inline-code">dv</code>（或 <code class="inline-code">dataview</code>）变量，您可以通过它查询信息、渲染 HTML 和配置视图。</p>
 <p>异步 API 调用标记为 <code class="inline-code">⌛</code>。</p>
-<h4 id="%E6%9F%A5%E8%AF%A2">查询</h4><p>查询方法允许您查询 Dataview 索引以获取页面元数据；要渲染这些数据，请使用渲染部分中的方法。</p>
+<h4 id="%E6%9F%A5%E8%AF%A2">查询</h4><p>查询方法允许您查询 Dataview 索引以获取页面元数据；要渲染这些数据，请使用渲染部分（【<a href="#渲染" title="JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染</a>】）中的方法。</p>
 <h5 id="%3Ccode%20class=%22inline-code%22%3Edv.current()%3C/code%3E"><code class="inline-code">dv.current()</code></h5><p>获取当前脚本执行页面的信息（通过 <code class="inline-code">dv.page()</code>）。</p>
-<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.pages(source)%3C/code%3E"><code class="inline-code">dv.pages(source)</code></h5><p>接受一个字符串参数 <code class="inline-code">source</code>，其形式与查询语言源相同。
-返回一个数据数组的页面对象，这些对象是包含所有页面字段的普通对象。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.pages(source)%3C/code%3E"><code class="inline-code">dv.pages(source)</code></h5><p>接受一个字符串参数 <code class="inline-code">source</code>，其形式与查询语言源（【<a href="#来源（Sources）" title="查询语言参考 &gt; 来源" class="internal-link" target="">查询语言参考 &gt; 来源</a>】）相同。
+返回一个数据数组（【<a href="#数据数组（Data%20Arrays）" title="JavaScript 查询参考 &gt; 数据数组" class="internal-link" target="">JavaScript 查询参考 &gt; 数据数组</a>】）的页面对象，这些对象是包含所有页面字段的普通对象。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js">dv.pages() =&gt; 您库中的所有页面
 dv.pages(<span class="hljs-string">&quot;<span class="hljs-subst">#books</span>&quot;</span>) =&gt; 所有带有标签 <span class="hljs-string">&#x27;books&#x27;</span> 的页面
 dv.pages(<span class="hljs-string">&#x27;&quot;folder&quot;&#x27;</span>) =&gt; 来自文件夹 <span class="hljs-string">&quot;folder&quot;</span> 的所有页面
 dv.pages(<span class="hljs-string">&quot;<span class="hljs-subst">#<span class="hljs-literal">yes</span></span> or -<span class="hljs-subst">#<span class="hljs-literal">no</span></span>&quot;</span>) =&gt; 所有带有标签 <span class="hljs-comment">#yes 的页面，或不带标签 #no 的页面</span>
 dv.pages(<span class="hljs-string">&#x27;&quot;folder&quot; or #tag&#x27;</span>) =&gt; 所有带有标签 <span class="hljs-comment">#tag 的页面，或来自文件夹 &quot;folder&quot; 的页面</span></code></pre><p>请注意，文件夹需要在字符串中用双引号括起来（即 <code class="inline-code">dv.pages(&quot;folder&quot;)</code> 不起作用，但 <code class="inline-code">dv.pages(&#39;&quot;folder&quot;&#39;)</code> 起作用）——这是为了与查询语言中源的写法完全匹配。</p>
-<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.pagePaths(source)%3C/code%3E"><code class="inline-code">dv.pagePaths(source)</code></h5><p>与 <code class="inline-code">dv.pages</code> 相同，但仅返回匹配给定源的页面路径的数据数组。</p>
+<h5 id="%3Ccode%20class=%22inline-code%22%3Edv.pagePaths(source)%3C/code%3E"><code class="inline-code">dv.pagePaths(source)</code></h5><p>与 <code class="inline-code">dv.pages</code> 相同，但仅返回匹配给定源的页面路径的数据数组（【<a href="#数据数组（Data%20Arrays）" title="JavaScript 查询参考 &gt; 数据数组" class="internal-link" target="">JavaScript 查询参考 &gt; 数据数组</a>】）。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js">dv.pagePaths(<span class="hljs-string">&quot;<span class="hljs-subst">#books</span>&quot;</span>) =&gt; 带有标签 <span class="hljs-string">&#x27;books&#x27;</span> 的页面路径</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.page(path)%3C/code%3E"><code class="inline-code">dv.page(path)</code></h5><p>将简单路径或链接映射到完整的页面对象，其中包含所有页面字段。自动进行链接解析，如果未提供，则会自动确定扩展名。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js">dv.<span class="hljs-keyword">page</span>(<span class="hljs-string">&quot;Index&quot;</span>) =&gt; /<span class="hljs-keyword">Index</span> 的页面对象
 dv.<span class="hljs-keyword">page</span>(<span class="hljs-string">&quot;books/The Raisin.md&quot;</span>) =&gt; /books/The Raisin.md 的页面对象</code></pre><h4 id="%E6%B8%B2%E6%9F%93">渲染</h4><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.el(element,%20text)%3C/code%3E"><code class="inline-code">dv.el(element, text)</code></h5><p>在给定的 HTML 元素中渲染任意文本。</p>
@@ -2601,7 +2598,7 @@ dv.paragraph(table);</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.
 <pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">const</span> markdown = dv.markdownList([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
 <span class="hljs-attribute">dv</span>.paragraph(markdown);</code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.markdownTaskList(tasks)%3C/code%3E"><code class="inline-code">dv.markdownTaskList(tasks)</code></h5><p>相当于 <code class="inline-code">dv.taskList()</code>，渲染任务列表，但返回纯 Markdown。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js">const markdown <span class="hljs-operator">=</span> dv.markdownTaskList(dv.pages(<span class="hljs-string">&quot;#project&quot;</span>).file.tasks)<span class="hljs-comment">;</span>
-dv.paragraph(markdown)<span class="hljs-comment">;</span></code></pre><h4 id="%E5%B7%A5%E5%85%B7">工具</h4><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.array(value)%3C/code%3E"><code class="inline-code">dv.array(value)</code></h5><p>将给定值或数组转换为 Dataview 数据数组。如果值已经是数据数组，则返回原值。</p>
+dv.paragraph(markdown)<span class="hljs-comment">;</span></code></pre><h4 id="%E5%B7%A5%E5%85%B7">工具</h4><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.array(value)%3C/code%3E"><code class="inline-code">dv.array(value)</code></h5><p>将给定值或数组转换为 Dataview 数据数组（【<a href="#数据数组（Data%20Arrays）" title="JavaScript 查询参考 &gt; 数据数组" class="internal-link" target="">JavaScript 查询参考 &gt; 数据数组</a>】）。如果值已经是数据数组，则返回原值。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) =&gt; dataview 数据数组<span class="hljs-meta"> [1, 2, 3]</span></code></pre><h5 id="%3Ccode%20class=%22inline-code%22%3Edv.isArray(value)%3C/code%3E"><code class="inline-code">dv.isArray(value)</code></h5><p>如果给定值是数组或 Dataview 数组，则返回 true。</p>
 <pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-attribute">dv</span>.isArray(dv.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])) =&gt; true
 <span class="hljs-attribute">dv</span>.isArray([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) =&gt; true
@@ -2685,8 +2682,8 @@ dv.evaluate(<span class="hljs-string">&quot;2 +&quot;</span>) =&gt; 失败 { err
 <span class="hljs-keyword">row</span>.<span class="hljs-keyword">where</span> <span class="hljs-comment">/* 同 &quot;where&quot; */</span></code></pre><h4 id="%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E5%90%8D%E7%A7%B0%E4%B8%AD%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E6%AE%B5%EF%BC%9F">如何访问名称中带空格的字段？</h4><p>有两种方法：</p>
 <ol>
 <li>使用该字段的规范化 Dataview 名称——只需将名称转换为小写并用短横线（&quot;-&quot;）替换空格。例如，<code class="inline-code">Field With Space In It</code> 变为 <code class="inline-code">field-with-space-in-it</code>。</li><li>使用隐式的 <code class="inline-code">row</code> 字段：<pre class="hljs-code-block"><code class="hljs javascript" lang="javascript">row<span class="hljs-selector-attr">[<span class="hljs-string">&quot;Field With Space In It&quot;</span>]</span></code></pre></li></ol>
-<h4 id="%E4%BD%A0%E4%BB%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%9F">你们有没有学习资源的列表？</h4><p>有的！请查看资源页面。</p>
-<h4 id="%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F">我可以保存查询结果以便重用吗？</h4><p>您可以使用 <code class="inline-code">dv.view</code> 函数编写可重用的 JavaScript 查询。在 DQL 中，除了可以将查询写入模板并使用该模板（可以使用<a href="https://help.obsidian.md/Plugins/Templates" title="核心插件模板" class="External-link" target="_blank">核心插件模板</a>或流行的社区插件<a href="https://obsidian.md/plugins?id=templater-obsidian" title="Templater" class="External-link" target="_blank">Templater</a>），您还可以通过内联 DQL <strong>在元数据字段中保存计算</strong>，例如：</p>
+<h4 id="%E4%BD%A0%E4%BB%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%9F">你们有没有学习资源的列表？</h4><p>有的！请查看资源页面（【<a href="#资源与支持（Resources%20and%20Support）" title="问答和资源 &gt; 资源与支持" class="internal-link" target="">问答和资源 &gt; 资源与支持</a>】）。</p>
+<h4 id="%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F">我可以保存查询结果以便重用吗？</h4><p>您可以使用 <code class="inline-code">dv.view</code> 函数（【<a href="#`dv.view(path,%20input)`" title="JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染 &gt; <code class="inline-code">dv.view(path, input)</code>" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染 &gt; <code class="inline-code">dv.view(path, input)</code></a>】）编写可重用的 JavaScript 查询。在 DQL 中，除了可以将查询写入模板并使用该模板（可以使用<a href="https://help.obsidian.md/Plugins/Templates" title="核心插件模板" class="External-link" target="_blank">核心插件模板</a>或流行的社区插件<a href="https://obsidian.md/plugins?id=templater-obsidian" title="Templater" class="External-link" target="_blank">Templater</a>），您还可以通过内联 DQL （【<a href="#查询语言、JS%20和行内查询（#%20DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）<strong>在元数据字段中保存计算</strong>，例如：</p>
 <pre class="hljs-code-block"><code class="hljs markdown" lang="markdown">start:: <span class="hljs-number">07</span>h00m
 end:: <span class="hljs-number">18</span>h00m
 pause:: <span class="hljs-number">01</span>h30m
@@ -3158,10 +3155,10 @@ const api <span class="hljs-operator">=</span> getAPI()<span class="hljs-comment
 <li data-hash="Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89" style="margin-left: 1.5em"><a href="#Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89">Dataview 之友（Friends of Dataview）</a></li>
 <li data-hash="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</a></li>
 <li data-hash="%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB" style="margin-left: 1.5em"><a href="#%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB">大老鼠喵喵叫</a></li></ul></div>
-      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-05 18:57:37</small></div>
+      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-06 11:08:28</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-08-06 00:00:22</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-08-06 11:11:39</foot>
 </body>
 </html>

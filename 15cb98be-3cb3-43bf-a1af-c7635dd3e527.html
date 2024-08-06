@@ -20,7 +20,9 @@
         <div class="callout-title-inner">如果有用，还希望支持一下~<a href="https://afdian.com/a/daomishu" title="请我喝杯咖啡" class="External-link" target="_blank">请我喝杯咖啡</a>可好？</div>
         
       </div>
-      
+      <div class="callout-content">
+        <p>如果有任何问题，可以在这里（<a href="https://meta.appinn.net/t/topic/59541/4" title="https://meta.appinn.net/t/topic/59541/4" class="External-link" target="_blank">https://meta.appinn.net/t/topic/59541/4</a>）联系我，当然任何其他可以联系到我的渠道也都可以。</p>
+      </div>
     </div><p>基于 v0.5.67 SHA: <code class="inline-code">15b8d527e3d5822c5ef9bfd23f528a64769d545b</code></p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="warning" class="callout callout-warning" id="%E5%B8%8C%E6%9C%9B%E4%BD%A0%E4%B8%8D%E8%A6%81%E5%B0%9D%E8%AF%95%E7%9B%B4%E6%8E%A5%E5%B0%86%E6%9C%AC%E6%96%87%E5%AE%8C%E6%95%B4%E6%91%98%E6%8A%84%E5%88%B0%20Obsidian%20%E7%9A%84%E7%AC%94%E8%AE%B0%E4%B8%AD%EF%BC%8C%E5%8F%AF%E8%83%BD%E4%BC%9A%E6%AF%94%E8%BE%83%E5%8D%A1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%A4%AA%E9%95%BF%E4%BA%86%E3%80%82">
       <div class="callout-title">
@@ -793,7 +795,7 @@ WHERE !fullyCompleted
 LIST
 WHERE any(file.tasks, (t) =&gt; !t.fullyCompleted)
 `</span><span class="hljs-string">``</span></code></pre><p>这将返回所有包含未完成任务的文件链接。我们在页面级别返回一个任务列表，因此需要使用列表函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】）（<mark>这里好像没有一个确定的函数来匹配这个链接，原文也如此。重点在于理解列表这个类型，至于这个链接……迷</mark>）来查看每个元素。</p>
-<h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（# DQL, JS and Inlines）</h2><p>一旦您向相关页面添加了有用的数据（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】），您会希望在某处实际显示它或对其进行操作。Dataview 以四种不同的方式实现这一点，所有这些都直接写在您的 Markdown 中的代码块中，并在您的库发生更改时实时重新加载。</p>
+<h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（DQL, JS and Inlines）</h2><p>一旦您向相关页面添加了有用的数据（【<a href="#添加元数据（Adding%20Metadata）" title="元数据 &gt; 添加元数据" class="internal-link" target="">元数据 &gt; 添加元数据</a>】），您会希望在某处实际显示它或对其进行操作。Dataview 以四种不同的方式实现这一点，所有这些都直接写在您的 Markdown 中的代码块中，并在您的库发生更改时实时重新加载。</p>
 <h3 id="Dataview%20%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%20(DQL)">Dataview 查询语言 (DQL)</h3><p>Dataview 查询语言（简称 DQL）（【<a href="#查询语言参考（Query%20Language%20Reference）" title="查询语言参考" class="internal-link" target="">查询语言参考</a>】）是一种类似 SQL 的语言，也是 Dataview 的核心功能。它支持四种查询类型（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】）以产生不同的输出，数据命令用于细化、重新排序或分组您的结果，并提供丰富的函数（【<a href="#函数（Functions）" title="查询语言参考 &gt; 函数" class="internal-link" target="">查询语言参考 &gt; 函数</a>】），允许进行多种操作和调整，以实现您想要的输出。</p>
 <div data-callout-metadata="" data-callout-fold="" data-callout="warning" class="callout callout-warning" id="%E8%AD%A6%E5%91%8A">
       <div class="callout-title">
@@ -872,8 +874,8 @@ You have `= length(filter(link(dateformat(<span class="hljs-built_in">date</span
       <div class="callout-content">
         <p>您可以在 Dataview 的设置中（“代码块设置”——“JavaScript 内联查询前缀”）将 <code class="inline-code">$=</code> 更改为其他标记（如 <code class="inline-code">dvjs</code>: 或 <code class="inline-code">$~</code>）。</p>
       </div>
-    </div><h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89">查询语言参考（Query Language Reference）</h2><h3 id="%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89">结构化查询（Structure of a Query）</h3><p>Dataview 提供了多种方式（【<a href="#查询语言、JS%20和行内查询（#%20DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）来编写查询，语法各不相同。</p>
-<p>本页面提供有关如何编写 Dataview 查询语言（DQL）查询的信息。如果您对如何编写内联查询感兴趣，请参阅 DQL、JS 和内联的内联部分（【<a href="#查询语言、JS%20和行内查询（#%20DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）。您可以在 JavaScript 参考（【<a href="#JavaScript%20查询参考（JavaScript%20Reference）" title="JavaScript 查询参考" class="internal-link" target="">JavaScript 查询参考</a>】）中找到有关 JavaScript 查询的更多信息。</p>
+    </div><h2 id="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E5%8F%82%E8%80%83%EF%BC%88Query%20Language%20Reference%EF%BC%89">查询语言参考（Query Language Reference）</h2><h3 id="%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%EF%BC%88Structure%20of%20a%20Query%EF%BC%89">结构化查询（Structure of a Query）</h3><p>Dataview 提供了多种方式（【<a href="#查询语言、JS%20和行内查询（DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）来编写查询，语法各不相同。</p>
+<p>本页面提供有关如何编写 Dataview 查询语言（DQL）查询的信息。如果您对如何编写内联查询感兴趣，请参阅 DQL、JS 和内联的内联部分（【<a href="#查询语言、JS%20和行内查询（DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）。您可以在 JavaScript 参考（【<a href="#JavaScript%20查询参考（JavaScript%20Reference）" title="JavaScript 查询参考" class="internal-link" target="">JavaScript 查询参考</a>】）中找到有关 JavaScript 查询的更多信息。</p>
 <p>DQL 是一种类似 SQL 的查询语言，用于对您的数据创建不同的视图或计算。它支持：</p>
 <ul>
 <li>选择输出格式（查询类型（【<a href="#查询类型（Query%20Types）" title="查询语言参考 &gt; 查询类型" class="internal-link" target="">查询语言参考 &gt; 查询类型</a>】））</li><li>从特定来源（【<a href="#来源（Sources）" title="查询语言参考 &gt; 来源" class="internal-link" target="">查询语言参考 &gt; 来源</a>】）获取页面（笔记），即通过标签、文件夹或链接进行筛选</li><li>通过对字段进行简单操作（如比较、存在性检查等）过滤页面/数据</li><li>转换字段以进行显示，即通过计算或拆分多值字段</li><li>根据字段排序结果</li><li>根据字段分组结果</li><li>限制结果数量</li></ul>
@@ -2683,7 +2685,7 @@ dv.evaluate(<span class="hljs-string">&quot;2 +&quot;</span>) =&gt; 失败 { err
 <ol>
 <li>使用该字段的规范化 Dataview 名称——只需将名称转换为小写并用短横线（&quot;-&quot;）替换空格。例如，<code class="inline-code">Field With Space In It</code> 变为 <code class="inline-code">field-with-space-in-it</code>。</li><li>使用隐式的 <code class="inline-code">row</code> 字段：<pre class="hljs-code-block"><code class="hljs javascript" lang="javascript">row<span class="hljs-selector-attr">[<span class="hljs-string">&quot;Field With Space In It&quot;</span>]</span></code></pre></li></ol>
 <h4 id="%E4%BD%A0%E4%BB%AC%E6%9C%89%E6%B2%A1%E6%9C%89%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%9F">你们有没有学习资源的列表？</h4><p>有的！请查看资源页面（【<a href="#资源与支持（Resources%20and%20Support）" title="问答和资源 &gt; 资源与支持" class="internal-link" target="">问答和资源 &gt; 资源与支持</a>】）。</p>
-<h4 id="%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F">我可以保存查询结果以便重用吗？</h4><p>您可以使用 <code class="inline-code">dv.view</code> 函数（【<a href="#`dv.view(path,%20input)`" title="JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染 &gt; <code class="inline-code">dv.view(path, input)</code>" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染 &gt; <code class="inline-code">dv.view(path, input)</code></a>】）编写可重用的 JavaScript 查询。在 DQL 中，除了可以将查询写入模板并使用该模板（可以使用<a href="https://help.obsidian.md/Plugins/Templates" title="核心插件模板" class="External-link" target="_blank">核心插件模板</a>或流行的社区插件<a href="https://obsidian.md/plugins?id=templater-obsidian" title="Templater" class="External-link" target="_blank">Templater</a>），您还可以通过内联 DQL （【<a href="#查询语言、JS%20和行内查询（#%20DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）<strong>在元数据字段中保存计算</strong>，例如：</p>
+<h4 id="%E6%88%91%E5%8F%AF%E4%BB%A5%E4%BF%9D%E5%AD%98%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E4%BB%A5%E4%BE%BF%E9%87%8D%E7%94%A8%E5%90%97%EF%BC%9F">我可以保存查询结果以便重用吗？</h4><p>您可以使用 <code class="inline-code">dv.view</code> 函数（【<a href="#`dv.view(path,%20input)`" title="JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染 &gt; <code class="inline-code">dv.view(path, input)</code>" class="internal-link" target="">JavaScript 查询参考 &gt; 代码块参考 &gt; 渲染 &gt; <code class="inline-code">dv.view(path, input)</code></a>】）编写可重用的 JavaScript 查询。在 DQL 中，除了可以将查询写入模板并使用该模板（可以使用<a href="https://help.obsidian.md/Plugins/Templates" title="核心插件模板" class="External-link" target="_blank">核心插件模板</a>或流行的社区插件<a href="https://obsidian.md/plugins?id=templater-obsidian" title="Templater" class="External-link" target="_blank">Templater</a>），您还可以通过内联 DQL （【<a href="#查询语言、JS%20和行内查询（DQL,%20JS%20and%20Inlines）" title="查询语言、JS 和行内查询" class="internal-link" target="">查询语言、JS 和行内查询</a>】）<strong>在元数据字段中保存计算</strong>，例如：</p>
 <pre class="hljs-code-block"><code class="hljs markdown" lang="markdown">start:: <span class="hljs-number">07</span>h00m
 end:: <span class="hljs-number">18</span>h00m
 pause:: <span class="hljs-number">01</span>h30m
@@ -2934,7 +2936,7 @@ const api <span class="hljs-operator">=</span> getAPI()<span class="hljs-comment
 <li data-hash="%E5%AD%97%E6%AE%B5%E7%AE%80%E5%86%99" style="margin-left: 4.5em"><a href="#%E5%AD%97%E6%AE%B5%E7%AE%80%E5%86%99">字段简写</a></li>
 <li data-hash="%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5%EF%BC%88%E4%BB%BB%E5%8A%A1%EF%BC%89" style="margin-left: 4.5em"><a href="#%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5%EF%BC%88%E4%BB%BB%E5%8A%A1%EF%BC%89">隐式字段（任务）</a></li>
 <li data-hash="%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5" style="margin-left: 4.5em"><a href="#%E5%9C%A8%E6%9F%A5%E8%AF%A2%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%9A%90%E5%BC%8F%E5%AD%97%E6%AE%B5">在查询中访问隐式字段</a></li>
-<li data-hash="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88%20%20DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（# DQL, JS and Inlines）</a></li>
+<li data-hash="%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88DQL,%20JS%20and%20Inlines%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E3%80%81JS%20%E5%92%8C%E8%A1%8C%E5%86%85%E6%9F%A5%E8%AF%A2%EF%BC%88DQL,%20JS%20and%20Inlines%EF%BC%89">查询语言、JS 和行内查询（DQL, JS and Inlines）</a></li>
 <li data-hash="Dataview%20%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%20(DQL)" style="margin-left: 3em"><a href="#Dataview%20%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%20(DQL)">Dataview 查询语言 (DQL)</a></li>
 <li data-hash="%E5%86%85%E8%81%94%20DQL" style="margin-left: 3em"><a href="#%E5%86%85%E8%81%94%20DQL">内联 DQL</a></li>
 <li data-hash="Dataview%20JS" style="margin-left: 3em"><a href="#Dataview%20JS">Dataview JS</a></li>
@@ -3155,10 +3157,10 @@ const api <span class="hljs-operator">=</span> getAPI()<span class="hljs-comment
 <li data-hash="Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89" style="margin-left: 1.5em"><a href="#Dataview%20%E4%B9%8B%E5%8F%8B%EF%BC%88Friends%20of%20Dataview%EF%BC%89">Dataview 之友（Friends of Dataview）</a></li>
 <li data-hash="%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89" style="margin-left: 1.5em"><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%EF%BC%88Changelog%EF%BC%89%EF%BC%88%E4%B8%8D%E5%81%9A%E7%BF%BB%E8%AF%91%EF%BC%89">更新日志（Changelog）（不做翻译）</a></li>
 <li data-hash="%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB" style="margin-left: 1.5em"><a href="#%E5%A4%A7%E8%80%81%E9%BC%A0%E5%96%B5%E5%96%B5%E5%8F%AB">大老鼠喵喵叫</a></li></ul></div>
-      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-06 11:08:28</small></div>
+      <div class="meta"><small>created: 2024-08-01 19:58:53</small><br><small>updated: 2024-08-06 11:19:58</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-08-06 11:11:39</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-08-06 11:20:37</foot>
 </body>
 </html>

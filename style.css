@@ -3,6 +3,8 @@
   line-height: 1.8;
   --side-width: 240px;
   --content-width: 800px;
+
+  --text-normal: var(--color-fg-default);
 }
 body,
 body.markdown-body {

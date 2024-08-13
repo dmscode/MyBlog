@@ -56,14 +56,14 @@ path:<span class="hljs-string">&quot;100_Note/&quot;</span> <span class="hljs-st
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-08-13 00:00:29</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-08-13 19:44:43</foot>
 <script class="post-script">/**
  * 文件树 Emoji 图标样式片段生成器
  * @author: 稻米鼠
  * @description: 生成文件树 Emoji 图标样式片段
  * @created: 2024-05-08
- * @updated: 2024-05-08
- * @version: 0.0.1
+ * @updated: 2024-08-13
+ * @version: 0.0.2
  */
 const root = document.getElementById('File_Tree_Emoji_Icon_generator');
 root.innerHTML = `
@@ -165,7 +165,7 @@ const generateSnippet = () => {
   rules.sort((a, b) => a.path.localeCompare(b.path)).forEach(({emoji, path})=>{
     path = path.replace(/\\/g, '/')
     const preMark = fuzzy_match.checked ? `$` : ''
-    const selector = /\.[a-zA-Z0-9]+/.test(path) ? `.nav-file > .nav-file-title[data-path${preMark}="${path}"] > .nav-file-title-content::before` : `.nav-folder > .nav-folder-title[data-path${preMark}="${path}"] > .nav-folder-title-content::before`
+    const selector = /\.[a-zA-Z0-9]+$/.test(path) ? `.nav-file > .nav-file-title[data-path${preMark}="${path}"] > .nav-file-title-content::before` : `.nav-folder > .nav-folder-title[data-path${preMark}="${path}"] > .nav-folder-title-content::before`
     code += `
 ${selector} {
   content: "${emoji}";

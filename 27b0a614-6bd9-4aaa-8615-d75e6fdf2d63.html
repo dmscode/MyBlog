@@ -23,11 +23,11 @@
 
 如果是单个页面或者文件，就直接写完整路径：
 
-<span class="hljs-bullet">- </span>Start.md
+<span class="hljs-bullet">- </span>Folder/note.md
 
 如果是某个文件夹，就以此为前缀，注意结尾不要写 / 或者 \
 
-<span class="hljs-bullet">- </span>^90_资源
+<span class="hljs-bullet">- </span>^Folder/Subfolder
 
 如果是特定格式文件，则用后缀形式
 
@@ -55,11 +55,11 @@
 <li data-hash="%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7" style="margin-left: 1.5em"><a href="#%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7">使用技巧</a></li>
 <li data-hash="%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B" style="margin-left: 1.5em"><a href="#%E8%A7%84%E5%88%99%E7%A4%BA%E4%BE%8B">规则示例</a></li>
 <li data-hash="%E6%96%87%E4%BB%B6%E6%A0%91%E5%9B%BE%E6%A0%87%E6%A0%B7%E5%BC%8F%E7%89%87%E6%AE%B5%E7%94%9F%E6%88%90%E5%99%A8" style="margin-left: 1.5em"><a href="#%E6%96%87%E4%BB%B6%E6%A0%91%E5%9B%BE%E6%A0%87%E6%A0%B7%E5%BC%8F%E7%89%87%E6%AE%B5%E7%94%9F%E6%88%90%E5%99%A8">文件树图标样式片段生成器</a></li></ul></div>
-      <div class="meta"><small>created: 2024-08-13 19:18:17</small><br><small>updated: 2024-08-13 19:41:58</small></div>
+      <div class="meta"><small>created: 2024-08-13 19:18:17</small><br><small>updated: 2024-08-13 19:54:12</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-08-13 19:44:43</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-08-13 19:56:39</foot>
 <script class="post-script">/**
  * 文件树中隐藏某些项目的样式片段
  * @author: 稻米鼠
@@ -76,8 +76,7 @@ root.innerHTML = `
 </div>
 <pre id="rule_output_area" class="hljs-code-block">
 <code class="hljs css" lang="css">
-</code>
-</pre>
+</code></pre>
 <style>
 #rule_input {
   box-sizing: border-box;
@@ -112,16 +111,16 @@ const generateSnippet = () => {
  * @generated: ${new Date().toLocaleDateString('zh-CN', {year: 'numeric', month: '2-digit', day: '2-digit',}).replace(/\//g, '-')}
  */
 `
+  const selectors = []
   rules.sort((a, b) => a.path.localeCompare(b.path)).forEach(({path, type})=>{
     const preMark = type==='start' ? '^' : (type==='end' ? `$` : '')
     const selector = /\.[a-zA-Z0-9]+$/.test(path)
       ? `.nav-file > .nav-file-title[data-path${preMark}="${path}"]`
       : `.nav-folder > .nav-folder-title[data-path${preMark}="${path}"]`
-    code += `
-${selector} {
-  display: none;
-}`
+    selectors.push(selector)
   })
+  code += selectors.join(',\n') + ' {\n  display: none;\n}'
+
   rule_output.innerHTML = `${code}`
 }
 

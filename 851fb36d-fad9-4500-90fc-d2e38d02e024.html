@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【Templater】时光进度 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【Templater】时光进度</h1>
+      <section><p>使用此模板可以插入如下格式的内容：</p>
+<pre class="hljs-code-block"><code class="hljs text" lang="text">2024<span class="hljs-string">-05</span><span class="hljs-string">-08</span>  08:26:19  
+▓▓▓▓▓▓▓░░░░░░░░░░░░░  
+YearProgress: 34.98%</code></pre><p>使用等宽字体显示效果最好。</p>
+<p>在插入内容同时，会将内容复制到剪切板，方便在各处分享（<del>制造焦虑</del></p>
+<p>模板如下：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md">&lt;%*
+  <span class="hljs-comment">/**
+   * 时光进度
+   * @author: 稻米鼠
+   * @description: 为笔记中插入纯文本时光进度条
+   * @created: 2024-05-08
+   * @updated: 2024-05-08
+   * @version: 0.0.1
+   */</span>
+  const <span class="hljs-built_in">now</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+  const <span class="hljs-built_in">year</span> = <span class="hljs-built_in">now</span>.getFullYear()
+  const dbNum = <span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> String(num).padStart(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;0&#x27;</span>)
+  const <span class="hljs-built_in">date</span> = <span class="hljs-string">`<span class="hljs-subst">${dbNum(<span class="hljs-built_in">now</span>.getFullYear())}</span>-<span class="hljs-subst">${dbNum(<span class="hljs-built_in">now</span>.getMonth() + <span class="hljs-number">1</span>)}</span>-<span class="hljs-subst">${dbNum(<span class="hljs-built_in">now</span>.getDate())}</span>`</span>
+  const time = <span class="hljs-string">`<span class="hljs-subst">${dbNum(<span class="hljs-built_in">now</span>.getHours())}</span>:<span class="hljs-subst">${dbNum(<span class="hljs-built_in">now</span>.getMinutes())}</span>:<span class="hljs-subst">${dbNum(<span class="hljs-built_in">now</span>.getSeconds())}</span>`</span>
+  const progress = (<span class="hljs-built_in">now</span> - <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">year</span>}</span>-01-01`</span>)) / (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">year</span> + <span class="hljs-number">1</span>}</span>-01-01`</span>) - <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">year</span>}</span>-01-01`</span>))
+  const progressBarLength = Math.<span class="hljs-built_in">round</span>(progress / <span class="hljs-number">0.05</span>)
+  const selection = tp.file.selection()
+  const progressBar = <span class="hljs-string">&#x27;&#x27;</span>.padEnd(progressBarLength, <span class="hljs-string">&#x27;▓&#x27;</span>) + <span class="hljs-string">&#x27;&#x27;</span>.padEnd(<span class="hljs-number">20</span>-progressBarLength, <span class="hljs-string">&#x27;░&#x27;</span>)
+  const progressNum = (progress*<span class="hljs-number">100</span>).toFixed(<span class="hljs-number">2</span>)
+  tR += <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">date</span>}</span>  <span class="hljs-subst">${time}</span>  \n`</span>
+        + <span class="hljs-string">`<span class="hljs-subst">${progressBar}</span>  \n`</span>
+        + <span class="hljs-string">`YearProgress: <span class="hljs-subst">${progressNum}</span>%\n`</span>
+  const copiedStr = <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">date</span>}</span>  <span class="hljs-subst">${time}</span>\n`</span>
+    + <span class="hljs-string">`<span class="hljs-subst">${progressBar}</span>\n`</span>
+    + <span class="hljs-string">`YearProgress: <span class="hljs-subst">${progressNum}</span>%`</span>
+  navigator.clipboard.writeText(copiedStr)
+  <span class="hljs-keyword">new</span> Notice(copiedStr)
+%&gt;</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-05-08 07:14:10</small><br><small>updated: 2024-05-08 08:27:54</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-09-29 08:19:54</foot>
+</body>
+</html>

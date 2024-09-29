@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写给小可爱的AI提示词入门教程 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">写给小可爱的AI提示词入门教程</h1>
+      <section><h1 style="text-align:center">写给小可爱的 AI 提示词入门教程<br>
+    <small>（读得懂·学得会·没废话·不绕弯）</small></h1>
+
+<h2 id="%E6%98%AF%E4%BB%80%E4%B9%88">是什么</h2><p>想让 AI 做事情，就要先把需求跟 AI 讲清楚，你向 AI 描述需求的文字被称作提示词（prompt）。</p>
+<h2 id="%E8%AF%B4%E8%A6%81%E7%82%B9">说要点</h2><p>一个核心——<strong>把问题讲清楚</strong>。AI 是笨蛋，AI 不知道事情的前因后果，事情讲清楚了就不容易有偏差。</p>
+<h2 id="%E6%80%8E%E4%B9%88%E5%81%9A">怎么做</h2><ul>
+<li>说清背景：不能只说<code class="inline-code">李白的技能是什么</code>，而应该先指出这是在什么游戏里（而不是古代历史人物）；</li><li>层层递进：如上，虽然先问问题再补充是什么游戏 AI 也能理解，但是当问题条件比较多时，层层递进的描述方法能让 AI 更容易准确理解，而不丢失要点；</li><li>条理清楚：写成八股文，就如本篇文章一样，大标题，小标题，列表……逐个要点，逐个事项，而不是混在一个段落里的长篇叙述</li><li>反复强调：对于一些 AI 易出现的错误，而你又比较看重的点，可以多次强调，重要的事情说三遍是有用的。也可以将这种强调分散于各个要点之中。比如：<code class="inline-code">不要解释，不要废话，不要额外描述，只说结果</code>。</li></ul>
+<h2 id="%E7%94%A8%E6%A1%86%E6%9E%B6">用框架</h2><p>遇到更复杂的问题，可以使用 AI 提示词框架，其实就是一个作文模板，十分八股，像填表一般写入自己的需求，特定的格式和描述方法会让 AI 更容易准确理解。</p>
+<p>但网络上存在大量提示词框架，用要点的单词首字母缩写来命名。其实只要看看都有哪些要点，然后遵循上一小节的原则去写就好，也完全可以自己创造。</p>
+<h2 id="%E4%B8%BE%E6%A0%97%E5%AD%90">举栗子</h2><p>我想让 AI 帮我给编程中的变量命名，采取小驼峰格式。这个描述方法基本上所有程序员都能听懂，但并不意味着 AI 可以，所以为了保证获取稳定的效果，我会像下面这样书写：</p>
+<pre class="hljs-code-block"><code class="hljs text" lang="text">你是一名出色的 JavaScript 语言工程师，熟悉编程中的各种变量命名习惯，并且能有优雅准确地对变量进行命名。
+
+接下来我会给你一个变量的含义，请帮我命名。
+
+要求使用小驼峰（camelCase）格式，即第一个单词的首字母小写，其他单词的首字母大写。所用单词应该准确表达所需含义，并符合程序员变量命名规范。
+
+你需要给出五个候选项，并解释其含义，回复格式如下：
+
+- `变量名称` - 使用此名称的理由
+- `变量名称` - 使用此名称的理由
+- `变量名称` - 使用此名称的理由
+- `变量名称` - 使用此名称的理由
+- `变量名称` - 使用此名称的理由
+
+回复中只有列表，不要包含其他内容。如果我没有给出变量含义，则提示：请说出变量的含义，我将用小驼峰（camelCase）格式进行命名。</code></pre><p>然后分析上述提示词：</p>
+<ul>
+<li>你是谁，有什么能力，会怎样去做（夸奖 AI 会使它做出更好的结果）</li><li>我需要你做什么</li><li>具体的格式是怎样的</li><li>应该如何回复我，限定格式避免自由发挥产生废话</li><li>强调不要其他内容</li><li>给出其他情况的回复方式，避免自由发挥</li></ul>
+<p>看起来有点长，且有一些似乎是废话。但是用这个提示词可以做到后续我每次只要直接写出变量的含义它就给我对应的选项，总体来看反倒是节省了大量的篇幅。</p>
+<h2 id="%E5%86%8D%E6%B7%B1%E5%85%A5">再深入</h2><p>AI 接受的提示词分为多个级别，最主要的：</p>
+<ul>
+<li>系统提示词：系统级别的的提示词，一般由工具提供，大概都是你是什么，要怎样去做这样底层的设定，比如：<code class="inline-code">你是笔记中的智能助理，目标是帮助用户更有条理的管理自己的笔记，回复时请使用 markdown 格式……</code>系统提示词具有很高的权重，一般情况下 AI 不容易遗忘系统提示词给出的信息。</li><li>用户提示词：用户发送给 AI 的任务需求。就比如上面示例的提示词。这时候你发现上面提示词开篇的内容和上一条中示例的系统提示词内容类似。因为这属于对 AI 的基础设定，就是基本套路。</li><li>上下文提示词：为什么 AI 可以连贯对话呢？因为 AI 可以记住上下文，怎么记住的呢？就是每次向 AI 提问其实会把前面的聊天记录一起发送给 AI，这样 AI 回复时就能上下文连贯了。</li></ul>
+<h2 id="%E4%B8%8A%E4%B8%8B%E6%96%87">上下文</h2><p>很容易理解，上下文的权重是低于用户提示词的。比如你前面告诉它：<code class="inline-code">从现在开始你是猫，谁也不可以改变</code>。但是一会儿你和它说：<code class="inline-code">你现在不是猫了，恢复正常</code>，它一般都会立刻恢复正常。</p>
+<p>然后，当你和 AI 聊了很久，就积累的大量的聊天记录（上下文），这时候每次提问都带着这么多的聊天记录，这意味着 AI 每次要处理大量信息，成本很高。同时一般 AI 计费是按照发送和接收的文字数计算的，你的花费也很高。所以，一个优化方法是将前面的聊天记录进行总结，只保留重点，这样内容就少了。但肯定有信息量的损失，所以，有时候聊着聊着就感觉 AI 忘记了你（或者他自己）前面讲过的东西。</p>
+<p>所以，一些 AI 工具会以超长/无损上下文作为卖点。</p>
+<h2 id="%E6%9C%89%E6%8A%96%E5%8A%A8">有抖动</h2><p>AI 工具可以设置回答是更严谨或者更有创意，但其实还有很多参数用来控制回答的思维发散程度。但仅仅如此还不够，如果一个问题对应着一个答案，大家会觉得呆板、机械。所以 AI 的回答是存在抖动的，但这种抖动有时候会带来不必要的麻烦。比如完全相同的条件下询问一个问题，可能有时候获得优质的正确答案，有时候却含糊混乱。</p>
+<p>理解这一点，那么当得到的答案不符合我们预期，但是提示词又没什么问题的情况下，可以让 AI 再试一次，可能就能获得更优质的答案。也就可以理解，一些拿着一次问题截图展示 AI 回答质量的评测其实未必靠谱。</p>
+<hr>
+<ul>
+<li>Author：稻米鼠</li><li>Updated：2024-07-06 09:08:29</li><li>支持一下：<a href="https://afdian.net/a/daomishu" title="老鼠爱发电" class="External-link" target="_blank">老鼠爱发电</a></li></ul>
+</section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="%E6%98%AF%E4%BB%80%E4%B9%88" style="margin-left: 1.5em"><a href="#%E6%98%AF%E4%BB%80%E4%B9%88">是什么</a></li>
+<li data-hash="%E8%AF%B4%E8%A6%81%E7%82%B9" style="margin-left: 1.5em"><a href="#%E8%AF%B4%E8%A6%81%E7%82%B9">说要点</a></li>
+<li data-hash="%E6%80%8E%E4%B9%88%E5%81%9A" style="margin-left: 1.5em"><a href="#%E6%80%8E%E4%B9%88%E5%81%9A">怎么做</a></li>
+<li data-hash="%E7%94%A8%E6%A1%86%E6%9E%B6" style="margin-left: 1.5em"><a href="#%E7%94%A8%E6%A1%86%E6%9E%B6">用框架</a></li>
+<li data-hash="%E4%B8%BE%E6%A0%97%E5%AD%90" style="margin-left: 1.5em"><a href="#%E4%B8%BE%E6%A0%97%E5%AD%90">举栗子</a></li>
+<li data-hash="%E5%86%8D%E6%B7%B1%E5%85%A5" style="margin-left: 1.5em"><a href="#%E5%86%8D%E6%B7%B1%E5%85%A5">再深入</a></li>
+<li data-hash="%E4%B8%8A%E4%B8%8B%E6%96%87" style="margin-left: 1.5em"><a href="#%E4%B8%8A%E4%B8%8B%E6%96%87">上下文</a></li>
+<li data-hash="%E6%9C%89%E6%8A%96%E5%8A%A8" style="margin-left: 1.5em"><a href="#%E6%9C%89%E6%8A%96%E5%8A%A8">有抖动</a></li></ul></div>
+      <div class="meta"><small>created: 2024-07-06 08:14:22</small><br><small>updated: 2024-07-06 09:21:50</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-09-29 08:19:54</foot>
+</body>
+</html>

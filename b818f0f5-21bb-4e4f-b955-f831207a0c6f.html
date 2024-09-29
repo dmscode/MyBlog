@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【CSS Snippet】路名牌 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+<style class="css-snippet">/**
+ * 网红路牌
+ * @author: 稻米鼠
+ * @description: 用于显示网红路牌的 callout 视图
+ * @created: 2024-05-14
+ * @updated: 2024-05-14
+ * @version: 0.0.1
+ */
+
+ .callout[data-callout="road-name-sign"] {
+  --callout-color: 0, 51, 255;
+  --callout-text-color: #ebeced;
+  --callout-icon:  arrow-big-left;
+  background: transparent;
+  padding: 20px;
+}
+.callout[data-callout="road-name-sign"] > .callout-title {
+  position: relative;
+  background: rgb(var(--callout-color));
+  border-radius: .5rem;
+  border: 3px solid var(--callout-text-color);
+  box-shadow: 0 0 0 5px rgb(var(--callout-color));
+  margin: 0 auto 1.6rem;
+  padding: 0;
+  max-width: 720px;
+}
+.callout[data-callout="road-name-sign"] > .callout-title::before {
+  position: absolute;
+  content: "TO ZJI.ME FOR MORE CODE";
+  background: var(--callout-text-color);
+  color: #4e5154;
+  border-radius: calc(.5rem + 8px);
+  left: -8px;
+  text-align: center;
+  bottom: calc(-1.6rem - 8px);
+  width: calc(100% + 16px);
+  height: calc(100% + 1.6rem + 16px);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  box-sizing: border-box;
+  display: table-cell;
+  padding-top: calc(3.2rem + 16px);
+  vertical-align: bottom;
+  font-weight: 700;
+}
+.callout[data-callout="road-name-sign"] > .callout-title > .callout-title-inner {
+  color: var(--callout-text-color);
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  position: relative;
+}
+.callout[data-callout="road-name-sign"] > .callout-title > .callout-title-inner::before {
+  position: absolute;
+  left:1rem;
+  content: "◄";
+}
+.callout[data-callout="road-name-sign"] > .callout-title > .callout-title-inner::after {
+  position: absolute;
+  right: 1rem;
+  content: "►";
+}
+.callout[data-callout="road-name-sign"] > .callout-title >.callout-icon,
+.callout[data-callout="road-name-sign"] > .callout-title >.callout-fold {
+  display: none;
+}</style>
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【CSS Snippet】路名牌</h1>
+      <section><div data-callout-metadata="" data-callout-fold="" data-callout="road-name-sign" class="callout callout-road-name-sign" id="%E5%86%85%E6%9C%89%E8%90%8C%E9%BC%A0-%E5%96%9C%E9%A3%9F%E4%BA%94%E8%B0%B7">
+      <div class="callout-title">
+        
+        <div class="callout-title-inner">内有萌鼠-喜食五谷</div>
+        
+      </div>
+      
+    </div><p>就这么个“网红路牌”，这次真的只是个标题，别再填内容了（没写内容部分的样式）。文字不宜过长，主要是到手机上显示不下，这玩意儿还弄个多行显示不至于吧，就图一乐呗。基本上白色文字不超过黑色文字的宽度在一般手机上就不会溢出。对，黑色文字不是广告，是尺（笑</p>
+<p>将如下代码保存到 <code class="inline-code">.obsidian/snippets/RoadNameSign.css</code> 文件中（自行创建文件），然后在 Obsidian 设置——外观——代码片段中开启。即可使用 <code class="inline-code">road-name-sign</code> 类型 callouts 创建这种堆叠卡片了。</p>
+<pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-comment">/**
+ * 网红路牌
+ * @author: 稻米鼠
+ * @description: 用于显示网红路牌的 callout 视图
+ * @created: 2024-05-14
+ * @updated: 2024-05-14
+ * @version: 0.0.1
+ */</span>
+
+ <span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> {
+  <span class="hljs-attr">--callout-color</span>: <span class="hljs-number">0</span>, <span class="hljs-number">51</span>, <span class="hljs-number">255</span>;
+  <span class="hljs-attr">--callout-text-color</span>: <span class="hljs-number">#ebeced</span>;
+  <span class="hljs-attr">--callout-icon</span>:  arrow-big-left;
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">20px</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--callout-color));
+  <span class="hljs-attribute">border-radius</span>: .<span class="hljs-number">5rem</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid <span class="hljs-built_in">var</span>(--callout-text-color);
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--callout-color));
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto <span class="hljs-number">1.6rem</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">720px</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span><span class="hljs-selector-pseudo">::before</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;TO ZJI.ME FOR MORE CODE&quot;</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--callout-text-color);
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#4e5154</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-built_in">calc</span>(.<span class="hljs-number">5rem</span> + <span class="hljs-number">8px</span>);
+  <span class="hljs-attribute">left</span>: -<span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-built_in">calc</span>(-<span class="hljs-number">1.6rem</span> - <span class="hljs-number">8px</span>);
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> + <span class="hljs-number">16px</span>);
+  <span class="hljs-attribute">height</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> + <span class="hljs-number">1.6rem</span> + <span class="hljs-number">16px</span>);
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">12px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>);
+  <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
+  <span class="hljs-attribute">box-sizing</span>: border-box;
+  <span class="hljs-attribute">display</span>: table-cell;
+  <span class="hljs-attribute">padding-top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">3.2rem</span> + <span class="hljs-number">16px</span>);
+  <span class="hljs-attribute">vertical-align</span>: bottom;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span> &gt; <span class="hljs-selector-class">.callout-title-inner</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--callout-text-color);
+  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.6rem</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">3.2rem</span>;
+  <span class="hljs-attribute">position</span>: relative;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span> &gt; <span class="hljs-selector-class">.callout-title-inner</span><span class="hljs-selector-pseudo">::before</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">left</span>:<span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;◄&quot;</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span> &gt; <span class="hljs-selector-class">.callout-title-inner</span><span class="hljs-selector-pseudo">::after</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;►&quot;</span>;
+}
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span> &gt;<span class="hljs-selector-class">.callout-icon</span>,
+<span class="hljs-selector-class">.callout</span><span class="hljs-selector-attr">[data-callout=<span class="hljs-string">&quot;road-name-sign&quot;</span>]</span> &gt; <span class="hljs-selector-class">.callout-title</span> &gt;<span class="hljs-selector-class">.callout-fold</span> {
+  <span class="hljs-attribute">display</span>: none;
+}</code></pre><p>上面示例的 callout 代码如下，供参考：</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md"><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript">[!road-name-sign] 内有萌鼠-喜食五谷</span></code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-05-14 22:18:22</small><br><small>updated: 2024-05-14 22:23:51</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-09-29 08:19:54</foot>
+</body>
+</html>

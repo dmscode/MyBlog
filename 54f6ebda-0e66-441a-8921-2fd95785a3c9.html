@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown 的误区 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">Markdown 的误区</h1>
+      <section><h2 id="%E7%89%B9%E5%BE%81">特征</h2><blockquote><p>输入简便，很多标记都简单，容易输入，通过换行、缩进、<code class="inline-code">#</code>、<code class="inline-code">*</code> 等简单、简短、易输入的符号进行标记，而且在不会产生歧义的情况下多是仅起始端单侧标记。</p>
+</blockquote><p>这就是最大的特征，也是最大的优势，还是最大的缺陷。</p>
+<h2 id="%E4%BC%98%E5%8A%BF">优势</h2><p>易于输入，快速记录。</p>
+<p>当我们需要快速输出头脑中的思想，又需要一定格式使之清晰时，这非常好用，因为几乎完全不会打断输出的思路，就可以获得一篇格式清晰的内容。而其他方法则难以获得类似的效果。</p>
+<h2 id="%E7%BC%BA%E9%99%B7">缺陷</h2><p>如果需要复杂的格式，比如表格，就会很尴尬，当然，有一些插件可以辅助输入，使体验可以接受，但那已经不是对着记事本只用键盘就能顺畅输出的 Markdown 了。而且表格也不具有多少灵活性，比如都不能做个求和。</p>
+<p>而且当你需要对内容进行深入处理时会发现因为多数是单侧标记，导致元素分析变得很困难，需要从头开始捋，而且要考虑多种情况，才能比较准确的提取对应的内容，这和 HTML 用选择器可以轻松实现多数场景下的精准定位是大不相同的。</p>
+<h2 id="%E6%89%80%E4%BB%A5">所以</h2><p>Markdown 适合连续简单格式内容的快速记录。这很适合用做笔记——长篇内容输出型笔记；这很不适合做笔记——细节功能型笔记。</p>
+<p>了解了它，下一个问题是——<mark>你需要的是什么？</mark>这个问题非常重要，不然很容易造成缘木求鱼的局面。</p>
+<p>Markdown 优势和缺陷基本是所有基于 Markdown 格式笔记软件共同的痛。想要更强，可以，但必然脱离标准语法，导致可迁移性降低；而基础语法就提供了那么多功能，基础在这里，往上发挥的空间很低。</p>
+<h2 id="%E6%88%91%E6%80%8E%E4%B9%88%E7%94%A8">我怎么用</h2><p>写 JS 啦~然后插入进来，进行局部动态增强。如果迁移到其他平台，这些 JS 稍加修改也是可以用的，毕竟处理逻辑都是一致的。但是想实现复杂的表格依然没有思路，mermaid.js 的思维导图不能自主排序等等也是比较难受的。但如果这些方面需求比较高，那就交给专业软件去解决吧，而笔记中我常写像这样的内容，Markdown 用起来更顺手。</p>
+</section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="%E7%89%B9%E5%BE%81" style="margin-left: 1.5em"><a href="#%E7%89%B9%E5%BE%81">特征</a></li>
+<li data-hash="%E4%BC%98%E5%8A%BF" style="margin-left: 1.5em"><a href="#%E4%BC%98%E5%8A%BF">优势</a></li>
+<li data-hash="%E7%BC%BA%E9%99%B7" style="margin-left: 1.5em"><a href="#%E7%BC%BA%E9%99%B7">缺陷</a></li>
+<li data-hash="%E6%89%80%E4%BB%A5" style="margin-left: 1.5em"><a href="#%E6%89%80%E4%BB%A5">所以</a></li>
+<li data-hash="%E6%88%91%E6%80%8E%E4%B9%88%E7%94%A8" style="margin-left: 1.5em"><a href="#%E6%88%91%E6%80%8E%E4%B9%88%E7%94%A8">我怎么用</a></li></ul></div>
+      <div class="meta"><small>created: 2023-09-28 08:25:48</small><br><small>updated: 2024-05-02 16:05:55</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-09-29 08:19:54</foot>
+</body>
+</html>

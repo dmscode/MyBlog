@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WinSize配置方案 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">WinSize配置方案</h1>
+      <section><p>你需要根据我的需求帮我写一条 ini 格式的配置规则，示例如下：</p>
+<pre class="hljs-code-block"><code class="hljs ini" lang="ini"><span class="hljs-attribute">Center</span> = <span class="hljs-number">20</span>sw|<span class="hljs-number">20</span>sh|<span class="hljs-number">60</span>sw|<span class="hljs-number">60</span>sh</code></pre><ul>
+<li>等号左侧为“方案名称”（根据需求自行命名，用英文，首字母大写）</li><li>等号右侧为 <code class="inline-code">|</code> 分隔的四段内容，分别代表窗口左上角横坐标，窗口左上角纵坐标，窗口的宽度、窗口的高度</li><li>每一段的格式表达为 <code class="inline-code">n[单位]+m</code>，n 和 m 均为数字。可用单位如下：<ul>
+<li>sw: screen width 所选显示器（工作区）宽度</li><li>sh: screen height 所选显示器（工作区）高度</li><li>ww: window width 窗口当前宽度</li><li>wh: window height 窗口当前高度</li><li>vw: virtual screen width 整个虚拟屏幕宽度</li><li>vh: virtual screen height 整个虚拟屏幕高度</li></ul>
+</li><li>其中 n 为百分比，但是省略 %，并省略小数</li><li>m 为偏移的像素数，前面的符号可以为 + 或者 -，如果没有偏移则省略</li><li>如果只存在偏移量，或者按像素指定，则只写数字，必要的情况下加上负号（-）</li><li>如果指定了显示器，则用 <code class="inline-code">|</code> 分隔，在第五段写上显示器编号</li></ul>
+</section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-06-16 19:52:50</small><br><small>updated: 2024-06-16 20:22:55</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-09-29 08:19:54</foot>
+</body>
+</html>

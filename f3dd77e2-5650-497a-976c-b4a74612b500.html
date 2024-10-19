@@ -56,7 +56,7 @@ path:<span class="hljs-string">&quot;100_Note/&quot;</span> <span class="hljs-st
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-10-19 00:00:22</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-10-20 00:00:22</foot>
 <script class="post-script">/**
  * 文件树 Emoji 图标样式片段生成器
  * @author: 稻米鼠
@@ -95,7 +95,8 @@ const fuzzy_match = root.querySelector('#fuzzy_match');
 const rule_input = root.querySelector('#rule_input');
 const rule_output = root.querySelector('#rule_output_area > code');
 
-const emojiReg = /^.*([\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E6}-\u{1F1FF}]).*$/u
+// const emojiReg = /^.*([\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E6}-\u{1F1FF}]).*$/u
+const emojiReg = /^.*?(\p{Emoji}|[\u{1F000}-\u{1FBFF}]).*$/u
 
 const generateSnippet = () => {
   const useDefaultIcon = default_icon_switch.checked;
@@ -132,6 +133,7 @@ const generateSnippet = () => {
 }`
   if(useDefaultIcon){
     code += `
+/** -------- 文件类型默认图标 -------- */
 .nav-folder > .nav-folder-title > .nav-folder-title-content::before {
   content: "📂";
 }
@@ -160,6 +162,13 @@ const generateSnippet = () => {
 .nav-file > .nav-file-title[data-path$=".html"] > .nav-file-title-content::before {
   content: "🌐";
 }
+.nav-file > .nav-file-title[data-path$=".canvas"] > .nav-file-title-content::before {
+  content: "🧭";
+}
+.nav-file > .nav-file-title[data-path$=".excalidraw.md"] > .nav-file-title-content::before {
+  content: "🖌";
+}
+/** -------- 用户自定义图标 -------- */
 `
   }
   rules.sort((a, b) => a.path.localeCompare(b.path)).forEach(({emoji, path})=>{

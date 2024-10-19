@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="github-markdown.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+  <link rel="stylesheet" href="atom-one-dark.min.css">
 </head>
 <body class="markdown-body">
   <main>
@@ -27,6 +27,44 @@
 </blockquote><p>后面的步骤可能多次循环。</p>
 <p>然后一些诸如此类的工作流交织于笔记之中，虽然不是实际存在，但时刻影响着笔记，促进笔记中的数据流动，让笔记变得有活力。</p>
 <p>丝丝缕缕，积攒多了就又有下一个问题——乱。于是就要梳理，整合。现在我要做的就是这样的工作，逐条梳理自己的工作流，并记录下来供自己参考。</p>
+<h2 id="%E7%9F%A5%E8%AF%86%E6%91%98%E6%8A%84">知识摘抄</h2><pre class="hljs-code-block"><code class="hljs mermaid" lang="mermaid">flowchart LR
+  知识摘抄 --> 整理 --> 沉淀 --> 重述
+  重述 ---> 整理</code></pre><p>这是无关工具的，纯方法上的工作流。</p>
+<h2 id="QuickAdd">QuickAdd</h2><pre class="hljs-code-block"><code class="hljs mermaid" lang="mermaid">flowchart TB
+  QuickAdd --> Capture[捕获]
+    Capture --> 01-日记
+    Capture --> 02-碎片
+    Capture --> 03-待办
+    Capture --> 04-购物
+  QuickAdd --> Open[打开]
+    Open --> 00-起始
+    Open --> 01-日记
+    Open --> 02-碎片
+    Open --> 03-记账
+    Open --> 04-购物</code></pre><p>这就开始混乱了，笑死，当结构复杂的时候，图表也未必是优秀的表达方式。或者严谨一点吧，没有优化的图表未必能清晰表达复杂信息。</p>
+<pre class="hljs-code-block"><code class="hljs mermaid" lang="mermaid">flowchart TB
+  Capture[捕获]
+  Open[打开]
+
+  00-起始 ---> Open
+  Capture --> 01-日记 ---> Open
+  Capture --> 02-碎片 ---> Open
+  Capture --> 03-待办
+  03_账目 ---> Open
+  Capture --> 04-购物 ---> Open</code></pre><p>换成这样就容易理解了，整理这种脉络，就是在脑内构建清晰地数据流向地图的过程。以及，这个图表也可以契合最开始讲的：输入——处理——呈现 的工作流。这里面有一些特例，因为我的起始页是一个信息汇总页面，账目是一个兼具输入、呈现的页面。而待办的使用方法还在思考中。</p>
+<h2 id="%E8%AE%B0%E8%B4%A6">记账</h2><p>这是一个简单的工作流，但这是用前期投入换来的简单。有一个页面，基本实现了日常记账和翻阅的需求。而记录的源文件则使用了 Beancount 的语法，也就是这个页面的无法满足我的需求时，有功能完备的工具作为后盾。</p>
+<h2 id="%E7%BC%B4%E8%B4%B9">缴费</h2><p>日常生活的一些缴费需求，需要关注余额。但很难自动化获取余额，于是我在每次记账时会登记一下当前余额，并在记账的同时额外生成一条缴费记录到另一个笔记。在首页进行展示，并通过自己设置的每日大约消耗量计算当前余额，作为参考展示，当接近警戒线的时候，我会自行查询余额，如果偏差较大，可以手动校准（输入当前余额）。</p>
+<pre class="hljs-code-block"><code class="hljs mermaid" lang="mermaid">flowchart TB
+QuickAdd --> Fix[校准]
+Fix ---> 01-电费
+Fix ---> 02-燃气
+Fix ---> 03-网费
+Fix ---> 04-话费
+Fix ---> 05-净水</code></pre><pre class="hljs-code-block"><code class="hljs mermaid" lang="mermaid">flowchart TB
+Input[输入:记账页面] ---> Note[笔记:缴费记录] ---> handle[处理:估算余额，可用时间] ---> Render[呈现:显示在首页]</code></pre><h2 id="%E7%89%A9%E8%B5%84">物资</h2><p>登记物品、生产日期、保质期（天数），过期时间。同样在首页展示，显示距离过期的天数，过期进度条。主要是避免遗忘。</p>
+<p>类似上面，不过现在的登记使用的是 kanban 上手动输入。</p>
+<hr>
+<p>现在的工作流并不多，但是在整理之前，在我的脑子里已经有点乱了，所以弄出来，条理化，这样继续增加才没有负担。</p>
 </section>
     </article>
   </main>
@@ -42,11 +80,19 @@
         </ul>
       </div>
       <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
-      
-      <div class="meta"><small>created: 2024-10-18 13:15:11</small><br><small>updated: 2024-10-18 13:41:10</small></div>
+      <div class="toc"><ul><li data-hash="%E7%9F%A5%E8%AF%86%E6%91%98%E6%8A%84" style="margin-left: 1.5em"><a href="#%E7%9F%A5%E8%AF%86%E6%91%98%E6%8A%84">知识摘抄</a></li>
+<li data-hash="QuickAdd" style="margin-left: 1.5em"><a href="#QuickAdd">QuickAdd</a></li>
+<li data-hash="%E8%AE%B0%E8%B4%A6" style="margin-left: 1.5em"><a href="#%E8%AE%B0%E8%B4%A6">记账</a></li>
+<li data-hash="%E7%BC%B4%E8%B4%B9" style="margin-left: 1.5em"><a href="#%E7%BC%B4%E8%B4%B9">缴费</a></li>
+<li data-hash="%E7%89%A9%E8%B5%84" style="margin-left: 1.5em"><a href="#%E7%89%A9%E8%B5%84">物资</a></li></ul></div>
+      <div class="meta"><small>created: 2024-10-18 13:15:11</small><br><small>updated: 2024-10-19 18:13:06</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-10-19 00:00:22</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-10-20 00:00:22</foot>
+<script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
 </body>
 </html>

@@ -186,7 +186,8 @@ container.innerHTML += `&lt;h2&gt;Days <span class="hljs-keyword">in</span> ${ye
     <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
   }
 }
-</code></pre></section>
+</code></pre><h2 id="%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA">效果演示</h2><p>非完整效果</p>
+</section>
     </article>
   </main>
   <aside id="side-menu">
@@ -202,11 +203,188 @@ container.innerHTML += `&lt;h2&gt;Days <span class="hljs-keyword">in</span> ${ye
       </div>
       <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
       <div class="toc"><ul><li data-hash="view.js" style="margin-left: 1.5em"><a href="#view.js">view.js</a></li>
-<li data-hash="view.css" style="margin-left: 1.5em"><a href="#view.css">view.css</a></li></ul></div>
-      <div class="meta"><small>created: 2024-10-21 13:56:35</small><br><small>updated: 2024-10-21 14:03:45</small></div>
+<li data-hash="view.css" style="margin-left: 1.5em"><a href="#view.css">view.css</a></li>
+<li data-hash="%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA" style="margin-left: 1.5em"><a href="#%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA">效果演示</a></li></ul></div>
+      <div class="meta"><small>created: 2024-10-21 13:56:35</small><br><small>updated: 2024-10-25 15:19:34</small></div>
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2024 稻米鼠. Last build at 2024-10-25 00:00:23</foot>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-10-25 15:28:51</foot>
+<script class="post-script">/** 获取视图容器，并添加类 */
+const dvContainer = function (className) {
+    const container = dv.container;
+    container.classList.add(className);
+    return container;
+};
+
+/** 将数字转换为两位数 */
+const dbNum = (num) => String(num).padStart(2, '0');
+/** 日期增强 */
+class DateExtends extends Date {
+    YYYY;
+    MM;
+    DD;
+    HH;
+    mm;
+    ss;
+    /** 星期几（数字） */
+    ee;
+    /** 星期几（中文） */
+    EE;
+    /** 第几周（数字） */
+    ww;
+    /** 第几周（两位数字字符串） */
+    WW;
+    yearProgress;
+    constructor(date) {
+        super(date !== undefined ? date : new Date());
+        this.YYYY = String(this.getFullYear());
+        this.MM = dbNum(this.getMonth() + 1);
+        this.DD = dbNum(this.getDate());
+        this.HH = dbNum(this.getHours());
+        this.mm = dbNum(this.getMinutes());
+        this.ss = dbNum(this.getSeconds());
+        this.ee = this.getDay();
+        this.EE = ['日', '一', '二', '三', '四', '五', '六'][this.ee];
+        const yearStart = new Date(this.getFullYear(), 0, 1);
+        const yearEnd = new Date(this.getFullYear() + 1, 0, 1);
+        this.yearProgress = (this.getTime() - yearStart.getTime()) / (yearEnd.getTime() - yearStart.getTime());
+        this.ww = Math.ceil(((new Date(this.getFullYear(), this.getMonth(), this.getDate() + 4 - (this.ee || 7)).getTime() - yearStart.getTime()) / 864e5 + 1) / 7);
+        this.WW = dbNum(this.ww);
+    }
+    /** 格式化日期 */
+    format(format) {
+        const reg = /YYYY|MM|DD|HH|mm|ss|ee|EE|WW/g;
+        return format.replace(reg, (key) => {
+            return String(this[key]);
+        });
+    }
+    /** 获取当天的开始时间 */
+    getDayStart() {
+        return new Date(this.getFullYear(), this.getMonth(), this.getDate(), 0, 0, 0).getTime();
+    }
+    /** 是否是闰年 */
+    isLeapYear() {
+        return (this.getFullYear() % 4 === 0 && this.getFullYear() % 100 !== 0) || this.getFullYear() % 400 === 0;
+    }
+}
+/** 获取当前时间 */
+const now = new DateExtends();
+
+/**
+ * Obsidian 圆点年历
+ * @author: 稻米鼠
+ * @description: 以圆点形式显示一年中的每一天
+ * @created: 2024-10-21 13:54:35
+ * @updated: 2024-10-21 13:54:35
+ * @version: 0.0.1
+ */
+const year = now.getFullYear();
+
+const style = `
+.year-container {
+  --gap-width: calc(var(--circle-size) / 3);
+  --main-color: #303134;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --red-color: 154, 59,  59;
+  --blue-color: 42,  70,  107;
+  --green-color: 76,  90,  73;
+  --yellow-color: 134, 108, 72;
+  --orange-color: 170, 91,  55;
+  --pink-color: 167, 85,  112;
+  --paper-color: 255, 255, 255;
+  --circle-size: 2.4rem;
+  /* 定义容器名称，用来媒体查询 */
+  container-type: inline-size;
+  container-name: year-container;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-width);
+  background-color: var(--main-color);
+  padding: 0 var(--gap-width) calc(var(--gap-width) * 2);
+}
+.year-container > h2 {
+  width: 100%;
+  text-align: center;
+  color: rgb(var(--paper-color));
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.year-container > .year-day-item {
+  display: block;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background-color: var(--main-color);
+  border: 1px solid var(--border-color);
+  border-radius: calc(var(--circle-size) / 2);
+  text-align: center;
+  font-size: 1rem;
+  line-height: var(--circle-size);
+  color: rgba(var(--paper-color), 0.3);
+  margin-bottom: var(--gap-width);
+  text-decoration: none;
+}
+.year-container > .year-day-item:hover {
+  text-decoration: none;
+}
+.year-container > .year-day-item[data-status="past"],
+.year-container > .year-day-item[data-status="today"] {
+  border: none;
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+.year-container > .year-day-item[data-status="past"] {
+  color: var(--main-color);
+  background-color: rgba(var(--paper-color), 0.9);
+}
+.year-container > .year-day-item[data-status="today"] {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--red-color));
+}
+/** 在小屏幕下消除容器两侧内部，扩大显示面积
+ * Note: 容器查询似乎只能对其内部元素起作用
+*/
+.markdown-reading-view {
+  /* 定义容器名称，用来媒体查询 */
+  container-type: inline-size;
+  container-name: daily-reading-container;
+}
+@container daily-reading-container (max-width: 48rem) {
+  .markdown-reading-view .markdown-preview-view {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.view-content > .markdown-source-view.mod-cm6 > .cm-editor {
+  /* 定义容器名称，用来媒体查询 */
+  container-type: inline-size;
+  container-name: daily-editor-container;
+}
+@container daily-editor-container (max-width: 48rem) {
+  .view-content > .markdown-source-view.mod-cm6 > .cm-editor .cm-scroller {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+`
+
+window.addEventListener('load', () => {
+    const container = document.createElement('div');
+    container.classList.add('year-container');
+    document.body.querySelector("article>section").appendChild(container);
+    container.innerHTML += `<style>${style}</style>
+    <h2>Days in ${year}</h2>`;
+    for (let i = 1; i <= 366; i++) {
+        const date = new DateExtends(new Date(year, 0, i));
+        /** 如果是闰年，跳过 */
+        if (i === 366 && !date.isLeapYear()) {
+            break;
+        }
+        const path = ""
+        const isPast = date.MM < now.MM || (date.MM === now.MM && date.DD < now.DD);
+        const isToday = date.MM === now.MM && date.DD === now.DD;
+        container.innerHTML += `<a class="internal-link year-day-item" data-status="${isPast ? 'past' : isToday ? 'today' : 'future'}" href="${path}" target="_blank" rel="noopener">${i}</a>`;
+    }
+});</script>
 </body>
 </html>

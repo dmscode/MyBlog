@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【CSS Snippet】网格圆点背景 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+<style class="css-snippet">/**
+ * @name: Grid Background
+ * @author: 稻米鼠
+ * @description: To add a grid background to my notes.
+ * @created: 2024-11-26 09:28:10
+ * @updated: 2024-12-02 08:26:31
+ * @version: 1.0.0
+ */
+
+/* @settings
+name: Grid Background
+id: Grid-Background
+settings:
+  - 
+    id: grid-usage-title
+    title: 使用说明
+    type: heading
+    level: 2
+  - 
+    id: grid-usage
+    title: 使用说明
+    type: info-text
+    description: "给文档的 frontmatter 添加 cssclasses 属性：\n- `cssclasses: grid`为网格；\n- `cssclasses: dot`为圆点;"
+    markdown: true
+  - 
+    id: grid-size
+    title: 网格大小/圆点间距（em）
+    type: variable-number
+    default: 1.5
+    format: em
+  - 
+    id: grid-stroke-width
+    title: 网格粗细/圆点半径（px）
+    type: variable-number
+    default: 1
+    format: px
+  - 
+    id: grid-color
+    title: 网格/圆点颜色
+    type: variable-color
+    opacity: true
+    format: rgb
+    default: 'rgba(0, 0, 0, .06)'
+*/
+:root {
+  --grid-size: 1.5em;
+  --grid-stroke-width: 1px;
+  --grid-color: rgba(0, 0, 0, .06);
+}
+.grid,
+.dot {
+  & .cm-content,
+  & .markdown-preview-sizer.markdown-preview-sizer {
+    background-position: center center;
+    background-size: var(--grid-size) var(--grid-size);
+  }
+}
+.grid {
+  & .cm-content,
+  & .markdown-preview-sizer.markdown-preview-sizer {
+    background-image:
+        linear-gradient(to right, var(--grid-color) var(--grid-stroke-width), transparent var(--grid-stroke-width)),
+        linear-gradient(to bottom, var(--grid-color) var(--grid-stroke-width), transparent var(--grid-stroke-width));
+  }
+}
+.dot {
+  & .cm-content,
+  & .markdown-preview-sizer.markdown-preview-sizer {
+    background-image: radial-gradient(circle, var(--grid-color) calc(var(--grid-stroke-width) * 2), transparent var(--grid-stroke-width));
+  }
+}</style>
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【CSS Snippet】网格圆点背景</h1>
+      <section><p>将如下代码保存到 <code class="inline-code">.obsidian/snippets/GridBackground.css</code> 文件中（自行创建文件），然后在 Obsidian 设置——外观——代码片段中开启。给文档的 frontmatter 添加 cssclasses 属性：</p>
+<ul>
+<li><code class="inline-code">cssclasses: grid</code>为网格；</li><li><code class="inline-code">cssclasses: dot</code>为圆点</li></ul>
+<p>可用 Style Settings 插件调节细节设定。</p>
+<pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-attribute">/**
+ * @name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Grid Background</span>
+ <span class="hljs-attribute">* @author</span><span class="hljs-punctuation">:</span> <span class="hljs-string">稻米鼠</span>
+ <span class="hljs-attribute">* @description</span><span class="hljs-punctuation">:</span> <span class="hljs-string">To add a grid background to my notes.</span>
+ <span class="hljs-attribute">* @created</span><span class="hljs-punctuation">:</span> <span class="hljs-string">2024-11-26 09:28:10</span>
+ <span class="hljs-attribute">* @updated</span><span class="hljs-punctuation">:</span> <span class="hljs-string">2024-12-02 08:26:31</span>
+ <span class="hljs-attribute">* @version</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1.0.0</span>
+ <span class="hljs-attribute">*/
+
+/* @settings
+name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Grid Background</span>
+<span class="hljs-attribute">id</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Grid-Background</span>
+<span class="hljs-attribute">settings</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span> 
+    <span class="hljs-attribute">id</span><span class="hljs-punctuation">:</span> <span class="hljs-string">grid-usage-title</span>
+    <span class="hljs-attribute">title</span><span class="hljs-punctuation">:</span> <span class="hljs-string">使用说明</span>
+    <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">heading</span>
+    <span class="hljs-attribute">level</span><span class="hljs-punctuation">:</span> <span class="hljs-string">2</span>
+  <span class="hljs-bullet">-</span> 
+    <span class="hljs-attribute">id</span><span class="hljs-punctuation">:</span> <span class="hljs-string">grid-usage</span>
+    <span class="hljs-attribute">title</span><span class="hljs-punctuation">:</span> <span class="hljs-string">使用说明</span>
+    <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">info-text</span>
+    <span class="hljs-attribute">description</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;给文档的 frontmatter 添加 cssclasses 属性：\n- `cssclasses: grid`为网格；\n- `cssclasses: dot`为圆点;&quot;</span>
+    <span class="hljs-attribute">markdown</span><span class="hljs-punctuation">:</span> <span class="hljs-string">true</span>
+  <span class="hljs-bullet">-</span> 
+    <span class="hljs-attribute">id</span><span class="hljs-punctuation">:</span> <span class="hljs-string">grid-size</span>
+    <span class="hljs-attribute">title</span><span class="hljs-punctuation">:</span> <span class="hljs-string">网格大小/圆点间距（em）</span>
+    <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">variable-number</span>
+    <span class="hljs-attribute">default</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1.5</span>
+    <span class="hljs-attribute">format</span><span class="hljs-punctuation">:</span> <span class="hljs-string">em</span>
+  <span class="hljs-bullet">-</span> 
+    <span class="hljs-attribute">id</span><span class="hljs-punctuation">:</span> <span class="hljs-string">grid-stroke-width</span>
+    <span class="hljs-attribute">title</span><span class="hljs-punctuation">:</span> <span class="hljs-string">网格粗细/圆点半径（px）</span>
+    <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">variable-number</span>
+    <span class="hljs-attribute">default</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1</span>
+    <span class="hljs-attribute">format</span><span class="hljs-punctuation">:</span> <span class="hljs-string">px</span>
+  <span class="hljs-bullet">-</span> 
+    <span class="hljs-attribute">id</span><span class="hljs-punctuation">:</span> <span class="hljs-string">grid-color</span>
+    <span class="hljs-attribute">title</span><span class="hljs-punctuation">:</span> <span class="hljs-string">网格/圆点颜色</span>
+    <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">variable-color</span>
+    <span class="hljs-attribute">opacity</span><span class="hljs-punctuation">:</span> <span class="hljs-string">true</span>
+    <span class="hljs-attribute">format</span><span class="hljs-punctuation">:</span> <span class="hljs-string">rgb</span>
+    <span class="hljs-attribute">default</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&#x27;rgba(0, 0, 0, .06)&#x27;</span>
+*/
+:root {
+  <span class="hljs-attribute">--grid-size</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1.5em;</span>
+  <span class="hljs-attribute">--grid-stroke-width</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1px;</span>
+  <span class="hljs-attribute">--grid-color</span><span class="hljs-punctuation">:</span> <span class="hljs-string">rgba(0, 0, 0, .06);</span>
+<span class="hljs-attribute">}
+.grid,
+.dot {
+  &amp; .cm-content,
+  &amp; .markdown-preview-sizer.markdown-preview-sizer {
+    background-position</span><span class="hljs-punctuation">:</span> <span class="hljs-string">center center;</span>
+    <span class="hljs-attribute">background-size</span><span class="hljs-punctuation">:</span> <span class="hljs-string">var(--grid-size) var(--grid-size);</span>
+  <span class="hljs-attribute">}
+}
+.grid {
+  &amp; .cm-content,
+  &amp; .markdown-preview-sizer.markdown-preview-sizer {
+    background-image</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-attribute">linear-gradient(to right, var(--grid-color) var(--grid-stroke-width), transparent var(--grid-stroke-width)),
+        linear-gradient(to bottom, var(--grid-color) var(--grid-stroke-width), transparent var(--grid-stroke-width));
+  }
+}
+.dot {
+  &amp; .cm-content,
+  &amp; .markdown-preview-sizer.markdown-preview-sizer {
+    background-image</span><span class="hljs-punctuation">:</span> <span class="hljs-string">radial-gradient(circle, var(--grid-color) calc(var(--grid-stroke-width) * 2), transparent var(--grid-stroke-width));</span>
+  }
+}</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-12-02 09:14:10</small><br><small>updated: 2024-12-02 09:17:39</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2024 稻米鼠. Last build at 2024-12-02 09:20:39</foot>
+</body>
+</html>

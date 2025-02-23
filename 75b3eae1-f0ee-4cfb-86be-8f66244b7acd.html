@@ -24,107 +24,69 @@
 <h3 id="%E5%85%B6%E4%BB%96%E9%80%89%E9%A1%B9">其他选项</h3><ul>
 <li><code class="inline-code">width</code>：1<del>100，表示进度条占据的总宽度，如果不希望进度条占据全部正文宽度可以修改此值，一般 60</del>80 比较合适</li><li><code class="inline-code">text</code>：进度条左侧显示的文字，比如 <code class="inline-code">&quot;Year progress&quot;</code> 等</li><li><code class="inline-code">precision</code>：精度，进度显示几位小数，默认为 2</li><li><code class="inline-code">color</code>：进度条的颜色，默认为文字颜色（十分朴素）</li></ul>
 <h2 id="%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95">安装方法</h2><p>新建一个 <code class="inline-code">Progress-Bar</code> 文件夹，将下方代码保存为 <code class="inline-code">view.js</code> 文件放入此文件夹，然后即可参照上方调用方法。</p>
-<h3 id="view.js">view.js</h3><pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-comment">/**
- * 进度条
- * @author: 稻米鼠
- * @description: 显示一个可以自定义的进度条，可用于内容分隔条等
- * @created: 2024-10-31 07:19:44
- * @updated: 2024-10-31 07:19:44
- * @version: 0.0.1
- */</span>
-
-const container = dv.container
-
-const config = Object.<span class="hljs-keyword">as</span><span class="hljs-meta">sign</span>({
-  <span class="hljs-comment">/** 进度条宽度，百分比 1-100 */</span>
-  width: 100,
-  <span class="hljs-comment">/** 进度条类型，不填写为 normal，即显示输入的进度值，可选预设： Year | month | week | day，显示对应时间区间的进度 */</span>
-  type: <span class="hljs-string">&#x27;normal&#x27;</span>,
-  <span class="hljs-comment">/** 进度条左侧的文字，如果不填写则不显示 */</span>
-  text: <span class="hljs-string">&#x27;&#x27;</span>,
-  <span class="hljs-comment">/** 显示精度，默认为 2，即两位小数 */</span>
-  precision: 2,
-  <span class="hljs-comment">/** 进度条颜色，默认为 文字颜色 */</span>
-  color: <span class="hljs-string">&#x27;var(--text-normal)&#x27;</span>,
-  <span class="hljs-comment">/** 进度条的值，如果 type 为 normal 时，该值为进度，如果 type 为其他预设时，该值为时间点，格式 2024-10-31 07:28:44，将基于此时间计算进度，如未填写，则用当前时间计算 */</span>
-  value: <span class="hljs-string">&#x27;&#x27;</span>,
-}, <span class="hljs-keyword">input</span>)
-
-<span class="hljs-comment">/** 设置进度
- *
- * @param {number} value
- */</span>
-const setProgress = value =&gt; {
-  container.innerHTML = `
-  &lt;style&gt;
-    .dms-progress-bar-container {
-      margin: 1rem auto;
-      <span class="hljs-keyword">display</span>: flex;
-      align-items: center;
-      gap: .5em;
-      flex-wrap: nowrap;
+<h3 id="view.js">view.js</h3><pre class="hljs-code-block"><code class="hljs js" lang="js">&quot;use strict&quot;;
+(() =&gt; {
+  // src/progress-bar/<span class="hljs-keyword">view</span>.ts
+  var container = dv.container;
+  var config = <span class="hljs-keyword">Object</span>.assign({
+    <span class="hljs-comment">/** 进度条宽度，百分比 1-100 */</span>
+    width: <span class="hljs-number">100</span>,
+    <span class="hljs-comment">/** 进度条类型，不填写为 normal，即显示输入的进度值，可选预设： Year | month | week | day，显示对应时间区间的进度 */</span>
+    <span class="hljs-keyword">type</span>: &quot;normal&quot;,
+    <span class="hljs-comment">/** 进度条左侧的文字，如果不填写则不显示 */</span>
+    <span class="hljs-type">text</span>: &quot;&quot;,
+    <span class="hljs-comment">/** 显示精度，默认为 2，即两位小数 */</span>
+    <span class="hljs-type">precision</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-comment">/** 进度条颜色，默认为 文字颜色 */</span>
+    color: &quot;var(--text-normal)&quot;,
+    <span class="hljs-comment">/** 进度条的值，如果 type 为 normal 时，该值为进度，如果 type 为其他预设时，该值为时间点，格式 2024-10-31 07:28:44，将基于此时间计算进度，如未填写，则用当前时间计算 */</span>
+    <span class="hljs-keyword">value</span>: &quot;&quot;
+  }, <span class="hljs-keyword">input</span> || {});
+  var setProgress = (<span class="hljs-keyword">value</span>) =&gt; {
+    container.innerHTML = `
+  &lt;label&gt;
+  ${config.text} &lt;progress <span class="hljs-keyword">value</span>=&quot;${value}&quot; max=&quot;100&quot;&gt;&lt;/progress&gt; ${Number(<span class="hljs-keyword">value</span>).toFixed(config.precision)}%
+  &lt;/label&gt;
+  `;
+  };
+  var getTimePoints = () =&gt; {
+    const timePoint = config.<span class="hljs-keyword">value</span> &amp;&amp; config.<span class="hljs-keyword">value</span>.length ? <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(config.<span class="hljs-keyword">value</span>) : <span class="hljs-comment">/* @__PURE__ */</span> <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>();
+    const <span class="hljs-keyword">type</span> = config.<span class="hljs-keyword">type</span>.toLowerCase();
+    const typeIndex = [&quot;&quot;, &quot;year&quot;, &quot;month&quot;, &quot;week&quot;, &quot;day&quot;].indexOf(<span class="hljs-keyword">type</span>);
+    <span class="hljs-keyword">if</span> (!typeIndex) {
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-keyword">start</span>: timePoint,
+        <span class="hljs-type">point</span>: timePoint,
+        <span class="hljs-keyword">end</span>: timePoint
+      };
     }
-    .dms-progress-bar-text,
-    .dms-progress-bar-value {
-      flex-grow: 0;
-      font-size: .8em;
-      line-height: 1em;
-      color: <span class="hljs-meta">var</span>(--progress-color);
-    }
-    .dms-progress-bar {
-      flex-grow: 1;
-      height: .8em;
-      border: 1px solid <span class="hljs-meta">var</span>(--progress-color);
-      border-radius: .4em;
-      overflow: hidden;
-      border-radius: .4em;
-    }
-    .dms-progress-bar-inner {
-      height: 100%;
-      width: ${value}%;
-      background-color: <span class="hljs-meta">var</span>(--progress-color);
-      opacity: .6;
-      border-radius: .4em;
-    }
-  &lt;/style&gt;
-  &lt;div class=<span class="hljs-string">&quot;dms-progress-bar-container&quot;</span> style=<span class="hljs-string">&quot;--progress-color: ${config.color}; width: ${config.width}%;&quot;</span>&gt;
-    &lt;div class=<span class="hljs-string">&quot;dms-progress-bar-text&quot;</span>&gt;${config.text}&lt;/div&gt;
-    &lt;div class=<span class="hljs-string">&quot;dms-progress-bar&quot;</span>&gt;
-      &lt;div class=<span class="hljs-string">&quot;dms-progress-bar-inner&quot;</span>&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=<span class="hljs-string">&quot;dms-progress-bar-value&quot;</span>&gt;${value.toFixed(config.precision)}%&lt;/div&gt;
-  &lt;/div&gt;
-  `
-}
-
-<span class="hljs-keyword">if</span> (config.type === <span class="hljs-string">&#x27;normal&#x27;</span>) {
-  setProgress(Number(config.value))
-}<span class="hljs-keyword">else</span>{
-  const timePoint = (config.value <span class="hljs-variable">&amp;&amp;</span> config.value.<span class="hljs-keyword">length</span>) ? new <span class="hljs-meta">Date</span>(config.value) : new <span class="hljs-meta">Date</span>()
-  let start, <span class="hljs-keyword">end</span>
-  switch (config.type.toLowerCase()) {
-    case <span class="hljs-string">&#x27;year&#x27;</span>:
-      start = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), 0, 1)
-      <span class="hljs-keyword">end</span> = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>()+1, 0, 1)
-      break
-    case <span class="hljs-string">&#x27;month&#x27;</span>:
-      start = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), timePoint.get<span class="hljs-meta">Month</span>(), 1)
-      <span class="hljs-keyword">end</span> = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), timePoint.get<span class="hljs-meta">Month</span>() + 1, 1)
-      break
-    case <span class="hljs-string">&#x27;week&#x27;</span>:
-      start = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), timePoint.get<span class="hljs-meta">Month</span>(), timePoint.get<span class="hljs-meta">Date</span>() - timePoint.get<span class="hljs-meta">Day</span>())
-      <span class="hljs-keyword">end</span> = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), timePoint.get<span class="hljs-meta">Month</span>(), timePoint.get<span class="hljs-meta">Date</span>() - timePoint.get<span class="hljs-meta">Day</span>() + 7)
-      break
-    case <span class="hljs-string">&#x27;day&#x27;</span>:
-      start = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), timePoint.get<span class="hljs-meta">Month</span>(), timePoint.get<span class="hljs-meta">Date</span>())
-      <span class="hljs-keyword">end</span> = new <span class="hljs-meta">Date</span>(timePoint.getFull<span class="hljs-meta">Year</span>(), timePoint.get<span class="hljs-meta">Month</span>(), timePoint.get<span class="hljs-meta">Date</span>() + 1)
-      break
-    default:
-      start = new <span class="hljs-meta">Date</span>()
-      <span class="hljs-keyword">end</span> = new <span class="hljs-meta">Date</span>()
+    const start = {
+      year: timePoint.getFullYear(),
+      month: typeIndex === <span class="hljs-number">1</span> ? <span class="hljs-number">0</span> : timePoint.getMonth(),
+      <span class="hljs-type">date</span>: typeIndex &lt; <span class="hljs-number">3</span> ? <span class="hljs-number">1</span> : typeIndex === <span class="hljs-number">3</span> ? timePoint.getDate() - timePoint.getDay() : timePoint.getDate()
+    };
+    const end = {
+      year: typeIndex === <span class="hljs-number">1</span> ? <span class="hljs-keyword">start</span>.year + <span class="hljs-number">1</span> : <span class="hljs-keyword">start</span>.year,
+      month: typeIndex === <span class="hljs-number">2</span> ? <span class="hljs-keyword">start</span>.month + <span class="hljs-number">1</span> : <span class="hljs-keyword">start</span>.month,
+      <span class="hljs-type">date</span>: typeIndex &lt; <span class="hljs-number">3</span> ? <span class="hljs-keyword">start</span>.date : typeIndex === <span class="hljs-number">3</span> ? <span class="hljs-keyword">start</span>.date + <span class="hljs-number">7</span> : <span class="hljs-keyword">start</span>.date + <span class="hljs-number">1</span>
+    };
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-keyword">start</span>: <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-keyword">start</span>.year, <span class="hljs-keyword">start</span>.month, <span class="hljs-keyword">start</span>.date),
+      <span class="hljs-type">point</span>: timePoint,
+      <span class="hljs-keyword">end</span>: <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-keyword">end</span>.year, <span class="hljs-keyword">end</span>.month, <span class="hljs-keyword">end</span>.date)
+    };
+  };
+  <span class="hljs-keyword">if</span> (config.<span class="hljs-keyword">type</span> === &quot;normal&quot;) {
+    setProgress(Number(config.<span class="hljs-keyword">value</span>));
+  } <span class="hljs-keyword">else</span> {
+    const { <span class="hljs-keyword">start</span>, <span class="hljs-type">point</span>, <span class="hljs-keyword">end</span> } = getTimePoints();
+    setProgress(
+      +((<span class="hljs-type">point</span>.getTime() - <span class="hljs-keyword">start</span>.getTime()) / (<span class="hljs-keyword">end</span>.getTime() - <span class="hljs-keyword">start</span>.getTime()) * <span class="hljs-number">100</span>).toFixed(config.precision)
+    );
   }
-  setProgress((timePoint.get<span class="hljs-meta">Time</span>() - start.get<span class="hljs-meta">Time</span>()) / (<span class="hljs-keyword">end</span>.get<span class="hljs-meta">Time</span>() - start.get<span class="hljs-meta">Time</span>()) <span class="hljs-comment">* 100)
-}</span></code></pre></section>
+})();
+//# sourceMappingURL=<span class="hljs-keyword">view</span>.js.map
+</code></pre></section>
     </article>
   </main>
   <aside id="side-menu">
@@ -149,6 +111,6 @@ const setProgress = value =&gt; {
     </div>
   </aside>
   <script src="script.js"></script>
-  <foot>©2022~2025 稻米鼠. Last build at 2025-02-23 00:00:24</foot>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-02-24 00:00:23</foot>
 </body>
 </html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【Bases】视图汇总 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【Bases】视图汇总</h1>
+      <section><p>Bases 就是一个小白友好的，甚至可以不接触代码的，笔记搜索、过滤、展示工具。</p>
+<p>这功能说起来挺简单，但是用的好它的作用还是蛮大的。以下列举一些我使用的视图设定。</p>
+<h2 id="%E7%94%A8%E6%B3%95%E8%AF%B4%E6%98%8E">用法说明</h2><h3 id="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</h3><p>通过过滤（<code class="inline-code">filters</code>）获取想要展示的笔记，通过属性（<code class="inline-code">order</code>）设定要展示的信息。</p>
+<h3 id="%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7">进阶技巧</h3><p>在属性中添加公式（相当于自定义属性，在代码中放在 <code class="inline-code">formulas</code> 字段下）。然后在过滤器中可以引用这些属性。</p>
+<h2 id="%E8%A7%86%E5%9B%BE%E8%AE%BE%E5%AE%9A">视图设定</h2><p>理解上面知识之后，只需要看下方代码即可知道如何在可视化状态下进行设定。以下代码块直接复制进笔记，标记为 <code class="inline-code">base</code> 代码块即可使用</p>
+<h3 id="%E5%AD%A4%E7%AB%8B%E9%99%84%E4%BB%B6%E7%AE%A1%E7%90%86">孤立附件管理</h3><ul>
+<li>筛选：<ul>
+<li>扩展名（文件后缀 file.ext）不包含任何（does not contain any of）<code class="inline-code">&quot;md&quot;, &quot;base&quot;, &quot;js&quot;, &quot;css&quot;, &quot;canvas&quot;</code>（这部分根据自己的实际需求书写需要排除的文件类型）</li><li>名称（文件名 file.basename）不以 xx 结尾（does not end with）<code class="inline-code">.excalidraw</code> 这一条是为了排除 <code class="inline-code">.excalidraw.xxx</code> 文件，如无此需求可以省略词条</li></ul>
+</li><li>属性：backlinks（指向此文件的链接），如果没有指向此文件的链接，则视为孤立附件。</li></ul>
+<pre class="hljs-code-block"><code class="hljs yaml" lang="yaml">views:
+  - <span class="hljs-keyword">type</span>: <span class="hljs-keyword">table</span>
+    name: 孤立附件
+    filters:
+      and:
+        - &#x27;!<span class="hljs-keyword">file</span>.ext.containsAny(<span class="hljs-string">&quot;md&quot;</span>, <span class="hljs-string">&quot;base&quot;</span>, <span class="hljs-string">&quot;js&quot;</span>, <span class="hljs-string">&quot;css&quot;</span>, <span class="hljs-string">&quot;canvas&quot;</span>)&#x27;
+        - &#x27;!<span class="hljs-keyword">file</span>.basename.endsWith(<span class="hljs-string">&quot;.excalidraw&quot;</span>)&#x27;
+        - <span class="hljs-keyword">file</span>.backlinks.isEmpty()</code></pre><h3 id="%E5%A4%B1%E6%95%88%E7%9A%84%E5%86%85%E9%93%BE">失效的内链</h3><ul>
+<li>属性：添加公式<ul>
+<li>名称：<code class="inline-code">失效链接</code></li><li>公式：<code class="inline-code">file.links.filter(value.endsWith(&#39;.md&#39;)).filter(!value.asFile().isTruthy())</code></li><li>公式解读：文件链接中所有以 <code class="inline-code">.md</code> 结尾的链接（内部链接），如果不存在对应的文件，则视为失效链接</li></ul>
+</li><li>筛选：<code class="inline-code">失效链接</code> is not empty</li></ul>
+<pre class="hljs-code-block"><code class="hljs yaml" lang="yaml"><span class="hljs-attribute">formulas</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-attribute">失效的内链</span><span class="hljs-punctuation">:</span> <span class="hljs-string">file.links.filter(value.endsWith(&#x27;.md&#x27;)).filter(!value.asFile().isTruthy())</span>
+<span class="hljs-attribute">views</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">type: table</span>
+    <span class="hljs-attribute">name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">失效的内链</span>
+    <span class="hljs-attribute">filters</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-attribute">and</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;!formula.失效的内链.isEmpty()&quot;</span>
+    <span class="hljs-attribute">order</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">file.folder</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">file.name</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">formula.失效的内链</span></code></pre><h3 id="%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%99%84%E4%BB%B6">不存在的附件</h3><p>其实和上面类似，如果指定后缀的内部链接不存在对应的文件，则视为引用的附件不存在。</p>
+<ul>
+<li>属性：添加公式<ul>
+<li>名称：<code class="inline-code">失效附件</code></li><li>公式：<code class="inline-code">file.links.filter(/\.(jpg|jpeg|png|gif|svg|webp|ico|tiff|bmp)$/.matches(value)).filter(!value.asFile().isTruthy())</code></li></ul>
+</li><li>筛选：<code class="inline-code">失效附件</code> is not empty</li></ul>
+<pre class="hljs-code-block"><code class="hljs yaml" lang="yaml"><span class="hljs-attribute">formulas</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-attribute">不存在的附件</span><span class="hljs-punctuation">:</span> <span class="hljs-string">file.links.filter(/\.(jpg|jpeg|png|gif|svg|webp|ico|tiff|bmp)$/.matches(value)).filter(!value.asFile().isTruthy())</span>
+<span class="hljs-attribute">views</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">type: table</span>
+    <span class="hljs-attribute">name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">失效图片链接</span>
+    <span class="hljs-attribute">filters</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-attribute">and</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;!formula.不存在的附件.isEmpty()&quot;</span>
+    <span class="hljs-attribute">order</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">file.name</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">formula.不存在的附件</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">file.folder</span></code></pre><h3 id="Excalidraw%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86">Excalidraw 文件管理</h3><p>首先需要在 Excalidraw 的插件设置中开启：嵌入到 Markdown 文档中的绘图 ——&gt; 导出 ——&gt; 导出设置 ——&gt; 自动导出 png 副本。</p>
+<p>最好同时开启上方的 <code class="inline-code">保持SVG/PNG文件名与绘图文件同步</code>。当然也可以使用自动导出 svg 副本，下方代码中使用对应的文件名后缀即可。</p>
+<pre class="hljs-code-block"><code class="hljs yaml" lang="yaml"><span class="hljs-attribute">formulas</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-attribute">Excalidraw 预览图</span><span class="hljs-punctuation">:</span> <span class="hljs-string">file.basename +&#x27;.png&#x27;</span>
+<span class="hljs-attribute">views</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">type: cards</span>
+    <span class="hljs-attribute">name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Excalidraw</span>
+    <span class="hljs-attribute">filters</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-attribute">and</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">file.hasTag(&#x27;excalidraw&#x27;)</span>
+    <span class="hljs-attribute">order</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">file.name</span>
+    <span class="hljs-attribute">image</span><span class="hljs-punctuation">:</span> <span class="hljs-string">formula.Excalidraw 预览图</span>
+    <span class="hljs-attribute">imageFit</span><span class="hljs-punctuation">:</span> <span class="hljs-string">contain</span></code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="%E7%94%A8%E6%B3%95%E8%AF%B4%E6%98%8E" style="margin-left: 1.5em"><a href="#%E7%94%A8%E6%B3%95%E8%AF%B4%E6%98%8E">用法说明</a></li>
+<li data-hash="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86" style="margin-left: 3em"><a href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a></li>
+<li data-hash="%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7" style="margin-left: 3em"><a href="#%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7">进阶技巧</a></li>
+<li data-hash="%E8%A7%86%E5%9B%BE%E8%AE%BE%E5%AE%9A" style="margin-left: 1.5em"><a href="#%E8%A7%86%E5%9B%BE%E8%AE%BE%E5%AE%9A">视图设定</a></li>
+<li data-hash="%E5%AD%A4%E7%AB%8B%E9%99%84%E4%BB%B6%E7%AE%A1%E7%90%86" style="margin-left: 3em"><a href="#%E5%AD%A4%E7%AB%8B%E9%99%84%E4%BB%B6%E7%AE%A1%E7%90%86">孤立附件管理</a></li>
+<li data-hash="%E5%A4%B1%E6%95%88%E7%9A%84%E5%86%85%E9%93%BE" style="margin-left: 3em"><a href="#%E5%A4%B1%E6%95%88%E7%9A%84%E5%86%85%E9%93%BE">失效的内链</a></li>
+<li data-hash="%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%99%84%E4%BB%B6" style="margin-left: 3em"><a href="#%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%99%84%E4%BB%B6">不存在的附件</a></li>
+<li data-hash="Excalidraw%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86" style="margin-left: 3em"><a href="#Excalidraw%20%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86">Excalidraw 文件管理</a></li></ul></div>
+      <div class="meta"><small>created: 2025-08-31 06:48:40</small><br><small>updated: 2025-08-31 07:27:34</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-31 07:56:56</foot>
+</body>
+</html>

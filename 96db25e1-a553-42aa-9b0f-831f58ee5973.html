@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【Templater】问问 AI - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【Templater】问问 AI</h1>
+      <section><p>AI 是个好东西，但是找个合适的插件，学习用法，然后设置……也挺劝退的。如果需求很低，其实可以用非常简单的方法来实现，创建如下模板，填入你的 API Key，就可以使用了。</p>
+<p>缺点是有的，虽然也采用了流式输出（stream），但是可能还是会一坨内容一起出来（应该是 Templater 的插入逻辑），但问题不大。回答结束或者出错会弹出通知。下面某一行的 <code class="inline-code">console.log</code> 前面注释取消可以在控制台实时输出接收到的回复片段。</p>
+<p>完全可以建立多个模板，应用不同的提示词。</p>
+<p>如果你没有 API Key，可以使用各种第三方代理服务，比如：</p>
+<ul>
+<li><a href="https://openrouter.ai/" title="https://openrouter.ai/" class="External-link" target="_blank">https://openrouter.ai/</a></li><li><a href="https://openai-sb.com/" title="https://openai-sb.com/" class="External-link" target="_blank">https://openai-sb.com/</a></li><li><a href="https://www.closeai-asia.com/" title="https://www.closeai-asia.com/" class="External-link" target="_blank">https://www.closeai-asia.com/</a></li><li><a href="https://api2d.com/" title="https://api2d.com/" class="External-link" target="_blank">https://api2d.com/</a></li><li><a href="https://aigptx.top/" title="https://aigptx.top/" class="External-link" target="_blank">https://aigptx.top/</a></li><li><a href="https://aiproxy.io/" title="https://aiproxy.io/" class="External-link" target="_blank">https://aiproxy.io/</a></li></ul>
+<p>这种第三方服务非常多，选择你觉得可以信任的即可，然后根据他们的文档修改下方的 <code class="inline-code">baseUrl</code> 和 <code class="inline-code">ApiKey</code> 即可。</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md">&lt;%*
+  <span class="hljs-comment">/**
+   * 快问问 AI
+   * <span class="hljs-doctag">@author</span>: 稻米鼠
+   * <span class="hljs-doctag">@description</span>: 简单地向 AI 提问
+   * <span class="hljs-doctag">@created</span>: 2024-05-11
+   * <span class="hljs-doctag">@updated</span>: 2024-05-11
+   * <span class="hljs-doctag">@version</span>: 0.0.1
+   */</span>
+  <span class="hljs-comment">/* ======== 修改下方内容进行基本设置 ======== */</span>
+  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">opt</span> = {
+    <span class="hljs-comment">/** 预设提示词 **/</span>
+    prompt: `您作为一名优秀的知识管理专家，具有强迫症的资料管理员，请对如下内容的格式进行整理：`,
+      <span class="hljs-comment">/** API 服务的地址 */</span>
+    baseUrl: <span class="hljs-string">&quot;https://api.openai.com/v1/chat/completions&quot;</span>,
+    <span class="hljs-comment">/** 您的 API key */</span>
+    ApiKey: <span class="hljs-string">&quot;sk-xxxxxxxxxxx&quot;</span>,
+    <span class="hljs-comment">/** 模型，一般使用也不需要修改 */</span>
+    model: <span class="hljs-string">&quot;gpt-3.5-turbo&quot;</span>,
+  }
+  <span class="hljs-comment">/* ======== 下面内容就不要修改了哦 ======== */</span>
+  let content = tp.file.<span class="hljs-title function_ invoke__">selection</span>()
+  <span class="hljs-keyword">if</span>(!(content &amp;&amp; content.length)) content = await tp.system.<span class="hljs-title function_ invoke__">prompt</span>(<span class="hljs-string">&quot;请输入你的问题&quot;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>)
+  <span class="hljs-keyword">if</span>(!(content &amp;&amp; content.length)) <span class="hljs-keyword">return</span>
+  content = opt.prompt + content
+  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">response</span> = await <span class="hljs-title function_ invoke__">fetch</span>(opt.baseUrl, {
+    <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+    <span class="hljs-attr">headers</span>: {
+      <span class="hljs-string">&quot;Authorization&quot;</span>: opt.ApiKey,
+      <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+    },
+    <span class="hljs-attr">body</span>: JSON.<span class="hljs-title function_ invoke__">stringify</span>({
+      <span class="hljs-attr">model</span>: opt.model,
+      <span class="hljs-attr">stream</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">messages</span>: [
+        {
+          <span class="hljs-attr">role</span>: <span class="hljs-string">&quot;user&quot;</span>,
+          content,
+        },
+      ],
+    }),
+  })
+
+  <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">reader</span> = response.body?.<span class="hljs-title function_ invoke__">pipeThrough</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TextDecoderStream</span>()).<span class="hljs-title function_ invoke__">getReader</span>();
+  <span class="hljs-keyword">if</span> (!reader){
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">Notice</span>(<span class="hljs-string">&quot;看起来什么地方出了问题？！&quot;</span>)
+    <span class="hljs-keyword">return</span>
+  };
+
+  <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">const</span> { value, done } = await reader.<span class="hljs-title function_ invoke__">read</span>();
+    <span class="hljs-keyword">if</span> (done) {
+      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Notice</span>(<span class="hljs-string">&quot;Over~&quot;</span>)
+      <span class="hljs-keyword">break</span>
+    };
+
+    let dataDone = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">arr</span> = value.<span class="hljs-title function_ invoke__">split</span>(<span class="hljs-string">&#x27;\n&#x27;</span>);
+    arr.<span class="hljs-title function_ invoke__">forEach</span>((data) =&gt; {
+        <span class="hljs-keyword">if</span> (data.length === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 忽略空消息</span>
+        <span class="hljs-keyword">if</span> (data.<span class="hljs-title function_ invoke__">startsWith</span>(<span class="hljs-string">&#x27;:&#x27;</span>)) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 忽略SSE注释消息</span>
+        <span class="hljs-keyword">if</span> (data === <span class="hljs-string">&#x27;data: [DONE]&#x27;</span>) {
+            dataDone = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">json</span> = JSON.<span class="hljs-title function_ invoke__">parse</span>(data.<span class="hljs-title function_ invoke__">substring</span>(<span class="hljs-number">6</span>));
+        <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">replayContent</span> = json?.choices[<span class="hljs-number">0</span>]?.delta?.content || <span class="hljs-string">&#x27;&#x27;</span>
+        <span class="hljs-comment">/** 取消下一行的注释则会在控制台实时输出回复的内容 */</span>
+        <span class="hljs-comment">// console.log(replayContent)</span>
+        tR += replayContent
+    });
+
+    <span class="hljs-keyword">if</span> (dataDone){
+      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Notice</span>(<span class="hljs-string">&quot;Over~&quot;</span>)
+      <span class="hljs-keyword">break</span>
+    };
+  }
+%&gt;</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-05-11 09:55:08</small><br><small>updated: 2025-08-30 17:36:57</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-30 18:47:09</foot>
+</body>
+</html>

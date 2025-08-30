@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【QuickAdd】快速切换笔记 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【QuickAdd】快速切换笔记</h1>
+      <section><p>我希望随时能够快速切换到自己需要的笔记，Obsidian 提供了“快速切换”、“书签”的核心插件，如果不满意还可以安装“Quick Switcher++”插件，都很强，很好用。</p>
+<p>但我经常需要快速打开的就那么三五个文件，是的，大概可以找置顶功能。可是如果我想打开当天的日记呢？有些插件也支持 Obsidian “日记”插件中的地址设置。可我还有个周记的……</p>
+<p>所以就弄了个 QuickAdd 脚本，来实现这个功能：</p>
+<ul>
+<li>将本文所附代码保存到笔记仓库中的任意位置，文件后缀是 <code class="inline-code">.js</code></li><li>在 QuickAdd 中建立一个叫做“快速切换”的“Macro”（宏），注意不是在“manage Macros”（管理宏）中</li><li>点亮这条动作的小闪电，然后进入动作设置（闪电后面的齿轮图标），然后在动作设置界面点击加号图标创建对应的宏</li><li>这时会选中一个动作同名的宏，点击后面的齿轮图标（吐槽，QuickAdd 居然用了两种齿轮图标）进入宏设置</li><li>“User Scripts” 中选择刚才保存的 JS 文件，点击 Add</li><li>现在脚本上去了，点击脚本后面的齿轮图标进行设置</li><li>一行一条：<code class="inline-code">笔记名称|在 Obsidian 左侧目录树中右键复制的笔记地址</code>，如：<code class="inline-code">起始页|obsidian://open?file=Start.md</code>，竖线前后可以有空格</li><li>地址支持 QuickAdd 的变量（详见：<a href="https://quickadd.obsidian.guide/docs/FormatSyntax" title="https://quickadd.obsidian.guide/docs/FormatSyntax" class="External-link" target="_blank">https://quickadd.obsidian.guide/docs/FormatSyntax</a>），不过在地址中最好只用日期时间相关的变量</li><li>保存，<strong>第一次使用前要重启 Obsidian</strong>，否则命令必然报错</li><li>然后你就可以用任何你喜欢的方式快速调用这条动作了，我是在快捷键中给它绑定了一个快捷键。</li><li>进阶用法：和 Advanced URI 插件配合，就能快速调用命令啥的了，相当于一个常用动作收藏夹。</li></ul>
+<pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-comment">/**
+ * 笔记快速切换
+ * <span class="hljs-doctag">@author</span>: 稻米鼠
+ * <span class="hljs-doctag">@description</span>: 借助 QuickAdd 插件实现笔记快速切换
+ * <span class="hljs-doctag">@created</span>: 2024-05-19
+ * <span class="hljs-doctag">@updated</span>: 2024-05-19
+ * <span class="hljs-doctag">@version</span>: 0.0.1
+ */</span>
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-attr">entry</span>: <span class="hljs-keyword">async</span> (<span class="hljs-title class_">QuickAdd</span>, settings) =&gt; {
+    <span class="hljs-comment">// 将设置中的目标链接拆分成名称和链接</span>
+    <span class="hljs-keyword">const</span> pageNames = []
+    <span class="hljs-keyword">const</span> pageURIs = []
+    settings[<span class="hljs-string">&quot;目标链接&quot;</span>].<span class="hljs-title function_">split</span>(<span class="hljs-regexp">/\r?\n/g</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">line</span> =&gt;</span> {
+      <span class="hljs-keyword">const</span> item = line.<span class="hljs-title function_">split</span>(<span class="hljs-regexp">/\|/g</span>)
+      pageNames.<span class="hljs-title function_">push</span>(item[<span class="hljs-number">0</span>].<span class="hljs-title function_">trim</span>())
+      pageURIs.<span class="hljs-title function_">push</span>(item[<span class="hljs-number">1</span>].<span class="hljs-title function_">trim</span>().<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/ /g</span>, <span class="hljs-string">&#x27;%20&#x27;</span>))
+    })
+    <span class="hljs-comment">// 弹出页面选择框</span>
+    <span class="hljs-keyword">const</span> url = <span class="hljs-keyword">await</span> <span class="hljs-title class_">QuickAdd</span>.<span class="hljs-property">quickAddApi</span>.<span class="hljs-title function_">suggester</span>(
+      pageNames,
+      pageURIs
+    );
+    <span class="hljs-comment">// 格式化目标链接并打开</span>
+    <span class="hljs-keyword">const</span> formatUrl = <span class="hljs-keyword">await</span> <span class="hljs-title class_">QuickAdd</span>.<span class="hljs-property">quickAddApi</span>.<span class="hljs-title function_">format</span>(url)
+    <span class="hljs-title function_">open</span>(formatUrl)
+  },
+  <span class="hljs-attr">settings</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;笔记快速切换&quot;</span>,
+    <span class="hljs-attr">author</span>: <span class="hljs-string">&quot;稻米鼠&quot;</span>,
+    <span class="hljs-attr">options</span>: {
+      <span class="hljs-string">&quot;目标链接&quot;</span>: {
+          <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;format&quot;</span>,
+          <span class="hljs-attr">defaultValue</span>: <span class="hljs-string">&quot;&quot;</span>,
+          <span class="hljs-attr">placeholder</span>: <span class="hljs-string">&quot;起始页 | obsidian://open?file=Start.md&quot;</span>,
+          <span class="hljs-attr">description</span>: <span class="hljs-string">&quot;一行一条，格式为：名称 | 地址。对于笔记，可以在左侧目录树中右键复制 Obsidian 链接。也可以借助 AdvancedURI 插件执行命令&quot;</span>,
+      }
+    }
+  }
+}</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2024-05-19 17:58:00</small><br><small>updated: 2025-08-30 17:36:27</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-30 18:47:09</foot>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【Dataview View】圆点年历 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【Dataview View】圆点年历</h1>
+      <section><p>以圆点形式显示一年中的每一天。如果开启了 核心插件中的“页面预览”，或者第三方插件中的“Hover Editor”，则可以在鼠标指向某一日时显示对应的笔记。</p>
+<p>调用方法：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">dv.<span class="hljs-keyword">view</span>(<span class="hljs-string">&quot;Year&quot;</span>, { dailyPath: <span class="hljs-string">&quot;Daily/{{YYYY-MM-DD}}.md&quot;</span> })</code></pre><ul>
+<li>第一个引号中是视图文件（下面两个文件）的保存路径</li><li><code class="inline-code">dailyPath</code> 后面的引号内是日记文件的路径，其中双大括号内的内容会按照时间字符串进行解析<ul>
+<li><code class="inline-code">YYYY</code> 四位年份</li><li><code class="inline-code">MM</code> 两位月份</li><li><code class="inline-code">DD</code> 两位日期</li><li><code class="inline-code">WW</code> 两位周数（第几周）</li><li>这么多大概够用了吧</li></ul>
+</li></ul>
+<h2 id="view.js">view.js</h2><pre class="hljs-code-block"><code class="hljs js" lang="js"><span class="hljs-comment">/** 获取视图容器，并添加类 */</span>
+<span class="hljs-keyword">const</span> dvContainer = function (className) {
+    <span class="hljs-keyword">const</span> container = dv.container;
+    container.classList.add(className);
+    <span class="hljs-keyword">return</span> container;
+};
+
+<span class="hljs-comment">/** 将数字转换为两位数 */</span>
+<span class="hljs-keyword">const</span> dbNum = (num) =&gt; String(num).padStart(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;0&#x27;</span>);
+<span class="hljs-comment">/** 日期增强 */</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">DateExtends</span> <span class="hljs-title">extends</span> <span class="hljs-title">Date</span> {
+    YYYY;
+    MM;
+    DD;
+    HH;
+    mm;
+    ss;
+    <span class="hljs-comment">/** 星期几（数字） */</span>
+    ee;
+    <span class="hljs-comment">/** 星期几（中文） */</span>
+    EE;
+    <span class="hljs-comment">/** 第几周（数字） */</span>
+    ww;
+    <span class="hljs-comment">/** 第几周（两位数字字符串） */</span>
+    WW;
+    yearProgress;
+    <span class="hljs-keyword">constructor</span>(date) {
+        <span class="hljs-keyword">super</span>(date !== undefined ? date : new Date());
+        <span class="hljs-keyword">this</span>.YYYY = String(<span class="hljs-keyword">this</span>.getFullYear());
+        <span class="hljs-keyword">this</span>.MM = dbNum(<span class="hljs-keyword">this</span>.getMonth() + <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">this</span>.DD = dbNum(<span class="hljs-keyword">this</span>.getDate());
+        <span class="hljs-keyword">this</span>.HH = dbNum(<span class="hljs-keyword">this</span>.getHours());
+        <span class="hljs-keyword">this</span>.mm = dbNum(<span class="hljs-keyword">this</span>.getMinutes());
+        <span class="hljs-keyword">this</span>.ss = dbNum(<span class="hljs-keyword">this</span>.getSeconds());
+        <span class="hljs-keyword">this</span>.ee = <span class="hljs-keyword">this</span>.getDay();
+        <span class="hljs-keyword">this</span>.EE = [<span class="hljs-string">&#x27;日&#x27;</span>, <span class="hljs-string">&#x27;一&#x27;</span>, <span class="hljs-string">&#x27;二&#x27;</span>, <span class="hljs-string">&#x27;三&#x27;</span>, <span class="hljs-string">&#x27;四&#x27;</span>, <span class="hljs-string">&#x27;五&#x27;</span>, <span class="hljs-string">&#x27;六&#x27;</span>][<span class="hljs-keyword">this</span>.ee];
+        <span class="hljs-keyword">const</span> yearStart = new Date(<span class="hljs-keyword">this</span>.getFullYear(), <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">const</span> yearEnd = new Date(<span class="hljs-keyword">this</span>.getFullYear() + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">this</span>.yearProgress = (<span class="hljs-keyword">this</span>.getTime() - yearStart.getTime()) / (yearEnd.getTime() - yearStart.getTime());
+        <span class="hljs-keyword">this</span>.ww = Math.ceil(((new Date(<span class="hljs-keyword">this</span>.getFullYear(), <span class="hljs-keyword">this</span>.getMonth(), <span class="hljs-keyword">this</span>.getDate() + <span class="hljs-number">4</span> - (<span class="hljs-keyword">this</span>.ee || <span class="hljs-number">7</span>)).getTime() - yearStart.getTime()) / <span class="hljs-number">864e5</span> + <span class="hljs-number">1</span>) / <span class="hljs-number">7</span>);
+        <span class="hljs-keyword">this</span>.WW = dbNum(<span class="hljs-keyword">this</span>.ww);
+    }
+    <span class="hljs-comment">/** 格式化日期 */</span>
+    format(format) {
+        <span class="hljs-keyword">const</span> reg = /YYYY|MM|DD|HH|mm|ss|ee|EE|WW/g;
+        <span class="hljs-keyword">return</span> format.replace(reg, (key) =&gt; {
+            <span class="hljs-keyword">return</span> String(<span class="hljs-keyword">this</span>[key]);
+        });
+    }
+    <span class="hljs-comment">/** 获取当天的开始时间 */</span>
+    getDayStart() {
+        <span class="hljs-keyword">return</span> new Date(<span class="hljs-keyword">this</span>.getFullYear(), <span class="hljs-keyword">this</span>.getMonth(), <span class="hljs-keyword">this</span>.getDate(), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>).getTime();
+    }
+    <span class="hljs-comment">/** 是否是闰年 */</span>
+    isLeapYear() {
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.getFullYear() % <span class="hljs-number">4</span> === <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-keyword">this</span>.getFullYear() % <span class="hljs-number">100</span> !== <span class="hljs-number">0</span>) || <span class="hljs-keyword">this</span>.getFullYear() % <span class="hljs-number">400</span> === <span class="hljs-number">0</span>;
+    }
+}
+<span class="hljs-comment">/** 获取当前时间 */</span>
+<span class="hljs-keyword">const</span> now = new DateExtends();
+
+<span class="hljs-comment">/**
+ * Obsidian 圆点年历
+ * <span class="hljs-doctag">@author</span>: 稻米鼠
+ * <span class="hljs-doctag">@description</span>: 以圆点形式显示一年中的每一天
+ * <span class="hljs-doctag">@created</span>: 2024-10-21 13:54:35
+ * <span class="hljs-doctag">@updated</span>: 2024-10-21 13:54:35
+ * <span class="hljs-doctag">@version</span>: 0.0.1
+ */</span>
+<span class="hljs-keyword">const</span> container = dvContainer(<span class="hljs-string">&#x27;year-container&#x27;</span>);
+<span class="hljs-keyword">const</span> year = now.getFullYear();
+container.innerHTML += `&lt;h2&gt;Days <span class="hljs-keyword">in</span> ${year}&lt;/h2&gt;`;
+<span class="hljs-keyword">for</span> (let i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">366</span>; i++) {
+    <span class="hljs-keyword">const</span> date = new DateExtends(new Date(year, <span class="hljs-number">0</span>, i));
+    <span class="hljs-comment">/** 如果是闰年，跳过 */</span>
+    <span class="hljs-keyword">if</span> (i === <span class="hljs-number">366</span> &amp;&amp; !date.isLeapYear()) {
+        <span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-keyword">const</span> path = input.dailyPath.replace(/\{\{(.*?)\}\}/g, (m, s) =&gt; date.format(s));
+    <span class="hljs-keyword">const</span> isPast = date.MM &lt; now.MM || (date.MM === now.MM &amp;&amp; date.DD &lt; now.DD);
+    <span class="hljs-keyword">const</span> isToday = date.MM === now.MM &amp;&amp; date.DD === now.DD;
+    container.innerHTML += `&lt;a <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;internal-link year-day-item&quot;</span> <span class="hljs-keyword">data</span>-status=<span class="hljs-string">&quot;<span class="hljs-subst">${isPast ? <span class="hljs-string">&#x27;past&#x27;</span> : isToday ? <span class="hljs-string">&#x27;today&#x27;</span> : <span class="hljs-string">&#x27;future&#x27;</span>}</span>&quot;</span> href=<span class="hljs-string">&quot;<span class="hljs-subst">${path}</span>&quot;</span> target=<span class="hljs-string">&quot;_blank&quot;</span> rel=<span class="hljs-string">&quot;noopener&quot;</span>&gt;${i}&lt;/a&gt;`;
+}
+</code></pre><h2 id="view.css">view.css</h2><pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-selector-class">.year-container</span> {
+  <span class="hljs-attr">--gap-width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">var</span>(--circle-size) / <span class="hljs-number">3</span>);
+  <span class="hljs-attr">--main-color</span>: <span class="hljs-number">#303134</span>;
+  <span class="hljs-attr">--border-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.1</span>);
+  <span class="hljs-attr">--red-color</span>: <span class="hljs-number">154</span>, <span class="hljs-number">59</span>,  <span class="hljs-number">59</span>;
+  <span class="hljs-attr">--blue-color</span>: <span class="hljs-number">42</span>,  <span class="hljs-number">70</span>,  <span class="hljs-number">107</span>;
+  <span class="hljs-attr">--green-color</span>: <span class="hljs-number">76</span>,  <span class="hljs-number">90</span>,  <span class="hljs-number">73</span>;
+  <span class="hljs-attr">--yellow-color</span>: <span class="hljs-number">134</span>, <span class="hljs-number">108</span>, <span class="hljs-number">72</span>;
+  <span class="hljs-attr">--orange-color</span>: <span class="hljs-number">170</span>, <span class="hljs-number">91</span>,  <span class="hljs-number">55</span>;
+  <span class="hljs-attr">--pink-color</span>: <span class="hljs-number">167</span>, <span class="hljs-number">85</span>,  <span class="hljs-number">112</span>;
+  <span class="hljs-attr">--paper-color</span>: <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>;
+  <span class="hljs-attr">--circle-size</span>: <span class="hljs-number">2.4rem</span>;
+  <span class="hljs-comment">/* 定义容器名称，用来媒体查询 */</span>
+  container-type: inline-size;
+  container-name: year-container;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-wrap</span>: wrap;
+  <span class="hljs-attribute">justify-content</span>: center;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-built_in">var</span>(--gap-width);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--main-color);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-built_in">var</span>(--gap-width) <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">var</span>(--gap-width) * <span class="hljs-number">2</span>);
+}
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-tag">h2</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--paper-color));
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.6rem</span>;
+  <span class="hljs-attribute">font-weight</span>: bold;
+}
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-class">.year-day-item</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">var</span>(--circle-size);
+  <span class="hljs-attribute">height</span>: <span class="hljs-built_in">var</span>(--circle-size);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--main-color);
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-built_in">var</span>(--border-color);
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">var</span>(--circle-size) / <span class="hljs-number">2</span>);
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-built_in">var</span>(--circle-size);
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--paper-color), <span class="hljs-number">0.3</span>);
+  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-built_in">var</span>(--gap-width);
+  <span class="hljs-attribute">text-decoration</span>: none;
+}
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-class">.year-day-item</span><span class="hljs-selector-pseudo">:hover</span> {
+  <span class="hljs-attribute">text-decoration</span>: none;
+}
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-class">.year-day-item</span><span class="hljs-selector-attr">[data-status=<span class="hljs-string">&quot;past&quot;</span>]</span>,
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-class">.year-day-item</span><span class="hljs-selector-attr">[data-status=<span class="hljs-string">&quot;today&quot;</span>]</span> {
+  <span class="hljs-attribute">border</span>: none;
+  <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">3px</span> <span class="hljs-number">3px</span> <span class="hljs-number">8px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.3</span>);
+}
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-class">.year-day-item</span><span class="hljs-selector-attr">[data-status=<span class="hljs-string">&quot;past&quot;</span>]</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--main-color);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--paper-color), <span class="hljs-number">0.9</span>);
+}
+<span class="hljs-selector-class">.year-container</span> &gt; <span class="hljs-selector-class">.year-day-item</span><span class="hljs-selector-attr">[data-status=<span class="hljs-string">&quot;today&quot;</span>]</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0.8</span>);
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--red-color));
+}
+<span class="hljs-comment">/** 在小屏幕下消除容器两侧内部，扩大显示面积
+ * <span class="hljs-doctag">Note:</span> 容器查询似乎只能对其内部元素起作用
+*/</span>
+<span class="hljs-selector-class">.markdown-reading-view</span> {
+  <span class="hljs-comment">/* 定义容器名称，用来媒体查询 */</span>
+  container-type: inline-size;
+  container-name: daily-reading-container;
+}
+<span class="hljs-keyword">@container</span> daily-reading-container (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">48rem</span>) {
+  <span class="hljs-selector-class">.markdown-reading-view</span> <span class="hljs-selector-class">.markdown-preview-view</span> {
+    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
+  }
+}
+<span class="hljs-selector-class">.view-content</span> &gt; <span class="hljs-selector-class">.markdown-source-view</span><span class="hljs-selector-class">.mod-cm6</span> &gt; <span class="hljs-selector-class">.cm-editor</span> {
+  <span class="hljs-comment">/* 定义容器名称，用来媒体查询 */</span>
+  container-type: inline-size;
+  container-name: daily-editor-container;
+}
+<span class="hljs-keyword">@container</span> daily-editor-container (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">48rem</span>) {
+  <span class="hljs-selector-class">.view-content</span> &gt; <span class="hljs-selector-class">.markdown-source-view</span><span class="hljs-selector-class">.mod-cm6</span> &gt; <span class="hljs-selector-class">.cm-editor</span> <span class="hljs-selector-class">.cm-scroller</span> {
+    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
+  }
+}
+</code></pre><h2 id="%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA">效果演示</h2><p>非完整效果</p>
+</section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="view.js" style="margin-left: 1.5em"><a href="#view.js">view.js</a></li>
+<li data-hash="view.css" style="margin-left: 1.5em"><a href="#view.css">view.css</a></li>
+<li data-hash="%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA" style="margin-left: 1.5em"><a href="#%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA">效果演示</a></li></ul></div>
+      <div class="meta"><small>created: 2024-10-21 13:56:35</small><br><small>updated: 2025-08-30 17:36:12</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-30 18:47:09</foot>
+<script class="post-script">/** 获取视图容器，并添加类 */
+const dvContainer = function (className) {
+    const container = dv.container;
+    container.classList.add(className);
+    return container;
+};
+
+/** 将数字转换为两位数 */
+const dbNum = (num) => String(num).padStart(2, '0');
+/** 日期增强 */
+class DateExtends extends Date {
+    YYYY;
+    MM;
+    DD;
+    HH;
+    mm;
+    ss;
+    /** 星期几（数字） */
+    ee;
+    /** 星期几（中文） */
+    EE;
+    /** 第几周（数字） */
+    ww;
+    /** 第几周（两位数字字符串） */
+    WW;
+    yearProgress;
+    constructor(date) {
+        super(date !== undefined ? date : new Date());
+        this.YYYY = String(this.getFullYear());
+        this.MM = dbNum(this.getMonth() + 1);
+        this.DD = dbNum(this.getDate());
+        this.HH = dbNum(this.getHours());
+        this.mm = dbNum(this.getMinutes());
+        this.ss = dbNum(this.getSeconds());
+        this.ee = this.getDay();
+        this.EE = ['日', '一', '二', '三', '四', '五', '六'][this.ee];
+        const yearStart = new Date(this.getFullYear(), 0, 1);
+        const yearEnd = new Date(this.getFullYear() + 1, 0, 1);
+        this.yearProgress = (this.getTime() - yearStart.getTime()) / (yearEnd.getTime() - yearStart.getTime());
+        this.ww = Math.ceil(((new Date(this.getFullYear(), this.getMonth(), this.getDate() + 4 - (this.ee || 7)).getTime() - yearStart.getTime()) / 864e5 + 1) / 7);
+        this.WW = dbNum(this.ww);
+    }
+    /** 格式化日期 */
+    format(format) {
+        const reg = /YYYY|MM|DD|HH|mm|ss|ee|EE|WW/g;
+        return format.replace(reg, (key) => {
+            return String(this[key]);
+        });
+    }
+    /** 获取当天的开始时间 */
+    getDayStart() {
+        return new Date(this.getFullYear(), this.getMonth(), this.getDate(), 0, 0, 0).getTime();
+    }
+    /** 是否是闰年 */
+    isLeapYear() {
+        return (this.getFullYear() % 4 === 0 && this.getFullYear() % 100 !== 0) || this.getFullYear() % 400 === 0;
+    }
+}
+/** 获取当前时间 */
+const now = new DateExtends();
+
+/**
+ * Obsidian 圆点年历
+ * @author: 稻米鼠
+ * @description: 以圆点形式显示一年中的每一天
+ * @created: 2024-10-21 13:54:35
+ * @updated: 2024-10-21 13:54:35
+ * @version: 0.0.1
+ */
+const year = now.getFullYear();
+
+const style = `
+.year-container {
+  --gap-width: calc(var(--circle-size) / 3);
+  --main-color: #303134;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --red-color: 154, 59,  59;
+  --blue-color: 42,  70,  107;
+  --green-color: 76,  90,  73;
+  --yellow-color: 134, 108, 72;
+  --orange-color: 170, 91,  55;
+  --pink-color: 167, 85,  112;
+  --paper-color: 255, 255, 255;
+  --circle-size: 2.4rem;
+  /* 定义容器名称，用来媒体查询 */
+  container-type: inline-size;
+  container-name: year-container;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-width);
+  background-color: var(--main-color);
+  padding: 0 var(--gap-width) calc(var(--gap-width) * 2);
+}
+.year-container > h2 {
+  width: 100%;
+  text-align: center;
+  color: rgb(var(--paper-color));
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.year-container > .year-day-item {
+  display: block;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background-color: var(--main-color);
+  border: 1px solid var(--border-color);
+  border-radius: calc(var(--circle-size) / 2);
+  text-align: center;
+  font-size: 1rem;
+  line-height: var(--circle-size);
+  color: rgba(var(--paper-color), 0.3);
+  margin-bottom: var(--gap-width);
+  text-decoration: none;
+}
+.year-container > .year-day-item:hover {
+  text-decoration: none;
+}
+.year-container > .year-day-item[data-status="past"],
+.year-container > .year-day-item[data-status="today"] {
+  border: none;
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+.year-container > .year-day-item[data-status="past"] {
+  color: var(--main-color);
+  background-color: rgba(var(--paper-color), 0.9);
+}
+.year-container > .year-day-item[data-status="today"] {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--red-color));
+}
+/** 在小屏幕下消除容器两侧内部，扩大显示面积
+ * Note: 容器查询似乎只能对其内部元素起作用
+*/
+.markdown-reading-view {
+  /* 定义容器名称，用来媒体查询 */
+  container-type: inline-size;
+  container-name: daily-reading-container;
+}
+@container daily-reading-container (max-width: 48rem) {
+  .markdown-reading-view .markdown-preview-view {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.view-content > .markdown-source-view.mod-cm6 > .cm-editor {
+  /* 定义容器名称，用来媒体查询 */
+  container-type: inline-size;
+  container-name: daily-editor-container;
+}
+@container daily-editor-container (max-width: 48rem) {
+  .view-content > .markdown-source-view.mod-cm6 > .cm-editor .cm-scroller {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+`
+
+window.addEventListener('load', () => {
+    const container = document.createElement('div');
+    container.classList.add('year-container');
+    document.body.querySelector("article>section").appendChild(container);
+    container.innerHTML += `<style>${style}</style>
+    <h2>Days in ${year}</h2>`;
+    for (let i = 1; i <= 366; i++) {
+        const date = new DateExtends(new Date(year, 0, i));
+        /** 如果是闰年，跳过 */
+        if (i === 366 && !date.isLeapYear()) {
+            break;
+        }
+        const path = ""
+        const isPast = date.MM < now.MM || (date.MM === now.MM && date.DD < now.DD);
+        const isToday = date.MM === now.MM && date.DD === now.DD;
+        container.innerHTML += `<a class="internal-link year-day-item" data-status="${isPast ? 'past' : isToday ? 'today' : 'future'}" href="${path}" target="_blank" rel="noopener">${i}</a>`;
+    }
+});</script>
+</body>
+</html>

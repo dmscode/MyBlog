@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>代码注释 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">代码注释</h1>
+      <section><h2 id="%E5%8E%9F%E5%A7%8B">原始</h2><pre class="hljs-code-block"><code class="hljs markdown" lang="markdown"><span class="hljs-section">## 核心要求</span>
+
+<span class="hljs-bullet">1.</span> <span class="hljs-strong">**注释规范化**</span>
+
+<span class="hljs-bullet">-</span> 所有注释需使用中文
+<span class="hljs-bullet">-</span> 为所有函数添加中文注释
+<span class="hljs-bullet">-</span> 为所有函数内部代码块添加中文注释
+<span class="hljs-bullet">-</span> 每个步骤注释需简明扼要（单句说明，不超过 30 字）
+
+<span class="hljs-bullet">2.</span> <span class="hljs-strong">**现有注释处理**</span>
+
+<span class="hljs-bullet">-</span> 保留含以下特殊标记的注释：
+  ▶ 标签结构：<span class="hljs-code">`[tag]: [内容]`</span>
+  ▶ 任务标记：<span class="hljs-code">`- [ ] 待办事项`</span>
+<span class="hljs-bullet">-</span> 删除冗余的步骤说明类注释，按当前代码逻辑重新编写
+
+<span class="hljs-bullet">3.</span> <span class="hljs-strong">**内容优化**</span>
+
+<span class="hljs-bullet">-</span> 合并新旧注释中的重复信息
+<span class="hljs-bullet">-</span> 避免技术细节过度解释（如不说明具体算法原理）
+
+<span class="hljs-bullet">4.</span> <span class="hljs-strong">**格式规范**</span>
+
+<span class="hljs-bullet">-</span> 使用 4 个空格作为缩进单位
+<span class="hljs-bullet">-</span> 移除注释块之间的多余空行
+<span class="hljs-bullet">-</span> 保持注释与对应代码的缩进对齐</code></pre><h2 id="CRISP%20%E6%A1%86%E6%9E%B6">CRISP 框架</h2><pre class="hljs-code-block"><code class="hljs markdown" lang="markdown">[Context] 作为资深代码规范审查与重构助手，
+[Input] 现有代码库及其注释
+[Request] 请对代码进行注释规范化重构
+[Specifications] 要求：
+
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**格式：**</span>
+<span class="hljs-bullet">  -</span> 使用 4 个空格缩进（非制表符）。
+<span class="hljs-bullet">  -</span> 移除注释块之间的多余空行。
+<span class="hljs-bullet">  -</span> 严格保持注释与对应代码的缩进对齐。
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**注释内容：**</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-strong">**语言：**</span> 所有注释必须使用中文。
+<span class="hljs-bullet">  -</span> <span class="hljs-strong">**范围：**</span>
+<span class="hljs-bullet">    -</span> 为每个函数添加中文注释（说明函数功能）。
+<span class="hljs-bullet">    -</span> 为函数内部主要逻辑代码块添加中文注释（说明步骤目的）。
+<span class="hljs-bullet">  -</span> <span class="hljs-strong">**表达：**</span>
+<span class="hljs-bullet">    -</span> 每个注释需简明扼要，单句说明，不超过 30 字。
+<span class="hljs-bullet">    -</span> 合并新旧注释中的重复信息。
+<span class="hljs-bullet">    -</span> 避免过度解释技术细节（不说明具体算法原理）。
+<span class="hljs-bullet">-</span> <span class="hljs-strong">**现有注释处理：**</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-strong">**保留：**</span> 含有特定标记结构的注释：
+<span class="hljs-bullet">    -</span> 标签结构：<span class="hljs-code">`[tag]: [内容]`</span> (例如 <span class="hljs-code">`note: 用户ID`</span>)
+<span class="hljs-bullet">    -</span> 任务标记：<span class="hljs-code">`- [ ] 待办事项`</span> (例如 <span class="hljs-code">`- [ ] 实现缓存更新`</span>)
+<span class="hljs-bullet">  -</span> <span class="hljs-strong">**删除与重写：**</span>
+<span class="hljs-bullet">    -</span> 删除冗余的、仅描述步骤的旧注释。
+<span class="hljs-bullet">    -</span> 根据当前代码逻辑，为相应步骤重新编写简明注释。
+
+[Purpose] 目的是大幅提升代码可读性、可维护性，确保注释简洁、一致、实用，并保留特殊功能性标记。</code></pre><h2 id="TAG%20%E6%A1%86%E6%9E%B6">TAG 框架</h2><pre class="hljs-code-block"><code class="hljs markdown" lang="markdown">任务：请对代码进行注释规范化重构
+范围：如果有输入，则使用输入的代码或选定的代码；否则则处理所有代码
+要求：
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**格式：**</span>
+<span class="hljs-bullet">        -</span> 使用 4 个空格缩进（非制表符）。
+<span class="hljs-bullet">        -</span> 移除注释块之间的多余空行。
+<span class="hljs-bullet">        -</span> 严格保持注释与对应代码的缩进对齐。
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**注释内容：**</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**语言：**</span> 所有注释必须使用中文。
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**范围：**</span>
+<span class="hljs-bullet">        -</span> 为每个函数添加中文注释（说明函数功能）。
+<span class="hljs-bullet">        -</span> 为函数内部主要逻辑代码块添加中文注释（说明步骤目的）。
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**表达：**</span>
+<span class="hljs-bullet">        -</span> 每个注释需简明扼要，单句说明，不超过 30 字。
+<span class="hljs-bullet">        -</span> 合并新旧注释中的重复信息。
+<span class="hljs-bullet">        -</span> 避免过度解释技术细节（不说明具体算法原理）。
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**现有注释处理：**</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**保留：**</span> 含有特定标记结构的注释：
+<span class="hljs-bullet">        -</span> 标签结构：<span class="hljs-code">`[tag]: [内容]`</span> (例如 <span class="hljs-code">`note: 用户ID`</span>)
+<span class="hljs-bullet">        -</span> 任务标记：<span class="hljs-code">`- [ ] 待办事项`</span> (例如 <span class="hljs-code">`- [ ] 实现缓存更新`</span>)
+<span class="hljs-bullet">    -</span> <span class="hljs-strong">**删除与重写：**</span>
+<span class="hljs-bullet">        -</span> 删除冗余的、仅描述步骤的旧注释。
+<span class="hljs-bullet">        -</span> 根据当前代码逻辑，为相应步骤重新编写简明注释。
+
+目标：目的是大幅提升代码可读性、可维护性，确保注释简洁、一致、实用，并保留特殊功能性标记。</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="%E5%8E%9F%E5%A7%8B" style="margin-left: 1.5em"><a href="#%E5%8E%9F%E5%A7%8B">原始</a></li>
+<li data-hash="CRISP%20%E6%A1%86%E6%9E%B6" style="margin-left: 1.5em"><a href="#CRISP%20%E6%A1%86%E6%9E%B6">CRISP 框架</a></li>
+<li data-hash="TAG%20%E6%A1%86%E6%9E%B6" style="margin-left: 1.5em"><a href="#TAG%20%E6%A1%86%E6%9E%B6">TAG 框架</a></li></ul></div>
+      <div class="meta"><small>created: 2025-08-14 15:17:40</small><br><small>updated: 2025-08-30 15:45:56</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-30 18:47:09</foot>
+</body>
+</html>

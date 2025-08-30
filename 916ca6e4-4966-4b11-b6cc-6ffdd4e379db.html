@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android 通知处理 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">Android 通知处理</h1>
+      <section><p>使用 <a href="https://play.google.com/store/apps/details?id=com.samruston.buzzkill" title="BuzzKill" class="External-link" target="_blank">BuzzKill</a> 进行处理，这里记录一下自己设定的规则，重点不在规则本身，而是处理思路。</p>
+<p>我尽量将同类处理放在同一个规则中，这样可以做的限定相对会模糊，但是够用。</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Apps</th>
+<th>Where</th>
+<th align="left">Method</th>
+<th align="left">Rules</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>固定快递取件码</td>
+<td>短信</td>
+<td>通知</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">【菜鸟驿站】|邻里驿站|【来取】|\d-\d-\d+|取件码</code></td>
+<td>堆叠（固定防止被清除）</td>
+</tr>
+<tr>
+<td>微信消息加强提醒</td>
+<td>微信</td>
+<td>标题</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">name_1|name_2</code></td>
+<td>自定义提醒</td>
+</tr>
+<tr>
+<td>无需记录的通知</td>
+<td>任意</td>
+<td>内容</td>
+<td align="left">完全匹配</td>
+<td align="left">点按即可复制该应用的网址</td>
+<td>从历史通知中删除</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">\d+ Bytes\/s↑	\d+ Bytes\/s↓</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">服务正在运行</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">选择输入法</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">快贴服务运行中,点击复制</td>
+<td></td>
+</tr>
+<tr>
+<td>聊天软件别老叫</td>
+<td>微信 &amp; QQ</td>
+<td>通知</td>
+<td align="left">包含任意</td>
+<td align="left"></td>
+<td>此会话冷却三分钟</td>
+</tr>
+<tr>
+<td>自动移除通知</td>
+<td>任意</td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">更新.*成功</code></td>
+<td>立刻移除通知</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">【流量周?提醒】</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">176\d{8}可用额度已不足\d+元</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">完全匹配</td>
+<td align="left">查看权限设置</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">包含任意</td>
+<td align="left">中国移动</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>内容</td>
+<td align="left">匹配正则</td>
+<td align="left"><code class="inline-code">【.*?移动】|10分满意</code></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">包含任意</td>
+<td align="left">物流消息提醒</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">包含任意</td>
+<td align="left">包裹待提货通知</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td align="left">群组</td>
+<td align="left">内容 正则匹配 <code class="inline-code">^[^\[]</code> + 通知 完全匹配 QQ</td>
+<td></td>
+</tr>
+<tr>
+<td>钉住支付宝的取件通知</td>
+<td>支付宝</td>
+<td>标题</td>
+<td align="left">包含任意</td>
+<td align="left">菜鸟驿站发来一条取件提醒</td>
+<td>堆叠（固定防止被清除）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>标题</td>
+<td align="left">包含任意</td>
+<td align="left">快递取件通知</td>
+<td></td>
+</tr>
+</tbody></table>
+</section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      
+      <div class="meta"><small>created: 2023-06-29 05:55:48</small><br><small>updated: 2024-05-10 08:10:48</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-30 18:47:09</foot>
+</body>
+</html>

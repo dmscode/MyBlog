@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【CSS Snippet】更多高亮样式 - Zji</title>
+  <link rel="stylesheet" href="github-markdown.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="atom-one-dark.min.css">
+<style class="css-snippet">/**
+ * @name: More Highlight Style
+ * @id: obsidian-more-highlight-style
+ * @author: 稻米鼠
+ * @description: Add more highlight styles, but keep the code as readable as possible.
+ * @created: 2024-07-08 20:43:28
+ * @updated: 2024-07-17 16:54:06
+ * @version: 0.0.2
+ */
+/* @settings
+
+name: More Highlight Style
+id: obsidian-more-highlight-style
+settings:
+  -
+    id: buy-me-a-coffee
+    title.en: Buy me a coffee
+    title.zh: 请我喝杯咖啡如何？
+    description.en: '[Have a nice day](https://www.buymeacoffee.com/DaoMouse) and [My Blog](https://zji.me/)'
+    description.zh: '[老鼠爱发电](https://afdian.net/a/daomishu) 以及我的博客: [zji.me](https://zji.me/)'
+    type: info-text
+    markdown: true
+  -
+    id: color-choice-header
+    title.en: Color Choice
+    title.zh: 颜色选择
+    description.en: Setting the highlighter pen color is generally not recommended to be modified. However, if the default color does not match perfectly with the theme you are using, you can try to customize the color yourself.
+    description.zh: 设定荧光笔的颜色，一般不推荐修改。但如果默认颜色和你使用的主题无法完美搭配，可以尝试自行配色。
+    type: heading
+    level: 3
+  -
+    id: mark-highlighter-yellow
+    title.en: Color for yellow highlighter
+    title.zh: 黄色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 233, 88)
+  -
+    id: mark-highlighter-green
+    title.en: Color for green highlighter
+    title.zh: 绿色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(188, 233, 64)
+  -
+    id: mark-highlighter-blue
+    title.en: Color for blue highlighter
+    title.zh: 蓝色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(88, 188, 255)
+  -
+    id: mark-highlighter-pink
+    title.en: Color for pink highlighter
+    title.zh: 粉色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 160, 188)
+  -
+    id: mark-highlighter-orange
+    title.en: Color for orange highlighter
+    title.zh: 橙色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 188, 64)
+  -
+    id: mark-highlighter-red
+    title.en: Color for red highlighter
+    title.zh: 红色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 96, 108)
+  -
+    id: mark-highlighter-purple
+    title.en: Color for purple highlighter
+    title.zh: 紫色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(188, 127, 255)
+  -
+    id: mark-highlighter-gray
+    title.en: Color for gray highlighter
+    title.zh: 灰色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(200, 200, 210)
+  -
+    id: examples-header
+    title.en: Example
+    title.zh: 效果展示
+    type: heading
+    level: 3
+  -
+    id: mark-highlighter-example
+    title.en: Example
+    title.zh: 效果展示
+    description: '<p><mark class="more-highlight yellow-highlighter">黄色荧光笔</mark> · <mark
+  class="more-highlight-half yellow-highlighter">黄色半划线</mark> · <mark
+  class="more-highlight-underline yellow-highlighter">黄色波浪线</mark> · <mark
+  class="more-highlight-rainbow yellow-highlighter">黄色彩虹线</mark> · <mark
+  class="more-highlight-mask yellow-highlighter">黄色模糊</mark></p>
+<p><mark class="more-highlight green-highlighter">绿色荧光笔</mark> · <mark
+  class="more-highlight-half green-highlighter">绿色半划线</mark> · <mark
+  class="more-highlight-underline green-highlighter">绿色波浪线</mark> · <mark
+  class="more-highlight-rainbow green-highlighter">绿色彩虹线</mark> · <mark
+  class="more-highlight-mask green-highlighter">绿色模糊</mark></p>
+<p><mark class="more-highlight blue-highlighter">蓝色荧光笔</mark> · <mark
+  class="more-highlight-half blue-highlighter">蓝色半划线</mark> · <mark
+  class="more-highlight-underline blue-highlighter">蓝色波浪线</mark> · <mark
+  class="more-highlight-rainbow blue-highlighter">蓝色彩虹线</mark> · <mark
+  class="more-highlight-mask blue-highlighter">蓝色模糊</mark></p>
+<p><mark class="more-highlight pink-highlighter">粉色荧光笔</mark> · <mark
+  class="more-highlight-half pink-highlighter">粉色半划线</mark> · <mark
+  class="more-highlight-underline pink-highlighter">粉色波浪线</mark> · <mark
+  class="more-highlight-rainbow pink-highlighter">粉色彩虹线</mark> · <mark
+  class="more-highlight-mask pink-highlighter">粉色模糊</mark></p>
+<p><mark class="more-highlight orange-highlighter">橙色荧光笔</mark> · <mark
+  class="more-highlight-half orange-highlighter">橙色半划线</mark> · <mark
+  class="more-highlight-underline orange-highlighter">橙色波浪线</mark> · <mark
+  class="more-highlight-rainbow orange-highlighter">橙色彩虹线</mark> · <mark
+  class="more-highlight-mask orange-highlighter">橙色模糊</mark></p>
+<p><mark class="more-highlight red-highlighter">红色荧光笔</mark> · <mark
+  class="more-highlight-half red-highlighter">红色半划线</mark> · <mark
+  class="more-highlight-underline red-highlighter">红色波浪线</mark> · <mark
+  class="more-highlight-rainbow red-highlighter">红色彩虹线</mark> · <mark
+  class="more-highlight-mask red-highlighter">红色模糊</mark></p>
+<p><mark class="more-highlight purple-highlighter">紫色荧光笔</mark> · <mark
+  class="more-highlight-half purple-highlighter">紫色半划线</mark> · <mark
+  class="more-highlight-underline purple-highlighter">紫色波浪线</mark> · <mark
+  class="more-highlight-rainbow purple-highlighter">紫色彩虹线</mark> · <mark
+  class="more-highlight-mask purple-highlighter">紫色模糊</mark></p>
+<p><mark class="more-highlight gray-highlighter">灰色荧光笔</mark> · <mark
+  class="more-highlight-half gray-highlighter">灰色半划线</mark> · <mark
+  class="more-highlight-underline gray-highlighter">灰色波浪线</mark> · <mark
+  class="more-highlight-rainbow gray-highlighter">灰色彩虹线</mark> · <mark
+  class="more-highlight-mask gray-highlighter">灰色模糊</mark></p>'
+    type: info-text
+    markdown: true
+  -
+    id: other-settings-header
+    title.en: Other settings
+    title.zh: 其他设置
+    type: heading
+    level: 3
+  -
+    id: half-mark-height
+    title.en: Height of half mark
+    title.zh: 半划线高度
+    type: variable-number-slider
+    default: 8
+    min: 4
+    max: 18
+    step: 1
+    format: px
+  -
+    id: wavy-mark-height
+    title.en: Height of wavy underline
+    title.zh: 波浪下划线的粗细
+    type: variable-number-slider
+    default: 2
+    min: 1
+    max: 4
+    step: 1
+    format: px
+  -
+    id: rainbow-mark-height
+    title.en: Height of rainbow underline
+    title.zh: 彩虹下划线的粗细
+    type: variable-number-slider
+    default: 3
+    min: 1
+    max: 6
+    step: 1
+    format: px
+  -
+    id: mask-mark-height
+    title.en: Height of text blur underline
+    title.zh: 文字模糊下划线的粗细
+    type: variable-number-slider
+    default: 3
+    min: 1
+    max: 6
+    step: 1
+    format: px
+  -
+    id: mask-blur
+    title.en: Level of text blurring
+    title.zh: 文字模糊程度
+    type: variable-number-slider
+    default: 5
+    min: 1
+    max: 12
+    step: 1
+    format: px
+*/
+:root {
+  --mark-highlighter-yellow: 255, 233, 88;
+  --mark-highlighter-green: 188, 233, 64;
+  --mark-highlighter-blue: 88, 188, 255;
+  --mark-highlighter-pink: 255, 160, 188;
+  --mark-highlighter-orange: 255, 188, 64;
+  --mark-highlighter-red: 255, 96, 108;
+  --mark-highlighter-purple: 188, 127, 255;
+  --mark-highlighter-gray: 200, 200, 210;
+  --half-mark-height: 8px;
+  --wavy-mark-height: 2px;
+  --rainbow-mark-height: 3px;
+  --mask-blur: 5px;
+  --mask-mark-height: 3px;
+}
+/* For default */
+/* .cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight,
+.markdown-rendered mark {
+
+} */
+mark.more-highlight {
+  margin: 0 -0.2em;
+  padding: 0.1em 0.2em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  color: var(--text-normal);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-image: linear-gradient(
+    1deg,
+    rgba(var(--mark-style-color), .1),
+    rgba(var(--mark-style-color), 1) 4%,
+    rgba(var(--mark-style-color), .3) 8%,
+    rgba(var(--mark-style-color), .1) 50%,
+    rgba(var(--mark-style-color), .5) 90%,
+    rgba(var(--mark-style-color), .7) 100%,
+    transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent  96%,
+    rgba(var(--mark-style-color), 1) 98%,
+    rgba(var(--mark-style-color), 0.8) 100%
+  );
+}
+mark.more-highlight-half {
+  margin: 0 -0.2em;
+  padding: 0 0.2em;
+  background: transparent;
+  color: var(--text-normal);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background: 
+  radial-gradient(farthest-side,rgba(var(--mark-style-color), .8) 98%,#0000) bottom left,
+  linear-gradient(rgb(var(--mark-style-color)) 0 0) bottom,
+  radial-gradient(farthest-side,rgba(var(--mark-style-color), .8) 98%,#0000) bottom right;
+  background-size:var(--half-mark-height) var(--half-mark-height),calc(100% - var(--half-mark-height)) var(--half-mark-height);
+  background-repeat:no-repeat;
+}
+mark.more-highlight-underline {
+  margin: 0 -0.2em;
+  padding: 0 0.2em;
+  background: transparent;
+  color: var(--text-normal);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-decoration: underline wavy rgb(var(--mark-style-color)) var(--wavy-mark-height);
+}
+mark.more-highlight-rainbow {
+  margin: 0 -0.2em;
+  padding: 0 0.2em;
+  background: transparent;
+  color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background: 
+  linear-gradient(90deg, rgb(var(--mark-style-color)), rgb(var(--mark-style-color))),
+  linear-gradient(90deg, rgb(var(--mark-highlighter-red)), rgb(var(--mark-highlighter-yellow)), rgb(var(--mark-highlighter-purple)));
+  background-size: 100% var(--rainbow-mark-height), 0 var(--rainbow-mark-height);
+  background-repeat: no-repeat;
+  background-position: 100% 100%, 0 100%;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+mark.more-highlight-rainbow:hover {
+  color: var(--text-normal);
+  background-size: 0 var(--rainbow-mark-height), 100% var(--rainbow-mark-height);
+}
+mark.more-highlight-mask {
+  margin: 0 -0.2em;
+  padding: 0 0.2em;
+  background: transparent;
+  color: var(--text-normal);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-decoration: underline solid rgb(var(--mark-style-color)) var(--mask-mark-height);
+  filter: blur(var(--mask-blur));
+  transition: 0.2s all;
+  cursor: pointer;
+}
+mark.more-highlight-mask:hover {
+  filter: blur(0px);
+}
+mark.yellow-highlighter {
+  --mark-style-color: var(--mark-highlighter-yellow);
+}
+mark.green-highlighter {
+  --mark-style-color: var(--mark-highlighter-green);
+}
+mark.blue-highlighter {
+  --mark-style-color: var(--mark-highlighter-blue);
+}
+mark.pink-highlighter {
+  --mark-style-color: var(--mark-highlighter-pink);
+}
+mark.orange-highlighter {
+  --mark-style-color: var(--mark-highlighter-orange);
+}
+mark.red-highlighter {
+  --mark-style-color: var(--mark-highlighter-red);
+}
+mark.purple-highlighter {
+  --mark-style-color: var(--mark-highlighter-purple);
+}
+mark.gray-highlighter {
+  --mark-style-color: var(--mark-highlighter-gray);
+}
+</style>
+</head>
+<body class="markdown-body">
+  <main>
+    <article>
+      <h1 class="note-title">【CSS Snippet】更多高亮样式</h1>
+      <section><p>40 种样式，效果展示：</p>
+<ul>
+<li><mark class="more-highlight yellow-highlighter">黄色荧光笔</mark> · <mark class="more-highlight-half yellow-highlighter">黄色半划线</mark> · <mark class="more-highlight-underline yellow-highlighter">黄色波浪线</mark> · <mark class="more-highlight-rainbow yellow-highlighter">黄色彩虹线</mark> · <mark class="more-highlight-mask yellow-highlighter">黄色模糊</mark></li><li><mark class="more-highlight green-highlighter">绿色荧光笔</mark> · <mark class="more-highlight-half green-highlighter">绿色半划线</mark> · <mark class="more-highlight-underline green-highlighter">绿色波浪线</mark> · <mark class="more-highlight-rainbow green-highlighter">绿色彩虹线</mark> · <mark class="more-highlight-mask green-highlighter">绿色模糊</mark></li><li><mark class="more-highlight blue-highlighter">蓝色荧光笔</mark> · <mark class="more-highlight-half blue-highlighter">蓝色半划线</mark> · <mark class="more-highlight-underline blue-highlighter">蓝色波浪线</mark> · <mark class="more-highlight-rainbow blue-highlighter">蓝色彩虹线</mark> · <mark class="more-highlight-mask blue-highlighter">蓝色模糊</mark></li><li><mark class="more-highlight pink-highlighter">粉色荧光笔</mark> · <mark class="more-highlight-half pink-highlighter">粉色半划线</mark> · <mark class="more-highlight-underline pink-highlighter">粉色波浪线</mark> · <mark class="more-highlight-rainbow pink-highlighter">粉色彩虹线</mark> · <mark class="more-highlight-mask pink-highlighter">粉色模糊</mark></li><li><mark class="more-highlight orange-highlighter">橙色荧光笔</mark> · <mark class="more-highlight-half orange-highlighter">橙色半划线</mark> · <mark class="more-highlight-underline orange-highlighter">橙色波浪线</mark> · <mark class="more-highlight-rainbow orange-highlighter">橙色彩虹线</mark> · <mark class="more-highlight-mask orange-highlighter">橙色模糊</mark></li><li><mark class="more-highlight red-highlighter">红色荧光笔</mark> · <mark class="more-highlight-half red-highlighter">红色半划线</mark> · <mark class="more-highlight-underline red-highlighter">红色波浪线</mark> · <mark class="more-highlight-rainbow red-highlighter">红色彩虹线</mark> · <mark class="more-highlight-mask red-highlighter">红色模糊</mark></li><li><mark class="more-highlight purple-highlighter">紫色荧光笔</mark> · <mark class="more-highlight-half purple-highlighter">紫色半划线</mark> · <mark class="more-highlight-underline purple-highlighter">紫色波浪线</mark> · <mark class="more-highlight-rainbow purple-highlighter">紫色彩虹线</mark> · <mark class="more-highlight-mask purple-highlighter">紫色模糊</mark></li><li><mark class="more-highlight gray-highlighter">灰色荧光笔</mark> · <mark class="more-highlight-half gray-highlighter">灰色半划线</mark> · <mark class="more-highlight-underline gray-highlighter">灰色波浪线</mark> · <mark class="more-highlight-rainbow gray-highlighter">灰色彩虹线</mark> · <mark class="more-highlight-mask gray-highlighter">灰色模糊</mark></li></ul>
+<h2 id="%E6%8A%80%E6%9C%AF%E8%AF%B4%E6%98%8E">技术说明</h2><ul>
+<li>使用 CSS Snippet 添加样式。所以核心只有一个 CSS 文件（代码较长，附在最后）；</li><li>使用 HTML 代码进行标记，用 class 属性进行区分，通用性和可读性都还行；</li><li>可通过 Style Settings 插件对效果进行进一步设置；</li><li>可以使用 Templater 或者 QuickADD 插件实现一键高亮（下附操作说明）。</li></ul>
+<h2 id="%E7%94%A8%20Templater%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 Templater 插件快速高亮</h2><p>创建模板：</p>
+<pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
+  tR += `&lt;<span class="hljs-keyword">mark</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight yellow-highlighter&quot;</span>&gt;<span class="hljs-variable">${tp</span>.<span class="hljs-keyword">file</span>.selection()}&lt;/<span class="hljs-keyword">mark</span>&gt;`
+%&gt;</code></pre><p>选中文字，然后插入此模板即可对选中文字进行高亮（样式根据需求自行修改，如需要多种样式可以考虑创建多个模板）。可以在 Templater 插件中设置模板快捷键，实现选中文字，一键高亮的效果。</p>
+<p>使用如下模板，可以清除选中内容的高亮（不需要精确选中，只要完全包含高亮区域即可，选择更多内容无影响）：</p>
+<pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
+  tR += tp.<span class="hljs-keyword">file</span>.selection().<span class="hljs-keyword">replace</span>(/&lt;<span class="hljs-keyword">mark</span>\s+<span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight(-\w+)?\s+\w+-highlighter&quot;</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;).<span class="hljs-keyword">replace</span>(/&lt;\/<span class="hljs-keyword">mark</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;)
+%&gt;</code></pre><p>清除高亮的模板对两个类的前后顺序敏感，精准匹配主要是为了避免和其他插件冲突，如果你不介意，可以用下面的的模板，稳定清除全部 <code class="inline-code">mark</code> 标签：</p>
+<pre class="hljs-code-block"><code class="hljs ejs" lang="ejs">&lt;%*
+  tR += tp.file.selection().<span class="hljs-built_in">replace</span>(<span class="hljs-regexp">/&lt;mark[^&gt;]*?&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-built_in">replace</span>(<span class="hljs-regexp">/&lt;\/mark&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>)
+%&gt;</code></pre><h2 id="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</h2><p>新建捕获（Capture），捕获到当前文件（Capture to active file），捕获格式（Capture format）：<code class="inline-code">&lt;mark class=&quot;more-highlight yellow-highlighter&quot;&gt;{{value}}&lt;/mark&gt;</code>。</p>
+<p>点亮指令前闪电图标之后，即可在 Obsidian 的快捷键设置页面找到指令，设置快捷键了。</p>
+<p>如果常用多种样式，可以设置多个捕获，然后将它们放入一个组（Multi）内，点亮组前面的闪电，给它设定一个快捷键。这样选中文字，快捷键，选择需要的样式即可。</p>
+<p>但是用 QuickAdd 清除高亮会麻烦一些，要建立一个宏（Macro），宏里面添加一个用户脚本，脚本可以保存在任何位置，比如叫做 <code class="inline-code">清除高亮.js</code>：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">module.exports = async ({<span class="hljs-keyword">app</span>}) =&gt; {
+  <span class="hljs-keyword">app</span>.workspace.activeEditor.editor.replaceSelection(<span class="hljs-keyword">app</span>.workspace.activeEditor.editor.getSelection().<span class="hljs-keyword">replace</span>(/&lt;<span class="hljs-keyword">mark</span>\s+<span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;more-highlight(-\w+)?\s+\w+-highlighter&quot;</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;).<span class="hljs-keyword">replace</span>(/&lt;\/<span class="hljs-keyword">mark</span>&gt;/<span class="hljs-keyword">g</span>, &#x27;&#x27;))
+};</code></pre><p>然后可能要重启 Obisidian 之后生效，同样的，如果不想过于精准匹配，则改用下方的写法：</p>
+<pre class="hljs-code-block"><code class="hljs js" lang="js">module.<span class="hljs-built_in">exports</span> = <span class="hljs-keyword">async</span> ({app}) =&gt; {
+  app.workspace.activeEditor.editor.replaceSelection(app.workspace.activeEditor.editor.getSelection().replace(<span class="hljs-regexp">/&lt;mark[^&gt;]*?&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>).replace(<span class="hljs-regexp">/&lt;\/mark&gt;/g</span>, <span class="hljs-string">&#x27;&#x27;</span>))
+};</code></pre><h2 id="%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">全部样式示例代码</h2><p>供查阅具体样式的引用方法。</p>
+<pre class="hljs-code-block"><code class="hljs md" lang="md">- 黄色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight yellow-highlighter&quot;</span>&gt;</span>黄色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 绿色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight green-highlighter&quot;</span>&gt;</span>绿色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 蓝色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight blue-highlighter&quot;</span>&gt;</span>蓝色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 粉色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight pink-highlighter&quot;</span>&gt;</span>粉色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 橙色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight orange-highlighter&quot;</span>&gt;</span>橙色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 红色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight red-highlighter&quot;</span>&gt;</span>红色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 紫色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight purple-highlighter&quot;</span>&gt;</span>紫色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 灰色荧光笔 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight gray-highlighter&quot;</span>&gt;</span>灰色荧光笔<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+
+- 黄色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half yellow-highlighter&quot;</span>&gt;</span>黄色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 绿色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half green-highlighter&quot;</span>&gt;</span>绿色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 蓝色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half blue-highlighter&quot;</span>&gt;</span>蓝色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 粉色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half pink-highlighter&quot;</span>&gt;</span>粉色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 橙色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half orange-highlighter&quot;</span>&gt;</span>橙色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 红色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half red-highlighter&quot;</span>&gt;</span>红色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 紫色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half purple-highlighter&quot;</span>&gt;</span>紫色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 灰色半划线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-half gray-highlighter&quot;</span>&gt;</span>灰色半划线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+
+- 黄色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline yellow-highlighter&quot;</span>&gt;</span>黄色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 绿色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline green-highlighter&quot;</span>&gt;</span>绿色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 蓝色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline blue-highlighter&quot;</span>&gt;</span>蓝色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 粉色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline pink-highlighter&quot;</span>&gt;</span>粉色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 橙色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline orange-highlighter&quot;</span>&gt;</span>橙色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 红色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline red-highlighter&quot;</span>&gt;</span>红色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 紫色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline purple-highlighter&quot;</span>&gt;</span>紫色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 灰色波浪线 <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-underline gray-highlighter&quot;</span>&gt;</span>灰色波浪线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+
+- 黄色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow yellow-highlighter&quot;</span>&gt;</span>黄色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 绿色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow green-highlighter&quot;</span>&gt;</span>绿色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 蓝色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow blue-highlighter&quot;</span>&gt;</span>蓝色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 粉色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow pink-highlighter&quot;</span>&gt;</span>粉色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 橙色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow orange-highlighter&quot;</span>&gt;</span>橙色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 红色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow red-highlighter&quot;</span>&gt;</span>红色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 紫色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow purple-highlighter&quot;</span>&gt;</span>紫色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 灰色彩虹线（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-rainbow gray-highlighter&quot;</span>&gt;</span>灰色彩虹线<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+
+- 黄色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask yellow-highlighter&quot;</span>&gt;</span>黄色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 绿色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask green-highlighter&quot;</span>&gt;</span>绿色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 蓝色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask blue-highlighter&quot;</span>&gt;</span>蓝色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 粉色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask pink-highlighter&quot;</span>&gt;</span>粉色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 橙色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask orange-highlighter&quot;</span>&gt;</span>橙色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 红色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask red-highlighter&quot;</span>&gt;</span>红色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 紫色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask purple-highlighter&quot;</span>&gt;</span>紫色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+- 灰色模糊（悬停显示） <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;more-highlight-mask gray-highlighter&quot;</span>&gt;</span>灰色模糊<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span></code></pre><h2 id="CSS%20Snippet">CSS Snippet</h2><p>将如下代码保存到 <code class="inline-code">.obsidian/snippets/MoreHighlightStyle.css</code> 文件中（自行创建文件），然后在 Obsidian 设置——外观——代码片段中开启。</p>
+<pre class="hljs-code-block"><code class="hljs css" lang="css"><span class="hljs-comment">/**
+ * @name: More Highlight Style
+ * @id: obsidian-more-highlight-style
+ * @author: 稻米鼠
+ * @description: Add more highlight styles, but keep the code as readable as possible.
+ * @created: 2024-07-08 20:43:28
+ * @updated: 2024-07-17 16:54:06
+ * @version: 0.0.2
+ */</span>
+<span class="hljs-comment">/* @settings
+
+name: More Highlight Style
+id: obsidian-more-highlight-style
+settings:
+  -
+    id: buy-me-a-coffee
+    title.en: Buy me a coffee
+    title.zh: 请我喝杯咖啡如何？
+    description.en: &#x27;[Have a nice day](https://www.buymeacoffee.com/DaoMouse) and [My Blog](https://zji.me/)&#x27;
+    description.zh: &#x27;[老鼠爱发电](https://afdian.net/a/daomishu) 以及我的博客: [zji.me](https://zji.me/)&#x27;
+    type: info-text
+    markdown: true
+  -
+    id: color-choice-header
+    title.en: Color Choice
+    title.zh: 颜色选择
+    description.en: Setting the highlighter pen color is generally not recommended to be modified. However, if the default color does not match perfectly with the theme you are using, you can try to customize the color yourself.
+    description.zh: 设定荧光笔的颜色，一般不推荐修改。但如果默认颜色和你使用的主题无法完美搭配，可以尝试自行配色。
+    type: heading
+    level: 3
+  -
+    id: mark-highlighter-yellow
+    title.en: Color for yellow highlighter
+    title.zh: 黄色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 233, 88)
+  -
+    id: mark-highlighter-green
+    title.en: Color for green highlighter
+    title.zh: 绿色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(188, 233, 64)
+  -
+    id: mark-highlighter-blue
+    title.en: Color for blue highlighter
+    title.zh: 蓝色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(88, 188, 255)
+  -
+    id: mark-highlighter-pink
+    title.en: Color for pink highlighter
+    title.zh: 粉色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 160, 188)
+  -
+    id: mark-highlighter-orange
+    title.en: Color for orange highlighter
+    title.zh: 橙色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 188, 64)
+  -
+    id: mark-highlighter-red
+    title.en: Color for red highlighter
+    title.zh: 红色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(255, 96, 108)
+  -
+    id: mark-highlighter-purple
+    title.en: Color for purple highlighter
+    title.zh: 紫色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(188, 127, 255)
+  -
+    id: mark-highlighter-gray
+    title.en: Color for gray highlighter
+    title.zh: 灰色荧光笔
+    type: variable-color
+    opacity: false
+    format: rgb-values
+    default: rgb(200, 200, 210)
+  -
+    id: examples-header
+    title.en: Example
+    title.zh: 效果展示
+    type: heading
+    level: 3
+  -
+    id: mark-highlighter-example
+    title.en: Example
+    title.zh: 效果展示
+    description: &#x27;&lt;p&gt;&lt;mark class=&quot;more-highlight yellow-highlighter&quot;&gt;黄色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half yellow-highlighter&quot;&gt;黄色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline yellow-highlighter&quot;&gt;黄色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow yellow-highlighter&quot;&gt;黄色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask yellow-highlighter&quot;&gt;黄色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight green-highlighter&quot;&gt;绿色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half green-highlighter&quot;&gt;绿色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline green-highlighter&quot;&gt;绿色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow green-highlighter&quot;&gt;绿色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask green-highlighter&quot;&gt;绿色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight blue-highlighter&quot;&gt;蓝色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half blue-highlighter&quot;&gt;蓝色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline blue-highlighter&quot;&gt;蓝色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow blue-highlighter&quot;&gt;蓝色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask blue-highlighter&quot;&gt;蓝色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight pink-highlighter&quot;&gt;粉色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half pink-highlighter&quot;&gt;粉色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline pink-highlighter&quot;&gt;粉色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow pink-highlighter&quot;&gt;粉色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask pink-highlighter&quot;&gt;粉色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight orange-highlighter&quot;&gt;橙色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half orange-highlighter&quot;&gt;橙色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline orange-highlighter&quot;&gt;橙色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow orange-highlighter&quot;&gt;橙色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask orange-highlighter&quot;&gt;橙色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight red-highlighter&quot;&gt;红色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half red-highlighter&quot;&gt;红色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline red-highlighter&quot;&gt;红色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow red-highlighter&quot;&gt;红色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask red-highlighter&quot;&gt;红色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight purple-highlighter&quot;&gt;紫色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half purple-highlighter&quot;&gt;紫色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline purple-highlighter&quot;&gt;紫色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow purple-highlighter&quot;&gt;紫色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask purple-highlighter&quot;&gt;紫色模糊&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark class=&quot;more-highlight gray-highlighter&quot;&gt;灰色荧光笔&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-half gray-highlighter&quot;&gt;灰色半划线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-underline gray-highlighter&quot;&gt;灰色波浪线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-rainbow gray-highlighter&quot;&gt;灰色彩虹线&lt;/mark&gt; · &lt;mark
+  class=&quot;more-highlight-mask gray-highlighter&quot;&gt;灰色模糊&lt;/mark&gt;&lt;/p&gt;&#x27;
+    type: info-text
+    markdown: true
+  -
+    id: other-settings-header
+    title.en: Other settings
+    title.zh: 其他设置
+    type: heading
+    level: 3
+  -
+    id: half-mark-height
+    title.en: Height of half mark
+    title.zh: 半划线高度
+    type: variable-number-slider
+    default: 8
+    min: 4
+    max: 18
+    step: 1
+    format: px
+  -
+    id: wavy-mark-height
+    title.en: Height of wavy underline
+    title.zh: 波浪下划线的粗细
+    type: variable-number-slider
+    default: 2
+    min: 1
+    max: 4
+    step: 1
+    format: px
+  -
+    id: rainbow-mark-height
+    title.en: Height of rainbow underline
+    title.zh: 彩虹下划线的粗细
+    type: variable-number-slider
+    default: 3
+    min: 1
+    max: 6
+    step: 1
+    format: px
+  -
+    id: mask-mark-height
+    title.en: Height of text blur underline
+    title.zh: 文字模糊下划线的粗细
+    type: variable-number-slider
+    default: 3
+    min: 1
+    max: 6
+    step: 1
+    format: px
+  -
+    id: mask-blur
+    title.en: Level of text blurring
+    title.zh: 文字模糊程度
+    type: variable-number-slider
+    default: 5
+    min: 1
+    max: 12
+    step: 1
+    format: px
+*/</span>
+<span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attr">--mark-highlighter-yellow</span>: <span class="hljs-number">255</span>, <span class="hljs-number">233</span>, <span class="hljs-number">88</span>;
+  <span class="hljs-attr">--mark-highlighter-green</span>: <span class="hljs-number">188</span>, <span class="hljs-number">233</span>, <span class="hljs-number">64</span>;
+  <span class="hljs-attr">--mark-highlighter-blue</span>: <span class="hljs-number">88</span>, <span class="hljs-number">188</span>, <span class="hljs-number">255</span>;
+  <span class="hljs-attr">--mark-highlighter-pink</span>: <span class="hljs-number">255</span>, <span class="hljs-number">160</span>, <span class="hljs-number">188</span>;
+  <span class="hljs-attr">--mark-highlighter-orange</span>: <span class="hljs-number">255</span>, <span class="hljs-number">188</span>, <span class="hljs-number">64</span>;
+  <span class="hljs-attr">--mark-highlighter-red</span>: <span class="hljs-number">255</span>, <span class="hljs-number">96</span>, <span class="hljs-number">108</span>;
+  <span class="hljs-attr">--mark-highlighter-purple</span>: <span class="hljs-number">188</span>, <span class="hljs-number">127</span>, <span class="hljs-number">255</span>;
+  <span class="hljs-attr">--mark-highlighter-gray</span>: <span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">210</span>;
+  <span class="hljs-attr">--half-mark-height</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attr">--wavy-mark-height</span>: <span class="hljs-number">2px</span>;
+  <span class="hljs-attr">--rainbow-mark-height</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attr">--mask-blur</span>: <span class="hljs-number">5px</span>;
+  <span class="hljs-attr">--mask-mark-height</span>: <span class="hljs-number">3px</span>;
+}
+<span class="hljs-comment">/* For default */</span>
+<span class="hljs-comment">/* .cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight,
+.markdown-rendered mark {
+
+} */</span>
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.1em</span> <span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0.8em</span> <span class="hljs-number">0.3em</span>;
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
+  -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(
+    <span class="hljs-number">1deg</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">1</span>),
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), <span class="hljs-number">1</span>) <span class="hljs-number">4%</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">3</span>) <span class="hljs-number">8%</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">1</span>) <span class="hljs-number">50%</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">5</span>) <span class="hljs-number">90%</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">7</span>) <span class="hljs-number">100%</span>,
+    transparent <span class="hljs-number">100%</span>
+    ),
+    <span class="hljs-built_in">linear-gradient</span>(
+      <span class="hljs-number">90deg</span>,
+      transparent  <span class="hljs-number">96%</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), <span class="hljs-number">1</span>) <span class="hljs-number">98%</span>,
+    <span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), <span class="hljs-number">0.8</span>) <span class="hljs-number">100%</span>
+  );
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-half</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
+  -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">background</span>: 
+  <span class="hljs-built_in">radial-gradient</span>(farthest-side,<span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">8</span>) <span class="hljs-number">98%</span>,<span class="hljs-number">#0000</span>) bottom left,
+  <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-number">0</span> <span class="hljs-number">0</span>) bottom,
+  <span class="hljs-built_in">radial-gradient</span>(farthest-side,<span class="hljs-built_in">rgba</span>(<span class="hljs-built_in">var</span>(--mark-style-color), .<span class="hljs-number">8</span>) <span class="hljs-number">98%</span>,<span class="hljs-number">#0000</span>) bottom right;
+  <span class="hljs-attribute">background-size</span>:<span class="hljs-built_in">var</span>(--half-mark-height) <span class="hljs-built_in">var</span>(--half-mark-height),<span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-built_in">var</span>(--half-mark-height)) <span class="hljs-built_in">var</span>(--half-mark-height);
+  <span class="hljs-attribute">background-repeat</span>:no-repeat;
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-underline</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
+  -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">text-decoration</span>: underline wavy <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-built_in">var</span>(--wavy-mark-height);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-rainbow</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: transparent;
+  -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">background</span>: 
+  <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color))),
+  <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-red)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-yellow)), <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-highlighter-purple)));
+  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height), <span class="hljs-number">0</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height);
+  <span class="hljs-attribute">background-repeat</span>: no-repeat;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">100%</span> <span class="hljs-number">100%</span>, <span class="hljs-number">0</span> <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.5s</span> all;
+  <span class="hljs-attribute">cursor</span>: pointer;
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-rainbow</span><span class="hljs-selector-pseudo">:hover</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
+  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">0</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height), <span class="hljs-number">100%</span> <span class="hljs-built_in">var</span>(--rainbow-mark-height);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-mask</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> -<span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.2em</span>;
+  <span class="hljs-attribute">background</span>: transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-normal);
+  -webkit-<span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">box-decoration-break</span>: clone;
+  <span class="hljs-attribute">text-decoration</span>: underline solid <span class="hljs-built_in">rgb</span>(<span class="hljs-built_in">var</span>(--mark-style-color)) <span class="hljs-built_in">var</span>(--mask-mark-height);
+  <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-built_in">var</span>(--mask-blur));
+  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.2s</span> all;
+  <span class="hljs-attribute">cursor</span>: pointer;
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.more-highlight-mask</span><span class="hljs-selector-pseudo">:hover</span> {
+  <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">blur</span>(<span class="hljs-number">0px</span>);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.yellow-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-yellow);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.green-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-green);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.blue-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-blue);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.pink-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-pink);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.orange-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-orange);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.red-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-red);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.purple-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-purple);
+}
+<span class="hljs-selector-tag">mark</span><span class="hljs-selector-class">.gray-highlighter</span> {
+  <span class="hljs-attr">--mark-style-color</span>: <span class="hljs-built_in">var</span>(--mark-highlighter-gray);
+}
+</code></pre></section>
+    </article>
+  </main>
+  <aside id="side-menu">
+    <div class="toggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="aside-content">
+      <div class="nav">
+        <ul>
+          <li class="home"><a href="/">Home</a></li>
+          <li class="changelogs"><a href="/changelogs.html">Changelogs</a></li>
+          <!-- <li class="coffee"><a href="https://afdian.net/a/daomishu" target="_blank">Coffee~ <i class="fa-solid fa-coffee"></i></a></li> -->
+          <li class="gotop"><a href="#">Top</a></li>
+        </ul>
+      </div>
+      <a class="coffee" href="https://afdian.com/a/daomishu" target="_blank" title="嘿，朋友！给我一杯咖啡~是的，是的，用来开启一天工作的咖啡~那玩意儿简直是我工作的电源。怎么样，难道你不期待我多鼓捣出一点奇奇怪怪的有趣儿玩意儿吗？">Buy me a Coffee~ <i class="fa-solid fa-coffee"></i></a>
+      <div class="toc"><ul><li data-hash="%E6%8A%80%E6%9C%AF%E8%AF%B4%E6%98%8E" style="margin-left: 1.5em"><a href="#%E6%8A%80%E6%9C%AF%E8%AF%B4%E6%98%8E">技术说明</a></li>
+<li data-hash="%E7%94%A8%20Templater%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE" style="margin-left: 1.5em"><a href="#%E7%94%A8%20Templater%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 Templater 插件快速高亮</a></li>
+<li data-hash="%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE" style="margin-left: 1.5em"><a href="#%E7%94%A8%20QuickAdd%20%E6%8F%92%E4%BB%B6%E5%BF%AB%E9%80%9F%E9%AB%98%E4%BA%AE">用 QuickAdd 插件快速高亮</a></li>
+<li data-hash="%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81" style="margin-left: 1.5em"><a href="#%E5%85%A8%E9%83%A8%E6%A0%B7%E5%BC%8F%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">全部样式示例代码</a></li>
+<li data-hash="CSS%20Snippet" style="margin-left: 1.5em"><a href="#CSS%20Snippet">CSS Snippet</a></li></ul></div>
+      <div class="meta"><small>created: 2024-07-13 08:01:23</small><br><small>updated: 2025-08-30 17:34:07</small></div>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+  <foot>©2022~2025 稻米鼠. Last build at 2025-08-30 18:47:09</foot>
+</body>
+</html>

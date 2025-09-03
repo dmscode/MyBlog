@@ -10,7 +10,6 @@ body.markdown-body {
   font-size: 1rem;
   line-height: 1.8;
   box-sizing: border-box;
-
   --text-normal: var(--color-fg-default);
 }
 .markdown-body a {
@@ -41,6 +40,11 @@ article {
 article > h1.note-title {
   text-align: center;
   margin: 0.5rem 0 1.5rem;
+}
+article > section#just-for-ai {
+  color: transparent;
+  height: 0;
+  overflow: hidden;
 }
 .markdown-body article p {
   text-indent: 2em;
